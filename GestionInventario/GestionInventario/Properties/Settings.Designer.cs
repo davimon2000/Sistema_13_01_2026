@@ -33,5 +33,17 @@ namespace GestionInventario.Properties {
                 return ((string)(this["InventarioActivosConnectionString"]));
             }
         }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=LPT140112\\SQLEXPRESS;Initial Catalog=InventarioActivos;Persist Securi" +
+            "ty Info=True;User ID=inventarioUser;Password=Inventario2025++;TrustServerCertifi" +
+            "cate=True")]
+        public string InventarioActivos_ConnectionString {
+            get {
+                return ((string)(this["InventarioActivos_ConnectionString"]));
+            }
+        }
     }
 }

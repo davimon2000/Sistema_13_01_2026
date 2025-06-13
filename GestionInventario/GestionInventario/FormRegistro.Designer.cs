@@ -50,10 +50,15 @@ namespace GestionInventario
             this.dtpFechaReg = new System.Windows.Forms.DateTimePicker();
             this.btnRegistrar = new System.Windows.Forms.Button();
             this.marcasTableAdapter = new GestionInventario.InventarioActivosDataSetTableAdapters.MarcasTableAdapter();
+            this.inventarioActivosDataSet1 = new GestionInventario.InventarioActivosDataSet1();
+            this.marcasBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+            this.marcasTableAdapter1 = new GestionInventario.InventarioActivosDataSet1TableAdapters.MarcasTableAdapter();
             ((System.ComponentModel.ISupportInitialize)(this.marcasBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.inventarioActivosDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picAgregar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picEliminarMarca)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.inventarioActivosDataSet1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.marcasBindingSource1)).BeginInit();
             this.SuspendLayout();
             // 
             // lblNumeroRegistro
@@ -109,7 +114,7 @@ namespace GestionInventario
             // 
             // cmbMarcaRegistro
             // 
-            this.cmbMarcaRegistro.DataSource = this.marcasBindingSource;
+            this.cmbMarcaRegistro.DataSource = this.marcasBindingSource1;
             this.cmbMarcaRegistro.DisplayMember = "Marca";
             this.cmbMarcaRegistro.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmbMarcaRegistro.FormattingEnabled = true;
@@ -118,6 +123,7 @@ namespace GestionInventario
             this.cmbMarcaRegistro.Size = new System.Drawing.Size(202, 25);
             this.cmbMarcaRegistro.TabIndex = 8;
             this.cmbMarcaRegistro.ValueMember = "Id";
+            this.cmbMarcaRegistro.SelectedIndexChanged += new System.EventHandler(this.cmbMarcaRegistro_SelectedIndexChanged);
             // 
             // marcasBindingSource
             // 
@@ -209,6 +215,20 @@ namespace GestionInventario
             // 
             this.marcasTableAdapter.ClearBeforeFill = true;
             // 
+            // inventarioActivosDataSet1
+            // 
+            this.inventarioActivosDataSet1.DataSetName = "InventarioActivosDataSet1";
+            this.inventarioActivosDataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // marcasBindingSource1
+            // 
+            this.marcasBindingSource1.DataMember = "Marcas";
+            this.marcasBindingSource1.DataSource = this.inventarioActivosDataSet1;
+            // 
+            // marcasTableAdapter1
+            // 
+            this.marcasTableAdapter1.ClearBeforeFill = true;
+            // 
             // FormRegistro
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 21F);
@@ -238,6 +258,8 @@ namespace GestionInventario
             ((System.ComponentModel.ISupportInitialize)(this.inventarioActivosDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picAgregar)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picEliminarMarca)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.inventarioActivosDataSet1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.marcasBindingSource1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -264,5 +286,8 @@ namespace GestionInventario
         private InventarioActivosDataSet inventarioActivosDataSet;
         private BindingSource marcasBindingSource;
         private InventarioActivosDataSetTableAdapters.MarcasTableAdapter marcasTableAdapter;
+        private InventarioActivosDataSet1 inventarioActivosDataSet1;
+        private BindingSource marcasBindingSource1;
+        private InventarioActivosDataSet1TableAdapters.MarcasTableAdapter marcasTableAdapter1;
     }
 }

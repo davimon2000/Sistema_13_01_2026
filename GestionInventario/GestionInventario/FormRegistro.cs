@@ -16,7 +16,8 @@ namespace GestionInventario
 {
     public partial class FormRegistro : Form
     {
-        string connectionString = ConfigurationManager.ConnectionStrings["GestionInventario.Properties.Settings.InventarioActivosConnectionString"].ConnectionString;
+        //string connectionString = ConfigurationManager.ConnectionStrings["GestionInventario.Properties.Settings.InventarioActivosConnectionString"].ConnectionString;
+        string connectionString = "Server=LPT140112\\SQLEXPRESS;Database=InventarioActivos;User Id=inventarioUser;Password=Inventario2025++;";
         private static FormRegistro instancia = null;
         public static FormRegistro ventana_unica()
         {
@@ -83,6 +84,8 @@ namespace GestionInventario
 
         private void FormRegistro_Load_1(object sender, EventArgs e)
         {
+            // TODO: esta línea de código carga datos en la tabla 'inventarioActivosDataSet1.Marcas' Puede moverla o quitarla según sea necesario.
+            this.marcasTableAdapter1.Fill(this.inventarioActivosDataSet1.Marcas);
             // TODO: esta línea de código carga datos en la tabla 'inventarioActivosDataSet.Marcas' Puede moverla o quitarla según sea necesario.
             this.marcasTableAdapter.Fill(this.inventarioActivosDataSet.Marcas);
 
@@ -220,7 +223,7 @@ namespace GestionInventario
             using (SqlConnection conn = new SqlConnection(connectionString))
             {
                 conn.Open();
-                string queryExistencia = "SELECT COUNT(*) FROM Activos WHERE codInterno = @codInterno";
+                string queryExistencia = "SELECT COUNT(*) FROM RegistroActivos WHERE codInterno = @codInterno";
                 using (SqlCommand cmdExist = new SqlCommand(queryExistencia, conn))
                 {
                     cmdExist.Parameters.AddWithValue("@codInterno", codInterno);
@@ -262,6 +265,9 @@ namespace GestionInventario
                                     cmdUpdate.Parameters.AddWithValue("@fechaCompra", DBNull.Value);
                                 cmdUpdate.ExecuteNonQuery();
                                 MessageBox.Show("Registro actualizado correctamente.");
+                                txtNumReg.Text = "";
+                                txtSerialRegistro.Text = "";
+                                checkBoxFechaCompra.Checked = false;
                             }
                         }
                         else
@@ -317,6 +323,11 @@ namespace GestionInventario
         }
 
         private void dtpFechaCompra_ValueChanged_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void cmbMarcaRegistro_SelectedIndexChanged(object sender, EventArgs e)
         {
 
         }

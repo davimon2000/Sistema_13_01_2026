@@ -1,10 +1,7 @@
 {
   "ExpandedNodes": [
-    "",
-    "\\.git",
-    "\\GestionInventario",
-    "\\GestionInventario\\GestionInventario"
+    ""
   ],
-  "SelectedNode": "\\GestionInventario\\GestionInventario\\FormRegistro.cs",
+  "SelectedNode": "\\GestionInventario.sln",
   "PreviewInSolutionExplorer": false
 }
