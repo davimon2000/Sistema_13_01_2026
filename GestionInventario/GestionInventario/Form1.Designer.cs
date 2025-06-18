@@ -230,7 +230,7 @@ namespace GestionInventario
             this.btnSalida.Name = "btnSalida";
             this.btnSalida.Size = new System.Drawing.Size(186, 28);
             this.btnSalida.TabIndex = 8;
-            this.btnSalida.Text = "SALIDA";
+            this.btnSalida.Text = "ASIGNACIÓN";
             this.btnSalida.UseVisualStyleBackColor = true;
             this.btnSalida.Click += new System.EventHandler(this.btnSalida_Click_1);
             // 

@@ -59,6 +59,7 @@ namespace GestionInventario
             this.lblMantenimiento.Size = new System.Drawing.Size(171, 25);
             this.lblMantenimiento.TabIndex = 4;
             this.lblMantenimiento.Text = "MANTENIMIENTO";
+            this.lblMantenimiento.Click += new System.EventHandler(this.lblMantenimiento_Click);
             // 
             // txtNumMtto
             // 
@@ -107,6 +108,7 @@ namespace GestionInventario
             this.btnIngresoMtto.TabIndex = 20;
             this.btnIngresoMtto.Text = "INGRESO";
             this.btnIngresoMtto.UseVisualStyleBackColor = false;
+            this.btnIngresoMtto.Click += new System.EventHandler(this.btnIngresoMtto_Click);
             // 
             // lblTipoFallaMtto
             // 
@@ -202,7 +204,7 @@ namespace GestionInventario
             "Restaurado",
             "Recuperado",
             "Baja"});
-            this.cmbEstadoMtto.Location = new System.Drawing.Point(197, 202);
+            this.cmbEstadoMtto.Location = new System.Drawing.Point(291, 171);
             this.cmbEstadoMtto.Name = "cmbEstadoMtto";
             this.cmbEstadoMtto.Size = new System.Drawing.Size(169, 25);
             this.cmbEstadoMtto.TabIndex = 28;

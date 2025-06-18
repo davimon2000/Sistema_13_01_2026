@@ -212,7 +212,7 @@ namespace GestionInventario
             // Valores del formulario
             string codInterno = txtNumReg.Text;
             string serial = txtSerialRegistro.Text;
-            string marca1 = cmbMarcaRegistro.SelectedItem?.ToString(); // Asegúrate que tenga algo seleccionado
+            string marca1 = cmbMarcaRegistro.SelectedItem?.ToString(); 
             string marca = cmbMarcaRegistro.ValueMember;
             int idMarca = Convert.ToInt32(cmbMarcaRegistro.SelectedValue);
             DateTime fechaReg = dtpFechaReg.Value;
