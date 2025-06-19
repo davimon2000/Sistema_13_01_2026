@@ -48,6 +48,7 @@ namespace GestionInventario
             this.cmbEstadoMtto = new System.Windows.Forms.ComboBox();
             this.btnSalidaMtto = new System.Windows.Forms.Button();
             this.cmbTecnico = new System.Windows.Forms.ComboBox();
+            this.txtObservacionSalida = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // lblMantenimiento
@@ -204,10 +205,11 @@ namespace GestionInventario
             "Restaurado",
             "Recuperado",
             "Baja"});
-            this.cmbEstadoMtto.Location = new System.Drawing.Point(291, 171);
+            this.cmbEstadoMtto.Location = new System.Drawing.Point(197, 202);
             this.cmbEstadoMtto.Name = "cmbEstadoMtto";
             this.cmbEstadoMtto.Size = new System.Drawing.Size(169, 25);
             this.cmbEstadoMtto.TabIndex = 28;
+            this.cmbEstadoMtto.SelectedIndexChanged += new System.EventHandler(this.cmbEstadoMtto_SelectedIndexChanged);
             // 
             // btnSalidaMtto
             // 
@@ -219,6 +221,7 @@ namespace GestionInventario
             this.btnSalidaMtto.TabIndex = 29;
             this.btnSalidaMtto.Text = "SALIDA";
             this.btnSalidaMtto.UseVisualStyleBackColor = false;
+            this.btnSalidaMtto.Click += new System.EventHandler(this.btnSalidaMtto_Click);
             // 
             // cmbTecnico
             // 
@@ -228,11 +231,20 @@ namespace GestionInventario
             this.cmbTecnico.Size = new System.Drawing.Size(169, 21);
             this.cmbTecnico.TabIndex = 30;
             // 
+            // txtObservacionSalida
+            // 
+            this.txtObservacionSalida.Location = new System.Drawing.Point(305, 233);
+            this.txtObservacionSalida.Name = "txtObservacionSalida";
+            this.txtObservacionSalida.Size = new System.Drawing.Size(169, 20);
+            this.txtObservacionSalida.TabIndex = 31;
+            this.txtObservacionSalida.TextChanged += new System.EventHandler(this.txtObservacionSalida_TextChanged);
+            // 
             // FormIngresomtto
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(445, 383);
+            this.Controls.Add(this.txtObservacionSalida);
             this.Controls.Add(this.cmbTecnico);
             this.Controls.Add(this.btnSalidaMtto);
             this.Controls.Add(this.cmbEstadoMtto);
@@ -277,5 +289,6 @@ namespace GestionInventario
         private ComboBox cmbEstadoMtto;
         private Button btnSalidaMtto;
         private ComboBox cmbTecnico;
+        private TextBox txtObservacionSalida;
     }
 }

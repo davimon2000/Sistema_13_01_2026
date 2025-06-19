@@ -60,6 +60,8 @@ namespace GestionInventario
                 lblTipoFallaMtto.Visible = true;
                 btnIngresoMtto.Enabled = true;
                 btnIngresoMtto.Visible = true;
+                txtObservacion.Visible = true;
+                txtObservacion.Enabled = true;
 
                 cmbEstadoMtto.Visible = false;
                 cmbEstadoMtto.Enabled = false;
@@ -69,6 +71,8 @@ namespace GestionInventario
                 cmbTecnico.Enabled = false;
                 btnSalidaMtto.Enabled = false;
                 btnSalidaMtto.Visible = false;
+                txtObservacionSalida.Visible = false;
+                txtObservacionSalida.Enabled = false;
 
             }
             else if (seleccion == "SALIDA")
@@ -78,7 +82,8 @@ namespace GestionInventario
                 lblTipoFallaMtto.Visible= false;
                 btnIngresoMtto.Enabled = false;
                 btnIngresoMtto.Visible = false;
-                
+                txtObservacion.Visible = false;
+                txtObservacion.Enabled = false;
 
                 cmbEstadoMtto.Visible = true;
                 cmbEstadoMtto.Enabled = true;
@@ -88,6 +93,8 @@ namespace GestionInventario
                 cmbTecnico.Visible = true;
                 btnSalidaMtto.Enabled = true;
                 btnSalidaMtto.Visible = true;
+                txtObservacionSalida.Visible = true;
+                txtObservacionSalida.Enabled = true;
             }
             
         }
@@ -241,6 +248,96 @@ namespace GestionInventario
         }
 
         private void lblMantenimiento_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void cmbEstadoMtto_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnSalidaMtto_Click(object sender, EventArgs e)
+        {
+            // Valores del formulario
+            string numeroActivo = txtNumMtto.Text;
+            DateTime fechaSalidaMtto = dtpFechaMtto.Value;
+            String Estado = cmbEstadoMtto.SelectedItem.ToString();
+            // string obssalida = txtobservacionsalida.text;
+            string obssalida = "observacion";
+            //string tecnicoid = cmbtecnico.selecteditem.tostring();
+            int tecnicoid = 1;
+            int inventarioid = 0;
+
+            using (SqlConnection conn = new SqlConnection(connectionString) )
+            {
+                conn.Open();
+
+                string queryid = "select id from registroactivos where codinterno = @numero";
+                using (SqlCommand cmd = new SqlCommand(queryid, conn))
+                {
+                    cmd.Parameters.AddWithValue("@numero", numeroActivo);
+                    object result = cmd.ExecuteScalar();
+
+                    if (result != null)
+                    {
+                        inventarioid = Convert.ToInt32(result);
+
+
+                        string queryexistencia = "select count(*) from mantenimiento where inventarioid = @inventarioid";
+                        using (SqlCommand cmdexist = new SqlCommand(queryexistencia, conn))
+                        {
+                            cmdexist.Parameters.AddWithValue("@inventarioid", inventarioid);
+                            int count = (int)cmdexist.ExecuteScalar();
+
+                            if (count > 0)
+                            {
+                                string updatequery = @"
+                                update mantenimiento
+                                set fechasalidamtto = @fechasalidamtto,
+                                    estadosalida = @estadosalida,
+                                    ObsSalida = ObsSalida,
+                                    tecnicoid = @tecnicoid
+
+                                where inventarioid = @inventarioid";
+
+                                using (SqlCommand cmdupdate = new SqlCommand(updatequery, conn))
+                                {
+                                    cmdupdate.Parameters.AddWithValue("@inventarioid", inventarioid);
+                                    cmdupdate.Parameters.AddWithValue("@fechasalidamtto", fechaSalidaMtto);
+                                    cmdupdate.Parameters.AddWithValue("@estadosalida", Estado);
+                                    //cmdupdate.Parameters.AddWithValue("@obssalida", obssalida);
+                                    cmdupdate.Parameters.AddWithValue("@tecnicoid", tecnicoid);
+
+                                    // manejo de parámetro nulo
+
+                                    cmdupdate.ExecuteNonQuery();
+                                    //messagebox.show("registro actualizado correctamente.");
+                                    //txtnummtto.text = "";
+                                    //txtobservacionsalida.text = "";
+                                }
+
+
+
+                            }
+
+                            else
+                            {
+                                MessageBox.Show("el activo no ha ingresado a mantenimiento");
+
+                            }
+                        }
+
+                    }
+                    else
+                    {
+                        MessageBox.Show("el activo no se encuentra registrado");
+                    }
+                }
+            }
+        }
+
+        private void txtObservacionSalida_TextChanged(object sender, EventArgs e)
         {
 
         }
