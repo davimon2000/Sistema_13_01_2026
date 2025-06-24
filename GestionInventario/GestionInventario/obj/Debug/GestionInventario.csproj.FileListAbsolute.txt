@@ -30,3 +30,6 @@ C:\Users\BB12388\ProyectoSistemaGestion\GestionInventario\GestionInventario\obj\
 C:\Users\BB12388\ProyectoSistemaGestion\GestionInventario\GestionInventario\obj\Debug\GestionInventario.exe
 C:\Users\BB12388\ProyectoSistemaGestion\GestionInventario\GestionInventario\obj\Debug\GestionInventario.pdb
 C:\Users\BB12388\ProyectoSistemaGestion\GestionInventario\GestionInventario\obj\Debug\GestionInventario.FormRegistro.resources
+C:\Users\BB12388\ProyectoSistemaGestion\GestionInventario\GestionInventario\obj\Debug\GestionInventario.FormNuevo.resources
+C:\Users\BB12388\ProyectoSistemaGestion\GestionInventario\GestionInventario\obj\Debug\GestionInventario.FormPrueba2.resources
+C:\Users\BB12388\ProyectoSistemaGestion\GestionInventario\GestionInventario\obj\Debug\GestionInventario.FormVistaEjemplo.resources

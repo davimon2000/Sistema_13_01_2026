@@ -233,7 +233,7 @@ namespace GestionInventario
             // 
             // txtObservacionSalida
             // 
-            this.txtObservacionSalida.Location = new System.Drawing.Point(305, 233);
+            this.txtObservacionSalida.Location = new System.Drawing.Point(197, 245);
             this.txtObservacionSalida.Name = "txtObservacionSalida";
             this.txtObservacionSalida.Size = new System.Drawing.Size(169, 20);
             this.txtObservacionSalida.TabIndex = 31;

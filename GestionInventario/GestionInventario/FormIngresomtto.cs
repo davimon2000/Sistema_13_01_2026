@@ -8,10 +8,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using MaterialSkin;
+using MaterialSkin.Controls;
+
 
 namespace GestionInventario
 {
     public partial class FormIngresomtto : Form
+
     {
         string connectionString = "Server=LPT140112\\SQLEXPRESS;Database=InventarioActivos;User Id=inventarioUser;Password=Inventario2025++;";
         private static FormIngresomtto instancia = null;
@@ -101,6 +105,7 @@ namespace GestionInventario
 
         private void FormIngresomtto_Load_1(object sender, EventArgs e)
         {
+
             cmbTipoFalla.Visible = true;
             cmbTipoFalla.Enabled = true;
             lblTipoFallaMtto.Visible = true;
@@ -263,58 +268,57 @@ namespace GestionInventario
             string numeroActivo = txtNumMtto.Text;
             DateTime fechaSalidaMtto = dtpFechaMtto.Value;
             String Estado = cmbEstadoMtto.SelectedItem.ToString();
-            // string obssalida = txtobservacionsalida.text;
-            string obssalida = "observacion";
+            String ObsSalida = txtObservacionSalida.Text;
             //string tecnicoid = cmbtecnico.selecteditem.tostring();
             int tecnicoid = 1;
-            int inventarioid = 0;
+            int InventarioId = 0;
 
             using (SqlConnection conn = new SqlConnection(connectionString) )
             {
                 conn.Open();
 
-                string queryid = "select id from registroactivos where codinterno = @numero";
+                string queryid = "SELECT Id FROM RegistroActivos WHERE CodInterno = @Numero";
                 using (SqlCommand cmd = new SqlCommand(queryid, conn))
                 {
-                    cmd.Parameters.AddWithValue("@numero", numeroActivo);
+                    cmd.Parameters.AddWithValue("@Numero", numeroActivo);
                     object result = cmd.ExecuteScalar();
 
                     if (result != null)
                     {
-                        inventarioid = Convert.ToInt32(result);
+                        InventarioId = Convert.ToInt32(result);
 
 
-                        string queryexistencia = "select count(*) from mantenimiento where inventarioid = @inventarioid";
+                        string queryexistencia = "SELECT COUNT(*) FROM Mantenimiento WHERE InventarioId = @InventarioId";
                         using (SqlCommand cmdexist = new SqlCommand(queryexistencia, conn))
                         {
-                            cmdexist.Parameters.AddWithValue("@inventarioid", inventarioid);
+                            cmdexist.Parameters.AddWithValue("@InventarioId", InventarioId);
                             int count = (int)cmdexist.ExecuteScalar();
 
                             if (count > 0)
                             {
                                 string updatequery = @"
-                                update mantenimiento
-                                set fechasalidamtto = @fechasalidamtto,
+                                UPDATE Mantenimiento
+                                SET fechasalidamtto = @fechasalidamtto,
                                     estadosalida = @estadosalida,
-                                    ObsSalida = ObsSalida,
+                                    ObsSalida = @ObsSalida,
                                     tecnicoid = @tecnicoid
 
-                                where inventarioid = @inventarioid";
+                                WHERE InventarioId = @InventarioId";
 
                                 using (SqlCommand cmdupdate = new SqlCommand(updatequery, conn))
                                 {
-                                    cmdupdate.Parameters.AddWithValue("@inventarioid", inventarioid);
+                                    cmdupdate.Parameters.AddWithValue("@inventarioid", InventarioId);
                                     cmdupdate.Parameters.AddWithValue("@fechasalidamtto", fechaSalidaMtto);
                                     cmdupdate.Parameters.AddWithValue("@estadosalida", Estado);
-                                    //cmdupdate.Parameters.AddWithValue("@obssalida", obssalida);
+                                    cmdupdate.Parameters.AddWithValue("@ObsSalida", ObsSalida);
                                     cmdupdate.Parameters.AddWithValue("@tecnicoid", tecnicoid);
 
                                     // manejo de parámetro nulo
 
                                     cmdupdate.ExecuteNonQuery();
-                                    //messagebox.show("registro actualizado correctamente.");
-                                    //txtnummtto.text = "";
-                                    //txtobservacionsalida.text = "";
+                                    MessageBox.Show("Registro actualizado correctamente.");
+                                    txtNumMtto.Text = "";
+                                    txtObservacionSalida.Text = "";
                                 }
 
 

@@ -2,11 +2,22 @@
 using System;
 using MaterialSkin;
 using MaterialSkin.Controls;
+using System.Runtime.InteropServices;
+
 
 namespace GestionInventario
 {
     public partial class FormMDI : MaterialForm
     {
+        public const int WM_NCLBUTTONDOWN = 0xA1; //Mensaje que se envía cuando se hace clic en una parte no cliente de la ventana
+        public const int HTCAPTION = 0x2;         //El área que se está clicando es la barra de título
+
+        [DllImport("user32.dll")]
+        public static extern bool ReleaseCapture();//Libera el "capturado" actual del mouse
+
+        [DllImport("user32.dll")]
+        public static extern int SendMessage(IntPtr hWnd, int Msg, int wParam, int lParam);  //Se envía un mensaje para que actúe como si el usuario hubiera hecho clic en la barra de título de la ventana.
+
         public FormMDI()
         {
             InitializeComponent();
@@ -52,8 +63,9 @@ namespace GestionInventario
         {
             FormRegistro frm = FormRegistro.ventana_unica();
             frm.MdiParent = this;
-            frm.Show();
             frm.BringToFront();
+            frm.WindowState = FormWindowState.Normal;
+            frm.Show();
         }
 
         private void FormMDI_Load(object sender, EventArgs e)
@@ -119,6 +131,20 @@ namespace GestionInventario
             frm.MdiParent = this;
             frm.Show();
             frm.BringToFront();
+        }
+
+        private void pnlBarraTitulo_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void pnlBarraTitulo_MouseDown(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Left)
+            {
+                ReleaseCapture();
+                SendMessage(this.Handle, WM_NCLBUTTONDOWN, HTCAPTION, 0);
+            }
         }
     }
 
