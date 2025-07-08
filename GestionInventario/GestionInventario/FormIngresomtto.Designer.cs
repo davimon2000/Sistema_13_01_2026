@@ -49,6 +49,7 @@ namespace GestionInventario
             this.btnSalidaMtto = new System.Windows.Forms.Button();
             this.cmbTecnico = new System.Windows.Forms.ComboBox();
             this.txtObservacionSalida = new System.Windows.Forms.TextBox();
+            this.btnTecnicos = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // lblMantenimiento
@@ -67,7 +68,7 @@ namespace GestionInventario
             this.txtNumMtto.Font = new System.Drawing.Font("Segoe UI", 12F);
             this.txtNumMtto.Location = new System.Drawing.Point(197, 118);
             this.txtNumMtto.Name = "txtNumMtto";
-            this.txtNumMtto.Size = new System.Drawing.Size(169, 29);
+            this.txtNumMtto.Size = new System.Drawing.Size(195, 29);
             this.txtNumMtto.TabIndex = 6;
             // 
             // lblNumeroMtto
@@ -86,7 +87,7 @@ namespace GestionInventario
             this.dtpFechaMtto.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.dtpFechaMtto.Location = new System.Drawing.Point(197, 161);
             this.dtpFechaMtto.Name = "dtpFechaMtto";
-            this.dtpFechaMtto.Size = new System.Drawing.Size(169, 25);
+            this.dtpFechaMtto.Size = new System.Drawing.Size(195, 25);
             this.dtpFechaMtto.TabIndex = 16;
             // 
             // lblFechaMtto
@@ -103,7 +104,7 @@ namespace GestionInventario
             // 
             this.btnIngresoMtto.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
             this.btnIngresoMtto.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnIngresoMtto.Location = new System.Drawing.Point(174, 290);
+            this.btnIngresoMtto.Location = new System.Drawing.Point(197, 291);
             this.btnIngresoMtto.Name = "btnIngresoMtto";
             this.btnIngresoMtto.Size = new System.Drawing.Size(98, 32);
             this.btnIngresoMtto.TabIndex = 20;
@@ -132,7 +133,7 @@ namespace GestionInventario
             "Otra"});
             this.cmbTipoFalla.Location = new System.Drawing.Point(197, 202);
             this.cmbTipoFalla.Name = "cmbTipoFalla";
-            this.cmbTipoFalla.Size = new System.Drawing.Size(169, 25);
+            this.cmbTipoFalla.Size = new System.Drawing.Size(195, 25);
             this.cmbTipoFalla.TabIndex = 19;
             // 
             // LabelConceptomtto
@@ -154,7 +155,7 @@ namespace GestionInventario
             "SALIDA"});
             this.cmbConcepto.Location = new System.Drawing.Point(197, 78);
             this.cmbConcepto.Name = "cmbConcepto";
-            this.cmbConcepto.Size = new System.Drawing.Size(169, 25);
+            this.cmbConcepto.Size = new System.Drawing.Size(195, 25);
             this.cmbConcepto.TabIndex = 22;
             this.cmbConcepto.SelectedIndexChanged += new System.EventHandler(this.cmbConcepto_SelectedIndexChanged);
             // 
@@ -183,7 +184,7 @@ namespace GestionInventario
             // 
             this.txtObservacion.Location = new System.Drawing.Point(197, 245);
             this.txtObservacion.Name = "txtObservacion";
-            this.txtObservacion.Size = new System.Drawing.Size(169, 20);
+            this.txtObservacion.Size = new System.Drawing.Size(195, 20);
             this.txtObservacion.TabIndex = 26;
             // 
             // lblEstadoMtto
@@ -207,7 +208,7 @@ namespace GestionInventario
             "Baja"});
             this.cmbEstadoMtto.Location = new System.Drawing.Point(197, 202);
             this.cmbEstadoMtto.Name = "cmbEstadoMtto";
-            this.cmbEstadoMtto.Size = new System.Drawing.Size(169, 25);
+            this.cmbEstadoMtto.Size = new System.Drawing.Size(195, 25);
             this.cmbEstadoMtto.TabIndex = 28;
             this.cmbEstadoMtto.SelectedIndexChanged += new System.EventHandler(this.cmbEstadoMtto_SelectedIndexChanged);
             // 
@@ -215,7 +216,7 @@ namespace GestionInventario
             // 
             this.btnSalidaMtto.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
             this.btnSalidaMtto.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSalidaMtto.Location = new System.Drawing.Point(174, 316);
+            this.btnSalidaMtto.Location = new System.Drawing.Point(197, 317);
             this.btnSalidaMtto.Name = "btnSalidaMtto";
             this.btnSalidaMtto.Size = new System.Drawing.Size(98, 32);
             this.btnSalidaMtto.TabIndex = 29;
@@ -228,22 +229,32 @@ namespace GestionInventario
             this.cmbTecnico.FormattingEnabled = true;
             this.cmbTecnico.Location = new System.Drawing.Point(197, 280);
             this.cmbTecnico.Name = "cmbTecnico";
-            this.cmbTecnico.Size = new System.Drawing.Size(169, 21);
+            this.cmbTecnico.Size = new System.Drawing.Size(114, 21);
             this.cmbTecnico.TabIndex = 30;
             // 
             // txtObservacionSalida
             // 
             this.txtObservacionSalida.Location = new System.Drawing.Point(197, 245);
             this.txtObservacionSalida.Name = "txtObservacionSalida";
-            this.txtObservacionSalida.Size = new System.Drawing.Size(169, 20);
+            this.txtObservacionSalida.Size = new System.Drawing.Size(195, 20);
             this.txtObservacionSalida.TabIndex = 31;
             this.txtObservacionSalida.TextChanged += new System.EventHandler(this.txtObservacionSalida_TextChanged);
+            // 
+            // btnTecnicos
+            // 
+            this.btnTecnicos.Location = new System.Drawing.Point(317, 278);
+            this.btnTecnicos.Name = "btnTecnicos";
+            this.btnTecnicos.Size = new System.Drawing.Size(75, 23);
+            this.btnTecnicos.TabIndex = 32;
+            this.btnTecnicos.Text = "Tecnicos";
+            this.btnTecnicos.UseVisualStyleBackColor = true;
             // 
             // FormIngresomtto
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(445, 383);
+            this.ClientSize = new System.Drawing.Size(472, 383);
+            this.Controls.Add(this.btnTecnicos);
             this.Controls.Add(this.txtObservacionSalida);
             this.Controls.Add(this.cmbTecnico);
             this.Controls.Add(this.btnSalidaMtto);
@@ -290,5 +301,6 @@ namespace GestionInventario
         private Button btnSalidaMtto;
         private ComboBox cmbTecnico;
         private TextBox txtObservacionSalida;
+        private Button btnTecnicos;
     }
 }

@@ -54,11 +54,7 @@ namespace GestionInventario
             this.btnRegistro = new System.Windows.Forms.Button();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.btnIngresomtto = new System.Windows.Forms.Button();
-            this.btnMaximizar = new System.Windows.Forms.PictureBox();
-            this.btnRestaurar = new System.Windows.Forms.PictureBox();
-            this.btnCerrar = new System.Windows.Forms.PictureBox();
-            this.btnMinimizar = new System.Windows.Forms.PictureBox();
-            this.pnlBarraTitulo = new System.Windows.Forms.Panel();
+            this.panel6 = new System.Windows.Forms.Panel();
             this.pnlMenuVertical.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picIndicadores)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).BeginInit();
@@ -67,16 +63,12 @@ namespace GestionInventario
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.btnMaximizar)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.btnRestaurar)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.btnCerrar)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.btnMinimizar)).BeginInit();
-            this.pnlBarraTitulo.SuspendLayout();
             this.SuspendLayout();
             // 
             // pnlMenuVertical
             // 
             this.pnlMenuVertical.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(32)))), ((int)(((byte)(40)))));
+            this.pnlMenuVertical.Controls.Add(this.panel6);
             this.pnlMenuVertical.Controls.Add(this.picIndicadores);
             this.pnlMenuVertical.Controls.Add(this.panel7);
             this.pnlMenuVertical.Controls.Add(this.btnEstado);
@@ -237,56 +229,17 @@ namespace GestionInventario
             this.btnIngresomtto.UseVisualStyleBackColor = true;
             this.btnIngresomtto.Click += new System.EventHandler(this.btnIngresomtto_Click_1);
             // 
-            // btnMaximizar
+            // panel6
             // 
-            resources.ApplyResources(this.btnMaximizar, "btnMaximizar");
-            this.btnMaximizar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnMaximizar.Name = "btnMaximizar";
-            this.btnMaximizar.TabStop = false;
-            this.btnMaximizar.Click += new System.EventHandler(this.btnMaximizar_Click_1);
-            // 
-            // btnRestaurar
-            // 
-            resources.ApplyResources(this.btnRestaurar, "btnRestaurar");
-            this.btnRestaurar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnRestaurar.Name = "btnRestaurar";
-            this.btnRestaurar.TabStop = false;
-            this.btnRestaurar.Click += new System.EventHandler(this.btnRestaurar_Click_1);
-            // 
-            // btnCerrar
-            // 
-            resources.ApplyResources(this.btnCerrar, "btnCerrar");
-            this.btnCerrar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnCerrar.Name = "btnCerrar";
-            this.btnCerrar.TabStop = false;
-            this.btnCerrar.Click += new System.EventHandler(this.btnCerrar_Click_1);
-            // 
-            // btnMinimizar
-            // 
-            resources.ApplyResources(this.btnMinimizar, "btnMinimizar");
-            this.btnMinimizar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnMinimizar.Name = "btnMinimizar";
-            this.btnMinimizar.TabStop = false;
-            this.btnMinimizar.Click += new System.EventHandler(this.btnMinimizar_Click_1);
-            // 
-            // pnlBarraTitulo
-            // 
-            this.pnlBarraTitulo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(69)))), ((int)(((byte)(130)))));
-            this.pnlBarraTitulo.Controls.Add(this.btnRestaurar);
-            this.pnlBarraTitulo.Controls.Add(this.btnMinimizar);
-            this.pnlBarraTitulo.Controls.Add(this.btnCerrar);
-            this.pnlBarraTitulo.Controls.Add(this.btnMaximizar);
-            resources.ApplyResources(this.pnlBarraTitulo, "pnlBarraTitulo");
-            this.pnlBarraTitulo.Name = "pnlBarraTitulo";
-            this.pnlBarraTitulo.Paint += new System.Windows.Forms.PaintEventHandler(this.pnlBarraTitulo_Paint);
-            this.pnlBarraTitulo.MouseDown += new System.Windows.Forms.MouseEventHandler(this.pnlBarraTitulo_MouseDown);
+            this.panel6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(80)))), ((int)(((byte)(200)))));
+            resources.ApplyResources(this.panel6, "panel6");
+            this.panel6.Name = "panel6";
             // 
             // FormMDI
             // 
             resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.pnlMenuVertical);
-            this.Controls.Add(this.pnlBarraTitulo);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Sizable;
             this.IsMdiContainer = true;
             this.Name = "FormMDI";
@@ -299,11 +252,6 @@ namespace GestionInventario
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.btnMaximizar)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.btnRestaurar)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.btnCerrar)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.btnMinimizar)).EndInit();
-            this.pnlBarraTitulo.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -330,10 +278,6 @@ namespace GestionInventario
         private PictureBox picIndicadores;
         private Panel panel7;
         private Button btnEstado;
-        private PictureBox btnMaximizar;
-        private PictureBox btnRestaurar;
-        private PictureBox btnCerrar;
-        private PictureBox btnMinimizar;
-        private Panel pnlBarraTitulo;
+        private Panel panel6;
     }
 }

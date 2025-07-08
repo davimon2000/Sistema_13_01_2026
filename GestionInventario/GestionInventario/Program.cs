@@ -16,8 +16,8 @@ namespace GestionInventario
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            //Application.Run(new FormMDI());
-            Application.Run(new FormVistaEjemplo());
+            Application.Run(new FormMDI());
+            //Application.Run(new FormVistaEjemplo());
         }
     }
 }

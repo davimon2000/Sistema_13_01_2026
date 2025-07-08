@@ -79,13 +79,7 @@ namespace GestionInventario
         
     }
 
-        private void btnRestaurar_Click_1(object sender, EventArgs e)
-        {
-            this.WindowState = FormWindowState.Normal;
-            btnRestaurar.Visible = false;
-            btnMaximizar.Visible = true;
-        
-    }
+       
 
         private void btnCerrar_Click_1(object sender, EventArgs e)
         {
@@ -93,12 +87,7 @@ namespace GestionInventario
 
     }
 
-        private void btnMaximizar_Click_1(object sender, EventArgs e)
-        {
-            this.WindowState = FormWindowState.Maximized;
-            btnMaximizar.Visible = false;
-            btnRestaurar.Visible = true;
-    }
+        
 
         private void btnIngresomtto_Click_1(object sender, EventArgs e)
         {
