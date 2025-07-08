@@ -34,3 +34,4 @@ C:\Users\BB12388\ProyectoSistemaGestion\GestionInventario\GestionInventario\obj\
 C:\Users\BB12388\ProyectoSistemaGestion\GestionInventario\GestionInventario\obj\Debug\GestionInventario.FormPrueba2.resources
 C:\Users\BB12388\ProyectoSistemaGestion\GestionInventario\GestionInventario\obj\Debug\GestionInventario.FormVistaEjemplo.resources
 C:\Users\BB12388\ProyectoSistemaGestion\GestionInventario\GestionInventario\obj\Debug\GestionInventario.FormTecnicos.resources
+C:\Users\BB12388\ProyectoSistemaGestion\GestionInventario\GestionInventario\obj\Debug\GestionInventario.FormConsulta.resources

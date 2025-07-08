@@ -231,6 +231,7 @@ namespace GestionInventario
             this.cmbTecnico.Name = "cmbTecnico";
             this.cmbTecnico.Size = new System.Drawing.Size(114, 21);
             this.cmbTecnico.TabIndex = 30;
+            this.cmbTecnico.SelectedIndexChanged += new System.EventHandler(this.cmbTecnico_SelectedIndexChanged);
             // 
             // txtObservacionSalida
             // 
@@ -248,6 +249,7 @@ namespace GestionInventario
             this.btnTecnicos.TabIndex = 32;
             this.btnTecnicos.Text = "Tecnicos";
             this.btnTecnicos.UseVisualStyleBackColor = true;
+            this.btnTecnicos.Click += new System.EventHandler(this.btnTecnicos_Click);
             // 
             // FormIngresomtto
             // 

@@ -77,6 +77,7 @@ namespace GestionInventario
                 btnSalidaMtto.Visible = false;
                 txtObservacionSalida.Visible = false;
                 txtObservacionSalida.Enabled = false;
+                btnTecnicos.Visible = false;
 
             }
             else if (seleccion == "SALIDA")
@@ -99,6 +100,7 @@ namespace GestionInventario
                 btnSalidaMtto.Visible = true;
                 txtObservacionSalida.Visible = true;
                 txtObservacionSalida.Enabled = true;
+                btnTecnicos.Visible = true;
             }
             
         }
@@ -119,7 +121,8 @@ namespace GestionInventario
             cmbTecnico.Enabled = false;
             cmbTecnico.Visible = false;
             btnSalidaMtto.Enabled = false;
-            btnSalidaMtto.Visible = false;
+            btnSalidaMtto.Visible = false; 
+            btnTecnicos.Visible = false;
 
             cmbConcepto.SelectedIndex = 0;
             
@@ -420,6 +423,23 @@ namespace GestionInventario
         }
 
         private void txtObservacionSalida_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnTecnicos_Click(object sender, EventArgs e)
+        {
+            FormTecnicos frm = FormTecnicos.ventana_unica();
+
+            // Usamos el mismo MDI parent del formulario actual
+            frm.MdiParent = this.MdiParent;
+
+            frm.BringToFront();
+            frm.WindowState = FormWindowState.Normal;
+            frm.Show();
+        }
+
+        private void cmbTecnico_SelectedIndexChanged(object sender, EventArgs e)
         {
 
         }

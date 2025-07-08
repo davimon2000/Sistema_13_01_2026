@@ -51,6 +51,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ActivosViewDS.cs">
+      <DependentUpon>ActivosViewDS.xsd</DependentUpon>
+    </Compile>
     <Compile Include="ActivosViewDS.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -141,6 +144,9 @@
     </Compile>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormConsulta.resx">
+      <DependentUpon>FormConsulta.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormEstado.resx">
       <DependentUpon>FormEstado.cs</DependentUpon>

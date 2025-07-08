@@ -12,6 +12,18 @@ namespace GestionInventario
 {
     public partial class FormTecnicos : Form
     {
+        private static FormTecnicos instancia = null;
+        public static FormTecnicos ventana_unica()
+        {
+            if (instancia == null || instancia.IsDisposed)
+            {
+                instancia = new FormTecnicos();
+                return instancia;
+            }
+            return instancia;
+        }
+
+
         public FormTecnicos()
         {
             InitializeComponent();
@@ -29,6 +41,11 @@ namespace GestionInventario
         {
             // TODO: esta línea de código carga datos en la tabla 'tecnicosDS.Tecnicos' Puede moverla o quitarla según sea necesario.
             this.tecnicosTableAdapter.Fill(this.tecnicosDS.Tecnicos);
+
+        }
+
+        private void lblRegistro_Click(object sender, EventArgs e)
+        {
 
         }
     }
