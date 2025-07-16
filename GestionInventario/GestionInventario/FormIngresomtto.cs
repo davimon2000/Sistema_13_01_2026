@@ -254,48 +254,97 @@ namespace GestionInventario
                         InventarioId = Convert.ToInt32(result);
 
                         string queryCheck = @"
-        SELECT TOP 1 checkMtto
-        FROM Mantenimiento
-        WHERE InventarioId = @InventarioId
-        ORDER BY Id DESC";  // O por Id DESC si Id es autoincremental
+                        SELECT TOP 1 checkMtto
+                        FROM Mantenimiento
+                        WHERE InventarioId = @InventarioId
+                        ORDER BY Id DESC";  // O por Id DESC si Id es autoincremental
 
                         using (SqlCommand cmdCheck = new SqlCommand(queryCheck, conn))
                         {
                             cmdCheck.Parameters.AddWithValue("@InventarioId", InventarioId);
                             object checkResult = cmdCheck.ExecuteScalar();
 
-                            if (checkResult == null || checkResult == DBNull.Value || Convert.ToInt32(checkResult) != 1)
-                            {
-                                // Ya hay un mantenimiento en curso (checkMtto NULL o 0)
-                                MessageBox.Show("Ya hay un activo ingresado a mantenimiento con ese número.");
-                                return;
-                            }
+                            string queryExistencia = "SELECT COUNT(*) FROM Mantenimiento WHERE InventarioId = @InventarioId";
 
-                            // Si llegamos aquí, se puede insertar nuevo mantenimiento
-
-                            using (SqlConnection conexion = new SqlConnection(connectionString))
+                            using (SqlCommand cmdExist = new SqlCommand(queryExistencia, conn))
                             {
-                                string query = @"INSERT INTO Mantenimiento (InventarioId, FechaIngresoMtto, TipoFalla, ObsIngreso)
+                                cmdExist.Parameters.AddWithValue("@InventarioId", InventarioId);
+                                int count = (int)cmdExist.ExecuteScalar();
+
+                                if (count > 0)
+                                {
+
+
+
+                                    if (checkResult == null || checkResult == DBNull.Value || Convert.ToInt32(checkResult) != 1)
+                                    {
+                                        // Ya hay un mantenimiento en curso (checkMtto NULL o 0)
+                                        MessageBox.Show("Ya hay un activo ingresado a mantenimiento con ese número.");
+                                        return;
+                                    }
+                                    else
+                                    {
+
+                                        // Si llegamos aquí, se puede insertar nuevo mantenimiento
+
+                                        using (SqlConnection conexion = new SqlConnection(connectionString))
+                                        {
+                                            string query = @"INSERT INTO Mantenimiento (InventarioId, FechaIngresoMtto, TipoFalla, ObsIngreso)
                              VALUES (@InventarioId, @FechaIngresoMtto, @TipoFalla, @ObsIngreso)";
 
-                                using (SqlCommand cmdIngreso = new SqlCommand(query, conexion))
-                                {
-                                    cmdIngreso.Parameters.AddWithValue("@InventarioId", InventarioId);
-                                    cmdIngreso.Parameters.AddWithValue("@FechaIngresoMtto", fechaIngresoMtto);
-                                    cmdIngreso.Parameters.AddWithValue("@TipoFalla", TipoFalla);
-                                    cmdIngreso.Parameters.AddWithValue("@ObsIngreso", ObsIngreso);
+                                            using (SqlCommand cmdIngreso = new SqlCommand(query, conexion))
+                                            {
+                                                cmdIngreso.Parameters.AddWithValue("@InventarioId", InventarioId);
+                                                cmdIngreso.Parameters.AddWithValue("@FechaIngresoMtto", fechaIngresoMtto);
+                                                cmdIngreso.Parameters.AddWithValue("@TipoFalla", TipoFalla);
+                                                cmdIngreso.Parameters.AddWithValue("@ObsIngreso", ObsIngreso);
 
-                                    try
-                                    {
-                                        conexion.Open();
-                                        cmdIngreso.ExecuteNonQuery();
-                                        MessageBox.Show("Activo ingresado correctamente.");
-                                        txtNumMtto.Text = "";
-                                        txtObservacion.Text = "";
+                                                try
+                                                {
+                                                    conexion.Open();
+                                                    cmdIngreso.ExecuteNonQuery();
+                                                    MessageBox.Show("Activo ingresado correctamente.");
+                                                    txtNumMtto.Text = "";
+                                                    txtObservacion.Text = "";
+                                                }
+                                                catch (Exception ex)
+                                                {
+                                                    MessageBox.Show("Error al registrar: " + ex.Message);
+                                                }
+                                            }
+                                        }
                                     }
-                                    catch (Exception ex)
+
+                                }
+                                else
+                                {
+                                    // Si llegamos aquí, se puede insertar nuevo mantenimiento
+
+                                    using (SqlConnection conexion = new SqlConnection(connectionString))
                                     {
-                                        MessageBox.Show("Error al registrar: " + ex.Message);
+                                        string query = @"INSERT INTO Mantenimiento (InventarioId, FechaIngresoMtto, TipoFalla, ObsIngreso)
+                             VALUES (@InventarioId, @FechaIngresoMtto, @TipoFalla, @ObsIngreso)";
+
+                                        using (SqlCommand cmdIngreso = new SqlCommand(query, conexion))
+                                        {
+                                            cmdIngreso.Parameters.AddWithValue("@InventarioId", InventarioId);
+                                            cmdIngreso.Parameters.AddWithValue("@FechaIngresoMtto", fechaIngresoMtto);
+                                            cmdIngreso.Parameters.AddWithValue("@TipoFalla", TipoFalla);
+                                            cmdIngreso.Parameters.AddWithValue("@ObsIngreso", ObsIngreso);
+
+                                            try
+                                            {
+                                                conexion.Open();
+                                                cmdIngreso.ExecuteNonQuery();
+                                                MessageBox.Show("Activo ingresado correctamente.");
+                                                txtNumMtto.Text = "";
+                                                txtObservacion.Text = "";
+                                            }
+                                            catch (Exception ex)
+                                            {
+                                                MessageBox.Show("Error al registrar: " + ex.Message);
+                                            }
+                                        }
                                     }
                                 }
                             }
@@ -305,11 +354,10 @@ namespace GestionInventario
                     {
                         MessageBox.Show("El activo no se encuentra registrado");
                     }
+                        }
+                    }
                 }
-            }
 
-
-        }
 
         private void lblMantenimiento_Click(object sender, EventArgs e)
         {
