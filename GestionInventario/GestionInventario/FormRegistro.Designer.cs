@@ -40,6 +40,8 @@ namespace GestionInventario
             this.txtSerialRegistro = new System.Windows.Forms.TextBox();
             this.lblMarcaRegistro = new System.Windows.Forms.Label();
             this.cmbMarcaRegistro = new System.Windows.Forms.ComboBox();
+            this.marcasBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+            this.inventarioActivosDataSet1 = new GestionInventario.InventarioActivosDataSet1();
             this.marcasBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.inventarioActivosDataSet = new GestionInventario.InventarioActivosDataSet();
             this.picAgregar = new System.Windows.Forms.PictureBox();
@@ -50,15 +52,15 @@ namespace GestionInventario
             this.dtpFechaReg = new System.Windows.Forms.DateTimePicker();
             this.btnRegistrar = new System.Windows.Forms.Button();
             this.marcasTableAdapter = new GestionInventario.InventarioActivosDataSetTableAdapters.MarcasTableAdapter();
-            this.inventarioActivosDataSet1 = new GestionInventario.InventarioActivosDataSet1();
-            this.marcasBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.marcasTableAdapter1 = new GestionInventario.InventarioActivosDataSet1TableAdapters.MarcasTableAdapter();
+            this.label1 = new System.Windows.Forms.Label();
+            this.cmbEstadoRegistro = new System.Windows.Forms.ComboBox();
+            ((System.ComponentModel.ISupportInitialize)(this.marcasBindingSource1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.inventarioActivosDataSet1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.marcasBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.inventarioActivosDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picAgregar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picEliminarMarca)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.inventarioActivosDataSet1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.marcasBindingSource1)).BeginInit();
             this.SuspendLayout();
             // 
             // lblNumeroRegistro
@@ -124,6 +126,16 @@ namespace GestionInventario
             this.cmbMarcaRegistro.TabIndex = 8;
             this.cmbMarcaRegistro.ValueMember = "Id";
             this.cmbMarcaRegistro.SelectedIndexChanged += new System.EventHandler(this.cmbMarcaRegistro_SelectedIndexChanged);
+            // 
+            // marcasBindingSource1
+            // 
+            this.marcasBindingSource1.DataMember = "Marcas";
+            this.marcasBindingSource1.DataSource = this.inventarioActivosDataSet1;
+            // 
+            // inventarioActivosDataSet1
+            // 
+            this.inventarioActivosDataSet1.DataSetName = "InventarioActivosDataSet1";
+            this.inventarioActivosDataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // marcasBindingSource
             // 
@@ -203,7 +215,7 @@ namespace GestionInventario
             // btnRegistrar
             // 
             this.btnRegistrar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
-            this.btnRegistrar.Location = new System.Drawing.Point(193, 342);
+            this.btnRegistrar.Location = new System.Drawing.Point(189, 374);
             this.btnRegistrar.Name = "btnRegistrar";
             this.btnRegistrar.Size = new System.Drawing.Size(114, 29);
             this.btnRegistrar.TabIndex = 15;
@@ -215,25 +227,41 @@ namespace GestionInventario
             // 
             this.marcasTableAdapter.ClearBeforeFill = true;
             // 
-            // inventarioActivosDataSet1
-            // 
-            this.inventarioActivosDataSet1.DataSetName = "InventarioActivosDataSet1";
-            this.inventarioActivosDataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // marcasBindingSource1
-            // 
-            this.marcasBindingSource1.DataMember = "Marcas";
-            this.marcasBindingSource1.DataSource = this.inventarioActivosDataSet1;
-            // 
             // marcasTableAdapter1
             // 
             this.marcasTableAdapter1.ClearBeforeFill = true;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(27, 329);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(113, 21);
+            this.label1.TabIndex = 16;
+            this.label1.Text = "Estado Actual:";
+            this.label1.Click += new System.EventHandler(this.label1_Click_1);
+            // 
+            // cmbEstadoRegistro
+            // 
+            this.cmbEstadoRegistro.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmbEstadoRegistro.FormattingEnabled = true;
+            this.cmbEstadoRegistro.Items.AddRange(new object[] {
+            "Nueva",
+            "En uso",
+            "Disponible"});
+            this.cmbEstadoRegistro.Location = new System.Drawing.Point(177, 325);
+            this.cmbEstadoRegistro.Name = "cmbEstadoRegistro";
+            this.cmbEstadoRegistro.Size = new System.Drawing.Size(202, 25);
+            this.cmbEstadoRegistro.TabIndex = 17;
+            this.cmbEstadoRegistro.ValueMember = "Id";
             // 
             // FormRegistro
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 21F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(485, 426);
+            this.Controls.Add(this.cmbEstadoRegistro);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.btnRegistrar);
             this.Controls.Add(this.dtpFechaReg);
             this.Controls.Add(this.lblFechaRegistro);
@@ -254,12 +282,12 @@ namespace GestionInventario
             this.Name = "FormRegistro";
             this.Text = "FormRegistro";
             this.Load += new System.EventHandler(this.FormRegistro_Load_1);
+            ((System.ComponentModel.ISupportInitialize)(this.marcasBindingSource1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.inventarioActivosDataSet1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.marcasBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.inventarioActivosDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picAgregar)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picEliminarMarca)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.inventarioActivosDataSet1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.marcasBindingSource1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -289,5 +317,7 @@ namespace GestionInventario
         private InventarioActivosDataSet1 inventarioActivosDataSet1;
         private BindingSource marcasBindingSource1;
         private InventarioActivosDataSet1TableAdapters.MarcasTableAdapter marcasTableAdapter1;
+        private Label label1;
+        private ComboBox cmbEstadoRegistro;
     }
 }

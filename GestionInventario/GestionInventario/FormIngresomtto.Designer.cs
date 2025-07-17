@@ -255,7 +255,7 @@ namespace GestionInventario
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(472, 383);
+            this.ClientSize = new System.Drawing.Size(459, 396);
             this.Controls.Add(this.btnTecnicos);
             this.Controls.Add(this.txtObservacionSalida);
             this.Controls.Add(this.cmbTecnico);

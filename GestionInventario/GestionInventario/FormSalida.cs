@@ -55,11 +55,52 @@ namespace GestionInventario
                     if (result != null)
                     {
                         InventarioId = Convert.ToInt32(result);
+                        string queryExistencia = "SELECT COUNT(*) FROM Asignacion WHERE IdActivo = @IdActivo";
+                        using (SqlCommand cmdExist = new SqlCommand(queryExistencia, conn))
+                        {
+                            cmdExist.Parameters.AddWithValue("@IdActivo", InventarioId);
+                            int count = (int)cmdExist.ExecuteScalar();
 
+                            if (count > 0)
+                            {
+                                // Si ya existe, actualizar
+                                string updateQuery = @"UPDATE Asignacion 
+                                               SET Sede = @Sede, Area = @Area, FechaAsignacion = @Fecha
+                                               WHERE IdActivo = @IdActivo";
+
+                                using (SqlCommand cmdUpdate = new SqlCommand(updateQuery, conn))
+                                {
+                                    cmdUpdate.Parameters.AddWithValue("@Sede", Sede);
+                                    cmdUpdate.Parameters.AddWithValue("@Area", Area);
+                                    cmdUpdate.Parameters.AddWithValue("@Fecha", fechaAsign);
+                                    cmdUpdate.Parameters.AddWithValue("@IdActivo", InventarioId);
+
+                                    cmdUpdate.ExecuteNonQuery();
+                                    MessageBox.Show("Asignación actualizada correctamente.");
+                                }
+                            }
+                            else
+                            {
+                                // Si no existe, insertar
+                                string insertQuery = @"INSERT INTO Asignacion (Sede, Area, FechaAsignacion, IdActivo) 
+                                               VALUES (@Sede, @Area, @Fecha, @idActivo)";
+
+                                using (SqlCommand cmdInsert = new SqlCommand(insertQuery, conn))
+                                {
+                                    cmdInsert.Parameters.AddWithValue("@Sede", Sede);
+                                    cmdInsert.Parameters.AddWithValue("@Area", Area);
+                                    cmdInsert.Parameters.AddWithValue("@Fecha", fechaAsign);
+                                    cmdInsert.Parameters.AddWithValue("@idActivo", InventarioId);
+
+                                    cmdInsert.ExecuteNonQuery();
+                                    MessageBox.Show("Asignación registrada correctamente.");
+                                }
+                            }
+                        }
                     }
                     else
                     {
-
+                        MessageBox.Show("El activo no se encuentra registrado.");
                     }
                     }
                 }

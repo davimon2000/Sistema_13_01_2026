@@ -60,7 +60,35 @@ namespace GestionInventario
 
                 if (result == DialogResult.Yes)
                 {
-                    cmbMarcaRegistro.Items.Remove(marcaAEliminar);
+                    using (SqlConnection conn = new SqlConnection(connectionString))
+                    {
+                        conn.Open();
+
+                        // Primero eliminamos de RegistroActivos (dependiente)
+                        string deleteActivos = @"
+            DELETE FROM RegistroActivos
+            WHERE IdMarca IN (
+                SELECT IdMarca FROM Marcas WHERE Nombre = @NombreMarca
+            );";
+
+                        using (SqlCommand cmdActivos = new SqlCommand(deleteActivos, conn))
+                        {
+                            cmdActivos.Parameters.AddWithValue("@NombreMarca", marcaAEliminar);
+                            cmdActivos.ExecuteNonQuery();
+                        }
+
+                        // Luego eliminamos de Marcas (maestra)
+                        string deleteMarca = "DELETE FROM Marcas WHERE Nombre = @NombreMarca";
+
+                        using (SqlCommand cmdMarca = new SqlCommand(deleteMarca, conn))
+                        {
+                            cmdMarca.Parameters.AddWithValue("@NombreMarca", marcaAEliminar);
+                            cmdMarca.ExecuteNonQuery();
+                        }
+                    }
+
+
+                    //cmbMarcaRegistro.Items.Remove(marcaAEliminar);
                     cmbMarcaRegistro.Text = "";
                     MessageBox.Show("Marca eliminada correctamente.");
                 }
@@ -196,6 +224,7 @@ namespace GestionInventario
 
                 if (result == DialogResult.Yes)
                 {
+
                     EliminarDeBaseDeDatos(marcaAEliminar);
 
                     // Eliminar del ComboBox
@@ -214,6 +243,7 @@ namespace GestionInventario
             string serial = txtSerialRegistro.Text;
             string marca1 = cmbMarcaRegistro.SelectedItem?.ToString(); 
             string marca = cmbMarcaRegistro.ValueMember;
+            string EstadoActual = cmbEstadoRegistro.SelectedItem?.ToString();
             int idMarca = Convert.ToInt32(cmbMarcaRegistro.SelectedValue);
             DateTime fechaReg = dtpFechaReg.Value;
             DateTime? fechaCompra = checkBoxFechaCompra.Checked ? dtpFechaCompra.Value : (DateTime?)null;
@@ -247,7 +277,8 @@ namespace GestionInventario
                         SET Serial = @serial,
                             Marca = @marca,
                             FechaCompra = @fechaCompra,
-                            FechaRegistro = @fechaRegistro
+                            FechaRegistro = @fechaRegistro,
+                            EstadoRegistro = @estadoActual
                             
                         WHERE CodInterno = @codInterno";
 
@@ -257,7 +288,7 @@ namespace GestionInventario
                                 cmdUpdate.Parameters.AddWithValue("@serial", serial);
                                 cmdUpdate.Parameters.AddWithValue("@marca", idMarca);
                                 cmdUpdate.Parameters.AddWithValue("@fechaRegistro", fechaReg);
-
+                                cmdUpdate.Parameters.AddWithValue("@estadoActual", EstadoActual);
                                 // Manejo de parámetro nulo
                                 if (fechaCompra.HasValue)
                                     cmdUpdate.Parameters.AddWithValue("@fechaCompra", fechaCompra.Value);
@@ -281,8 +312,8 @@ namespace GestionInventario
                         // 3. Insertar en la base de datos
                         using (SqlConnection conexion = new SqlConnection(connectionString))
                         {
-                            string query = @"INSERT INTO RegistroActivos (CodInterno, Serial, Marca, FechaCompra, FechaRegistro)
-                         VALUES (@CodInterno, @Serial, @IdMarca, @FechaCompra, @FechaRegistro)";
+                            string query = @"INSERT INTO RegistroActivos (CodInterno, Serial, Marca, FechaCompra, FechaRegistro, EstadoActual)
+                         VALUES (@CodInterno, @Serial, @IdMarca, @FechaCompra, @FechaRegistro, @EstadoActual)";
 
                             using (SqlCommand cmd = new SqlCommand(query, conexion))
                             {
@@ -290,7 +321,7 @@ namespace GestionInventario
                                 cmd.Parameters.AddWithValue("@Serial", serial);
                                 cmd.Parameters.AddWithValue("@IdMarca", idMarca);
                                 cmd.Parameters.AddWithValue("@FechaRegistro", fechaReg);
-
+                                cmd.Parameters.AddWithValue("@EstadoActual", EstadoActual);
                                 // Manejo de parámetro nulo
                                 if (fechaCompra.HasValue)
                                     cmd.Parameters.AddWithValue("@FechaCompra", fechaCompra.Value);
@@ -328,6 +359,11 @@ namespace GestionInventario
         }
 
         private void cmbMarcaRegistro_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label1_Click_1(object sender, EventArgs e)
         {
 
         }
