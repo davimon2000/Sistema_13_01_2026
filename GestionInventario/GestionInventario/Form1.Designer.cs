@@ -35,6 +35,7 @@ namespace GestionInventario
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormMDI));
             this.pnlMenuVertical = new System.Windows.Forms.Panel();
+            this.panel6 = new System.Windows.Forms.Panel();
             this.picIndicadores = new System.Windows.Forms.PictureBox();
             this.panel7 = new System.Windows.Forms.Panel();
             this.btnEstado = new System.Windows.Forms.Button();
@@ -54,7 +55,6 @@ namespace GestionInventario
             this.btnRegistro = new System.Windows.Forms.Button();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.btnIngresomtto = new System.Windows.Forms.Button();
-            this.panel6 = new System.Windows.Forms.Panel();
             this.pnlMenuVertical.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picIndicadores)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).BeginInit();
@@ -90,6 +90,12 @@ namespace GestionInventario
             this.pnlMenuVertical.Controls.Add(this.btnIngresomtto);
             resources.ApplyResources(this.pnlMenuVertical, "pnlMenuVertical");
             this.pnlMenuVertical.Name = "pnlMenuVertical";
+            // 
+            // panel6
+            // 
+            this.panel6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(80)))), ((int)(((byte)(200)))));
+            resources.ApplyResources(this.panel6, "panel6");
+            this.panel6.Name = "panel6";
             // 
             // picIndicadores
             // 
@@ -228,12 +234,6 @@ namespace GestionInventario
             this.btnIngresomtto.Name = "btnIngresomtto";
             this.btnIngresomtto.UseVisualStyleBackColor = true;
             this.btnIngresomtto.Click += new System.EventHandler(this.btnIngresomtto_Click_1);
-            // 
-            // panel6
-            // 
-            this.panel6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(80)))), ((int)(((byte)(200)))));
-            resources.ApplyResources(this.panel6, "panel6");
-            this.panel6.Name = "panel6";
             // 
             // FormMDI
             // 

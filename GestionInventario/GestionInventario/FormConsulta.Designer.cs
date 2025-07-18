@@ -60,6 +60,7 @@ namespace GestionInventario
             this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label1 = new System.Windows.Forms.Label();
             this.txtNumeroConsulta = new System.Windows.Forms.TextBox();
+            this.button1 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.activosViewDS)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.activosViewBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.activosViewBindingNavigator)).BeginInit();
@@ -238,7 +239,6 @@ namespace GestionInventario
             // activosViewBindingNavigatorSaveItem
             // 
             this.activosViewBindingNavigatorSaveItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.activosViewBindingNavigatorSaveItem.Enabled = false;
             this.activosViewBindingNavigatorSaveItem.Image = ((System.Drawing.Image)(resources.GetObject("activosViewBindingNavigatorSaveItem.Image")));
             this.activosViewBindingNavigatorSaveItem.Name = "activosViewBindingNavigatorSaveItem";
             this.activosViewBindingNavigatorSaveItem.Size = new System.Drawing.Size(23, 22);
@@ -257,7 +257,7 @@ namespace GestionInventario
             this.activosViewDataGridView.DataSource = this.activosViewBindingSource;
             this.activosViewDataGridView.Location = new System.Drawing.Point(49, 127);
             this.activosViewDataGridView.Name = "activosViewDataGridView";
-            this.activosViewDataGridView.Size = new System.Drawing.Size(566, 191);
+            this.activosViewDataGridView.Size = new System.Drawing.Size(566, 102);
             this.activosViewDataGridView.TabIndex = 28;
             this.activosViewDataGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.activosViewDataGridView_CellContentClick);
             // 
@@ -311,11 +311,22 @@ namespace GestionInventario
             this.txtNumeroConsulta.TabIndex = 30;
             this.txtNumeroConsulta.TextChanged += new System.EventHandler(this.txtNumeroConsulta_TextChanged);
             // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(49, 379);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(145, 33);
+            this.button1.TabIndex = 31;
+            this.button1.Text = "EXPORTAR EXCEL";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
             // FormConsulta
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(648, 394);
+            this.ClientSize = new System.Drawing.Size(648, 434);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.txtNumeroConsulta);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.activosViewDataGridView);
@@ -367,5 +378,6 @@ namespace GestionInventario
         private DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;
         private Label label1;
         private TextBox txtNumeroConsulta;
+        private Button button1;
     }
 }

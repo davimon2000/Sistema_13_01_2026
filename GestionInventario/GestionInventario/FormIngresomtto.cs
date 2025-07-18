@@ -107,6 +107,8 @@ namespace GestionInventario
 
         private void FormIngresomtto_Load_1(object sender, EventArgs e)
         {
+            // TODO: esta línea de código carga datos en la tabla 'tecnicosDS.Tecnicos' Puede moverla o quitarla según sea necesario.
+            this.tecnicosTableAdapter.Fill(this.tecnicosDS.Tecnicos);
 
             cmbTipoFalla.Visible = true;
             cmbTipoFalla.Enabled = true;
@@ -376,8 +378,11 @@ namespace GestionInventario
             DateTime fechaSalidaMtto = dtpFechaMtto.Value;
             String Estado = cmbEstadoMtto.SelectedItem.ToString();
             String ObsSalida = txtObservacionSalida.Text;
-            //string tecnicoid = cmbtecnico.selecteditem.tostring();
-            int tecnicoid = 1;
+            //string tecnicoid = cmbTecnico.SelectedIndex.ToString();
+            string tecnicoSelected = cmbTecnico.ValueMember.ToString();
+            int tecnicoid = Convert.ToInt32(cmbTecnico.SelectedValue);
+
+            //int tecnicoid = 1;
             int InventarioId = 0;
             int checkTrue = 1;
 

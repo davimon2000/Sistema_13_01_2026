@@ -38,6 +38,8 @@ namespace GestionInventario
 
         private void FormEstado_Load(object sender, EventArgs e)
         {
+            // TODO: esta línea de código carga datos en la tabla 'inventarioActivosDataSet2.Marcas' Puede moverla o quitarla según sea necesario.
+            this.marcasTableAdapter.Fill(this.inventarioActivosDataSet2.Marcas);
             // TODO: esta línea de código carga datos en la tabla 'inventarioActivosDataSet_MarcasVisual.RegistroActivos' Puede moverla o quitarla según sea necesario.
             //  this.registroActivosTableAdapter.Fill(this.inventarioActivosDataSet_MarcasVisual.RegistroActivos);
             CargarGraficoEstadoGeneral();
@@ -109,6 +111,49 @@ namespace GestionInventario
         private void chart1_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void btnFiltros_Click(object sender, EventArgs e)
+        {
+            FiltrarDatos();
+        }
+        private void FiltrarDatos()
+        {
+            List<string> condiciones = new List<string>();
+
+            if (cmbMarca.SelectedItem != null && cmbMarca.SelectedItem.ToString() != "TODOS")
+                condiciones.Add("Marca = @Marca");
+
+            if (cmbEstado.SelectedItem != null && cmbEstado.SelectedItem.ToString() != "Todos")
+                condiciones.Add("EstadoDefinitivo = @Estado");
+
+            if (cmbSede.SelectedItem != null && cmbSede.SelectedItem.ToString() != "Todos")
+                condiciones.Add("Sede = @Sede");
+
+            if (cmbFalla.SelectedItem != null && cmbFalla.SelectedItem.ToString() != "Todos")
+                condiciones.Add("TipoFalla = @Falla");
+
+            string where = condiciones.Count > 0 ? "WHERE " + string.Join(" AND ", condiciones) : "";
+
+            string query = "SELECT * FROM VistaActivos " + where;
+
+            using (SqlConnection conn = new SqlConnection(connectionString))
+            using (SqlCommand cmd = new SqlCommand(query, conn))
+            {
+                if (query.Contains("@Marca")) cmd.Parameters.AddWithValue("@Marca", cmbMarca.SelectedItem.ToString());
+                if (query.Contains("@Estado")) cmd.Parameters.AddWithValue("@Estado", cmbEstado.SelectedItem.ToString());
+                if (query.Contains("@Sede")) cmd.Parameters.AddWithValue("@Sede", cmbSede.SelectedItem.ToString());
+                if (query.Contains("@Falla")) cmd.Parameters.AddWithValue("@Falla", cmbFalla.SelectedItem.ToString());
+
+                using (SqlDataAdapter adapter = new SqlDataAdapter(cmd))
+                {
+                    DataTable dt = new DataTable();
+                    adapter.Fill(dt);
+                    dgvResultados.DataSource = dt;
+
+                    lblTotal.Text =  dt.Rows.Count.ToString();
+                }
+            }
         }
     }
 }

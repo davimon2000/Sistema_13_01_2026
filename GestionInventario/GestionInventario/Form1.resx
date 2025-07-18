@@ -143,7 +143,7 @@
   <data name="picIndicadores.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAB28AAAVkCAYAAADzAVSHAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAy
-        uQAAMrkB+rTEbQAAbplJREFUeF7s2bGqbTkMRMH7/z89k7fAYNScxzZVsBKFimT89/f3958kSZIkSZIk
+        uAAAMrgBKPMmiQAAbplJREFUeF7s2bGqbTkMRMH7/z89k7fAYNScxzZVsBKFimT89/f3958kSZIkSZIk
         SZIk6Z83BpIkSZIkSZIkSZKk3zcGkiRJkiRJkiRJkqTfNwaSJEmSJEmSJEmSpN83BpIkSZIkSZIkSZKk
         3zcGkiRJkiRJkiRJkqTfNwaSJEmSJEmSJEmSpN83BpIkSZIkSZIkSZKk3zcGkiRJkiRJkiRJkqTfNwaS
         JEmSJEmSJEmSpN83BpIkSZIkSZIkSZKk3zcGkiRJkiRJkiRJkqTfNwaSJEmSJEmSJEmSpN83BpIkSZIk
@@ -619,7 +619,7 @@
 </value>
   </data>
   <data name="picIndicadores.Location" type="System.Drawing.Point, System.Drawing">
-    <value>11, 275</value>
+    <value>10, 242</value>
   </data>
   <data name="picIndicadores.Size" type="System.Drawing.Size, System.Drawing">
     <value>24, 28</value>
@@ -644,7 +644,7 @@
     <value>1</value>
   </data>
   <data name="panel7.Location" type="System.Drawing.Point, System.Drawing">
-    <value>1, 275</value>
+    <value>0, 242</value>
   </data>
   <data name="panel7.Size" type="System.Drawing.Size, System.Drawing">
     <value>4, 28</value>
@@ -671,7 +671,7 @@
     <value>Century Gothic, 11.25pt</value>
   </data>
   <data name="btnEstado.Location" type="System.Drawing.Point, System.Drawing">
-    <value>4, 275</value>
+    <value>3, 242</value>
   </data>
   <data name="btnEstado.Size" type="System.Drawing.Size, System.Drawing">
     <value>186, 28</value>
@@ -697,7 +697,7 @@
   <data name="pictureBox6.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAzUAAAJwCAYAAACwDk+HAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAy
-        uQAAMrkB+rTEbQAAVjtJREFUeF7t3X2srXV55/9vjQJFovGkGQ1wWotCGerDJA1ikVosINDT0+gMjVN1
+        uAAAMrgBKPMmiQAAVjtJREFUeF7t3X2srXV55/9vjQJFovGkGQ1wWotCGerDJA1ikVosINDT0+gMjVN1
         fvWBP5xG5CFtpgk2HVsJh0OsqRyJBWyTUZQEasGCPI7NRCn5AZHqDxzEkhHwHDhqO4D8gYTD/cu13bbH
         z/pyrXut6/ruve77fr+Sd4zLw97r/qybve7l2XvtUgAAwGZ5ZSnlN0spf1BK+XQp5eZSyh2llPtKKY+U
         Up4opXTr/2n/3W63/93+nP15++fsn7ePAwAAAADNHV9K+ZNSyldLKU+uv2DJyj6efVz7+PZ5AAAAACDs
@@ -1069,7 +1069,7 @@
 </value>
   </data>
   <data name="pictureBox6.Location" type="System.Drawing.Point, System.Drawing">
-    <value>10, 241</value>
+    <value>10, 276</value>
   </data>
   <data name="pictureBox6.Size" type="System.Drawing.Size, System.Drawing">
     <value>24, 28</value>
@@ -1079,6 +1079,9 @@
   </data>
   <data name="pictureBox6.TabIndex" type="System.Int32, mscorlib">
     <value>14</value>
+  </data>
+  <data name="pictureBox6.Visible" type="System.Boolean, mscorlib">
+    <value>False</value>
   </data>
   <data name="&gt;&gt;pictureBox6.Name" xml:space="preserve">
     <value>pictureBox6</value>
@@ -1093,13 +1096,16 @@
     <value>4</value>
   </data>
   <data name="panel5.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 241</value>
+    <value>0, 276</value>
   </data>
   <data name="panel5.Size" type="System.Drawing.Size, System.Drawing">
     <value>4, 28</value>
   </data>
   <data name="panel5.TabIndex" type="System.Int32, mscorlib">
     <value>12</value>
+  </data>
+  <data name="panel5.Visible" type="System.Boolean, mscorlib">
+    <value>False</value>
   </data>
   <data name="&gt;&gt;panel5.Name" xml:space="preserve">
     <value>panel5</value>
@@ -1120,7 +1126,7 @@
     <value>Century Gothic, 11.25pt</value>
   </data>
   <data name="btnAnalisis.Location" type="System.Drawing.Point, System.Drawing">
-    <value>3, 241</value>
+    <value>3, 276</value>
   </data>
   <data name="btnAnalisis.Size" type="System.Drawing.Size, System.Drawing">
     <value>186, 28</value>
@@ -1130,6 +1136,9 @@
   </data>
   <data name="btnAnalisis.Text" xml:space="preserve">
     <value>ANÁLISIS</value>
+  </data>
+  <data name="btnAnalisis.Visible" type="System.Boolean, mscorlib">
+    <value>False</value>
   </data>
   <data name="&gt;&gt;btnAnalisis.Name" xml:space="preserve">
     <value>btnAnalisis</value>
@@ -2225,7 +2234,7 @@
   <data name="pictureBox2.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAABPkAAAVQCAYAAAA5vY+TAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAy
-        uAAAMrgBKPMmiQAAWw5JREFUeF7s3SGsVN22NuhfIpFIJBKJRHVI2iCRSCSqg8ShOkiSNrSjHRK5r0OS
+        twAAMrcBXj2IkwAAWw5JREFUeF7s3SGsVN22NuhfIpFIJBKJRHVI2iCRSCSqg8ShOkiSNrSjHRK5r0OS
         Py2QO62QiF/QovOPzjqnvnv3GedjsKt2zbnGqvU8SZlzz7k1KareVe9g1pr/7b8BAAAAAAAAAAAAAAAA
         AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAC0EhFv
         Y563+fkBAACAP9PfgdLkkPiPw/N5eHh4eHh4eHh4eHh4eHgc91g69SyGfLA1h6AAAAAA+IshH2yNIR8A

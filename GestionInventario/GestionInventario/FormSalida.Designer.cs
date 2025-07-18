@@ -35,8 +35,6 @@
             this.lblFechaMtto = new System.Windows.Forms.Label();
             this.cmbSedeAsig = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.cmbAreaAsig = new System.Windows.Forms.ComboBox();
-            this.label2 = new System.Windows.Forms.Label();
             this.btnIngresoMtto = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
@@ -93,8 +91,9 @@
             this.cmbSedeAsig.Items.AddRange(new object[] {
             "Campin",
             "Dorado Plaza",
-            "Faneón",
-            "Panamericana"});
+            "Arboleda",
+            "Panamericana",
+            "Pereira"});
             this.cmbSedeAsig.Location = new System.Drawing.Point(198, 170);
             this.cmbSedeAsig.Name = "cmbSedeAsig";
             this.cmbSedeAsig.Size = new System.Drawing.Size(195, 21);
@@ -110,33 +109,11 @@
             this.label1.TabIndex = 19;
             this.label1.Text = "Sede:";
             // 
-            // cmbAreaAsig
-            // 
-            this.cmbAreaAsig.FormattingEnabled = true;
-            this.cmbAreaAsig.Items.AddRange(new object[] {
-            "Operación",
-            "Administrativo",
-            "Tecnología"});
-            this.cmbAreaAsig.Location = new System.Drawing.Point(198, 211);
-            this.cmbAreaAsig.Name = "cmbAreaAsig";
-            this.cmbAreaAsig.Size = new System.Drawing.Size(195, 21);
-            this.cmbAreaAsig.TabIndex = 22;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(68, 211);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(48, 21);
-            this.label2.TabIndex = 21;
-            this.label2.Text = "Área:";
-            // 
             // btnIngresoMtto
             // 
             this.btnIngresoMtto.BackColor = System.Drawing.Color.PaleGoldenrod;
             this.btnIngresoMtto.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnIngresoMtto.Location = new System.Drawing.Point(181, 263);
+            this.btnIngresoMtto.Location = new System.Drawing.Point(182, 220);
             this.btnIngresoMtto.Name = "btnIngresoMtto";
             this.btnIngresoMtto.Size = new System.Drawing.Size(98, 32);
             this.btnIngresoMtto.TabIndex = 23;
@@ -148,10 +125,8 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(443, 337);
+            this.ClientSize = new System.Drawing.Size(443, 293);
             this.Controls.Add(this.btnIngresoMtto);
-            this.Controls.Add(this.cmbAreaAsig);
-            this.Controls.Add(this.label2);
             this.Controls.Add(this.cmbSedeAsig);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.dtpFechaAsig);
@@ -175,8 +150,6 @@
         private System.Windows.Forms.Label lblFechaMtto;
         private System.Windows.Forms.ComboBox cmbSedeAsig;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.ComboBox cmbAreaAsig;
-        private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button btnIngresoMtto;
     }
 }

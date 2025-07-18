@@ -40,7 +40,7 @@ namespace GestionInventario
             string numeroActivo = txtNumAsig.Text;
             DateTime fechaAsign = dtpFechaAsig.Value;
             String Sede = cmbSedeAsig.SelectedItem.ToString();
-            String Area = cmbAreaAsig.SelectedItem.ToString();
+            //String Area = cmbAreaAsig.SelectedItem.ToString();
             int InventarioId = 0;
             using (SqlConnection conn = new SqlConnection(connectionString))
             {
@@ -71,7 +71,7 @@ namespace GestionInventario
                                 using (SqlCommand cmdUpdate = new SqlCommand(updateQuery, conn))
                                 {
                                     cmdUpdate.Parameters.AddWithValue("@Sede", Sede);
-                                    cmdUpdate.Parameters.AddWithValue("@Area", Area);
+                                    //cmdUpdate.Parameters.AddWithValue("@Area", Area);
                                     cmdUpdate.Parameters.AddWithValue("@Fecha", fechaAsign);
                                     cmdUpdate.Parameters.AddWithValue("@IdActivo", InventarioId);
 
@@ -88,7 +88,7 @@ namespace GestionInventario
                                 using (SqlCommand cmdInsert = new SqlCommand(insertQuery, conn))
                                 {
                                     cmdInsert.Parameters.AddWithValue("@Sede", Sede);
-                                    cmdInsert.Parameters.AddWithValue("@Area", Area);
+                                   // cmdInsert.Parameters.AddWithValue("@Area", Area);
                                     cmdInsert.Parameters.AddWithValue("@Fecha", fechaAsign);
                                     cmdInsert.Parameters.AddWithValue("@idActivo", InventarioId);
 
