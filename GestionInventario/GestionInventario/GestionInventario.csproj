@@ -98,6 +98,14 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>ActivosViewDS.xsd</DependentUpon>
     </Compile>
+    <Compile Include="ConsultaActivosDS.cs">
+      <DependentUpon>ConsultaActivosDS.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="ConsultaActivosDS.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ConsultaActivosDS.xsd</DependentUpon>
+    </Compile>
     <Compile Include="FormEstado.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -181,6 +189,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="TecnicosDS.cs">
+      <DependentUpon>TecnicosDS.xsd</DependentUpon>
+    </Compile>
     <Compile Include="TecnicosDS.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -235,6 +246,17 @@
     </None>
     <None Include="ActivosViewDS.xss">
       <DependentUpon>ActivosViewDS.xsd</DependentUpon>
+    </None>
+    <None Include="ConsultaActivosDS.xsc">
+      <DependentUpon>ConsultaActivosDS.xsd</DependentUpon>
+    </None>
+    <None Include="ConsultaActivosDS.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>ConsultaActivosDS.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="ConsultaActivosDS.xss">
+      <DependentUpon>ConsultaActivosDS.xsd</DependentUpon>
     </None>
     <None Include="InventarioActivosDataSet.xsc">
       <DependentUpon>InventarioActivosDataSet.xsd</DependentUpon>

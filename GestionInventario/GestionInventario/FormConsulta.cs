@@ -38,6 +38,14 @@ namespace GestionInventario
 
         private void FormConsulta_Load(object sender, EventArgs e)
         {
+            // TODO: esta línea de código carga datos en la tabla 'consultaActivosDS.Mantenimiento' Puede moverla o quitarla según sea necesario.
+            this.mantenimientoTableAdapter.Fill(this.consultaActivosDS.Mantenimiento);
+            // TODO: esta línea de código carga datos en la tabla 'consultaActivosDS.RegistroActivos' Puede moverla o quitarla según sea necesario.
+            this.registroActivosTableAdapter.Fill(this.consultaActivosDS.RegistroActivos);
+            // TODO: esta línea de código carga datos en la tabla 'consultaActivosDS.EditarTable' Puede moverla o quitarla según sea necesario.
+            //this.editarTableTableAdapter.Fill(this.consultaActivosDS.EditarTable);
+            // TODO: esta línea de código carga datos en la tabla 'inventarioActivosDataSet3.RegistroActivos' Puede moverla o quitarla según sea necesario.
+            // this.registroActivosTableAdapter.Fill(this.inventarioActivosDataSet3.RegistroActivos);
             // TODO: esta línea de código carga datos en la tabla 'activosViewDS.ActivosView' Puede moverla o quitarla según sea necesario.
             this.activosViewTableAdapter.Fill(this.activosViewDS.ActivosView);
 
@@ -61,6 +69,8 @@ namespace GestionInventario
         private void txtNumeroConsulta_TextChanged(object sender, EventArgs e)
         {
             this.activosViewTableAdapter.FillByNumero(this.activosViewDS.ActivosView, "%" + txtNumeroConsulta.Text + "%");
+            //this.registroActivosDataGridView.FillByNumero(this.consultaActivosDS.RegistroActivos, "%" + txtNumeroConsulta.Text + "%");
+            //this.registroActivosTableAdapter.FillByNumero(this.consultaActivosDS.RegistroActivos, "%" + txtNumeroConsulta.Text + "%");
         }
 
         private void button1_Click(object sender, EventArgs e)

@@ -49,13 +49,13 @@ namespace GestionInventario
             this.cmbEstadoMtto = new System.Windows.Forms.ComboBox();
             this.btnSalidaMtto = new System.Windows.Forms.Button();
             this.cmbTecnico = new System.Windows.Forms.ComboBox();
+            this.tecnicosBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.tecnicosDS = new GestionInventario.TecnicosDS();
             this.txtObservacionSalida = new System.Windows.Forms.TextBox();
             this.btnTecnicos = new System.Windows.Forms.Button();
-            this.tecnicosDS = new GestionInventario.TecnicosDS();
-            this.tecnicosBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.tecnicosTableAdapter = new GestionInventario.TecnicosDSTableAdapters.TecnicosTableAdapter();
-            ((System.ComponentModel.ISupportInitialize)(this.tecnicosDS)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tecnicosBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tecnicosDS)).BeginInit();
             this.SuspendLayout();
             // 
             // lblMantenimiento
@@ -212,8 +212,8 @@ namespace GestionInventario
             this.cmbEstadoMtto.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmbEstadoMtto.FormattingEnabled = true;
             this.cmbEstadoMtto.Items.AddRange(new object[] {
-            "Buena",
-            "Reparada",
+            "Bueno",
+            "Reparado",
             "Recuperado",
             "Baja"});
             this.cmbEstadoMtto.Location = new System.Drawing.Point(197, 202);
@@ -246,6 +246,16 @@ namespace GestionInventario
             this.cmbTecnico.ValueMember = "Id";
             this.cmbTecnico.SelectedIndexChanged += new System.EventHandler(this.cmbTecnico_SelectedIndexChanged);
             // 
+            // tecnicosBindingSource
+            // 
+            this.tecnicosBindingSource.DataMember = "Tecnicos";
+            this.tecnicosBindingSource.DataSource = this.tecnicosDS;
+            // 
+            // tecnicosDS
+            // 
+            this.tecnicosDS.DataSetName = "TecnicosDS";
+            this.tecnicosDS.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
             // txtObservacionSalida
             // 
             this.txtObservacionSalida.Location = new System.Drawing.Point(197, 245);
@@ -263,16 +273,6 @@ namespace GestionInventario
             this.btnTecnicos.Text = "Tecnicos";
             this.btnTecnicos.UseVisualStyleBackColor = true;
             this.btnTecnicos.Click += new System.EventHandler(this.btnTecnicos_Click);
-            // 
-            // tecnicosDS
-            // 
-            this.tecnicosDS.DataSetName = "TecnicosDS";
-            this.tecnicosDS.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // tecnicosBindingSource
-            // 
-            this.tecnicosBindingSource.DataMember = "Tecnicos";
-            this.tecnicosBindingSource.DataSource = this.tecnicosDS;
             // 
             // tecnicosTableAdapter
             // 
@@ -305,8 +305,8 @@ namespace GestionInventario
             this.Name = "FormIngresomtto";
             this.Text = "FormIngresomtto";
             this.Load += new System.EventHandler(this.FormIngresomtto_Load_1);
-            ((System.ComponentModel.ISupportInitialize)(this.tecnicosDS)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tecnicosBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tecnicosDS)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

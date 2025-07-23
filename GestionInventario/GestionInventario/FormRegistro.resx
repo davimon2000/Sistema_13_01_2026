@@ -120,6 +120,12 @@
   <metadata name="marcasBindingSource1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>17, 54</value>
   </metadata>
+  <metadata name="marcasBindingSource1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>17, 54</value>
+  </metadata>
+  <metadata name="inventarioActivosDataSet1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>534, 17</value>
+  </metadata>
   <metadata name="inventarioActivosDataSet1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>534, 17</value>
   </metadata>
@@ -129,11 +135,14 @@
   <metadata name="inventarioActivosDataSet.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>17, 17</value>
   </metadata>
+  <metadata name="inventarioActivosDataSet.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>17, 17</value>
+  </metadata>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="picAgregar.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAqIAAAKRCAYAAACP78vwAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAy
-        ugAAMroBVw3lAAAAOj1JREFUeF7t3W+s5Wdd7/0J+kif6SMFY1i/BYEH9tZY0dlrj4zCaUyMcE4jxJho
+        uQAAMrkB+rTEbQAAOj1JREFUeF7t3W+s5Wdd7/0J+kif6SMFY1i/BYEH9tZY0dlrj4zCaUyMcE4jxJho
         lAeWnkilwVrLrLXYbQdCCvS2JbaE3rVG0pwOk+pJOx0URSgUDKdlrLRwZialtNiW/hGCFGoppOvONXAq
         fNfq2d/955r5rXW9Xsn7iXv+rH3tdfn7ZOjM3rOHXtm/MXzR3ungVWvjwflrk+5PRtPustFk+P+OpoP/
         bzTpDo0m3dHRtPvEaDK8ezTpvjAad4+PJt1To0k3kySpocqzrzwDv3DqmXjq2dgdLc/Ktcng+rVx92dr
@@ -388,7 +397,7 @@
   <data name="picEliminarMarca.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAqIAAAKSCAYAAAAJe7leAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAy
-        ugAAMroBVw3lAAAAdRVJREFUeF7tnQd0XdWVhg+92aaD6b2XEEqAgAOEmkCAACEQQgDTIfQSSgoQIIHY
+        uQAAMrkB+rTEbQAAdRVJREFUeF7tnQd0XdWVhg+92aaD6b2XEEqAgAOEmkCAACEQQgDTIfQSSgoQIIHY
         kF4oISSUDDOZmWScMJkEvyfLlmTLveKKbdmW5V5kG9czaz9sB/Z59t3v6tV7v2+tby0Wkt6795y99/kl
         S+85B1VFP+d2yzrXrc65GzPOPVjn3BMZ53pmnXsp69zbGed6ZZyryzg3OOvc+KxzrVnn2rPOeURExBQp
         Z5+cgePlTJSzMetcLzkrezv3cta5FzLOPbn2LL1RzlY5Y/W5C5A6Bjq3Rb1zR2Wdu6zOuUeyzr2Wca4h

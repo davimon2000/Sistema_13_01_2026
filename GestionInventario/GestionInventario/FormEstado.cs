@@ -43,6 +43,7 @@ namespace GestionInventario
             // TODO: esta línea de código carga datos en la tabla 'inventarioActivosDataSet_MarcasVisual.RegistroActivos' Puede moverla o quitarla según sea necesario.
             //  this.registroActivosTableAdapter.Fill(this.inventarioActivosDataSet_MarcasVisual.RegistroActivos);
             CargarGraficoEstadoGeneral();
+            CargarGraficoMarcas();
         }
 
         private void groupBox1_Enter(object sender, EventArgs e)
@@ -75,7 +76,7 @@ namespace GestionInventario
             string query = @"
         SELECT EstadoDefinitivo, COUNT(*) as Total 
         FROM VistaActivos
-        WHERE EstadoDefinitivo IN ('Nueva', 'Disponible', 'Restaurado', 'Baja', 'EnMtto')
+        WHERE EstadoDefinitivo IN ('Nuevo', 'Disponible(Registro)', 'Recuperado', 'Baja', 'EnMtto', 'Reparado', 'Bueno')
         GROUP BY EstadoDefinitivo";
 
             using (SqlConnection conn = new SqlConnection(connectionString))
@@ -140,7 +141,7 @@ namespace GestionInventario
             using (SqlConnection conn = new SqlConnection(connectionString))
             using (SqlCommand cmd = new SqlCommand(query, conn))
             {
-                if (query.Contains("@Marca")) cmd.Parameters.AddWithValue("@Marca", cmbMarca.SelectedItem.ToString());
+                if (query.Contains("@Marca")) cmd.Parameters.AddWithValue("@Marca", cmbMarca.SelectedItem.ToString());               
                 if (query.Contains("@Estado")) cmd.Parameters.AddWithValue("@Estado", cmbEstado.SelectedItem.ToString());
                 if (query.Contains("@Sede")) cmd.Parameters.AddWithValue("@Sede", cmbSede.SelectedItem.ToString());
                 if (query.Contains("@Falla")) cmd.Parameters.AddWithValue("@Falla", cmbFalla.SelectedItem.ToString());
@@ -154,6 +155,81 @@ namespace GestionInventario
                     lblTotal.Text =  dt.Rows.Count.ToString();
                 }
             }
+        }
+
+        private void chartMarcas_Click(object sender, EventArgs e)
+        {
+
+        }
+        private void CargarGraficoMarcas()
+        {
+            chartMarcas.Series.Clear();
+            chartMarcas.Titles.Clear();
+
+            Series serie = new Series("Diademas por Marca");
+            serie.ChartType = SeriesChartType.Column;
+            serie.IsValueShownAsLabel = true;
+
+
+            //string query = "SELECT Marca, COUNT(*) AS Cantidad FROM RegistroActivos GROUP BY Marca";
+            string query = @"
+    SELECT M.Marca, COUNT(*) AS Cantidad
+    FROM RegistroActivos RA
+    INNER JOIN Marcas M ON RA.Marca = M.Id
+    GROUP BY M.Marca";
+
+            Color[] colores = new Color[]
+    {
+        Color.SteelBlue,
+        Color.Orange,
+        Color.ForestGreen,
+        Color.Firebrick,
+        Color.MediumPurple,
+        Color.Teal,
+        Color.Goldenrod,
+        Color.CadetBlue,
+        Color.IndianRed,
+        Color.DarkCyan
+    };
+
+            using (SqlConnection con = new SqlConnection(connectionString))
+            {
+                SqlCommand cmd = new SqlCommand(query, con);
+                con.Open();
+                SqlDataReader reader = cmd.ExecuteReader();
+
+                //while (reader.Read())
+                //{
+                //    string marca = reader["Marca"].ToString();
+                //    int cantidad = Convert.ToInt32(reader["Cantidad"]);
+                //    serie.Points.AddXY(marca, cantidad);
+                //}
+
+                //reader.Close();
+
+                int i = 0;
+                while (reader.Read())
+                {
+                    string nombreMarca = reader["Marca"].ToString();
+                    int cantidad = Convert.ToInt32(reader["Cantidad"]);
+
+                    int colorIndex = i % colores.Length;
+
+                    DataPoint punto = new DataPoint();
+                    punto.AxisLabel = nombreMarca;
+                    punto.YValues = new double[] { cantidad };
+                    punto.Color = colores[colorIndex];
+
+                    serie.Points.Add(punto);
+                    i++;
+                }
+
+                reader.Close();
+            }
+
+            chartMarcas.Series.Add(serie);
+            chartMarcas.Titles.Add("Cantidad de Diademas por Marca");
+            chartMarcas.Legends.Clear(); // ← Esto oculta la leyenda
         }
     }
 }

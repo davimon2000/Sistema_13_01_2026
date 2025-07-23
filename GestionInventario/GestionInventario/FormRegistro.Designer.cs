@@ -243,12 +243,13 @@ namespace GestionInventario
             // 
             // cmbEstadoRegistro
             // 
+            this.cmbEstadoRegistro.DisplayMember = "Id";
             this.cmbEstadoRegistro.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmbEstadoRegistro.FormattingEnabled = true;
             this.cmbEstadoRegistro.Items.AddRange(new object[] {
-            "Nueva",
+            "Nuevo",
             "En uso",
-            "Disponible"});
+            "Disponible(Registro)"});
             this.cmbEstadoRegistro.Location = new System.Drawing.Point(177, 325);
             this.cmbEstadoRegistro.Name = "cmbEstadoRegistro";
             this.cmbEstadoRegistro.Size = new System.Drawing.Size(202, 25);

@@ -312,7 +312,7 @@ namespace GestionInventario
                         // 3. Insertar en la base de datos
                         using (SqlConnection conexion = new SqlConnection(connectionString))
                         {
-                            string query = @"INSERT INTO RegistroActivos (CodInterno, Serial, Marca, FechaCompra, FechaRegistro, EstadoActual)
+                            string query = @"INSERT INTO RegistroActivos (CodInterno, Serial, Marca, FechaCompra, FechaRegistro, EstadoRegistro)
                          VALUES (@CodInterno, @Serial, @IdMarca, @FechaCompra, @FechaRegistro, @EstadoActual)";
 
                             using (SqlCommand cmd = new SqlCommand(query, conexion))

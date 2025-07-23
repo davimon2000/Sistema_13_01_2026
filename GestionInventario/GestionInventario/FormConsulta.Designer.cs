@@ -35,10 +35,6 @@ namespace GestionInventario
             this.lblRegistro = new System.Windows.Forms.Label();
             this.txtNumConsulta = new System.Windows.Forms.TextBox();
             this.lblNumeroConsulta = new System.Windows.Forms.Label();
-            this.activosViewDS = new GestionInventario.ActivosViewDS();
-            this.activosViewBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.activosViewTableAdapter = new GestionInventario.ActivosViewDSTableAdapters.ActivosViewTableAdapter();
-            this.tableAdapterManager = new GestionInventario.ActivosViewDSTableAdapters.TableAdapterManager();
             this.activosViewBindingNavigator = new System.Windows.Forms.BindingNavigator(this.components);
             this.bindingNavigatorAddNewItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorCountItem = new System.Windows.Forms.ToolStripLabel();
@@ -52,19 +48,43 @@ namespace GestionInventario
             this.bindingNavigatorMoveLastItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.activosViewBindingNavigatorSaveItem = new System.Windows.Forms.ToolStripButton();
+            this.label1 = new System.Windows.Forms.Label();
+            this.txtNumeroConsulta = new System.Windows.Forms.TextBox();
+            this.button1 = new System.Windows.Forms.Button();
+            this.activosViewBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.activosViewDS = new GestionInventario.ActivosViewDS();
+            this.activosViewTableAdapter = new GestionInventario.ActivosViewDSTableAdapters.ActivosViewTableAdapter();
+            this.tableAdapterManager = new GestionInventario.ActivosViewDSTableAdapters.TableAdapterManager();
+            this.mantenimientoDataGridView = new System.Windows.Forms.DataGridView();
+            this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn11 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.mantenimientoBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.consultaActivosDS = new GestionInventario.ConsultaActivosDS();
+            this.registroActivosBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.editarTableBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.tableAdapterManager1 = new GestionInventario.ConsultaActivosDSTableAdapters.TableAdapterManager();
+            this.registroActivosTableAdapter = new GestionInventario.ConsultaActivosDSTableAdapters.RegistroActivosTableAdapter();
+            this.editarTableTableAdapter = new GestionInventario.ConsultaActivosDSTableAdapters.EditarTableTableAdapter();
+            this.mantenimientoTableAdapter = new GestionInventario.ConsultaActivosDSTableAdapters.MantenimientoTableAdapter();
             this.activosViewDataGridView = new System.Windows.Forms.DataGridView();
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.label1 = new System.Windows.Forms.Label();
-            this.txtNumeroConsulta = new System.Windows.Forms.TextBox();
-            this.button1 = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.activosViewDS)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.activosViewBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.activosViewBindingNavigator)).BeginInit();
             this.activosViewBindingNavigator.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.activosViewBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.activosViewDS)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.mantenimientoDataGridView)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.mantenimientoBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.consultaActivosDS)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.registroActivosBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.editarTableBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.activosViewDataGridView)).BeginInit();
             this.SuspendLayout();
             // 
@@ -82,7 +102,7 @@ namespace GestionInventario
             // txtNumConsulta
             // 
             this.txtNumConsulta.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold);
-            this.txtNumConsulta.Location = new System.Drawing.Point(463, 76);
+            this.txtNumConsulta.Location = new System.Drawing.Point(471, 104);
             this.txtNumConsulta.Name = "txtNumConsulta";
             this.txtNumConsulta.Size = new System.Drawing.Size(174, 29);
             this.txtNumConsulta.TabIndex = 26;
@@ -93,32 +113,12 @@ namespace GestionInventario
             this.lblNumeroConsulta.AutoSize = true;
             this.lblNumeroConsulta.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold);
             this.lblNumeroConsulta.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.lblNumeroConsulta.Location = new System.Drawing.Point(340, 79);
+            this.lblNumeroConsulta.Location = new System.Drawing.Point(348, 107);
             this.lblNumeroConsulta.Name = "lblNumeroConsulta";
             this.lblNumeroConsulta.Size = new System.Drawing.Size(117, 21);
             this.lblNumeroConsulta.TabIndex = 25;
             this.lblNumeroConsulta.Text = "Serial o Marca:";
             this.lblNumeroConsulta.Click += new System.EventHandler(this.lblNumeroConsulta_Click);
-            // 
-            // activosViewDS
-            // 
-            this.activosViewDS.DataSetName = "ActivosViewDS";
-            this.activosViewDS.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // activosViewBindingSource
-            // 
-            this.activosViewBindingSource.DataMember = "ActivosView";
-            this.activosViewBindingSource.DataSource = this.activosViewDS;
-            // 
-            // activosViewTableAdapter
-            // 
-            this.activosViewTableAdapter.ClearBeforeFill = true;
-            // 
-            // tableAdapterManager
-            // 
-            this.tableAdapterManager.BackupDataSetBeforeUpdate = false;
-            this.tableAdapterManager.Connection = null;
-            this.tableAdapterManager.UpdateOrder = GestionInventario.ActivosViewDSTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
             // 
             // activosViewBindingNavigator
             // 
@@ -146,7 +146,7 @@ namespace GestionInventario
             this.activosViewBindingNavigator.MovePreviousItem = this.bindingNavigatorMovePreviousItem;
             this.activosViewBindingNavigator.Name = "activosViewBindingNavigator";
             this.activosViewBindingNavigator.PositionItem = this.bindingNavigatorPositionItem;
-            this.activosViewBindingNavigator.Size = new System.Drawing.Size(648, 25);
+            this.activosViewBindingNavigator.Size = new System.Drawing.Size(665, 25);
             this.activosViewBindingNavigator.TabIndex = 28;
             this.activosViewBindingNavigator.Text = "bindingNavigator1";
             // 
@@ -244,6 +244,150 @@ namespace GestionInventario
             this.activosViewBindingNavigatorSaveItem.Size = new System.Drawing.Size(23, 22);
             this.activosViewBindingNavigatorSaveItem.Text = "Guardar datos";
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold);
+            this.label1.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.label1.Location = new System.Drawing.Point(27, 110);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(74, 21);
+            this.label1.TabIndex = 29;
+            this.label1.Text = "Número:";
+            this.label1.Click += new System.EventHandler(this.label1_Click);
+            // 
+            // txtNumeroConsulta
+            // 
+            this.txtNumeroConsulta.Location = new System.Drawing.Point(127, 110);
+            this.txtNumeroConsulta.Name = "txtNumeroConsulta";
+            this.txtNumeroConsulta.Size = new System.Drawing.Size(197, 20);
+            this.txtNumeroConsulta.TabIndex = 30;
+            this.txtNumeroConsulta.TextChanged += new System.EventHandler(this.txtNumeroConsulta_TextChanged);
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(31, 284);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(145, 33);
+            this.button1.TabIndex = 31;
+            this.button1.Text = "EXPORTAR EXCEL";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // activosViewBindingSource
+            // 
+            this.activosViewBindingSource.DataMember = "ActivosView";
+            this.activosViewBindingSource.DataSource = this.activosViewDS;
+            // 
+            // activosViewDS
+            // 
+            this.activosViewDS.DataSetName = "ActivosViewDS";
+            this.activosViewDS.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // activosViewTableAdapter
+            // 
+            this.activosViewTableAdapter.ClearBeforeFill = true;
+            // 
+            // tableAdapterManager
+            // 
+            this.tableAdapterManager.BackupDataSetBeforeUpdate = false;
+            this.tableAdapterManager.Connection = null;
+            this.tableAdapterManager.UpdateOrder = GestionInventario.ActivosViewDSTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
+            // 
+            // mantenimientoDataGridView
+            // 
+            this.mantenimientoDataGridView.AutoGenerateColumns = false;
+            this.mantenimientoDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.mantenimientoDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dataGridViewTextBoxColumn6,
+            this.dataGridViewTextBoxColumn7,
+            this.dataGridViewTextBoxColumn8,
+            this.dataGridViewTextBoxColumn9,
+            this.dataGridViewTextBoxColumn10,
+            this.dataGridViewTextBoxColumn11});
+            this.mantenimientoDataGridView.DataSource = this.mantenimientoBindingSource;
+            this.mantenimientoDataGridView.Location = new System.Drawing.Point(31, 367);
+            this.mantenimientoDataGridView.Name = "mantenimientoDataGridView";
+            this.mantenimientoDataGridView.Size = new System.Drawing.Size(614, 121);
+            this.mantenimientoDataGridView.TabIndex = 31;
+            // 
+            // dataGridViewTextBoxColumn6
+            // 
+            this.dataGridViewTextBoxColumn6.DataPropertyName = "FechaIngresoMtto";
+            this.dataGridViewTextBoxColumn6.HeaderText = "FechaIngresoMtto";
+            this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
+            // 
+            // dataGridViewTextBoxColumn7
+            // 
+            this.dataGridViewTextBoxColumn7.DataPropertyName = "TipoFalla";
+            this.dataGridViewTextBoxColumn7.HeaderText = "TipoFalla";
+            this.dataGridViewTextBoxColumn7.Name = "dataGridViewTextBoxColumn7";
+            // 
+            // dataGridViewTextBoxColumn8
+            // 
+            this.dataGridViewTextBoxColumn8.DataPropertyName = "ObsIngreso";
+            this.dataGridViewTextBoxColumn8.HeaderText = "ObsIngreso";
+            this.dataGridViewTextBoxColumn8.Name = "dataGridViewTextBoxColumn8";
+            // 
+            // dataGridViewTextBoxColumn9
+            // 
+            this.dataGridViewTextBoxColumn9.DataPropertyName = "FechaSalidaMtto";
+            this.dataGridViewTextBoxColumn9.HeaderText = "FechaSalidaMtto";
+            this.dataGridViewTextBoxColumn9.Name = "dataGridViewTextBoxColumn9";
+            // 
+            // dataGridViewTextBoxColumn10
+            // 
+            this.dataGridViewTextBoxColumn10.DataPropertyName = "EstadoSalida";
+            this.dataGridViewTextBoxColumn10.HeaderText = "EstadoSalida";
+            this.dataGridViewTextBoxColumn10.Name = "dataGridViewTextBoxColumn10";
+            // 
+            // dataGridViewTextBoxColumn11
+            // 
+            this.dataGridViewTextBoxColumn11.DataPropertyName = "ObsSalida";
+            this.dataGridViewTextBoxColumn11.HeaderText = "ObsSalida";
+            this.dataGridViewTextBoxColumn11.Name = "dataGridViewTextBoxColumn11";
+            // 
+            // mantenimientoBindingSource
+            // 
+            this.mantenimientoBindingSource.DataMember = "Mantenimiento";
+            this.mantenimientoBindingSource.DataSource = this.consultaActivosDS;
+            // 
+            // consultaActivosDS
+            // 
+            this.consultaActivosDS.DataSetName = "ConsultaActivosDS";
+            this.consultaActivosDS.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // registroActivosBindingSource
+            // 
+            this.registroActivosBindingSource.DataMember = "RegistroActivos";
+            this.registroActivosBindingSource.DataSource = this.consultaActivosDS;
+            // 
+            // editarTableBindingSource
+            // 
+            this.editarTableBindingSource.DataMember = "EditarTable";
+            this.editarTableBindingSource.DataSource = this.consultaActivosDS;
+            // 
+            // tableAdapterManager1
+            // 
+            this.tableAdapterManager1.AsignacionTableAdapter = null;
+            this.tableAdapterManager1.BackupDataSetBeforeUpdate = false;
+            this.tableAdapterManager1.Connection = null;
+            this.tableAdapterManager1.RegistroActivosTableAdapter = null;
+            this.tableAdapterManager1.TecnicosTableAdapter = null;
+            this.tableAdapterManager1.UpdateOrder = GestionInventario.ConsultaActivosDSTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
+            // 
+            // registroActivosTableAdapter
+            // 
+            this.registroActivosTableAdapter.ClearBeforeFill = true;
+            // 
+            // editarTableTableAdapter
+            // 
+            this.editarTableTableAdapter.ClearBeforeFill = true;
+            // 
+            // mantenimientoTableAdapter
+            // 
+            this.mantenimientoTableAdapter.ClearBeforeFill = true;
+            // 
             // activosViewDataGridView
             // 
             this.activosViewDataGridView.AutoGenerateColumns = false;
@@ -255,11 +399,10 @@ namespace GestionInventario
             this.dataGridViewTextBoxColumn4,
             this.dataGridViewTextBoxColumn5});
             this.activosViewDataGridView.DataSource = this.activosViewBindingSource;
-            this.activosViewDataGridView.Location = new System.Drawing.Point(49, 127);
+            this.activosViewDataGridView.Location = new System.Drawing.Point(31, 152);
             this.activosViewDataGridView.Name = "activosViewDataGridView";
-            this.activosViewDataGridView.Size = new System.Drawing.Size(566, 102);
-            this.activosViewDataGridView.TabIndex = 28;
-            this.activosViewDataGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.activosViewDataGridView_CellContentClick);
+            this.activosViewDataGridView.Size = new System.Drawing.Size(614, 111);
+            this.activosViewDataGridView.TabIndex = 31;
             // 
             // dataGridViewTextBoxColumn1
             // 
@@ -291,45 +434,16 @@ namespace GestionInventario
             this.dataGridViewTextBoxColumn5.HeaderText = "FechaRegistro";
             this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
             // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold);
-            this.label1.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.label1.Location = new System.Drawing.Point(19, 82);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(74, 21);
-            this.label1.TabIndex = 29;
-            this.label1.Text = "Número:";
-            this.label1.Click += new System.EventHandler(this.label1_Click);
-            // 
-            // txtNumeroConsulta
-            // 
-            this.txtNumeroConsulta.Location = new System.Drawing.Point(119, 82);
-            this.txtNumeroConsulta.Name = "txtNumeroConsulta";
-            this.txtNumeroConsulta.Size = new System.Drawing.Size(197, 20);
-            this.txtNumeroConsulta.TabIndex = 30;
-            this.txtNumeroConsulta.TextChanged += new System.EventHandler(this.txtNumeroConsulta_TextChanged);
-            // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(49, 379);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(145, 33);
-            this.button1.TabIndex = 31;
-            this.button1.Text = "EXPORTAR EXCEL";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
             // FormConsulta
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(648, 434);
+            this.ClientSize = new System.Drawing.Size(665, 578);
+            this.Controls.Add(this.activosViewDataGridView);
+            this.Controls.Add(this.mantenimientoDataGridView);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.txtNumeroConsulta);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.activosViewDataGridView);
             this.Controls.Add(this.activosViewBindingNavigator);
             this.Controls.Add(this.txtNumConsulta);
             this.Controls.Add(this.lblNumeroConsulta);
@@ -337,11 +451,16 @@ namespace GestionInventario
             this.Name = "FormConsulta";
             this.Text = "FormConsulta";
             this.Load += new System.EventHandler(this.FormConsulta_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.activosViewDS)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.activosViewBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.activosViewBindingNavigator)).EndInit();
             this.activosViewBindingNavigator.ResumeLayout(false);
             this.activosViewBindingNavigator.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.activosViewBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.activosViewDS)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.mantenimientoDataGridView)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.mantenimientoBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.consultaActivosDS)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.registroActivosBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.editarTableBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.activosViewDataGridView)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -370,14 +489,29 @@ namespace GestionInventario
         private ToolStripButton bindingNavigatorMoveLastItem;
         private ToolStripSeparator bindingNavigatorSeparator2;
         private ToolStripButton activosViewBindingNavigatorSaveItem;
+        private Label label1;
+        private TextBox txtNumeroConsulta;
+        private Button button1;
+        private ConsultaActivosDS consultaActivosDS;
+        private BindingSource editarTableBindingSource;
+        private ConsultaActivosDSTableAdapters.TableAdapterManager tableAdapterManager1;
+        private BindingSource registroActivosBindingSource;
+        private ConsultaActivosDSTableAdapters.RegistroActivosTableAdapter registroActivosTableAdapter;
+        private ConsultaActivosDSTableAdapters.EditarTableTableAdapter editarTableTableAdapter;
+        private BindingSource mantenimientoBindingSource;
+        private ConsultaActivosDSTableAdapters.MantenimientoTableAdapter mantenimientoTableAdapter;
+        private DataGridView mantenimientoDataGridView;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn6;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn7;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn8;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn9;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn10;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn11;
         private DataGridView activosViewDataGridView;
         private DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
         private DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
         private DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
         private DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
         private DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;
-        private Label label1;
-        private TextBox txtNumeroConsulta;
-        private Button button1;
     }
 }
