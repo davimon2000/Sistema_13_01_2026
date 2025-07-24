@@ -4,6 +4,13 @@
 
     partial class ConsultaActivosDS
     {
+        partial class DataTable1DataTable
+        {
+        }
+
+        partial class MantenimientoDataTable
+        {
+        }
     }
 }
 

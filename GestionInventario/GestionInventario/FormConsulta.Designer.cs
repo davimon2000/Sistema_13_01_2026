@@ -37,6 +37,8 @@ namespace GestionInventario
             this.lblNumeroConsulta = new System.Windows.Forms.Label();
             this.activosViewBindingNavigator = new System.Windows.Forms.BindingNavigator(this.components);
             this.bindingNavigatorAddNewItem = new System.Windows.Forms.ToolStripButton();
+            this.activosViewBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.activosViewDS = new GestionInventario.ActivosViewDS();
             this.bindingNavigatorCountItem = new System.Windows.Forms.ToolStripLabel();
             this.bindingNavigatorDeleteItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorMoveFirstItem = new System.Windows.Forms.ToolStripButton();
@@ -51,17 +53,14 @@ namespace GestionInventario
             this.label1 = new System.Windows.Forms.Label();
             this.txtNumeroConsulta = new System.Windows.Forms.TextBox();
             this.button1 = new System.Windows.Forms.Button();
-            this.activosViewBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.activosViewDS = new GestionInventario.ActivosViewDS();
             this.activosViewTableAdapter = new GestionInventario.ActivosViewDSTableAdapters.ActivosViewTableAdapter();
             this.tableAdapterManager = new GestionInventario.ActivosViewDSTableAdapters.TableAdapterManager();
-            this.mantenimientoDataGridView = new System.Windows.Forms.DataGridView();
-            this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn11 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.activosViewDataGridView = new System.Windows.Forms.DataGridView();
             this.mantenimientoBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.consultaActivosDS = new GestionInventario.ConsultaActivosDS();
             this.registroActivosBindingSource = new System.Windows.Forms.BindingSource(this.components);
@@ -69,23 +68,25 @@ namespace GestionInventario
             this.tableAdapterManager1 = new GestionInventario.ConsultaActivosDSTableAdapters.TableAdapterManager();
             this.registroActivosTableAdapter = new GestionInventario.ConsultaActivosDSTableAdapters.RegistroActivosTableAdapter();
             this.editarTableTableAdapter = new GestionInventario.ConsultaActivosDSTableAdapters.EditarTableTableAdapter();
-            this.mantenimientoTableAdapter = new GestionInventario.ConsultaActivosDSTableAdapters.MantenimientoTableAdapter();
-            this.activosViewDataGridView = new System.Windows.Forms.DataGridView();
-            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.activosViewDataGridView1 = new System.Windows.Forms.DataGridView();
+            this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.button2 = new System.Windows.Forms.Button();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.activosViewBindingNavigator)).BeginInit();
             this.activosViewBindingNavigator.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.activosViewBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.activosViewDS)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.mantenimientoDataGridView)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.activosViewDataGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.mantenimientoBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.consultaActivosDS)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.registroActivosBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.editarTableBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.activosViewDataGridView)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.activosViewDataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
             // lblRegistro
@@ -158,6 +159,16 @@ namespace GestionInventario
             this.bindingNavigatorAddNewItem.RightToLeftAutoMirrorImage = true;
             this.bindingNavigatorAddNewItem.Size = new System.Drawing.Size(23, 22);
             this.bindingNavigatorAddNewItem.Text = "Agregar nuevo";
+            // 
+            // activosViewBindingSource
+            // 
+            this.activosViewBindingSource.DataMember = "ActivosView";
+            this.activosViewBindingSource.DataSource = this.activosViewDS;
+            // 
+            // activosViewDS
+            // 
+            this.activosViewDS.DataSetName = "ActivosViewDS";
+            this.activosViewDS.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // bindingNavigatorCountItem
             // 
@@ -243,6 +254,7 @@ namespace GestionInventario
             this.activosViewBindingNavigatorSaveItem.Name = "activosViewBindingNavigatorSaveItem";
             this.activosViewBindingNavigatorSaveItem.Size = new System.Drawing.Size(23, 22);
             this.activosViewBindingNavigatorSaveItem.Text = "Guardar datos";
+            this.activosViewBindingNavigatorSaveItem.Click += new System.EventHandler(this.activosViewBindingNavigatorSaveItem_Click);
             // 
             // label1
             // 
@@ -274,16 +286,6 @@ namespace GestionInventario
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
-            // activosViewBindingSource
-            // 
-            this.activosViewBindingSource.DataMember = "ActivosView";
-            this.activosViewBindingSource.DataSource = this.activosViewDS;
-            // 
-            // activosViewDS
-            // 
-            this.activosViewDS.DataSetName = "ActivosViewDS";
-            this.activosViewDS.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
             // activosViewTableAdapter
             // 
             this.activosViewTableAdapter.ClearBeforeFill = true;
@@ -294,58 +296,51 @@ namespace GestionInventario
             this.tableAdapterManager.Connection = null;
             this.tableAdapterManager.UpdateOrder = GestionInventario.ActivosViewDSTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
             // 
-            // mantenimientoDataGridView
+            // dataGridViewTextBoxColumn5
             // 
-            this.mantenimientoDataGridView.AutoGenerateColumns = false;
-            this.mantenimientoDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.mantenimientoDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.dataGridViewTextBoxColumn6,
-            this.dataGridViewTextBoxColumn7,
-            this.dataGridViewTextBoxColumn8,
-            this.dataGridViewTextBoxColumn9,
-            this.dataGridViewTextBoxColumn10,
-            this.dataGridViewTextBoxColumn11});
-            this.mantenimientoDataGridView.DataSource = this.mantenimientoBindingSource;
-            this.mantenimientoDataGridView.Location = new System.Drawing.Point(31, 367);
-            this.mantenimientoDataGridView.Name = "mantenimientoDataGridView";
-            this.mantenimientoDataGridView.Size = new System.Drawing.Size(614, 121);
-            this.mantenimientoDataGridView.TabIndex = 31;
+            this.dataGridViewTextBoxColumn5.DataPropertyName = "FechaRegistro";
+            this.dataGridViewTextBoxColumn5.HeaderText = "FechaRegistro";
+            this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
             // 
-            // dataGridViewTextBoxColumn6
+            // dataGridViewTextBoxColumn4
             // 
-            this.dataGridViewTextBoxColumn6.DataPropertyName = "FechaIngresoMtto";
-            this.dataGridViewTextBoxColumn6.HeaderText = "FechaIngresoMtto";
-            this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
+            this.dataGridViewTextBoxColumn4.DataPropertyName = "FechaCompra";
+            this.dataGridViewTextBoxColumn4.HeaderText = "FechaCompra";
+            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
             // 
-            // dataGridViewTextBoxColumn7
+            // dataGridViewTextBoxColumn3
             // 
-            this.dataGridViewTextBoxColumn7.DataPropertyName = "TipoFalla";
-            this.dataGridViewTextBoxColumn7.HeaderText = "TipoFalla";
-            this.dataGridViewTextBoxColumn7.Name = "dataGridViewTextBoxColumn7";
+            this.dataGridViewTextBoxColumn3.DataPropertyName = "Marca";
+            this.dataGridViewTextBoxColumn3.HeaderText = "Marca";
+            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
             // 
-            // dataGridViewTextBoxColumn8
+            // dataGridViewTextBoxColumn2
             // 
-            this.dataGridViewTextBoxColumn8.DataPropertyName = "ObsIngreso";
-            this.dataGridViewTextBoxColumn8.HeaderText = "ObsIngreso";
-            this.dataGridViewTextBoxColumn8.Name = "dataGridViewTextBoxColumn8";
+            this.dataGridViewTextBoxColumn2.DataPropertyName = "Serial";
+            this.dataGridViewTextBoxColumn2.HeaderText = "Serial";
+            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
             // 
-            // dataGridViewTextBoxColumn9
+            // dataGridViewTextBoxColumn1
             // 
-            this.dataGridViewTextBoxColumn9.DataPropertyName = "FechaSalidaMtto";
-            this.dataGridViewTextBoxColumn9.HeaderText = "FechaSalidaMtto";
-            this.dataGridViewTextBoxColumn9.Name = "dataGridViewTextBoxColumn9";
+            this.dataGridViewTextBoxColumn1.DataPropertyName = "CodInterno";
+            this.dataGridViewTextBoxColumn1.HeaderText = "CodInterno";
+            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
             // 
-            // dataGridViewTextBoxColumn10
+            // activosViewDataGridView
             // 
-            this.dataGridViewTextBoxColumn10.DataPropertyName = "EstadoSalida";
-            this.dataGridViewTextBoxColumn10.HeaderText = "EstadoSalida";
-            this.dataGridViewTextBoxColumn10.Name = "dataGridViewTextBoxColumn10";
-            // 
-            // dataGridViewTextBoxColumn11
-            // 
-            this.dataGridViewTextBoxColumn11.DataPropertyName = "ObsSalida";
-            this.dataGridViewTextBoxColumn11.HeaderText = "ObsSalida";
-            this.dataGridViewTextBoxColumn11.Name = "dataGridViewTextBoxColumn11";
+            this.activosViewDataGridView.AutoGenerateColumns = false;
+            this.activosViewDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.activosViewDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dataGridViewTextBoxColumn1,
+            this.dataGridViewTextBoxColumn2,
+            this.dataGridViewTextBoxColumn3,
+            this.dataGridViewTextBoxColumn4,
+            this.dataGridViewTextBoxColumn5});
+            this.activosViewDataGridView.DataSource = this.activosViewBindingSource;
+            this.activosViewDataGridView.Location = new System.Drawing.Point(31, 152);
+            this.activosViewDataGridView.Name = "activosViewDataGridView";
+            this.activosViewDataGridView.Size = new System.Drawing.Size(614, 111);
+            this.activosViewDataGridView.TabIndex = 31;
             // 
             // mantenimientoBindingSource
             // 
@@ -384,63 +379,92 @@ namespace GestionInventario
             // 
             this.editarTableTableAdapter.ClearBeforeFill = true;
             // 
-            // mantenimientoTableAdapter
+            // activosViewDataGridView1
             // 
-            this.mantenimientoTableAdapter.ClearBeforeFill = true;
+            this.activosViewDataGridView1.AutoGenerateColumns = false;
+            this.activosViewDataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.activosViewDataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dataGridViewTextBoxColumn6,
+            this.dataGridViewTextBoxColumn7,
+            this.dataGridViewTextBoxColumn8,
+            this.dataGridViewTextBoxColumn9,
+            this.dataGridViewTextBoxColumn10});
+            this.activosViewDataGridView1.DataSource = this.activosViewBindingSource;
+            this.activosViewDataGridView1.Location = new System.Drawing.Point(31, 378);
+            this.activosViewDataGridView1.Name = "activosViewDataGridView1";
+            this.activosViewDataGridView1.Size = new System.Drawing.Size(614, 92);
+            this.activosViewDataGridView1.TabIndex = 31;
             // 
-            // activosViewDataGridView
+            // dataGridViewTextBoxColumn6
             // 
-            this.activosViewDataGridView.AutoGenerateColumns = false;
-            this.activosViewDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.activosViewDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.dataGridViewTextBoxColumn1,
-            this.dataGridViewTextBoxColumn2,
-            this.dataGridViewTextBoxColumn3,
-            this.dataGridViewTextBoxColumn4,
-            this.dataGridViewTextBoxColumn5});
-            this.activosViewDataGridView.DataSource = this.activosViewBindingSource;
-            this.activosViewDataGridView.Location = new System.Drawing.Point(31, 152);
-            this.activosViewDataGridView.Name = "activosViewDataGridView";
-            this.activosViewDataGridView.Size = new System.Drawing.Size(614, 111);
-            this.activosViewDataGridView.TabIndex = 31;
+            this.dataGridViewTextBoxColumn6.DataPropertyName = "CodInterno";
+            this.dataGridViewTextBoxColumn6.HeaderText = "CodInterno";
+            this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
             // 
-            // dataGridViewTextBoxColumn1
+            // dataGridViewTextBoxColumn7
             // 
-            this.dataGridViewTextBoxColumn1.DataPropertyName = "CodInterno";
-            this.dataGridViewTextBoxColumn1.HeaderText = "CodInterno";
-            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
+            this.dataGridViewTextBoxColumn7.DataPropertyName = "Serial";
+            this.dataGridViewTextBoxColumn7.HeaderText = "Serial";
+            this.dataGridViewTextBoxColumn7.Name = "dataGridViewTextBoxColumn7";
             // 
-            // dataGridViewTextBoxColumn2
+            // dataGridViewTextBoxColumn8
             // 
-            this.dataGridViewTextBoxColumn2.DataPropertyName = "Serial";
-            this.dataGridViewTextBoxColumn2.HeaderText = "Serial";
-            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
+            this.dataGridViewTextBoxColumn8.DataPropertyName = "Marca";
+            this.dataGridViewTextBoxColumn8.HeaderText = "Marca";
+            this.dataGridViewTextBoxColumn8.Name = "dataGridViewTextBoxColumn8";
             // 
-            // dataGridViewTextBoxColumn3
+            // dataGridViewTextBoxColumn9
             // 
-            this.dataGridViewTextBoxColumn3.DataPropertyName = "Marca";
-            this.dataGridViewTextBoxColumn3.HeaderText = "Marca";
-            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
+            this.dataGridViewTextBoxColumn9.DataPropertyName = "FechaCompra";
+            this.dataGridViewTextBoxColumn9.HeaderText = "FechaCompra";
+            this.dataGridViewTextBoxColumn9.Name = "dataGridViewTextBoxColumn9";
             // 
-            // dataGridViewTextBoxColumn4
+            // dataGridViewTextBoxColumn10
             // 
-            this.dataGridViewTextBoxColumn4.DataPropertyName = "FechaCompra";
-            this.dataGridViewTextBoxColumn4.HeaderText = "FechaCompra";
-            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
+            this.dataGridViewTextBoxColumn10.DataPropertyName = "FechaRegistro";
+            this.dataGridViewTextBoxColumn10.HeaderText = "FechaRegistro";
+            this.dataGridViewTextBoxColumn10.Name = "dataGridViewTextBoxColumn10";
             // 
-            // dataGridViewTextBoxColumn5
+            // button2
             // 
-            this.dataGridViewTextBoxColumn5.DataPropertyName = "FechaRegistro";
-            this.dataGridViewTextBoxColumn5.HeaderText = "FechaRegistro";
-            this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
+            this.button2.Location = new System.Drawing.Point(31, 498);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(145, 33);
+            this.button2.TabIndex = 32;
+            this.button2.Text = "EXPORTAR EXCEL";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(27, 334);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(114, 20);
+            this.label2.TabIndex = 33;
+            this.label2.Text = "Mantenimiento";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(27, 73);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(69, 20);
+            this.label3.TabIndex = 34;
+            this.label3.Text = "Registro";
             // 
             // FormConsulta
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(665, 578);
+            this.ClientSize = new System.Drawing.Size(665, 588);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.button2);
+            this.Controls.Add(this.activosViewDataGridView1);
             this.Controls.Add(this.activosViewDataGridView);
-            this.Controls.Add(this.mantenimientoDataGridView);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.txtNumeroConsulta);
             this.Controls.Add(this.label1);
@@ -456,12 +480,12 @@ namespace GestionInventario
             this.activosViewBindingNavigator.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.activosViewBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.activosViewDS)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.mantenimientoDataGridView)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.activosViewDataGridView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.mantenimientoBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.consultaActivosDS)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.registroActivosBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.editarTableBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.activosViewDataGridView)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.activosViewDataGridView1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -499,19 +523,20 @@ namespace GestionInventario
         private ConsultaActivosDSTableAdapters.RegistroActivosTableAdapter registroActivosTableAdapter;
         private ConsultaActivosDSTableAdapters.EditarTableTableAdapter editarTableTableAdapter;
         private BindingSource mantenimientoBindingSource;
-        private ConsultaActivosDSTableAdapters.MantenimientoTableAdapter mantenimientoTableAdapter;
-        private DataGridView mantenimientoDataGridView;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
+        private DataGridView activosViewDataGridView;
+        private DataGridView activosViewDataGridView1;
         private DataGridViewTextBoxColumn dataGridViewTextBoxColumn6;
         private DataGridViewTextBoxColumn dataGridViewTextBoxColumn7;
         private DataGridViewTextBoxColumn dataGridViewTextBoxColumn8;
         private DataGridViewTextBoxColumn dataGridViewTextBoxColumn9;
         private DataGridViewTextBoxColumn dataGridViewTextBoxColumn10;
-        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn11;
-        private DataGridView activosViewDataGridView;
-        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
-        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
-        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
-        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
-        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;
+        private Button button2;
+        private Label label2;
+        private Label label3;
     }
 }

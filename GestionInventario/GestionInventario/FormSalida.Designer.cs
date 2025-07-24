@@ -136,6 +136,7 @@
             this.Controls.Add(this.lblAsignacion);
             this.Name = "FormSalida";
             this.Text = "FormSalida";
+            this.Load += new System.EventHandler(this.FormSalida_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

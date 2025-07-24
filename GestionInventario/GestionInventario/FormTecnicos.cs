@@ -48,5 +48,10 @@ namespace GestionInventario
         {
 
         }
+
+        private void tecnicosDataGridView_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
     }
 }

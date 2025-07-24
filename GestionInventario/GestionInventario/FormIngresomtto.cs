@@ -156,99 +156,6 @@ namespace GestionInventario
                     cmd.Parameters.AddWithValue("@Numero", numeroActivo);
                     object result = cmd.ExecuteScalar();
 
-                    //if (result != null)
-                    //{
-                    //    InventarioId = Convert.ToInt32(result);
-
-
-                    //    string queryExistencia = "SELECT COUNT(*) FROM Mantenimiento WHERE InventarioId = @InventarioId";
-                    //    using (SqlCommand cmdExist = new SqlCommand(queryExistencia, conn))
-                    //    {
-                    //        cmdExist.Parameters.AddWithValue("@InventarioId", InventarioId);
-                    //        int count = (int)cmdExist.ExecuteScalar();
-
-                    //        if (count > 0)
-                    //        {
-                    //            // Paso 2: Preguntar si desea actualizar
-                    //            DialogResult resultado = MessageBox.Show(
-                    //                "Ya existe un activo ingresado a mantenimiento con ese número. ¿Desea actualizar los datos de ingreso?",
-                    //                "Confirmar actualización",
-                    //                MessageBoxButtons.YesNo,
-                    //                MessageBoxIcon.Question
-                    //            );
-
-                    //            if (resultado == DialogResult.Yes)
-                    //            {
-                    //                // Paso 3: Actualizar
-                    //                string updateQuery = @"
-                    //    UPDATE Mantenimiento
-                    //    SET InventarioId = @InventarioId,
-                    //        FechaIngresoMtto = @FechaIngresoMtto,
-                    //        TipoFalla = @TipoFalla,
-                    //        ObsIngreso = @ObsIngreso
-
-                    //    WHERE InventarioId = @InventarioId";
-
-                    //                using (SqlCommand cmdUpdate = new SqlCommand(updateQuery, conn))
-                    //                {
-                    //                    cmdUpdate.Parameters.AddWithValue("@InventarioId", InventarioId);
-                    //                    cmdUpdate.Parameters.AddWithValue("@FechaIngresoMtto", fechaIngresoMtto);
-                    //                    cmdUpdate.Parameters.AddWithValue("@TipoFalla", TipoFalla);
-                    //                    cmdUpdate.Parameters.AddWithValue("@ObsIngreso", ObsIngreso);
-
-                    //                    // Manejo de parámetro nulo
-
-                    //                    cmdUpdate.ExecuteNonQuery();
-                    //                    MessageBox.Show("Registro actualizado correctamente.");
-                    //                    txtNumMtto.Text = "";
-                    //                    txtObservacion.Text = "";
-                    //                }
-                    //            }
-                    //            else
-                    //            {
-                    //                MessageBox.Show("Operación cancelada.");
-                    //                txtNumMtto.Text = "";
-                    //                txtObservacion.Text = "";
-                    //            }
-                    //        }
-
-                    //        else
-                    //        {
-
-                    //            // 3. Insertar en la base de datos
-                    //            using (SqlConnection conexion = new SqlConnection(connectionString))
-                    //            {
-                    //                string query = @"INSERT INTO Mantenimiento (InventarioId, FechaIngresoMtto, TipoFalla, ObsIngreso)
-                    //     VALUES (@InventarioId, @FechaIngresoMtto, @TipoFalla, @ObsIngreso)";
-
-                    //                using (SqlCommand cmdIngreso = new SqlCommand(query, conexion))
-                    //                {
-                    //                    cmdIngreso.Parameters.AddWithValue("@InventarioId", InventarioId);
-                    //                    cmdIngreso.Parameters.AddWithValue("@FechaIngresoMtto", fechaIngresoMtto);
-                    //                    cmdIngreso.Parameters.AddWithValue("@TipoFalla", TipoFalla);
-                    //                    cmdIngreso.Parameters.AddWithValue("@ObsIngreso", ObsIngreso);
-
-
-                    //                    try
-                    //                    {
-                    //                        conexion.Open();
-                    //                        cmdIngreso.ExecuteNonQuery();
-                    //                        MessageBox.Show("Activo ingresado correctamente");
-                    //                        txtNumMtto.Text = "";
-                    //                        txtObservacion.Text = "";
-                    //                    }
-                    //                    catch (Exception ex)
-                    //                    {
-                    //                        MessageBox.Show("Error al registrar: " + ex.Message);
-                    //                    }
-                    //                }
-                    //            }
-                    //        }
-                    //    }
-
-                    //}
-
-
 
 
                     if (result != null)
@@ -308,6 +215,31 @@ namespace GestionInventario
                                                     MessageBox.Show("Activo ingresado correctamente.");
                                                     txtNumMtto.Text = "";
                                                     txtObservacion.Text = "";
+
+
+
+
+                                                    using(SqlConnection connnn = new SqlConnection(connectionString))
+                                    {
+                                                        string query_Sede = "UPDATE Asignacion SET Sede = NULL WHERE IdActivo = @IdActivo";
+
+                                                        using (SqlCommand cmd_Sede = new SqlCommand(query_Sede, connnn))
+                                                        {
+                                                            cmd_Sede.Parameters.AddWithValue("@IdActivo", InventarioId);
+
+                                                            connnn.Open();
+                                                            cmd_Sede.ExecuteNonQuery();
+                                                            connnn.Close();
+                                                        }
+                                                    }
+
+
+
+
+
+
+
+
                                                 }
                                                 catch (Exception ex)
                                                 {
@@ -453,6 +385,28 @@ namespace GestionInventario
                                     MessageBox.Show("Registro actualizado correctamente.");
                                     txtNumMtto.Text = "";
                                     txtObservacionSalida.Text = "";
+
+
+
+
+                                    using (SqlConnection connn = new SqlConnection(connectionString))
+                                    { 
+                                    string query_Sede = "UPDATE Asignacion SET Sede = NULL WHERE IdActivo = @IdActivo";
+
+                                    using (SqlCommand cmd_Sede = new SqlCommand(query_Sede, connn))
+                                    {
+                                        cmd_Sede.Parameters.AddWithValue("@IdActivo", InventarioId);
+
+                                        connn.Open();
+                                        cmd_Sede.ExecuteNonQuery();
+                                        connn.Close();
+                                    }
+                                    }
+
+
+
+
+
                                 }
 
 

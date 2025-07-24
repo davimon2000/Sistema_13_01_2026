@@ -172,11 +172,24 @@ namespace GestionInventario
 
 
             //string query = "SELECT Marca, COUNT(*) AS Cantidad FROM RegistroActivos GROUP BY Marca";
+    //        string query = @"
+    //SELECT M.Marca, COUNT(*) AS Cantidad
+    //FROM RegistroActivos RA
+    //INNER JOIN Marcas M ON RA.Marca = M.Id
+    //GROUP BY M.Marca";
+
+
             string query = @"
-    SELECT M.Marca, COUNT(*) AS Cantidad
-    FROM RegistroActivos RA
-    INNER JOIN Marcas M ON RA.Marca = M.Id
-    GROUP BY M.Marca";
+SELECT M.Marca, COUNT(*) AS Cantidad
+FROM RegistroActivos RA
+INNER JOIN Marcas M ON RA.Marca = M.Id
+WHERE NOT EXISTS (
+    SELECT 1
+    FROM VistaActivos MT
+    WHERE MT.CodInterno= RA.CodInterno
+      AND MT.EstadoDefinitivo = 'Baja' -- Ajusta si usas otro valor
+)
+GROUP BY M.Marca";
 
             Color[] colores = new Color[]
     {

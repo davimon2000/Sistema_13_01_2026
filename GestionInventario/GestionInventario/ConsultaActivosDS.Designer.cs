@@ -693,6 +693,14 @@ namespace GestionInventario {
             
             private global::System.Data.DataColumn columnObsSalida;
             
+            private global::System.Data.DataColumn columnTecnicoId;
+            
+            private global::System.Data.DataColumn columnId;
+            
+            private global::System.Data.DataColumn columnInventarioId;
+            
+            private global::System.Data.DataColumn columncheckMtto;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public MantenimientoDataTable() {
@@ -776,6 +784,38 @@ namespace GestionInventario {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn TecnicoIdColumn {
+                get {
+                    return this.columnTecnicoId;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn IdColumn {
+                get {
+                    return this.columnId;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn InventarioIdColumn {
+                get {
+                    return this.columnInventarioId;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn checkMttoColumn {
+                get {
+                    return this.columncheckMtto;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -811,7 +851,7 @@ namespace GestionInventario {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public MantenimientoRow AddMantenimientoRow(System.DateTime FechaIngresoMtto, string TipoFalla, string ObsIngreso, System.DateTime FechaSalidaMtto, string EstadoSalida, string ObsSalida) {
+            public MantenimientoRow AddMantenimientoRow(System.DateTime FechaIngresoMtto, string TipoFalla, string ObsIngreso, System.DateTime FechaSalidaMtto, string EstadoSalida, string ObsSalida, int TecnicoId, int InventarioId, bool checkMtto) {
                 MantenimientoRow rowMantenimientoRow = ((MantenimientoRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         FechaIngresoMtto,
@@ -819,10 +859,21 @@ namespace GestionInventario {
                         ObsIngreso,
                         FechaSalidaMtto,
                         EstadoSalida,
-                        ObsSalida};
+                        ObsSalida,
+                        TecnicoId,
+                        null,
+                        InventarioId,
+                        checkMtto};
                 rowMantenimientoRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowMantenimientoRow);
                 return rowMantenimientoRow;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public MantenimientoRow FindById(int Id) {
+                return ((MantenimientoRow)(this.Rows.Find(new object[] {
+                            Id})));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -848,6 +899,10 @@ namespace GestionInventario {
                 this.columnFechaSalidaMtto = base.Columns["FechaSalidaMtto"];
                 this.columnEstadoSalida = base.Columns["EstadoSalida"];
                 this.columnObsSalida = base.Columns["ObsSalida"];
+                this.columnTecnicoId = base.Columns["TecnicoId"];
+                this.columnId = base.Columns["Id"];
+                this.columnInventarioId = base.Columns["InventarioId"];
+                this.columncheckMtto = base.Columns["checkMtto"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -865,10 +920,27 @@ namespace GestionInventario {
                 base.Columns.Add(this.columnEstadoSalida);
                 this.columnObsSalida = new global::System.Data.DataColumn("ObsSalida", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnObsSalida);
+                this.columnTecnicoId = new global::System.Data.DataColumn("TecnicoId", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnTecnicoId);
+                this.columnId = new global::System.Data.DataColumn("Id", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnId);
+                this.columnInventarioId = new global::System.Data.DataColumn("InventarioId", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnInventarioId);
+                this.columncheckMtto = new global::System.Data.DataColumn("checkMtto", typeof(bool), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columncheckMtto);
+                this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
+                                this.columnId}, true));
                 this.columnTipoFalla.MaxLength = 50;
                 this.columnObsIngreso.MaxLength = 100;
                 this.columnEstadoSalida.MaxLength = 50;
                 this.columnObsSalida.MaxLength = 100;
+                this.columnId.AutoIncrement = true;
+                this.columnId.AutoIncrementSeed = -1;
+                this.columnId.AutoIncrementStep = -1;
+                this.columnId.AllowDBNull = false;
+                this.columnId.ReadOnly = true;
+                this.columnId.Unique = true;
+                this.columnInventarioId.AllowDBNull = false;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -2204,6 +2276,60 @@ namespace GestionInventario {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public int TecnicoId {
+                get {
+                    try {
+                        return ((int)(this[this.tableMantenimiento.TecnicoIdColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'TecnicoId\' de la tabla \'Mantenimiento\' es DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableMantenimiento.TecnicoIdColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public int Id {
+                get {
+                    return ((int)(this[this.tableMantenimiento.IdColumn]));
+                }
+                set {
+                    this[this.tableMantenimiento.IdColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public int InventarioId {
+                get {
+                    return ((int)(this[this.tableMantenimiento.InventarioIdColumn]));
+                }
+                set {
+                    this[this.tableMantenimiento.InventarioIdColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool checkMtto {
+                get {
+                    try {
+                        return ((bool)(this[this.tableMantenimiento.checkMttoColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'checkMtto\' de la tabla \'Mantenimiento\' es DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableMantenimiento.checkMttoColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public bool IsFechaIngresoMttoNull() {
                 return this.IsNull(this.tableMantenimiento.FechaIngresoMttoColumn);
             }
@@ -2272,6 +2398,30 @@ namespace GestionInventario {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public void SetObsSalidaNull() {
                 this[this.tableMantenimiento.ObsSalidaColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IsTecnicoIdNull() {
+                return this.IsNull(this.tableMantenimiento.TecnicoIdColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SetTecnicoIdNull() {
+                this[this.tableMantenimiento.TecnicoIdColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IscheckMttoNull() {
+                return this.IsNull(this.tableMantenimiento.checkMttoColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SetcheckMttoNull() {
+                this[this.tableMantenimiento.checkMttoColumn] = global::System.Convert.DBNull;
             }
         }
         
@@ -3372,6 +3522,10 @@ namespace GestionInventario.ConsultaActivosDSTableAdapters {
             tableMapping.ColumnMappings.Add("FechaSalidaMtto", "FechaSalidaMtto");
             tableMapping.ColumnMappings.Add("EstadoSalida", "EstadoSalida");
             tableMapping.ColumnMappings.Add("ObsSalida", "ObsSalida");
+            tableMapping.ColumnMappings.Add("TecnicoId", "TecnicoId");
+            tableMapping.ColumnMappings.Add("Id", "Id");
+            tableMapping.ColumnMappings.Add("InventarioId", "InventarioId");
+            tableMapping.ColumnMappings.Add("checkMtto", "checkMtto");
             this._adapter.TableMappings.Add(tableMapping);
         }
         
@@ -3388,8 +3542,7 @@ namespace GestionInventario.ConsultaActivosDSTableAdapters {
             this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT        FechaIngresoMtto, TipoFalla, ObsIngreso, FechaSalidaMtto, EstadoSal" +
-                "ida, ObsSalida\r\nFROM            Mantenimiento";
+            this._commandCollection[0].CommandText = "SELECT        Mantenimiento.*\r\nFROM            Mantenimiento";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }
         

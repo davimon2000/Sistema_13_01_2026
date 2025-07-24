@@ -65,7 +65,7 @@ namespace GestionInventario
                             {
                                 // Si ya existe, actualizar
                                 string updateQuery = @"UPDATE Asignacion 
-                                               SET Sede = @Sede, Area = @Area, FechaAsignacion = @Fecha
+                                               SET Sede = @Sede, FechaAsignacion = @Fecha
                                                WHERE IdActivo = @IdActivo";
 
                                 using (SqlCommand cmdUpdate = new SqlCommand(updateQuery, conn))
@@ -82,8 +82,8 @@ namespace GestionInventario
                             else
                             {
                                 // Si no existe, insertar
-                                string insertQuery = @"INSERT INTO Asignacion (Sede, Area, FechaAsignacion, IdActivo) 
-                                               VALUES (@Sede, @Area, @Fecha, @idActivo)";
+                                string insertQuery = @"INSERT INTO Asignacion (Sede, FechaAsignacion, IdActivo) 
+                                               VALUES (@Sede, @Fecha, @idActivo)";
 
                                 using (SqlCommand cmdInsert = new SqlCommand(insertQuery, conn))
                                 {
@@ -105,5 +105,10 @@ namespace GestionInventario
                     }
                 }
             }
+
+        private void FormSalida_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

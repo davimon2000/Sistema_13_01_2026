@@ -219,6 +219,7 @@
             this.tecnicosDataGridView.Name = "tecnicosDataGridView";
             this.tecnicosDataGridView.Size = new System.Drawing.Size(448, 186);
             this.tecnicosDataGridView.TabIndex = 1;
+            this.tecnicosDataGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.tecnicosDataGridView_CellContentClick);
             // 
             // dataGridViewTextBoxColumn1
             // 
