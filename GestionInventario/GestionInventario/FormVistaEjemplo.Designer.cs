@@ -30,11 +30,11 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormVistaEjemplo));
-            this.activosViewDS = new GestionInventario.ActivosViewDS();
-            this.activosViewBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.activosViewTableAdapter = new GestionInventario.ActivosViewDSTableAdapters.ActivosViewTableAdapter();
-            this.tableAdapterManager = new GestionInventario.ActivosViewDSTableAdapters.TableAdapterManager();
-            this.activosViewBindingNavigator = new System.Windows.Forms.BindingNavigator(this.components);
+            this.registroActivosDS = new GestionInventario.RegistroActivosDS();
+            this.registroActivosBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.registroActivosTableAdapter = new GestionInventario.RegistroActivosDSTableAdapters.RegistroActivosTableAdapter();
+            this.tableAdapterManager = new GestionInventario.RegistroActivosDSTableAdapters.TableAdapterManager();
+            this.registroActivosBindingNavigator = new System.Windows.Forms.BindingNavigator(this.components);
             this.bindingNavigatorMoveFirstItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorMovePreviousItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorSeparator = new System.Windows.Forms.ToolStripSeparator();
@@ -46,48 +46,64 @@
             this.bindingNavigatorSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.bindingNavigatorAddNewItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorDeleteItem = new System.Windows.Forms.ToolStripButton();
-            this.activosViewBindingNavigatorSaveItem = new System.Windows.Forms.ToolStripButton();
-            this.activosViewDataGridView = new System.Windows.Forms.DataGridView();
+            this.registroActivosBindingNavigatorSaveItem = new System.Windows.Forms.ToolStripButton();
+            this.registroActivosDataGridView = new System.Windows.Forms.DataGridView();
+            this.inventarioActivosDataSet = new GestionInventario.InventarioActivosDataSet();
+            this.marcasBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.marcasTableAdapter = new GestionInventario.InventarioActivosDataSetTableAdapters.MarcasTableAdapter();
+            this.inventarioActivosDataSet2 = new GestionInventario.InventarioActivosDataSet2();
+            this.marcasBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+            this.marcasTableAdapter1 = new GestionInventario.InventarioActivosDataSet2TableAdapters.MarcasTableAdapter();
+            this.marcasDS = new GestionInventario.MarcasDS();
+            this.marcasBindingSource2 = new System.Windows.Forms.BindingSource(this.components);
+            this.marcasTableAdapter2 = new GestionInventario.MarcasDSTableAdapters.MarcasTableAdapter();
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewComboBoxColumn();
             this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            ((System.ComponentModel.ISupportInitialize)(this.activosViewDS)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.activosViewBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.activosViewBindingNavigator)).BeginInit();
-            this.activosViewBindingNavigator.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.activosViewDataGridView)).BeginInit();
+            this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            ((System.ComponentModel.ISupportInitialize)(this.registroActivosDS)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.registroActivosBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.registroActivosBindingNavigator)).BeginInit();
+            this.registroActivosBindingNavigator.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.registroActivosDataGridView)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.inventarioActivosDataSet)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.marcasBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.inventarioActivosDataSet2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.marcasBindingSource1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.marcasDS)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.marcasBindingSource2)).BeginInit();
             this.SuspendLayout();
             // 
-            // activosViewDS
+            // registroActivosDS
             // 
-            this.activosViewDS.DataSetName = "ActivosViewDS";
-            this.activosViewDS.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            this.registroActivosDS.DataSetName = "RegistroActivosDS";
+            this.registroActivosDS.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
-            // activosViewBindingSource
+            // registroActivosBindingSource
             // 
-            this.activosViewBindingSource.DataMember = "ActivosView";
-            this.activosViewBindingSource.DataSource = this.activosViewDS;
+            this.registroActivosBindingSource.DataMember = "RegistroActivos";
+            this.registroActivosBindingSource.DataSource = this.registroActivosDS;
             // 
-            // activosViewTableAdapter
+            // registroActivosTableAdapter
             // 
-            this.activosViewTableAdapter.ClearBeforeFill = true;
+            this.registroActivosTableAdapter.ClearBeforeFill = true;
             // 
             // tableAdapterManager
             // 
             this.tableAdapterManager.BackupDataSetBeforeUpdate = false;
-            this.tableAdapterManager.Connection = null;
-            this.tableAdapterManager.UpdateOrder = GestionInventario.ActivosViewDSTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
+            this.tableAdapterManager.RegistroActivosTableAdapter = this.registroActivosTableAdapter;
+            this.tableAdapterManager.UpdateOrder = GestionInventario.RegistroActivosDSTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
             // 
-            // activosViewBindingNavigator
+            // registroActivosBindingNavigator
             // 
-            this.activosViewBindingNavigator.AddNewItem = this.bindingNavigatorAddNewItem;
-            this.activosViewBindingNavigator.BindingSource = this.activosViewBindingSource;
-            this.activosViewBindingNavigator.CountItem = this.bindingNavigatorCountItem;
-            this.activosViewBindingNavigator.DeleteItem = this.bindingNavigatorDeleteItem;
-            this.activosViewBindingNavigator.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.registroActivosBindingNavigator.AddNewItem = this.bindingNavigatorAddNewItem;
+            this.registroActivosBindingNavigator.BindingSource = this.registroActivosBindingSource;
+            this.registroActivosBindingNavigator.CountItem = this.bindingNavigatorCountItem;
+            this.registroActivosBindingNavigator.DeleteItem = this.bindingNavigatorDeleteItem;
+            this.registroActivosBindingNavigator.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.bindingNavigatorMoveFirstItem,
             this.bindingNavigatorMovePreviousItem,
             this.bindingNavigatorSeparator,
@@ -99,17 +115,17 @@
             this.bindingNavigatorSeparator2,
             this.bindingNavigatorAddNewItem,
             this.bindingNavigatorDeleteItem,
-            this.activosViewBindingNavigatorSaveItem});
-            this.activosViewBindingNavigator.Location = new System.Drawing.Point(0, 0);
-            this.activosViewBindingNavigator.MoveFirstItem = this.bindingNavigatorMoveFirstItem;
-            this.activosViewBindingNavigator.MoveLastItem = this.bindingNavigatorMoveLastItem;
-            this.activosViewBindingNavigator.MoveNextItem = this.bindingNavigatorMoveNextItem;
-            this.activosViewBindingNavigator.MovePreviousItem = this.bindingNavigatorMovePreviousItem;
-            this.activosViewBindingNavigator.Name = "activosViewBindingNavigator";
-            this.activosViewBindingNavigator.PositionItem = this.bindingNavigatorPositionItem;
-            this.activosViewBindingNavigator.Size = new System.Drawing.Size(800, 25);
-            this.activosViewBindingNavigator.TabIndex = 0;
-            this.activosViewBindingNavigator.Text = "bindingNavigator1";
+            this.registroActivosBindingNavigatorSaveItem});
+            this.registroActivosBindingNavigator.Location = new System.Drawing.Point(0, 0);
+            this.registroActivosBindingNavigator.MoveFirstItem = this.bindingNavigatorMoveFirstItem;
+            this.registroActivosBindingNavigator.MoveLastItem = this.bindingNavigatorMoveLastItem;
+            this.registroActivosBindingNavigator.MoveNextItem = this.bindingNavigatorMoveNextItem;
+            this.registroActivosBindingNavigator.MovePreviousItem = this.bindingNavigatorMovePreviousItem;
+            this.registroActivosBindingNavigator.Name = "registroActivosBindingNavigator";
+            this.registroActivosBindingNavigator.PositionItem = this.bindingNavigatorPositionItem;
+            this.registroActivosBindingNavigator.Size = new System.Drawing.Size(800, 25);
+            this.registroActivosBindingNavigator.TabIndex = 0;
+            this.registroActivosBindingNavigator.Text = "bindingNavigator1";
             // 
             // bindingNavigatorMoveFirstItem
             // 
@@ -196,86 +212,146 @@
             this.bindingNavigatorDeleteItem.Size = new System.Drawing.Size(23, 20);
             this.bindingNavigatorDeleteItem.Text = "Eliminar";
             // 
-            // activosViewBindingNavigatorSaveItem
+            // registroActivosBindingNavigatorSaveItem
             // 
-            this.activosViewBindingNavigatorSaveItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.activosViewBindingNavigatorSaveItem.Enabled = false;
-            this.activosViewBindingNavigatorSaveItem.Image = ((System.Drawing.Image)(resources.GetObject("activosViewBindingNavigatorSaveItem.Image")));
-            this.activosViewBindingNavigatorSaveItem.Name = "activosViewBindingNavigatorSaveItem";
-            this.activosViewBindingNavigatorSaveItem.Size = new System.Drawing.Size(23, 20);
-            this.activosViewBindingNavigatorSaveItem.Text = "Guardar datos";
+            this.registroActivosBindingNavigatorSaveItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.registroActivosBindingNavigatorSaveItem.Image = ((System.Drawing.Image)(resources.GetObject("registroActivosBindingNavigatorSaveItem.Image")));
+            this.registroActivosBindingNavigatorSaveItem.Name = "registroActivosBindingNavigatorSaveItem";
+            this.registroActivosBindingNavigatorSaveItem.Size = new System.Drawing.Size(23, 23);
+            this.registroActivosBindingNavigatorSaveItem.Text = "Guardar datos";
+            this.registroActivosBindingNavigatorSaveItem.Click += new System.EventHandler(this.registroActivosBindingNavigatorSaveItem_Click);
             // 
-            // activosViewDataGridView
+            // registroActivosDataGridView
             // 
-            this.activosViewDataGridView.AutoGenerateColumns = false;
-            this.activosViewDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.activosViewDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.registroActivosDataGridView.AutoGenerateColumns = false;
+            this.registroActivosDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.registroActivosDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.dataGridViewTextBoxColumn1,
             this.dataGridViewTextBoxColumn2,
             this.dataGridViewTextBoxColumn3,
             this.dataGridViewTextBoxColumn4,
-            this.dataGridViewTextBoxColumn5});
-            this.activosViewDataGridView.DataSource = this.activosViewBindingSource;
-            this.activosViewDataGridView.Location = new System.Drawing.Point(53, 69);
-            this.activosViewDataGridView.Name = "activosViewDataGridView";
-            this.activosViewDataGridView.Size = new System.Drawing.Size(550, 152);
-            this.activosViewDataGridView.TabIndex = 1;
+            this.dataGridViewTextBoxColumn5,
+            this.dataGridViewTextBoxColumn6,
+            this.dataGridViewTextBoxColumn7});
+            this.registroActivosDataGridView.DataSource = this.registroActivosBindingSource;
+            this.registroActivosDataGridView.Location = new System.Drawing.Point(52, 102);
+            this.registroActivosDataGridView.Name = "registroActivosDataGridView";
+            this.registroActivosDataGridView.Size = new System.Drawing.Size(695, 220);
+            this.registroActivosDataGridView.TabIndex = 1;
+            // 
+            // inventarioActivosDataSet
+            // 
+            this.inventarioActivosDataSet.DataSetName = "InventarioActivosDataSet";
+            this.inventarioActivosDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // marcasBindingSource
+            // 
+            this.marcasBindingSource.DataMember = "Marcas";
+            this.marcasBindingSource.DataSource = this.inventarioActivosDataSet;
+            // 
+            // marcasTableAdapter
+            // 
+            this.marcasTableAdapter.ClearBeforeFill = true;
+            // 
+            // inventarioActivosDataSet2
+            // 
+            this.inventarioActivosDataSet2.DataSetName = "InventarioActivosDataSet2";
+            this.inventarioActivosDataSet2.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // marcasBindingSource1
+            // 
+            this.marcasBindingSource1.DataMember = "Marcas";
+            this.marcasBindingSource1.DataSource = this.inventarioActivosDataSet2;
+            // 
+            // marcasTableAdapter1
+            // 
+            this.marcasTableAdapter1.ClearBeforeFill = true;
+            // 
+            // marcasDS
+            // 
+            this.marcasDS.DataSetName = "MarcasDS";
+            this.marcasDS.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // marcasBindingSource2
+            // 
+            this.marcasBindingSource2.DataMember = "Marcas";
+            this.marcasBindingSource2.DataSource = this.marcasDS;
+            // 
+            // marcasTableAdapter2
+            // 
+            this.marcasTableAdapter2.ClearBeforeFill = true;
             // 
             // dataGridViewTextBoxColumn1
             // 
-            this.dataGridViewTextBoxColumn1.DataPropertyName = "CodInterno";
-            this.dataGridViewTextBoxColumn1.HeaderText = "CodInterno";
+            this.dataGridViewTextBoxColumn1.DataPropertyName = "Id";
+            this.dataGridViewTextBoxColumn1.HeaderText = "Id";
             this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
+            this.dataGridViewTextBoxColumn1.ReadOnly = true;
+            this.dataGridViewTextBoxColumn1.Visible = false;
             // 
             // dataGridViewTextBoxColumn2
             // 
-            this.dataGridViewTextBoxColumn2.DataPropertyName = "Serial";
-            this.dataGridViewTextBoxColumn2.HeaderText = "Serial";
+            this.dataGridViewTextBoxColumn2.DataPropertyName = "CodInterno";
+            this.dataGridViewTextBoxColumn2.HeaderText = "CodInterno";
             this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
             // 
             // dataGridViewTextBoxColumn3
             // 
-            this.dataGridViewTextBoxColumn3.DataPropertyName = "Marca";
-            this.dataGridViewTextBoxColumn3.HeaderText = "Marca";
+            this.dataGridViewTextBoxColumn3.DataPropertyName = "Serial";
+            this.dataGridViewTextBoxColumn3.HeaderText = "Serial";
             this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
             // 
             // dataGridViewTextBoxColumn4
             // 
-            this.dataGridViewTextBoxColumn4.DataPropertyName = "FechaCompra";
-            this.dataGridViewTextBoxColumn4.HeaderText = "FechaCompra";
+            this.dataGridViewTextBoxColumn4.DataPropertyName = "Marca";
+            this.dataGridViewTextBoxColumn4.DataSource = this.marcasBindingSource2;
+            this.dataGridViewTextBoxColumn4.DisplayMember = "Marca";
+            this.dataGridViewTextBoxColumn4.HeaderText = "Marca";
             this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
+            this.dataGridViewTextBoxColumn4.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridViewTextBoxColumn4.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.dataGridViewTextBoxColumn4.ValueMember = "Id";
             // 
             // dataGridViewTextBoxColumn5
             // 
-            this.dataGridViewTextBoxColumn5.DataPropertyName = "FechaRegistro";
-            this.dataGridViewTextBoxColumn5.HeaderText = "FechaRegistro";
+            this.dataGridViewTextBoxColumn5.DataPropertyName = "FechaCompra";
+            this.dataGridViewTextBoxColumn5.HeaderText = "FechaCompra";
             this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
             // 
-            // textBox1
+            // dataGridViewTextBoxColumn6
             // 
-            this.textBox1.Location = new System.Drawing.Point(53, 252);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(100, 20);
-            this.textBox1.TabIndex = 2;
-            this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
+            this.dataGridViewTextBoxColumn6.DataPropertyName = "FechaRegistro";
+            this.dataGridViewTextBoxColumn6.HeaderText = "FechaRegistro";
+            this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
+            // 
+            // dataGridViewTextBoxColumn7
+            // 
+            this.dataGridViewTextBoxColumn7.DataPropertyName = "EstadoRegistro";
+            this.dataGridViewTextBoxColumn7.HeaderText = "EstadoRegistro";
+            this.dataGridViewTextBoxColumn7.Name = "dataGridViewTextBoxColumn7";
             // 
             // FormVistaEjemplo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.textBox1);
-            this.Controls.Add(this.activosViewDataGridView);
-            this.Controls.Add(this.activosViewBindingNavigator);
+            this.Controls.Add(this.registroActivosDataGridView);
+            this.Controls.Add(this.registroActivosBindingNavigator);
             this.Name = "FormVistaEjemplo";
             this.Text = "FormVistaEjemplo";
             this.Load += new System.EventHandler(this.FormVistaEjemplo_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.activosViewDS)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.activosViewBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.activosViewBindingNavigator)).EndInit();
-            this.activosViewBindingNavigator.ResumeLayout(false);
-            this.activosViewBindingNavigator.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.activosViewDataGridView)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.registroActivosDS)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.registroActivosBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.registroActivosBindingNavigator)).EndInit();
+            this.registroActivosBindingNavigator.ResumeLayout(false);
+            this.registroActivosBindingNavigator.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.registroActivosDataGridView)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.inventarioActivosDataSet)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.marcasBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.inventarioActivosDataSet2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.marcasBindingSource1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.marcasDS)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.marcasBindingSource2)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -283,11 +359,11 @@
 
         #endregion
 
-        private ActivosViewDS activosViewDS;
-        private System.Windows.Forms.BindingSource activosViewBindingSource;
-        private ActivosViewDSTableAdapters.ActivosViewTableAdapter activosViewTableAdapter;
-        private ActivosViewDSTableAdapters.TableAdapterManager tableAdapterManager;
-        private System.Windows.Forms.BindingNavigator activosViewBindingNavigator;
+        private RegistroActivosDS registroActivosDS;
+        private System.Windows.Forms.BindingSource registroActivosBindingSource;
+        private RegistroActivosDSTableAdapters.RegistroActivosTableAdapter registroActivosTableAdapter;
+        private RegistroActivosDSTableAdapters.TableAdapterManager tableAdapterManager;
+        private System.Windows.Forms.BindingNavigator registroActivosBindingNavigator;
         private System.Windows.Forms.ToolStripButton bindingNavigatorAddNewItem;
         private System.Windows.Forms.ToolStripLabel bindingNavigatorCountItem;
         private System.Windows.Forms.ToolStripButton bindingNavigatorDeleteItem;
@@ -299,13 +375,23 @@
         private System.Windows.Forms.ToolStripButton bindingNavigatorMoveNextItem;
         private System.Windows.Forms.ToolStripButton bindingNavigatorMoveLastItem;
         private System.Windows.Forms.ToolStripSeparator bindingNavigatorSeparator2;
-        private System.Windows.Forms.ToolStripButton activosViewBindingNavigatorSaveItem;
-        private System.Windows.Forms.DataGridView activosViewDataGridView;
+        private System.Windows.Forms.ToolStripButton registroActivosBindingNavigatorSaveItem;
+        private System.Windows.Forms.DataGridView registroActivosDataGridView;
+        private InventarioActivosDataSet inventarioActivosDataSet;
+        private System.Windows.Forms.BindingSource marcasBindingSource;
+        private InventarioActivosDataSetTableAdapters.MarcasTableAdapter marcasTableAdapter;
+        private InventarioActivosDataSet2 inventarioActivosDataSet2;
+        private System.Windows.Forms.BindingSource marcasBindingSource1;
+        private InventarioActivosDataSet2TableAdapters.MarcasTableAdapter marcasTableAdapter1;
+        private MarcasDS marcasDS;
+        private System.Windows.Forms.BindingSource marcasBindingSource2;
+        private MarcasDSTableAdapters.MarcasTableAdapter marcasTableAdapter2;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
+        private System.Windows.Forms.DataGridViewComboBoxColumn dataGridViewTextBoxColumn4;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn6;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn7;
     }
 }

@@ -38,6 +38,8 @@ namespace GestionInventario
 
         private void FormConsulta_Load(object sender, EventArgs e)
         {
+            // TODO: esta línea de código carga datos en la tabla 'mantenimientoDS.Mantenimiento' Puede moverla o quitarla según sea necesario.
+            //this.mantenimientoTableAdapter1.Fill(this.mantenimientoDS.Mantenimiento);
             // TODO: esta línea de código carga datos en la tabla 'consultaActivosDS.Mantenimiento' Puede moverla o quitarla según sea necesario.
             //this.mantenimientoTableAdapter.Fill(this.consultaActivosDS.Mantenimiento);
             // TODO: esta línea de código carga datos en la tabla 'consultaActivosDS.RegistroActivos' Puede moverla o quitarla según sea necesario.

@@ -68,15 +68,14 @@ namespace GestionInventario
             this.tableAdapterManager1 = new GestionInventario.ConsultaActivosDSTableAdapters.TableAdapterManager();
             this.registroActivosTableAdapter = new GestionInventario.ConsultaActivosDSTableAdapters.RegistroActivosTableAdapter();
             this.editarTableTableAdapter = new GestionInventario.ConsultaActivosDSTableAdapters.EditarTableTableAdapter();
-            this.activosViewDataGridView1 = new System.Windows.Forms.DataGridView();
-            this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.button2 = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
+            this.mantenimientoTableAdapter = new GestionInventario.ConsultaActivosDSTableAdapters.MantenimientoTableAdapter();
+            this.mantenimientoDS = new GestionInventario.MantenimientoDS();
+            this.mantenimientoBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+            this.mantenimientoTableAdapter1 = new GestionInventario.MantenimientoDSTableAdapters.MantenimientoTableAdapter();
+            this.tableAdapterManager2 = new GestionInventario.MantenimientoDSTableAdapters.TableAdapterManager();
             ((System.ComponentModel.ISupportInitialize)(this.activosViewBindingNavigator)).BeginInit();
             this.activosViewBindingNavigator.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.activosViewBindingSource)).BeginInit();
@@ -86,7 +85,8 @@ namespace GestionInventario
             ((System.ComponentModel.ISupportInitialize)(this.consultaActivosDS)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.registroActivosBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.editarTableBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.activosViewDataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.mantenimientoDS)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.mantenimientoBindingSource1)).BeginInit();
             this.SuspendLayout();
             // 
             // lblRegistro
@@ -379,52 +379,6 @@ namespace GestionInventario
             // 
             this.editarTableTableAdapter.ClearBeforeFill = true;
             // 
-            // activosViewDataGridView1
-            // 
-            this.activosViewDataGridView1.AutoGenerateColumns = false;
-            this.activosViewDataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.activosViewDataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.dataGridViewTextBoxColumn6,
-            this.dataGridViewTextBoxColumn7,
-            this.dataGridViewTextBoxColumn8,
-            this.dataGridViewTextBoxColumn9,
-            this.dataGridViewTextBoxColumn10});
-            this.activosViewDataGridView1.DataSource = this.activosViewBindingSource;
-            this.activosViewDataGridView1.Location = new System.Drawing.Point(31, 378);
-            this.activosViewDataGridView1.Name = "activosViewDataGridView1";
-            this.activosViewDataGridView1.Size = new System.Drawing.Size(614, 92);
-            this.activosViewDataGridView1.TabIndex = 31;
-            // 
-            // dataGridViewTextBoxColumn6
-            // 
-            this.dataGridViewTextBoxColumn6.DataPropertyName = "CodInterno";
-            this.dataGridViewTextBoxColumn6.HeaderText = "CodInterno";
-            this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
-            // 
-            // dataGridViewTextBoxColumn7
-            // 
-            this.dataGridViewTextBoxColumn7.DataPropertyName = "Serial";
-            this.dataGridViewTextBoxColumn7.HeaderText = "Serial";
-            this.dataGridViewTextBoxColumn7.Name = "dataGridViewTextBoxColumn7";
-            // 
-            // dataGridViewTextBoxColumn8
-            // 
-            this.dataGridViewTextBoxColumn8.DataPropertyName = "Marca";
-            this.dataGridViewTextBoxColumn8.HeaderText = "Marca";
-            this.dataGridViewTextBoxColumn8.Name = "dataGridViewTextBoxColumn8";
-            // 
-            // dataGridViewTextBoxColumn9
-            // 
-            this.dataGridViewTextBoxColumn9.DataPropertyName = "FechaCompra";
-            this.dataGridViewTextBoxColumn9.HeaderText = "FechaCompra";
-            this.dataGridViewTextBoxColumn9.Name = "dataGridViewTextBoxColumn9";
-            // 
-            // dataGridViewTextBoxColumn10
-            // 
-            this.dataGridViewTextBoxColumn10.DataPropertyName = "FechaRegistro";
-            this.dataGridViewTextBoxColumn10.HeaderText = "FechaRegistro";
-            this.dataGridViewTextBoxColumn10.Name = "dataGridViewTextBoxColumn10";
-            // 
             // button2
             // 
             this.button2.Location = new System.Drawing.Point(31, 498);
@@ -455,15 +409,38 @@ namespace GestionInventario
             this.label3.TabIndex = 34;
             this.label3.Text = "Registro";
             // 
+            // mantenimientoTableAdapter
+            // 
+            this.mantenimientoTableAdapter.ClearBeforeFill = true;
+            // 
+            // mantenimientoDS
+            // 
+            this.mantenimientoDS.DataSetName = "MantenimientoDS";
+            this.mantenimientoDS.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // mantenimientoBindingSource1
+            // 
+            this.mantenimientoBindingSource1.DataMember = "Mantenimiento";
+            this.mantenimientoBindingSource1.DataSource = this.mantenimientoDS;
+            // 
+            // mantenimientoTableAdapter1
+            // 
+            this.mantenimientoTableAdapter1.ClearBeforeFill = true;
+            // 
+            // tableAdapterManager2
+            // 
+            this.tableAdapterManager2.BackupDataSetBeforeUpdate = false;
+            this.tableAdapterManager2.MantenimientoTableAdapter = this.mantenimientoTableAdapter1;
+            this.tableAdapterManager2.UpdateOrder = GestionInventario.MantenimientoDSTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
+            // 
             // FormConsulta
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(665, 588);
+            this.ClientSize = new System.Drawing.Size(665, 651);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.button2);
-            this.Controls.Add(this.activosViewDataGridView1);
             this.Controls.Add(this.activosViewDataGridView);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.txtNumeroConsulta);
@@ -485,7 +462,8 @@ namespace GestionInventario
             ((System.ComponentModel.ISupportInitialize)(this.consultaActivosDS)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.registroActivosBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.editarTableBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.activosViewDataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.mantenimientoDS)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.mantenimientoBindingSource1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -529,14 +507,13 @@ namespace GestionInventario
         private DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
         private DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
         private DataGridView activosViewDataGridView;
-        private DataGridView activosViewDataGridView1;
-        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn6;
-        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn7;
-        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn8;
-        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn9;
-        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn10;
         private Button button2;
         private Label label2;
         private Label label3;
+        private ConsultaActivosDSTableAdapters.MantenimientoTableAdapter mantenimientoTableAdapter;
+        private MantenimientoDS mantenimientoDS;
+        private BindingSource mantenimientoBindingSource1;
+        private MantenimientoDSTableAdapters.MantenimientoTableAdapter mantenimientoTableAdapter1;
+        private MantenimientoDSTableAdapters.TableAdapterManager tableAdapterManager2;
     }
 }

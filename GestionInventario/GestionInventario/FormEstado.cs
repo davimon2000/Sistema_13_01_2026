@@ -76,7 +76,7 @@ namespace GestionInventario
             string query = @"
         SELECT EstadoDefinitivo, COUNT(*) as Total 
         FROM VistaActivos
-        WHERE EstadoDefinitivo IN ('Nuevo', 'Disponible(Registro)', 'Recuperado', 'Baja', 'EnMtto', 'Reparado', 'Bueno')
+        WHERE EstadoDefinitivo IN ('Nuevo', 'Disponible(Registro)', 'Recuperado', 'Baja', 'En Mtto', 'Reparado', 'Bueno', 'Asignado')
         GROUP BY EstadoDefinitivo";
 
             using (SqlConnection conn = new SqlConnection(connectionString))
@@ -90,11 +90,11 @@ namespace GestionInventario
                         string estado = reader["EstadoDefinitivo"].ToString();
                         int total = Convert.ToInt32(reader["Total"]);
 
-                        if (estado == "EnMtto")
+                        if (estado == "En Mtto")
                             enMantenimiento += total;
                         else
                         {
-                            if (estado != "Baja")
+                            if (estado != "Baja" && estado != "Asignado")
                             {
                                 disponibles += total;
                             }

@@ -97,16 +97,13 @@ SELECT Id, InventarioId, FechaIngresoMtto, TipoFalla, ObsIngreso, FechaSalidaMtt
               </DbSource>
             </MainSource>
             <Mappings>
-              <Mapping SourceColumn="Id" DataSetColumn="Id" />
-              <Mapping SourceColumn="InventarioId" DataSetColumn="InventarioId" />
               <Mapping SourceColumn="FechaIngresoMtto" DataSetColumn="FechaIngresoMtto" />
               <Mapping SourceColumn="TipoFalla" DataSetColumn="TipoFalla" />
               <Mapping SourceColumn="ObsIngreso" DataSetColumn="ObsIngreso" />
               <Mapping SourceColumn="FechaSalidaMtto" DataSetColumn="FechaSalidaMtto" />
               <Mapping SourceColumn="EstadoSalida" DataSetColumn="EstadoSalida" />
               <Mapping SourceColumn="ObsSalida" DataSetColumn="ObsSalida" />
-              <Mapping SourceColumn="TecnicoId" DataSetColumn="TecnicoId" />
-              <Mapping SourceColumn="checkMtto" DataSetColumn="checkMtto" />
+              <Mapping SourceColumn="CodInterno" DataSetColumn="CodInterno" />
             </Mappings>
             <Sources />
           </TableAdapter>
@@ -115,54 +112,53 @@ SELECT Id, InventarioId, FechaIngresoMtto, TipoFalla, ObsIngreso, FechaSalidaMtt
       </DataSource>
     </xs:appinfo>
   </xs:annotation>
-  <xs:element name="MantenimientoDS" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="True" msprop:Generator_UserDSName="MantenimientoDS" msprop:Generator_DataSetName="MantenimientoDS">
+  <xs:element name="MantenimientoDS" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:Generator_UserDSName="MantenimientoDS" msprop:EnableTableAdapterManager="True" msprop:Generator_DataSetName="MantenimientoDS">
     <xs:complexType>
       <xs:choice minOccurs="0" maxOccurs="unbounded">
-        <xs:element name="Mantenimiento" msprop:Generator_RowEvHandlerName="MantenimientoRowChangeEventHandler" msprop:Generator_RowDeletedName="MantenimientoRowDeleted" msprop:Generator_RowDeletingName="MantenimientoRowDeleting" msprop:Generator_RowEvArgName="MantenimientoRowChangeEvent" msprop:Generator_TablePropName="Mantenimiento" msprop:Generator_RowChangedName="MantenimientoRowChanged" msprop:Generator_RowChangingName="MantenimientoRowChanging" msprop:Generator_TableClassName="MantenimientoDataTable" msprop:Generator_RowClassName="MantenimientoRow" msprop:Generator_TableVarName="tableMantenimiento" msprop:Generator_UserTableName="Mantenimiento">
+        <xs:element name="Mantenimiento" msprop:Generator_RowClassName="MantenimientoRow" msprop:Generator_RowEvHandlerName="MantenimientoRowChangeEventHandler" msprop:Generator_RowDeletedName="MantenimientoRowDeleted" msprop:Generator_RowDeletingName="MantenimientoRowDeleting" msprop:Generator_RowEvArgName="MantenimientoRowChangeEvent" msprop:Generator_TablePropName="Mantenimiento" msprop:Generator_RowChangedName="MantenimientoRowChanged" msprop:Generator_UserTableName="Mantenimiento" msprop:Generator_RowChangingName="MantenimientoRowChanging" msprop:Generator_TableClassName="MantenimientoDataTable" msprop:Generator_TableVarName="tableMantenimiento">
           <xs:complexType>
             <xs:sequence>
-              <xs:element name="Id" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnPropNameInRow="Id" msprop:Generator_ColumnPropNameInTable="IdColumn" msprop:Generator_ColumnVarNameInTable="columnId" msprop:Generator_UserColumnName="Id" type="xs:int" />
-              <xs:element name="InventarioId" msprop:Generator_ColumnPropNameInRow="InventarioId" msprop:Generator_ColumnPropNameInTable="InventarioIdColumn" msprop:Generator_ColumnVarNameInTable="columnInventarioId" msprop:Generator_UserColumnName="InventarioId" type="xs:int" />
-              <xs:element name="FechaIngresoMtto" msprop:Generator_ColumnPropNameInRow="FechaIngresoMtto" msprop:Generator_ColumnPropNameInTable="FechaIngresoMttoColumn" msprop:Generator_ColumnVarNameInTable="columnFechaIngresoMtto" msprop:Generator_UserColumnName="FechaIngresoMtto" type="xs:dateTime" minOccurs="0" />
-              <xs:element name="TipoFalla" msprop:Generator_ColumnPropNameInRow="TipoFalla" msprop:Generator_ColumnPropNameInTable="TipoFallaColumn" msprop:Generator_ColumnVarNameInTable="columnTipoFalla" msprop:Generator_UserColumnName="TipoFalla" minOccurs="0">
+              <xs:element name="FechaIngresoMtto" msprop:Generator_UserColumnName="FechaIngresoMtto" msprop:Generator_ColumnPropNameInTable="FechaIngresoMttoColumn" msprop:Generator_ColumnPropNameInRow="FechaIngresoMtto" msprop:Generator_ColumnVarNameInTable="columnFechaIngresoMtto" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="TipoFalla" msprop:Generator_UserColumnName="TipoFalla" msprop:Generator_ColumnPropNameInTable="TipoFallaColumn" msprop:Generator_ColumnPropNameInRow="TipoFalla" msprop:Generator_ColumnVarNameInTable="columnTipoFalla" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="50" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="ObsIngreso" msprop:Generator_ColumnPropNameInRow="ObsIngreso" msprop:Generator_ColumnPropNameInTable="ObsIngresoColumn" msprop:Generator_ColumnVarNameInTable="columnObsIngreso" msprop:Generator_UserColumnName="ObsIngreso" minOccurs="0">
+              <xs:element name="ObsIngreso" msprop:Generator_UserColumnName="ObsIngreso" msprop:Generator_ColumnPropNameInTable="ObsIngresoColumn" msprop:Generator_ColumnPropNameInRow="ObsIngreso" msprop:Generator_ColumnVarNameInTable="columnObsIngreso" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="100" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="FechaSalidaMtto" msprop:Generator_ColumnPropNameInRow="FechaSalidaMtto" msprop:Generator_ColumnPropNameInTable="FechaSalidaMttoColumn" msprop:Generator_ColumnVarNameInTable="columnFechaSalidaMtto" msprop:Generator_UserColumnName="FechaSalidaMtto" type="xs:dateTime" minOccurs="0" />
-              <xs:element name="EstadoSalida" msprop:Generator_ColumnPropNameInRow="EstadoSalida" msprop:Generator_ColumnPropNameInTable="EstadoSalidaColumn" msprop:Generator_ColumnVarNameInTable="columnEstadoSalida" msprop:Generator_UserColumnName="EstadoSalida" minOccurs="0">
+              <xs:element name="FechaSalidaMtto" msprop:Generator_UserColumnName="FechaSalidaMtto" msprop:Generator_ColumnPropNameInTable="FechaSalidaMttoColumn" msprop:Generator_ColumnPropNameInRow="FechaSalidaMtto" msprop:Generator_ColumnVarNameInTable="columnFechaSalidaMtto" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="EstadoSalida" msprop:Generator_UserColumnName="EstadoSalida" msprop:Generator_ColumnPropNameInTable="EstadoSalidaColumn" msprop:Generator_ColumnPropNameInRow="EstadoSalida" msprop:Generator_ColumnVarNameInTable="columnEstadoSalida" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="50" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="ObsSalida" msprop:Generator_ColumnPropNameInRow="ObsSalida" msprop:Generator_ColumnPropNameInTable="ObsSalidaColumn" msprop:Generator_ColumnVarNameInTable="columnObsSalida" msprop:Generator_UserColumnName="ObsSalida" minOccurs="0">
+              <xs:element name="ObsSalida" msprop:Generator_UserColumnName="ObsSalida" msprop:Generator_ColumnPropNameInTable="ObsSalidaColumn" msprop:Generator_ColumnPropNameInRow="ObsSalida" msprop:Generator_ColumnVarNameInTable="columnObsSalida" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="100" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="TecnicoId" msprop:Generator_ColumnPropNameInRow="TecnicoId" msprop:Generator_ColumnPropNameInTable="TecnicoIdColumn" msprop:Generator_ColumnVarNameInTable="columnTecnicoId" msprop:Generator_UserColumnName="TecnicoId" type="xs:int" minOccurs="0" />
-              <xs:element name="checkMtto" msprop:Generator_ColumnPropNameInRow="checkMtto" msprop:Generator_ColumnPropNameInTable="checkMttoColumn" msprop:Generator_ColumnVarNameInTable="columncheckMtto" msprop:Generator_UserColumnName="checkMtto" type="xs:boolean" minOccurs="0" />
+              <xs:element name="CodInterno" msprop:Generator_ColumnPropNameInRow="CodInterno" msprop:Generator_ColumnPropNameInTable="CodInternoColumn" msprop:Generator_ColumnVarNameInTable="columnCodInterno" msprop:Generator_UserColumnName="CodInterno">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="20" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
             </xs:sequence>
           </xs:complexType>
         </xs:element>
       </xs:choice>
     </xs:complexType>
-    <xs:unique name="Constraint1" msdata:PrimaryKey="true">
-      <xs:selector xpath=".//mstns:Mantenimiento" />
-      <xs:field xpath="mstns:Id" />
-    </xs:unique>
   </xs:element>
 </xs:schema>
