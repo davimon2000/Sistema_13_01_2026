@@ -13,12 +13,14 @@ namespace GestionInventario
     public partial class FormTecnicos : Form
     {
         private static FormTecnicos instancia = null;
-        public static FormTecnicos ventana_unica()
+
+        public FormIngresomtto FormMttoReferencia { get; set; }
+        public static FormTecnicos ventana_unica(FormIngresomtto ReferenciaMtto)
         {
             if (instancia == null || instancia.IsDisposed)
             {
                 instancia = new FormTecnicos();
-                return instancia;
+                instancia.FormMttoReferencia = ReferenciaMtto;
             }
             return instancia;
         }
@@ -35,6 +37,7 @@ namespace GestionInventario
             this.tecnicosBindingSource.EndEdit();
             this.tableAdapterManager.UpdateAll(this.tecnicosDS);
 
+            FormMttoReferencia?.RecargarDatos();
         }
 
         private void FormTecnicos_Load(object sender, EventArgs e)

@@ -62,7 +62,7 @@ namespace GestionInventario
             // 
             this.lblMantenimiento.AutoSize = true;
             this.lblMantenimiento.Font = new System.Drawing.Font("Segoe UI Semibold", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblMantenimiento.Location = new System.Drawing.Point(140, 30);
+            this.lblMantenimiento.Location = new System.Drawing.Point(156, 26);
             this.lblMantenimiento.Name = "lblMantenimiento";
             this.lblMantenimiento.Size = new System.Drawing.Size(171, 25);
             this.lblMantenimiento.TabIndex = 4;

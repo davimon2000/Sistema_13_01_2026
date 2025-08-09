@@ -48,11 +48,11 @@
             this.bindingNavigatorSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.tecnicosBindingNavigatorSaveItem = new System.Windows.Forms.ToolStripButton();
             this.tecnicosDataGridView = new System.Windows.Forms.DataGridView();
+            this.lblTecnicos = new System.Windows.Forms.Label();
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.lblTecnicos = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.tecnicosDS)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tecnicosBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tecnicosBindingNavigator)).BeginInit();
@@ -217,9 +217,20 @@
             this.tecnicosDataGridView.DataSource = this.tecnicosBindingSource;
             this.tecnicosDataGridView.Location = new System.Drawing.Point(51, 94);
             this.tecnicosDataGridView.Name = "tecnicosDataGridView";
-            this.tecnicosDataGridView.Size = new System.Drawing.Size(448, 186);
+            this.tecnicosDataGridView.Size = new System.Drawing.Size(360, 181);
             this.tecnicosDataGridView.TabIndex = 1;
             this.tecnicosDataGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.tecnicosDataGridView_CellContentClick);
+            // 
+            // lblTecnicos
+            // 
+            this.lblTecnicos.AutoSize = true;
+            this.lblTecnicos.Font = new System.Drawing.Font("Segoe UI Semibold", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTecnicos.Location = new System.Drawing.Point(215, 49);
+            this.lblTecnicos.Name = "lblTecnicos";
+            this.lblTecnicos.Size = new System.Drawing.Size(101, 25);
+            this.lblTecnicos.TabIndex = 4;
+            this.lblTecnicos.Text = "TÉCNICOS";
+            this.lblTecnicos.Click += new System.EventHandler(this.lblRegistro_Click);
             // 
             // dataGridViewTextBoxColumn1
             // 
@@ -227,6 +238,7 @@
             this.dataGridViewTextBoxColumn1.HeaderText = "Id";
             this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
             this.dataGridViewTextBoxColumn1.ReadOnly = true;
+            this.dataGridViewTextBoxColumn1.Visible = false;
             // 
             // dataGridViewTextBoxColumn2
             // 
@@ -245,17 +257,6 @@
             this.dataGridViewTextBoxColumn4.DataPropertyName = "Correo";
             this.dataGridViewTextBoxColumn4.HeaderText = "Correo";
             this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
-            // 
-            // lblTecnicos
-            // 
-            this.lblTecnicos.AutoSize = true;
-            this.lblTecnicos.Font = new System.Drawing.Font("Segoe UI Semibold", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTecnicos.Location = new System.Drawing.Point(215, 49);
-            this.lblTecnicos.Name = "lblTecnicos";
-            this.lblTecnicos.Size = new System.Drawing.Size(101, 25);
-            this.lblTecnicos.TabIndex = 4;
-            this.lblTecnicos.Text = "TÉCNICOS";
-            this.lblTecnicos.Click += new System.EventHandler(this.lblRegistro_Click);
             // 
             // FormTecnicos
             // 
@@ -299,10 +300,10 @@
         private System.Windows.Forms.ToolStripSeparator bindingNavigatorSeparator2;
         private System.Windows.Forms.ToolStripButton tecnicosBindingNavigatorSaveItem;
         private System.Windows.Forms.DataGridView tecnicosDataGridView;
+        private System.Windows.Forms.Label lblTecnicos;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
-        private System.Windows.Forms.Label lblTecnicos;
     }
 }

@@ -60,3 +60,5 @@ C:\Users\BB12388\ProyectoSistemaGestion\GestionInventario\GestionInventario\bin\
 C:\Users\BB12388\ProyectoSistemaGestion\GestionInventario\GestionInventario\bin\Debug\System.Memory.xml
 C:\Users\BB12388\ProyectoSistemaGestion\GestionInventario\GestionInventario\bin\Debug\System.Numerics.Vectors.xml
 C:\Users\BB12388\ProyectoSistemaGestion\GestionInventario\GestionInventario\bin\Debug\System.Runtime.CompilerServices.Unsafe.xml
+C:\Users\BB12388\ProyectoSistemaGestion\GestionInventario\GestionInventario\obj\Debug\GestionInventario.FormActivos.resources
+C:\Users\BB12388\ProyectoSistemaGestion\GestionInventario\GestionInventario\obj\Debug\GestionInventario.FormMarcas.resources

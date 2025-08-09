@@ -11,6 +11,7 @@ using System.Windows.Forms;
 using System.Data.SqlClient;
 using System.Configuration;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
+using GestionInventario;
 
 namespace GestionInventario
 {
@@ -19,6 +20,7 @@ namespace GestionInventario
         //string connectionString = ConfigurationManager.ConnectionStrings["GestionInventario.Properties.Settings.InventarioActivosConnectionString"].ConnectionString;
         string connectionString = "Server=LPT140112\\SQLEXPRESS;Database=InventarioActivos;User Id=inventarioUser;Password=Inventario2025++;";
         private static FormRegistro instancia = null;
+
         public static FormRegistro ventana_unica()
         {
             if (instancia == null || instancia.IsDisposed)
@@ -45,59 +47,59 @@ namespace GestionInventario
 
         
 
-        private void picEliminarMarca_Click(object sender, EventArgs e)
-        {
-            string marcaAEliminar = cmbMarcaRegistro.Text.Trim();
+        //private void picEliminarMarca_Click(object sender, EventArgs e)
+        //{
+        //    string marcaAEliminar = cmbMarcaRegistro.Text.Trim();
 
-            if (cmbMarcaRegistro.Items.Contains(marcaAEliminar))
-            {
-                DialogResult result = MessageBox.Show(
-                    $"¿Seguro que deseas eliminar la marca '{marcaAEliminar}'?",
-                    "Confirmar eliminación",
-                    MessageBoxButtons.YesNo,
-                    MessageBoxIcon.Question
-                    );
+        //    if (cmbMarcaRegistro.Items.Contains(marcaAEliminar))
+        //    {
+        //        DialogResult result = MessageBox.Show(
+        //            $"¿Seguro que deseas eliminar la marca '{marcaAEliminar}'?",
+        //            "Confirmar eliminación",
+        //            MessageBoxButtons.YesNo,
+        //            MessageBoxIcon.Question
+        //            );
 
-                if (result == DialogResult.Yes)
-                {
-                    using (SqlConnection conn = new SqlConnection(connectionString))
-                    {
-                        conn.Open();
+        //        if (result == DialogResult.Yes)
+        //        {
+        //            using (SqlConnection conn = new SqlConnection(connectionString))
+        //            {
+        //                conn.Open();
 
-                        // Primero eliminamos de RegistroActivos (dependiente)
-                        string deleteActivos = @"
-            DELETE FROM RegistroActivos
-            WHERE IdMarca IN (
-                SELECT IdMarca FROM Marcas WHERE Nombre = @NombreMarca
-            );";
+        //                // Primero eliminamos de RegistroActivos (dependiente)
+        //                string deleteActivos = @"
+        //    DELETE FROM RegistroActivos
+        //    WHERE IdMarca IN (
+        //        SELECT IdMarca FROM Marcas WHERE Nombre = @NombreMarca
+        //    );";
 
-                        using (SqlCommand cmdActivos = new SqlCommand(deleteActivos, conn))
-                        {
-                            cmdActivos.Parameters.AddWithValue("@NombreMarca", marcaAEliminar);
-                            cmdActivos.ExecuteNonQuery();
-                        }
+        //                using (SqlCommand cmdActivos = new SqlCommand(deleteActivos, conn))
+        //                {
+        //                    cmdActivos.Parameters.AddWithValue("@NombreMarca", marcaAEliminar);
+        //                    cmdActivos.ExecuteNonQuery();
+        //                }
 
-                        // Luego eliminamos de Marcas (maestra)
-                        string deleteMarca = "DELETE FROM Marcas WHERE Nombre = @NombreMarca";
+        //                // Luego eliminamos de Marcas (maestra)
+        //                string deleteMarca = "DELETE FROM Marcas WHERE Nombre = @NombreMarca";
 
-                        using (SqlCommand cmdMarca = new SqlCommand(deleteMarca, conn))
-                        {
-                            cmdMarca.Parameters.AddWithValue("@NombreMarca", marcaAEliminar);
-                            cmdMarca.ExecuteNonQuery();
-                        }
-                    }
+        //                using (SqlCommand cmdMarca = new SqlCommand(deleteMarca, conn))
+        //                {
+        //                    cmdMarca.Parameters.AddWithValue("@NombreMarca", marcaAEliminar);
+        //                    cmdMarca.ExecuteNonQuery();
+        //                }
+        //            }
 
 
-                    //cmbMarcaRegistro.Items.Remove(marcaAEliminar);
-                    cmbMarcaRegistro.Text = "";
-                    MessageBox.Show("Marca eliminada correctamente.");
-                }
-            }
-            else
-            {
-                MessageBox.Show($"La marca '{marcaAEliminar}' no existe en la lista. ");
-            }
-        }
+        //            //cmbMarcaRegistro.Items.Remove(marcaAEliminar);
+        //            cmbMarcaRegistro.Text = "";
+        //            MessageBox.Show("Marca eliminada correctamente.");
+        //        }
+        //    }
+        //    else
+        //    {
+        //        MessageBox.Show($"La marca '{marcaAEliminar}' no existe en la lista. ");
+        //    }
+        //}
 
 
         private void label1_Click(object sender, EventArgs e)
@@ -105,136 +107,164 @@ namespace GestionInventario
 
         }
 
-        private void FormRegistro_Load(object sender, EventArgs e)
-        {
+        //private void FormRegistro_Load(object sender, EventArgs e)
+        //{
 
-        }
+        //}
 
         private void FormRegistro_Load_1(object sender, EventArgs e)
         {
+            // TODO: esta línea de código carga datos en la tabla 'marcasDS.Marcas' Puede moverla o quitarla según sea necesario.
+            this.marcasTableAdapter2.Fill(this.marcasDS.Marcas);
+            // TODO: esta línea de código carga datos en la tabla 'activosDS.Activos' Puede moverla o quitarla según sea necesario.
+            this.activosTableAdapter.Fill(this.activosDS.Activos);
             // TODO: esta línea de código carga datos en la tabla 'inventarioActivosDataSet1.Marcas' Puede moverla o quitarla según sea necesario.
-            this.marcasTableAdapter1.Fill(this.inventarioActivosDataSet1.Marcas);
+            //this.marcasTableAdapter1.Fill(this.inventarioActivosDataSet1.Marcas);
             // TODO: esta línea de código carga datos en la tabla 'inventarioActivosDataSet.Marcas' Puede moverla o quitarla según sea necesario.
-            this.marcasTableAdapter.Fill(this.inventarioActivosDataSet.Marcas);
+            //this.marcasTableAdapter.Fill(this.inventarioActivosDataSet.Marcas);
 
         }
-        
+
         private void picAgregar_Click_1(object sender, EventArgs e)
         {
-            String Nuevamarca = cmbMarcaRegistro.Text;
+            FormMarcas frm = FormMarcas.ventana_unica(this);
 
-            if (MarcaExiste(Nuevamarca))
-            {
-                MessageBox.Show("La marca ya existe.");
-            }
-            else
-            {
+            // Usamos el mismo MDI parent del formulario actual
+            frm.MdiParent = this.MdiParent;
 
-                string query = "INSERT INTO Marcas (Marca) VALUES (@Marca)";
-
-                using (SqlConnection connection = new SqlConnection(connectionString))
-                {
-                    using (SqlCommand command = new SqlCommand(query, connection))
-                    {
-
-
-                        //Añadir los parámetros a la consulta
-                        command.Parameters.AddWithValue("@Marca", Nuevamarca);
-
-                        try
-                        {
-                            connection.Open(); // Abrir la conexión
-                            int rowsAffected = command.ExecuteNonQuery(); // Ejecutar la consulta
-
-                            if (rowsAffected > 0)
-                            {
-                                MessageBox.Show("Marca añadida exitosamente.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                                // Opcional: Limpiar los campos después de insertar
-                                cmbMarcaRegistro.SelectedItem = -1;
-
-                            }
-                            else
-                            {
-                                MessageBox.Show("No se pudo añadir el dato.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                            }
-                        }
-                        catch (Exception ex)
-                        {
-                            MessageBox.Show("Ocurrió un error: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                        }
-                    }
-
-                }
-            }
+            frm.BringToFront();
+            frm.WindowState = FormWindowState.Normal;
+            frm.Show();
         }
-        private bool MarcaExiste(string nombreMarca)
+
+
+        public void RecargarDatos()
         {
-            String Nuevamarca = cmbMarcaRegistro.Text.Trim();
-            string query = "SELECT COUNT(*) FROM Marcas WHERE Marca = @Marca";
-
-            using (SqlConnection connection = new SqlConnection(connectionString))
-            using (SqlCommand command = new SqlCommand(query, connection))
-            {
-                command.Parameters.AddWithValue("@Marca", Nuevamarca);
-                connection.Open();
-
-                int count = (int)command.ExecuteScalar();
-                return count > 0;
-            }
+            this.marcasTableAdapter2.Fill(this.marcasDS.Marcas);
+            this.activosTableAdapter.Fill(this.activosDS.Activos);
         }
 
-        private void EliminarDeBaseDeDatos(string EliminarMarca)
-        {
-            using (SqlConnection conexion = new SqlConnection(connectionString))
-            {
-                string consulta = "DELETE FROM Marcas WHERE Marca = @Marca";
 
-                using (SqlCommand comando = new SqlCommand(consulta, conexion))
-                {
-                    comando.Parameters.AddWithValue("@Marca", EliminarMarca);
 
-                    try
-                    {
-                        conexion.Open();
-                        int filasAfectadas = comando.ExecuteNonQuery();
 
-                        if (filasAfectadas == 0)
-                        {
-                            MessageBox.Show("No se encontró el elemento en la base de datos.");
-                        }
-                    }
-                    catch (Exception ex)
-                    {
-                        MessageBox.Show("Error al eliminar de la base de datos: " + ex.Message);
-                    }
-                }
-            }
-        }
+        //private void picAgregar_Click_1(object sender, EventArgs e)
+        //{
+        //    String Nuevamarca = cmbMarcaRegistro.Text;
+
+        //    if (MarcaExiste(Nuevamarca))
+        //    {
+        //        MessageBox.Show("La marca ya existe.");
+        //    }
+        //    else
+        //    {
+
+        //        string query = "INSERT INTO Marcas (Marca) VALUES (@Marca)";
+
+        //        using (SqlConnection connection = new SqlConnection(connectionString))
+        //        {
+        //            using (SqlCommand command = new SqlCommand(query, connection))
+        //            {
+
+
+        //                //Añadir los parámetros a la consulta
+        //                command.Parameters.AddWithValue("@Marca", Nuevamarca);
+
+        //                try
+        //                {
+        //                    connection.Open(); // Abrir la conexión
+        //                    int rowsAffected = command.ExecuteNonQuery(); // Ejecutar la consulta
+
+        //                    if (rowsAffected > 0)
+        //                    {
+        //                        MessageBox.Show("Marca añadida exitosamente.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        //                        // Opcional: Limpiar los campos después de insertar
+        //                        cmbMarcaRegistro.SelectedItem = -1;
+
+        //                    }
+        //                    else
+        //                    {
+        //                        MessageBox.Show("No se pudo añadir el dato.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+        //                    }
+        //                }
+        //                catch (Exception ex)
+        //                {
+        //                    MessageBox.Show("Ocurrió un error: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+        //                }
+        //            }
+
+        //        }
+        //    }
+        //}
+        //private bool MarcaExiste(string nombreMarca)
+        //{
+        //    String Nuevamarca = cmbMarcaRegistro.Text.Trim();
+        //    string query = "SELECT COUNT(*) FROM Marcas WHERE Marca = @Marca";
+
+        //    using (SqlConnection connection = new SqlConnection(connectionString))
+        //    using (SqlCommand command = new SqlCommand(query, connection))
+        //    {
+        //        command.Parameters.AddWithValue("@Marca", Nuevamarca);
+        //        connection.Open();
+
+        //        int count = (int)command.ExecuteScalar();
+        //        return count > 0;
+        //    }
+        //}
+
+        //private void EliminarDeBaseDeDatos(string EliminarMarca)
+        //{
+        //    using (SqlConnection conexion = new SqlConnection(connectionString))
+        //    {
+        //        string consulta = "DELETE FROM Marcas WHERE Marca = @Marca";
+
+        //        using (SqlCommand comando = new SqlCommand(consulta, conexion))
+        //        {
+        //            comando.Parameters.AddWithValue("@Marca", EliminarMarca);
+
+        //            try
+        //            {
+        //                conexion.Open();
+        //                int filasAfectadas = comando.ExecuteNonQuery();
+
+        //                if (filasAfectadas == 0)
+        //                {
+        //                    MessageBox.Show("No se encontró el elemento en la base de datos.");
+        //                }
+        //            }
+        //            catch (Exception ex)
+        //            {
+        //                MessageBox.Show("Error al eliminar de la base de datos: " + ex.Message);
+        //            }
+        //        }
+        //    }
+        //}
 
         private void picEliminarMarca_Click_1(object sender, EventArgs e)
         {
-            string marcaAEliminar = cmbMarcaRegistro.Text.Trim();
 
-                DialogResult result = MessageBox.Show(
-                    $"¿Seguro que deseas eliminar la marca '{marcaAEliminar}'?",
-                    "Confirmar eliminación",
-                    MessageBoxButtons.YesNo,
-                    MessageBoxIcon.Question
-                    );
-
-                if (result == DialogResult.Yes)
-                {
-
-                    EliminarDeBaseDeDatos(marcaAEliminar);
-
-                    // Eliminar del ComboBox
-                    cmbMarcaRegistro.Items.Remove(marcaAEliminar);
-                    cmbMarcaRegistro.Items.Remove(marcaAEliminar);
-                    cmbMarcaRegistro.Text = "";
-                    MessageBox.Show("Marca eliminada correctamente.");
-                }
-           
         }
+            //string marcaAEliminar = cmbMarcaRegistro.Text.Trim();
+
+            //    DialogResult result = MessageBox.Show(
+            //        $"¿Seguro que deseas eliminar la marca '{marcaAEliminar}'?",
+            //        "Confirmar eliminación",
+            //        MessageBoxButtons.YesNo,
+            //        MessageBoxIcon.Question
+            //        );
+
+            //    if (result == DialogResult.Yes)
+            //    {
+
+            //        EliminarDeBaseDeDatos(marcaAEliminar);
+
+            //        // Eliminar del ComboBox
+            //        cmbMarcaRegistro.Items.Remove(marcaAEliminar);
+            //        cmbMarcaRegistro.Items.Remove(marcaAEliminar);
+            //        cmbMarcaRegistro.Text = "";
+            //        MessageBox.Show("Marca eliminada correctamente.");
+            //    }
+           
+        //}
 
         private void btnRegistrar_Click(object sender, EventArgs e)
         {
@@ -245,6 +275,7 @@ namespace GestionInventario
             string marca = cmbMarcaRegistro.ValueMember;
             string EstadoActual = cmbEstadoRegistro.SelectedItem?.ToString();
             int idMarca = Convert.ToInt32(cmbMarcaRegistro.SelectedValue);
+            int idActivo = Convert.ToInt32(cmbActivo.SelectedValue);
             DateTime fechaReg = dtpFechaReg.Value;
             DateTime? fechaCompra = checkBoxFechaCompra.Checked ? dtpFechaCompra.Value : (DateTime?)null;
 
@@ -312,11 +343,12 @@ namespace GestionInventario
                         // 3. Insertar en la base de datos
                         using (SqlConnection conexion = new SqlConnection(connectionString))
                         {
-                            string query = @"INSERT INTO RegistroActivos (CodInterno, Serial, Marca, FechaCompra, FechaRegistro, EstadoRegistro)
-                         VALUES (@CodInterno, @Serial, @IdMarca, @FechaCompra, @FechaRegistro, @EstadoActual)";
+                            string query = @"INSERT INTO RegistroActivos (IdActivo, CodInterno, Serial, Marca, FechaCompra, FechaRegistro, EstadoRegistro)
+                         VALUES (@IdActivo, @CodInterno, @Serial, @IdMarca, @FechaCompra, @FechaRegistro, @EstadoActual)";
 
                             using (SqlCommand cmd = new SqlCommand(query, conexion))
                             {
+                                cmd.Parameters.AddWithValue("@IdActivo", idActivo);
                                 cmd.Parameters.AddWithValue("@CodInterno", codInterno);
                                 cmd.Parameters.AddWithValue("@Serial", serial);
                                 cmd.Parameters.AddWithValue("@IdMarca", idMarca);
@@ -366,6 +398,18 @@ namespace GestionInventario
         private void label1_Click_1(object sender, EventArgs e)
         {
 
+        }
+
+        private void pictureBox2_Click(object sender, EventArgs e)
+        {
+            FormActivos frm = FormActivos.ventana_unica(this);
+
+            // Usamos el mismo MDI parent del formulario actual
+            frm.MdiParent = this.MdiParent;
+
+            frm.BringToFront();
+            frm.WindowState = FormWindowState.Normal;
+            frm.Show();
         }
     }
 }
