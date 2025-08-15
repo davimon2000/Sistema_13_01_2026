@@ -459,9 +459,9 @@ namespace GestionInventario
                 }
             }
             }
-            catch (Exception ex)
+            catch
             {
-                MessageBox.Show("Verificar campo Estado");
+                MessageBox.Show("Verificar los campos");
             }
         }
 
