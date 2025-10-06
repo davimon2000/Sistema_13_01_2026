@@ -43,7 +43,10 @@ namespace GestionInventario
             // TODO: esta línea de código carga datos en la tabla 'inventarioActivosDataSet_MarcasVisual.RegistroActivos' Puede moverla o quitarla según sea necesario.
             //  this.registroActivosTableAdapter.Fill(this.inventarioActivosDataSet_MarcasVisual.RegistroActivos);
             CargarGraficoEstadoGeneral();
-            CargarGraficoMarcas();
+
+            // Asignar evento al combo
+            //cmbGrafico.SelectedIndexChanged += cmbGrafico_SelectedIndexChanged;
+            cmbGraficoMarcas.SelectedIndexChanged += cmbGraficoMarcas_SelectedIndexChanged;
         }
 
         private void groupBox1_Enter(object sender, EventArgs e)
@@ -243,6 +246,22 @@ GROUP BY M.Marca";
             chartMarcas.Series.Add(serie);
             chartMarcas.Titles.Add("Cantidad de Diademas por Marca");
             chartMarcas.Legends.Clear(); // ← Esto oculta la leyenda
+        }
+
+        private void cmbGraficoMarcas_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            string opcion = cmbGraficoMarcas.SelectedItem.ToString();
+
+            if (opcion == "Marcas-Disponibles")
+            {
+                chartMarcas.Visible = true;
+                CargarGraficoMarcas();
+            }
+            else if (opcion == "Estado-Sede")
+            {
+                chartMarcas.Visible = false;
+                
+            }
         }
     }
 }

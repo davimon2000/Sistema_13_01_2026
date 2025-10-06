@@ -29,12 +29,15 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea7 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend7 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series7 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea8 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend8 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series8 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea9 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend9 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series9 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.lblNumeroAsig = new System.Windows.Forms.Label();
             this.cmbMarca = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
@@ -54,12 +57,15 @@
             this.label4 = new System.Windows.Forms.Label();
             this.lblTotal = new System.Windows.Forms.Label();
             this.chartMarcas = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            this.cmbGraficoMarcas = new System.Windows.Forms.ComboBox();
+            this.chart2 = new System.Windows.Forms.DataVisualization.Charting.Chart();
             ((System.ComponentModel.ISupportInitialize)(this.registroActivosBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.chart1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.inventarioActivosDataSet2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.marcasBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvResultados)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.chartMarcas)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chart2)).BeginInit();
             this.SuspendLayout();
             // 
             // lblNumeroAsig
@@ -124,7 +130,7 @@
             // 
             this.lblRegistro.AutoSize = true;
             this.lblRegistro.Font = new System.Drawing.Font("Segoe UI Semibold", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblRegistro.Location = new System.Drawing.Point(302, 29);
+            this.lblRegistro.Location = new System.Drawing.Point(302, 9);
             this.lblRegistro.Name = "lblRegistro";
             this.lblRegistro.Size = new System.Drawing.Size(157, 25);
             this.lblRegistro.TabIndex = 12;
@@ -133,16 +139,16 @@
             // 
             // chart1
             // 
-            chartArea1.Name = "ChartArea1";
-            this.chart1.ChartAreas.Add(chartArea1);
-            legend1.Name = "Legend1";
-            this.chart1.Legends.Add(legend1);
+            chartArea7.Name = "ChartArea1";
+            this.chart1.ChartAreas.Add(chartArea7);
+            legend7.Name = "Legend1";
+            this.chart1.Legends.Add(legend7);
             this.chart1.Location = new System.Drawing.Point(16, 84);
             this.chart1.Name = "chart1";
-            series1.ChartArea = "ChartArea1";
-            series1.Legend = "Legend1";
-            series1.Name = "Series1";
-            this.chart1.Series.Add(series1);
+            series7.ChartArea = "ChartArea1";
+            series7.Legend = "Legend1";
+            series7.Name = "Series1";
+            this.chart1.Series.Add(series7);
             this.chart1.Size = new System.Drawing.Size(332, 206);
             this.chart1.TabIndex = 13;
             this.chart1.Text = "chart1";
@@ -256,20 +262,50 @@
             // 
             // chartMarcas
             // 
-            chartArea2.Name = "ChartArea1";
-            this.chartMarcas.ChartAreas.Add(chartArea2);
-            legend2.Name = "Legend1";
-            this.chartMarcas.Legends.Add(legend2);
+            chartArea8.Name = "ChartArea1";
+            this.chartMarcas.ChartAreas.Add(chartArea8);
+            legend8.Name = "Legend1";
+            this.chartMarcas.Legends.Add(legend8);
             this.chartMarcas.Location = new System.Drawing.Point(387, 84);
             this.chartMarcas.Name = "chartMarcas";
-            series2.ChartArea = "ChartArea1";
-            series2.Legend = "Legend1";
-            series2.Name = "Series1";
-            this.chartMarcas.Series.Add(series2);
+            series8.ChartArea = "ChartArea1";
+            series8.Legend = "Legend1";
+            series8.Name = "Series1";
+            this.chartMarcas.Series.Add(series8);
             this.chartMarcas.Size = new System.Drawing.Size(332, 206);
             this.chartMarcas.TabIndex = 22;
-            this.chartMarcas.Text = "chart2";
+            this.chartMarcas.Text = "chart";
             this.chartMarcas.Click += new System.EventHandler(this.chartMarcas_Click);
+            // 
+            // cmbGraficoMarcas
+            // 
+            this.cmbGraficoMarcas.FormattingEnabled = true;
+            this.cmbGraficoMarcas.Items.AddRange(new object[] {
+            "Estado(Sede)",
+            "Marcas(Disponible)",
+            "Asignado por sede"});
+            this.cmbGraficoMarcas.Location = new System.Drawing.Point(478, 45);
+            this.cmbGraficoMarcas.Name = "cmbGraficoMarcas";
+            this.cmbGraficoMarcas.Size = new System.Drawing.Size(121, 21);
+            this.cmbGraficoMarcas.TabIndex = 23;
+            this.cmbGraficoMarcas.SelectedIndexChanged += new System.EventHandler(this.cmbGraficoMarcas_SelectedIndexChanged);
+            // 
+            // chart2
+            // 
+            chartArea9.Name = "ChartArea1";
+            this.chart2.ChartAreas.Add(chartArea9);
+            this.chart2.DataSource = this.marcasBindingSource;
+            legend9.Name = "Legend1";
+            this.chart2.Legends.Add(legend9);
+            this.chart2.Location = new System.Drawing.Point(376, 84);
+            this.chart2.Name = "chart2";
+            series9.ChartArea = "ChartArea1";
+            series9.Legend = "Legend1";
+            series9.Name = "Series1";
+            this.chart2.Series.Add(series9);
+            this.chart2.Size = new System.Drawing.Size(326, 218);
+            this.chart2.TabIndex = 24;
+            this.chart2.Text = "chart2";
             // 
             // FormEstado
             // 
@@ -277,6 +313,8 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
             this.ClientSize = new System.Drawing.Size(773, 562);
+            this.Controls.Add(this.chart2);
+            this.Controls.Add(this.cmbGraficoMarcas);
             this.Controls.Add(this.chartMarcas);
             this.Controls.Add(this.lblTotal);
             this.Controls.Add(this.label4);
@@ -301,6 +339,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.marcasBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvResultados)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.chartMarcas)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chart2)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -328,5 +367,7 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label lblTotal;
         private System.Windows.Forms.DataVisualization.Charting.Chart chartMarcas;
+        private System.Windows.Forms.ComboBox cmbGraficoMarcas;
+        private System.Windows.Forms.DataVisualization.Charting.Chart chart2;
     }
 }
