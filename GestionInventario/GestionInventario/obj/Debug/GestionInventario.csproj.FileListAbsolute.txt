@@ -63,3 +63,4 @@ C:\Users\BB12388\ProyectoSistemaGestion\GestionInventario\GestionInventario\bin\
 C:\Users\BB12388\ProyectoSistemaGestion\GestionInventario\GestionInventario\obj\Debug\GestionInventario.FormActivos.resources
 C:\Users\BB12388\ProyectoSistemaGestion\GestionInventario\GestionInventario\obj\Debug\GestionInventario.FormMarcas.resources
 C:\Users\BB12388\ProyectoSistemaGestion\GestionInventario\GestionInventario\obj\Debug\GestionInventario.Form2.resources
+C:\Users\BB12388\ProyectoSistemaGestion\GestionInventario\GestionInventario\obj\Debug\GestionInventario.Form3Login.resources
