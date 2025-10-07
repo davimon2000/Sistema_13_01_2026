@@ -203,8 +203,8 @@ namespace GestionInventario
 
                                             using (SqlConnection conexion = new SqlConnection(connectionString))
                                             {
-                                                string query = @"INSERT INTO Mantenimiento (InventarioId, FechaIngresoMtto, TipoFalla, ObsIngreso, NumIngreso)
-                             VALUES (@InventarioId, @FechaIngresoMtto, @TipoFalla, @ObsIngreso, @NumIngreso)";
+                                                string query = @"INSERT INTO Mantenimiento (InventarioId, FechaIngresoMtto, TipoFalla, ObsIngreso, NumIngreso, UsuarioIngreso
+                             VALUES (@InventarioId, @FechaIngresoMtto, @TipoFalla, @ObsIngreso, @NumIngreso, @UsuarioIngreso)";
 
                                                 using (SqlCommand cmdIngreso = new SqlCommand(query, conexion))
                                                 {
@@ -213,6 +213,7 @@ namespace GestionInventario
                                                     cmdIngreso.Parameters.AddWithValue("@TipoFalla", TipoFalla);
                                                     cmdIngreso.Parameters.AddWithValue("@ObsIngreso", ObsIngreso);
                                                     cmdIngreso.Parameters.AddWithValue("@NumIngreso", numeroIngreso);
+                                                    cmdIngreso.Parameters.AddWithValue("@UsuarioIngreso", Form3Login.UsuarioActual);
 
                                                     try
                                                     {
@@ -255,8 +256,8 @@ namespace GestionInventario
 
                                         using (SqlConnection conexion = new SqlConnection(connectionString))
                                         {
-                                            string query = @"INSERT INTO Mantenimiento (InventarioId, FechaIngresoMtto, TipoFalla, ObsIngreso, NumIngreso)
-                             VALUES (@InventarioId, @FechaIngresoMtto, @TipoFalla, @ObsIngreso, @NumIngreso)";
+                                            string query = @"INSERT INTO Mantenimiento (InventarioId, FechaIngresoMtto, TipoFalla, ObsIngreso, NumIngreso, UsuarioSalida)
+                             VALUES (@InventarioId, @FechaIngresoMtto, @TipoFalla, @ObsIngreso, @NumIngreso, @UsuarioSalida)";
 
                                             using (SqlCommand cmdIngreso = new SqlCommand(query, conexion))
                                             {
@@ -265,7 +266,7 @@ namespace GestionInventario
                                                 cmdIngreso.Parameters.AddWithValue("@TipoFalla", TipoFalla);
                                                 cmdIngreso.Parameters.AddWithValue("@ObsIngreso", ObsIngreso);
                                                 cmdIngreso.Parameters.AddWithValue("@NumIngreso", numeroIngreso);
-
+                                                cmdIngreso.Parameters.AddWithValue("@UsuarioSalida", Form3Login.UsuarioActual);
                                                 try
                                                 {
                                                     conexion.Open();

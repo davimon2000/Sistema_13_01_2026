@@ -13,6 +13,7 @@ using System.Configuration;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 using GestionInventario;
 
+
 namespace GestionInventario
 {
     public partial class FormRegistro : Form
@@ -283,13 +284,14 @@ namespace GestionInventario
 
             using (SqlConnection conn = new SqlConnection(connectionString))
             {
-                conn.Open();
+                //conn.Open();
                 string queryExistencia = "SELECT COUNT(*) FROM RegistroActivos WHERE codInterno = @codInterno";
                 using (SqlCommand cmdExist = new SqlCommand(queryExistencia, conn))
                 {
                     cmdExist.Parameters.AddWithValue("@codInterno", codInterno);
+                    conn.Open();
                     int count = (int)cmdExist.ExecuteScalar();
-
+                    conn.Close();
                     if (count > 0)
                     {
                         // Paso 2: Preguntar si desea actualizar
@@ -303,13 +305,34 @@ namespace GestionInventario
                         if (resultado == DialogResult.Yes)
                         {
                             // Paso 3: Actualizar
+
+                            string queryValidar = "SELECT COUNT(*) FROM RegistroActivos WHERE Serial = @Serial";
+
+                            using (SqlCommand cmdValidar = new SqlCommand(queryValidar, conn))
+                            {
+                                cmdValidar.Parameters.AddWithValue("@Serial", serial);
+
+                                conn.Open();
+                                int existe = (int)cmdValidar.ExecuteScalar();
+                                conn.Close();
+
+                                if (existe > 0)
+                                {
+                                    
+                                    MessageBox.Show("Ya existe un activo registrado con ese serial.", "Duplicado", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                                    return; //Detiene la ejecución para que no inserte el registro
+                                }
+                            }
+
+
                             string updateQuery = @"
                         UPDATE RegistroActivos
                         SET Serial = @serial,
                             Marca = @marca,
                             FechaCompra = @fechaCompra,
                             FechaRegistro = @fechaRegistro,
-                            EstadoRegistro = @estadoActual
+                            EstadoRegistro = @estadoActual,
+                            Usuario = @usuario
                             
                         WHERE CodInterno = @codInterno";
 
@@ -320,12 +343,15 @@ namespace GestionInventario
                                 cmdUpdate.Parameters.AddWithValue("@marca", idMarca);
                                 cmdUpdate.Parameters.AddWithValue("@fechaRegistro", fechaReg);
                                 cmdUpdate.Parameters.AddWithValue("@estadoActual", EstadoActual);
+                                cmdUpdate.Parameters.AddWithValue("@usuario", Form3Login.UsuarioActual);
                                 // Manejo de parámetro nulo
                                 if (fechaCompra.HasValue)
                                     cmdUpdate.Parameters.AddWithValue("@fechaCompra", fechaCompra.Value);
                                 else
                                     cmdUpdate.Parameters.AddWithValue("@fechaCompra", DBNull.Value);
+                                conn.Open();
                                 cmdUpdate.ExecuteNonQuery();
+                                conn.Close();
                                 MessageBox.Show("Registro actualizado correctamente.");
                                 txtNumReg.Text = "";
                                 txtSerialRegistro.Text = "";
@@ -343,8 +369,28 @@ namespace GestionInventario
                         // 3. Insertar en la base de datos
                         using (SqlConnection conexion = new SqlConnection(connectionString))
                         {
-                            string query = @"INSERT INTO RegistroActivos (IdActivo, CodInterno, Serial, Marca, FechaCompra, FechaRegistro, EstadoRegistro)
-                         VALUES (@IdActivo, @CodInterno, @Serial, @IdMarca, @FechaCompra, @FechaRegistro, @EstadoActual)";
+
+                            string queryValidar = "SELECT COUNT(*) FROM RegistroActivos WHERE Serial = @Serial";
+
+                            using (SqlCommand cmdValidar = new SqlCommand(queryValidar, conexion))
+                            {
+                                cmdValidar.Parameters.AddWithValue("@Serial", serial);
+
+                                conexion.Open();
+                                int existe = (int)cmdValidar.ExecuteScalar();
+                                conexion.Close();
+
+                                if (existe > 0)
+                                {
+                                    MessageBox.Show("Ya existe un activo registrado con ese serial.", "Duplicado", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                                    return; //Detiene la ejecución para que no inserte el registro
+                                }
+                            }
+
+
+
+                            string query = @"INSERT INTO RegistroActivos (IdActivo, CodInterno, Serial, Marca, FechaCompra, FechaRegistro, EstadoRegistro, Usuario)
+                         VALUES (@IdActivo, @CodInterno, @Serial, @IdMarca, @FechaCompra, @FechaRegistro, @EstadoActual, @usuario)";
 
                             using (SqlCommand cmd = new SqlCommand(query, conexion))
                             {
@@ -354,6 +400,7 @@ namespace GestionInventario
                                 cmd.Parameters.AddWithValue("@IdMarca", idMarca);
                                 cmd.Parameters.AddWithValue("@FechaRegistro", fechaReg);
                                 cmd.Parameters.AddWithValue("@EstadoActual", EstadoActual);
+                                cmd.Parameters.AddWithValue("@usuario", Form3Login.UsuarioActual);
                                 // Manejo de parámetro nulo
                                 if (fechaCompra.HasValue)
                                     cmd.Parameters.AddWithValue("@FechaCompra", fechaCompra.Value);
@@ -364,6 +411,7 @@ namespace GestionInventario
                                 {
                                     conexion.Open();
                                     cmd.ExecuteNonQuery();
+                                    conexion.Close() ;
                                     MessageBox.Show("Registro guardado con éxito.");
                                     txtNumReg.Text = "";
                                     txtSerialRegistro.Text = "";
