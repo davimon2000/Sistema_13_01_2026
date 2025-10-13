@@ -93,14 +93,14 @@ namespace GestionInventario
                 cmbEstadoMtto.Visible = true;
                 cmbEstadoMtto.Enabled = true;
                 lblEstadoMtto.Visible = true;
-                lblTecnico.Visible = true;
+                lblTecnico.Visible = false;
                 cmbTecnico.Enabled = true;
-                cmbTecnico.Visible = true;
+                cmbTecnico.Visible = false;
                 btnSalidaMtto.Enabled = true;
                 btnSalidaMtto.Visible = true;
                 txtObservacionSalida.Visible = true;
                 txtObservacionSalida.Enabled = true;
-                btnTecnicos.Visible = true;
+                btnTecnicos.Visible = false;
             }
             
         }
@@ -158,8 +158,8 @@ namespace GestionInventario
                     {
                         cmd.Parameters.AddWithValue("@Numero", numeroActivo);
                         object result = cmd.ExecuteScalar();
-
-
+                        
+                        conn.Close();
 
                         if (result != null)
                         {
@@ -173,7 +173,7 @@ namespace GestionInventario
 
                             using (SqlCommand cmdCheck = new SqlCommand(queryCheck, conn))
                             {
-
+                                conn.Open();
                                 cmdCheck.Parameters.AddWithValue("@InventarioId", InventarioId);
                                 object checkResult = cmdCheck.ExecuteScalar();
 
@@ -185,7 +185,7 @@ namespace GestionInventario
                                     int count = (int)cmdExist.ExecuteScalar();
                                     numeroIngreso = (int)cmdExist.ExecuteScalar() + 1;
 
-
+                                    conn.Close();
                                     if (count > 0)   //Si ya hay registros anteriores en mtto con este activo
                                     {
 
@@ -203,7 +203,7 @@ namespace GestionInventario
 
                                             using (SqlConnection conexion = new SqlConnection(connectionString))
                                             {
-                                                string query = @"INSERT INTO Mantenimiento (InventarioId, FechaIngresoMtto, TipoFalla, ObsIngreso, NumIngreso, UsuarioIngreso
+                                                string query = @"INSERT INTO Mantenimiento (InventarioId, FechaIngresoMtto, TipoFalla, ObsIngreso, NumIngreso, UsuarioIngreso)
                              VALUES (@InventarioId, @FechaIngresoMtto, @TipoFalla, @ObsIngreso, @NumIngreso, @UsuarioIngreso)";
 
                                                 using (SqlCommand cmdIngreso = new SqlCommand(query, conexion))
@@ -223,7 +223,7 @@ namespace GestionInventario
                                                         txtNumMtto.Text = "";
                                                         txtObservacion.Text = "";
 
-
+                                                        conexion.Close();
 
 
                                                         //using(SqlConnection connnnn = new SqlConnection(connectionString))
@@ -256,8 +256,8 @@ namespace GestionInventario
 
                                         using (SqlConnection conexion = new SqlConnection(connectionString))
                                         {
-                                            string query = @"INSERT INTO Mantenimiento (InventarioId, FechaIngresoMtto, TipoFalla, ObsIngreso, NumIngreso, UsuarioSalida)
-                             VALUES (@InventarioId, @FechaIngresoMtto, @TipoFalla, @ObsIngreso, @NumIngreso, @UsuarioSalida)";
+                                            string query = @"INSERT INTO Mantenimiento (InventarioId, FechaIngresoMtto, TipoFalla, ObsIngreso, NumIngreso, UsuarioIngreso)
+                             VALUES (@InventarioId, @FechaIngresoMtto, @TipoFalla, @ObsIngreso, @NumIngreso, @UsuarioIngres)";
 
                                             using (SqlCommand cmdIngreso = new SqlCommand(query, conexion))
                                             {
@@ -266,7 +266,7 @@ namespace GestionInventario
                                                 cmdIngreso.Parameters.AddWithValue("@TipoFalla", TipoFalla);
                                                 cmdIngreso.Parameters.AddWithValue("@ObsIngreso", ObsIngreso);
                                                 cmdIngreso.Parameters.AddWithValue("@NumIngreso", numeroIngreso);
-                                                cmdIngreso.Parameters.AddWithValue("@UsuarioSalida", Form3Login.UsuarioActual);
+                                                cmdIngreso.Parameters.AddWithValue("@UsuarioIngres", Form3Login.UsuarioActual);
                                                 try
                                                 {
                                                     conexion.Open();
@@ -274,7 +274,7 @@ namespace GestionInventario
                                                     MessageBox.Show($"Activo ingresado correctamente.\nNúmero de ingreso a mantenimiento: {numeroIngreso}");
                                                     txtNumMtto.Text = "";
                                                     txtObservacion.Text = "";
-
+                                                    conexion.Close();
                                                     //using (SqlConnection connnn = new SqlConnection(connectionString))
                                                     //{
                                                     string query_Sede = "UPDATE Asignacion SET Sede = NULL WHERE IdActivo = @IdActivo";
@@ -336,7 +336,7 @@ namespace GestionInventario
             String ObsSalida = txtObservacionSalida.Text;
             //string tecnicoid = cmbTecnico.SelectedIndex.ToString();
             string tecnicoSelected = cmbTecnico.ValueMember.ToString();
-            int tecnicoid = Convert.ToInt32(cmbTecnico.SelectedValue);
+            //int tecnicoid = Convert.ToInt32(cmbTecnico.SelectedValue);
 
             //int tecnicoid = 1;
             int InventarioId = 0;
@@ -351,7 +351,7 @@ namespace GestionInventario
                 {
                     cmd.Parameters.AddWithValue("@Numero", numeroActivo);
                     object result = cmd.ExecuteScalar();
-
+                    conn.Close();
                     if (result != null)
                     {
                         InventarioId = Convert.ToInt32(result);
@@ -374,18 +374,36 @@ namespace GestionInventario
 
                         using (SqlCommand cmdExist = new SqlCommand(queryExistencia, conn))
                         {
+                            conn.Open();
                             cmdExist.Parameters.AddWithValue("@InventarioId", InventarioId);
                             object resultCheck = cmdExist.ExecuteScalar();
-
+                            conn.Close();
                             if (resultCheck == null || resultCheck == DBNull.Value)
                             {
 
-                                string updatequery = @"
+                                    //    string updatequery = @"
+                                    //UPDATE Mantenimiento
+                                    //SET fechasalidamtto = @fechasalidamtto,
+                                    //    estadosalida = @estadosalida,
+                                    //    ObsSalida = @ObsSalida,
+                                    //    tecnicoid = @tecnicoid,
+                                    //    UsuarioSalida = @UsuarioSalida,
+                                    //    checkMtto = @checkMtto
+
+                                    //WHERE Id = (
+                                    //        SELECT TOP 1 Id
+                                    //        FROM Mantenimiento
+                                    //        WHERE InventarioId = @InventarioId
+                                    //        ORDER BY Id DESC
+                                    //    )";
+
+
+                                    string updatequery = @"
                             UPDATE Mantenimiento
                             SET fechasalidamtto = @fechasalidamtto,
                                 estadosalida = @estadosalida,
                                 ObsSalida = @ObsSalida,
-                                tecnicoid = @tecnicoid,
+                                UsuarioSalida = @UsuarioSalida,
                                 checkMtto = @checkMtto
 
                             WHERE Id = (
@@ -395,23 +413,26 @@ namespace GestionInventario
                                     ORDER BY Id DESC
                                 )";
 
-                                using (SqlCommand cmdupdate = new SqlCommand(updatequery, conn))
+
+                                    using (SqlCommand cmdupdate = new SqlCommand(updatequery, conn))
                                 {
                                     cmdupdate.Parameters.AddWithValue("@inventarioid", InventarioId);
                                     cmdupdate.Parameters.AddWithValue("@fechasalidamtto", fechaSalidaMtto);
                                     cmdupdate.Parameters.AddWithValue("@estadosalida", Estado);
                                     cmdupdate.Parameters.AddWithValue("@ObsSalida", ObsSalida);
-                                    cmdupdate.Parameters.AddWithValue("@tecnicoid", tecnicoid);
+                                    //cmdupdate.Parameters.AddWithValue("@tecnicoid", tecnicoid);
                                     cmdupdate.Parameters.AddWithValue("@checkMtto", checkTrue);
+                                    cmdupdate.Parameters.AddWithValue("@UsuarioSalida", Form3Login.UsuarioActual);
 
                                     // manejo de parámetro nulo
                                     try
                                     {
+                                            conn.Open();
                                         cmdupdate.ExecuteNonQuery();
                                         MessageBox.Show("Registro actualizado correctamente.");
                                         txtNumMtto.Text = "";
                                         txtObservacionSalida.Text = "";
-
+                                        conn.Close();
 
 
 

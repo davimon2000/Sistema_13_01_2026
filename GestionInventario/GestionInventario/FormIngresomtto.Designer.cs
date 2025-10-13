@@ -178,6 +178,7 @@ namespace GestionInventario
             this.lblTecnico.Size = new System.Drawing.Size(127, 21);
             this.lblTecnico.TabIndex = 23;
             this.lblTecnico.Text = "Técnico a cargo:";
+            this.lblTecnico.Visible = false;
             // 
             // lblObservacion
             // 
@@ -244,6 +245,7 @@ namespace GestionInventario
             this.cmbTecnico.Size = new System.Drawing.Size(114, 21);
             this.cmbTecnico.TabIndex = 30;
             this.cmbTecnico.ValueMember = "Id";
+            this.cmbTecnico.Visible = false;
             this.cmbTecnico.SelectedIndexChanged += new System.EventHandler(this.cmbTecnico_SelectedIndexChanged);
             // 
             // tecnicosBindingSource
@@ -272,6 +274,7 @@ namespace GestionInventario
             this.btnTecnicos.TabIndex = 32;
             this.btnTecnicos.Text = "Tecnicos";
             this.btnTecnicos.UseVisualStyleBackColor = true;
+            this.btnTecnicos.Visible = false;
             this.btnTecnicos.Click += new System.EventHandler(this.btnTecnicos_Click);
             // 
             // tecnicosTableAdapter
