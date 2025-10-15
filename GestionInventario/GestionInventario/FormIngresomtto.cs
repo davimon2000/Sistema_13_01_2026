@@ -70,14 +70,14 @@ namespace GestionInventario
                 cmbEstadoMtto.Visible = false;
                 cmbEstadoMtto.Enabled = false;
                 lblEstadoMtto.Visible = false;
-                lblTecnico.Visible = false;
-                cmbTecnico.Visible = false;
-                cmbTecnico.Enabled = false;
+               // lblTecnico.Visible = false;
+                //cmbTecnico.Visible = false;
+                //cmbTecnico.Enabled = false;
                 btnSalidaMtto.Enabled = false;
                 btnSalidaMtto.Visible = false;
                 txtObservacionSalida.Visible = false;
                 txtObservacionSalida.Enabled = false;
-                btnTecnicos.Visible = false;
+                //btnTecnicos.Visible = false;
 
             }
             else if (seleccion == "SALIDA")
@@ -93,14 +93,14 @@ namespace GestionInventario
                 cmbEstadoMtto.Visible = true;
                 cmbEstadoMtto.Enabled = true;
                 lblEstadoMtto.Visible = true;
-                lblTecnico.Visible = false;
-                cmbTecnico.Enabled = true;
-                cmbTecnico.Visible = false;
+                //lblTecnico.Visible = false;
+                //cmbTecnico.Enabled = true;
+                //cmbTecnico.Visible = false;
                 btnSalidaMtto.Enabled = true;
                 btnSalidaMtto.Visible = true;
                 txtObservacionSalida.Visible = true;
                 txtObservacionSalida.Enabled = true;
-                btnTecnicos.Visible = false;
+                //btnTecnicos.Visible = false;
             }
             
         }
@@ -108,7 +108,7 @@ namespace GestionInventario
         private void FormIngresomtto_Load_1(object sender, EventArgs e)
         {
             // TODO: esta línea de código carga datos en la tabla 'tecnicosDS.Tecnicos' Puede moverla o quitarla según sea necesario.
-            this.tecnicosTableAdapter.Fill(this.tecnicosDS.Tecnicos);
+            //this.tecnicosTableAdapter.Fill(this.tecnicosDS.Tecnicos);
 
             cmbTipoFalla.Visible = true;
             cmbTipoFalla.Enabled = true;
@@ -119,12 +119,12 @@ namespace GestionInventario
             cmbEstadoMtto.Visible = false;
             cmbEstadoMtto.Enabled = false;
             lblEstadoMtto.Visible = false;
-            lblTecnico.Visible = false;
-            cmbTecnico.Enabled = false;
-            cmbTecnico.Visible = false;
+            //lblTecnico.Visible = false;
+            //cmbTecnico.Enabled = false;
+            //cmbTecnico.Visible = false;
             btnSalidaMtto.Enabled = false;
             btnSalidaMtto.Visible = false; 
-            btnTecnicos.Visible = false;
+            //btnTecnicos.Visible = false;
 
             cmbConcepto.SelectedIndex = 0;
             
@@ -203,8 +203,8 @@ namespace GestionInventario
 
                                             using (SqlConnection conexion = new SqlConnection(connectionString))
                                             {
-                                                string query = @"INSERT INTO Mantenimiento (InventarioId, FechaIngresoMtto, TipoFalla, ObsIngreso, NumIngreso, UsuarioIngreso)
-                             VALUES (@InventarioId, @FechaIngresoMtto, @TipoFalla, @ObsIngreso, @NumIngreso, @UsuarioIngreso)";
+                                                string query = @"INSERT INTO Mantenimiento (InventarioId, FechaIngresoMtto, TipoFalla, ObsIngreso, NumIngreso, UsuarioIngreso, EstadoSalida)
+                             VALUES (@InventarioId, @FechaIngresoMtto, @TipoFalla, @ObsIngreso, @NumIngreso, @UsuarioIngreso, @EstadoSalida)";
 
                                                 using (SqlCommand cmdIngreso = new SqlCommand(query, conexion))
                                                 {
@@ -214,6 +214,7 @@ namespace GestionInventario
                                                     cmdIngreso.Parameters.AddWithValue("@ObsIngreso", ObsIngreso);
                                                     cmdIngreso.Parameters.AddWithValue("@NumIngreso", numeroIngreso);
                                                     cmdIngreso.Parameters.AddWithValue("@UsuarioIngreso", Form3Login.UsuarioActual);
+                                                    cmdIngreso.Parameters.AddWithValue("@EstadoSalida", "EnMtto");
 
                                                     try
                                                     {
@@ -256,8 +257,8 @@ namespace GestionInventario
 
                                         using (SqlConnection conexion = new SqlConnection(connectionString))
                                         {
-                                            string query = @"INSERT INTO Mantenimiento (InventarioId, FechaIngresoMtto, TipoFalla, ObsIngreso, NumIngreso, UsuarioIngreso)
-                             VALUES (@InventarioId, @FechaIngresoMtto, @TipoFalla, @ObsIngreso, @NumIngreso, @UsuarioIngres)";
+                                            string query = @"INSERT INTO Mantenimiento (InventarioId, FechaIngresoMtto, TipoFalla, ObsIngreso, NumIngreso, UsuarioIngreso, EstadoSalida)
+                             VALUES (@InventarioId, @FechaIngresoMtto, @TipoFalla, @ObsIngreso, @NumIngreso, @UsuarioIngres, @EstadoSalida)";
 
                                             using (SqlCommand cmdIngreso = new SqlCommand(query, conexion))
                                             {
@@ -267,6 +268,7 @@ namespace GestionInventario
                                                 cmdIngreso.Parameters.AddWithValue("@ObsIngreso", ObsIngreso);
                                                 cmdIngreso.Parameters.AddWithValue("@NumIngreso", numeroIngreso);
                                                 cmdIngreso.Parameters.AddWithValue("@UsuarioIngres", Form3Login.UsuarioActual);
+                                                cmdIngreso.Parameters.AddWithValue("@EstadoSalida", "EnMtto");
                                                 try
                                                 {
                                                     conexion.Open();
@@ -335,7 +337,7 @@ namespace GestionInventario
             String Estado = cmbEstadoMtto.SelectedItem.ToString();
             String ObsSalida = txtObservacionSalida.Text;
             //string tecnicoid = cmbTecnico.SelectedIndex.ToString();
-            string tecnicoSelected = cmbTecnico.ValueMember.ToString();
+            //string tecnicoSelected = cmbTecnico.ValueMember.ToString();
             //int tecnicoid = Convert.ToInt32(cmbTecnico.SelectedValue);
 
             //int tecnicoid = 1;
@@ -523,7 +525,7 @@ namespace GestionInventario
         }
         public void RecargarDatos()
         {
-            this.tecnicosTableAdapter.Fill(this.tecnicosDS.Tecnicos);
+           // this.tecnicosTableAdapter.Fill(this.tecnicosDS.Tecnicos);
         }
 
         private void cmbTipoFalla_SelectedIndexChanged(object sender, EventArgs e)

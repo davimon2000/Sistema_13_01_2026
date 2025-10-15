@@ -31,7 +31,6 @@ namespace GestionInventario
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             this.lblMantenimiento = new System.Windows.Forms.Label();
             this.txtNumMtto = new System.Windows.Forms.TextBox();
             this.lblNumeroMtto = new System.Windows.Forms.Label();
@@ -42,20 +41,12 @@ namespace GestionInventario
             this.cmbTipoFalla = new System.Windows.Forms.ComboBox();
             this.LabelConceptomtto = new System.Windows.Forms.Label();
             this.cmbConcepto = new System.Windows.Forms.ComboBox();
-            this.lblTecnico = new System.Windows.Forms.Label();
             this.lblObservacion = new System.Windows.Forms.Label();
             this.txtObservacion = new System.Windows.Forms.TextBox();
             this.lblEstadoMtto = new System.Windows.Forms.Label();
             this.cmbEstadoMtto = new System.Windows.Forms.ComboBox();
             this.btnSalidaMtto = new System.Windows.Forms.Button();
-            this.cmbTecnico = new System.Windows.Forms.ComboBox();
-            this.tecnicosBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.tecnicosDS = new GestionInventario.TecnicosDS();
             this.txtObservacionSalida = new System.Windows.Forms.TextBox();
-            this.btnTecnicos = new System.Windows.Forms.Button();
-            this.tecnicosTableAdapter = new GestionInventario.TecnicosDSTableAdapters.TecnicosTableAdapter();
-            ((System.ComponentModel.ISupportInitialize)(this.tecnicosBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.tecnicosDS)).BeginInit();
             this.SuspendLayout();
             // 
             // lblMantenimiento
@@ -170,17 +161,6 @@ namespace GestionInventario
             this.cmbConcepto.TabIndex = 22;
             this.cmbConcepto.SelectedIndexChanged += new System.EventHandler(this.cmbConcepto_SelectedIndexChanged);
             // 
-            // lblTecnico
-            // 
-            this.lblTecnico.AutoSize = true;
-            this.lblTecnico.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTecnico.Location = new System.Drawing.Point(66, 280);
-            this.lblTecnico.Name = "lblTecnico";
-            this.lblTecnico.Size = new System.Drawing.Size(127, 21);
-            this.lblTecnico.TabIndex = 23;
-            this.lblTecnico.Text = "Técnico a cargo:";
-            this.lblTecnico.Visible = false;
-            // 
             // lblObservacion
             // 
             this.lblObservacion.AutoSize = true;
@@ -234,29 +214,6 @@ namespace GestionInventario
             this.btnSalidaMtto.UseVisualStyleBackColor = false;
             this.btnSalidaMtto.Click += new System.EventHandler(this.btnSalidaMtto_Click);
             // 
-            // cmbTecnico
-            // 
-            this.cmbTecnico.DataSource = this.tecnicosBindingSource;
-            this.cmbTecnico.DisplayMember = "Nombre";
-            this.cmbTecnico.FormattingEnabled = true;
-            this.cmbTecnico.Location = new System.Drawing.Point(197, 280);
-            this.cmbTecnico.Name = "cmbTecnico";
-            this.cmbTecnico.Size = new System.Drawing.Size(114, 21);
-            this.cmbTecnico.TabIndex = 30;
-            this.cmbTecnico.ValueMember = "Id";
-            this.cmbTecnico.Visible = false;
-            this.cmbTecnico.SelectedIndexChanged += new System.EventHandler(this.cmbTecnico_SelectedIndexChanged);
-            // 
-            // tecnicosBindingSource
-            // 
-            this.tecnicosBindingSource.DataMember = "Tecnicos";
-            this.tecnicosBindingSource.DataSource = this.tecnicosDS;
-            // 
-            // tecnicosDS
-            // 
-            this.tecnicosDS.DataSetName = "TecnicosDS";
-            this.tecnicosDS.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
             // txtObservacionSalida
             // 
             this.txtObservacionSalida.Location = new System.Drawing.Point(197, 245);
@@ -265,35 +222,17 @@ namespace GestionInventario
             this.txtObservacionSalida.TabIndex = 31;
             this.txtObservacionSalida.TextChanged += new System.EventHandler(this.txtObservacionSalida_TextChanged);
             // 
-            // btnTecnicos
-            // 
-            this.btnTecnicos.Location = new System.Drawing.Point(317, 278);
-            this.btnTecnicos.Name = "btnTecnicos";
-            this.btnTecnicos.Size = new System.Drawing.Size(75, 23);
-            this.btnTecnicos.TabIndex = 32;
-            this.btnTecnicos.Text = "Tecnicos";
-            this.btnTecnicos.UseVisualStyleBackColor = true;
-            this.btnTecnicos.Visible = false;
-            this.btnTecnicos.Click += new System.EventHandler(this.btnTecnicos_Click);
-            // 
-            // tecnicosTableAdapter
-            // 
-            this.tecnicosTableAdapter.ClearBeforeFill = true;
-            // 
             // FormIngresomtto
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(459, 396);
-            this.Controls.Add(this.btnTecnicos);
             this.Controls.Add(this.txtObservacionSalida);
-            this.Controls.Add(this.cmbTecnico);
             this.Controls.Add(this.btnSalidaMtto);
             this.Controls.Add(this.cmbEstadoMtto);
             this.Controls.Add(this.lblEstadoMtto);
             this.Controls.Add(this.txtObservacion);
             this.Controls.Add(this.lblObservacion);
-            this.Controls.Add(this.lblTecnico);
             this.Controls.Add(this.cmbConcepto);
             this.Controls.Add(this.LabelConceptomtto);
             this.Controls.Add(this.btnIngresoMtto);
@@ -307,8 +246,6 @@ namespace GestionInventario
             this.Name = "FormIngresomtto";
             this.Text = "FormIngresomtto";
             this.Load += new System.EventHandler(this.FormIngresomtto_Load_1);
-            ((System.ComponentModel.ISupportInitialize)(this.tecnicosBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.tecnicosDS)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -326,17 +263,11 @@ namespace GestionInventario
         private ComboBox cmbTipoFalla;
         private Label LabelConceptomtto;
         private ComboBox cmbConcepto;
-        private Label lblTecnico;
         private Label lblObservacion;
         private TextBox txtObservacion;
         private Label lblEstadoMtto;
         private ComboBox cmbEstadoMtto;
         private Button btnSalidaMtto;
-        private ComboBox cmbTecnico;
         private TextBox txtObservacionSalida;
-        private Button btnTecnicos;
-        private TecnicosDS tecnicosDS;
-        private BindingSource tecnicosBindingSource;
-        private TecnicosDSTableAdapters.TecnicosTableAdapter tecnicosTableAdapter;
     }
 }

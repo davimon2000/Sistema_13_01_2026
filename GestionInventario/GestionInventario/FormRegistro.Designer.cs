@@ -274,7 +274,6 @@ namespace GestionInventario
             this.cmbEstadoRegistro.Items.AddRange(new object[] {
             "Nuevo",
             "Disponible",
-            "Asignado",
             "Con Falla",
             "Baja"});
             this.cmbEstadoRegistro.Location = new System.Drawing.Point(177, 370);
