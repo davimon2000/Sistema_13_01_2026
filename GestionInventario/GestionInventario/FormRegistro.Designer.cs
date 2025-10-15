@@ -273,9 +273,10 @@ namespace GestionInventario
             this.cmbEstadoRegistro.FormattingEnabled = true;
             this.cmbEstadoRegistro.Items.AddRange(new object[] {
             "Nuevo",
-            "En uso",
-            "Disponible(Registro)",
-            "Baja(Registro)"});
+            "Disponible",
+            "Asignado",
+            "Con Falla",
+            "Baja"});
             this.cmbEstadoRegistro.Location = new System.Drawing.Point(177, 370);
             this.cmbEstadoRegistro.Name = "cmbEstadoRegistro";
             this.cmbEstadoRegistro.Size = new System.Drawing.Size(202, 25);

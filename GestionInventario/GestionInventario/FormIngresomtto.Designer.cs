@@ -145,6 +145,7 @@ namespace GestionInventario
             this.cmbTipoFalla.Name = "cmbTipoFalla";
             this.cmbTipoFalla.Size = new System.Drawing.Size(195, 25);
             this.cmbTipoFalla.TabIndex = 19;
+            this.cmbTipoFalla.SelectedIndexChanged += new System.EventHandler(this.cmbTipoFalla_SelectedIndexChanged);
             // 
             // LabelConceptomtto
             // 
@@ -213,9 +214,7 @@ namespace GestionInventario
             this.cmbEstadoMtto.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmbEstadoMtto.FormattingEnabled = true;
             this.cmbEstadoMtto.Items.AddRange(new object[] {
-            "Bueno",
-            "Reparado",
-            "Recuperado",
+            "Disponible",
             "Baja"});
             this.cmbEstadoMtto.Location = new System.Drawing.Point(197, 202);
             this.cmbEstadoMtto.Name = "cmbEstadoMtto";
