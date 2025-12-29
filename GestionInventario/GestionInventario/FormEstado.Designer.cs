@@ -29,15 +29,15 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea7 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend7 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series7 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea8 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend8 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series8 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea9 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend9 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series9 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea3 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend3 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series3 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.lblNumeroAsig = new System.Windows.Forms.Label();
             this.cmbMarca = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
@@ -45,10 +45,7 @@
             this.registroActivosBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.lblRegistro = new System.Windows.Forms.Label();
             this.chart1 = new System.Windows.Forms.DataVisualization.Charting.Chart();
-            this.cmbSede = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.cmbFalla = new System.Windows.Forms.ComboBox();
-            this.label3 = new System.Windows.Forms.Label();
             this.btnFiltros = new System.Windows.Forms.Button();
             this.inventarioActivosDataSet2 = new GestionInventario.InventarioActivosDataSet2();
             this.marcasBindingSource = new System.Windows.Forms.BindingSource(this.components);
@@ -59,6 +56,7 @@
             this.chartMarcas = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.cmbGraficoMarcas = new System.Windows.Forms.ComboBox();
             this.chart2 = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            this.cmbSede = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.registroActivosBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.chart1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.inventarioActivosDataSet2)).BeginInit();
@@ -97,7 +95,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(269, 340);
+            this.label1.Location = new System.Drawing.Point(394, 337);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(63, 21);
             this.label1.TabIndex = 10;
@@ -117,7 +115,7 @@
             "Baja",
             "EnMtto",
             "Asignado"});
-            this.cmbEstado.Location = new System.Drawing.Point(338, 340);
+            this.cmbEstado.Location = new System.Drawing.Point(463, 337);
             this.cmbEstado.Name = "cmbEstado";
             this.cmbEstado.Size = new System.Drawing.Size(121, 21);
             this.cmbEstado.TabIndex = 11;
@@ -139,80 +137,39 @@
             // 
             // chart1
             // 
-            chartArea7.Name = "ChartArea1";
-            this.chart1.ChartAreas.Add(chartArea7);
-            legend7.Name = "Legend1";
-            this.chart1.Legends.Add(legend7);
+            chartArea1.Name = "ChartArea1";
+            this.chart1.ChartAreas.Add(chartArea1);
+            legend1.Name = "Legend1";
+            this.chart1.Legends.Add(legend1);
             this.chart1.Location = new System.Drawing.Point(16, 84);
             this.chart1.Name = "chart1";
-            series7.ChartArea = "ChartArea1";
-            series7.Legend = "Legend1";
-            series7.Name = "Series1";
-            this.chart1.Series.Add(series7);
+            series1.ChartArea = "ChartArea1";
+            series1.Legend = "Legend1";
+            series1.Name = "Series1";
+            this.chart1.Series.Add(series1);
             this.chart1.Size = new System.Drawing.Size(332, 206);
             this.chart1.TabIndex = 13;
             this.chart1.Text = "chart1";
             this.chart1.Click += new System.EventHandler(this.chart1_Click);
             // 
-            // cmbSede
-            // 
-            this.cmbSede.FormattingEnabled = true;
-            this.cmbSede.Items.AddRange(new object[] {
-            "Todos",
-            "Campin",
-            "Dorado Plaza",
-            "Arboleda",
-            "Panamericana",
-            "Pereira"});
-            this.cmbSede.Location = new System.Drawing.Point(531, 337);
-            this.cmbSede.Name = "cmbSede";
-            this.cmbSede.Size = new System.Drawing.Size(121, 21);
-            this.cmbSede.TabIndex = 15;
-            // 
             // label2
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(474, 334);
+            this.label2.Location = new System.Drawing.Point(16, 379);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(51, 21);
             this.label2.TabIndex = 14;
             this.label2.Text = "Sede:";
-            // 
-            // cmbFalla
-            // 
-            this.cmbFalla.FormattingEnabled = true;
-            this.cmbFalla.Items.AddRange(new object[] {
-            "Todos",
-            "Cable",
-            "Microfono",
-            "Balaca",
-            "Boton",
-            "Base",
-            "Pitillo",
-            "Tarjeta"});
-            this.cmbFalla.Location = new System.Drawing.Point(118, 378);
-            this.cmbFalla.Name = "cmbFalla";
-            this.cmbFalla.Size = new System.Drawing.Size(121, 21);
-            this.cmbFalla.TabIndex = 17;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(8, 378);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(104, 21);
-            this.label3.TabIndex = 16;
-            this.label3.Text = "Tipo de falla:";
+            this.label2.Visible = false;
             // 
             // btnFiltros
             // 
             this.btnFiltros.BackColor = System.Drawing.Color.AliceBlue;
             this.btnFiltros.Font = new System.Drawing.Font("Segoe Fluent Icons", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnFiltros.Location = new System.Drawing.Point(292, 374);
+            this.btnFiltros.Location = new System.Drawing.Point(398, 372);
             this.btnFiltros.Name = "btnFiltros";
-            this.btnFiltros.Size = new System.Drawing.Size(143, 27);
+            this.btnFiltros.Size = new System.Drawing.Size(186, 27);
             this.btnFiltros.TabIndex = 18;
             this.btnFiltros.Text = "APLICAR FILTROS";
             this.btnFiltros.UseVisualStyleBackColor = false;
@@ -239,6 +196,7 @@
             this.dgvResultados.Name = "dgvResultados";
             this.dgvResultados.Size = new System.Drawing.Size(636, 109);
             this.dgvResultados.TabIndex = 19;
+            this.dgvResultados.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvResultados_CellContentClick);
             // 
             // label4
             // 
@@ -262,16 +220,16 @@
             // 
             // chartMarcas
             // 
-            chartArea8.Name = "ChartArea1";
-            this.chartMarcas.ChartAreas.Add(chartArea8);
-            legend8.Name = "Legend1";
-            this.chartMarcas.Legends.Add(legend8);
+            chartArea2.Name = "ChartArea1";
+            this.chartMarcas.ChartAreas.Add(chartArea2);
+            legend2.Name = "Legend1";
+            this.chartMarcas.Legends.Add(legend2);
             this.chartMarcas.Location = new System.Drawing.Point(387, 84);
             this.chartMarcas.Name = "chartMarcas";
-            series8.ChartArea = "ChartArea1";
-            series8.Legend = "Legend1";
-            series8.Name = "Series1";
-            this.chartMarcas.Series.Add(series8);
+            series2.ChartArea = "ChartArea1";
+            series2.Legend = "Legend1";
+            series2.Name = "Series1";
+            this.chartMarcas.Series.Add(series2);
             this.chartMarcas.Size = new System.Drawing.Size(332, 206);
             this.chartMarcas.TabIndex = 22;
             this.chartMarcas.Text = "chart";
@@ -292,20 +250,36 @@
             // 
             // chart2
             // 
-            chartArea9.Name = "ChartArea1";
-            this.chart2.ChartAreas.Add(chartArea9);
+            chartArea3.Name = "ChartArea1";
+            this.chart2.ChartAreas.Add(chartArea3);
             this.chart2.DataSource = this.marcasBindingSource;
-            legend9.Name = "Legend1";
-            this.chart2.Legends.Add(legend9);
-            this.chart2.Location = new System.Drawing.Point(376, 84);
+            legend3.Name = "Legend1";
+            this.chart2.Legends.Add(legend3);
+            this.chart2.Location = new System.Drawing.Point(393, 84);
             this.chart2.Name = "chart2";
-            series9.ChartArea = "ChartArea1";
-            series9.Legend = "Legend1";
-            series9.Name = "Series1";
-            this.chart2.Series.Add(series9);
-            this.chart2.Size = new System.Drawing.Size(326, 218);
+            series3.ChartArea = "ChartArea1";
+            series3.Legend = "Legend1";
+            series3.Name = "Series1";
+            this.chart2.Series.Add(series3);
+            this.chart2.Size = new System.Drawing.Size(326, 206);
             this.chart2.TabIndex = 24;
             this.chart2.Text = "chart2";
+            // 
+            // cmbSede
+            // 
+            this.cmbSede.FormattingEnabled = true;
+            this.cmbSede.Items.AddRange(new object[] {
+            "Todos",
+            "Campin",
+            "Dorado Plaza",
+            "Arboleda",
+            "Panamericana",
+            "Pereira"});
+            this.cmbSede.Location = new System.Drawing.Point(118, 379);
+            this.cmbSede.Name = "cmbSede";
+            this.cmbSede.Size = new System.Drawing.Size(121, 21);
+            this.cmbSede.TabIndex = 15;
+            this.cmbSede.Visible = false;
             // 
             // FormEstado
             // 
@@ -320,8 +294,6 @@
             this.Controls.Add(this.label4);
             this.Controls.Add(this.dgvResultados);
             this.Controls.Add(this.btnFiltros);
-            this.Controls.Add(this.cmbFalla);
-            this.Controls.Add(this.label3);
             this.Controls.Add(this.cmbSede);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.chart1);
@@ -355,10 +327,7 @@
         private System.Windows.Forms.BindingSource registroActivosBindingSource;
         private System.Windows.Forms.Label lblRegistro;
         private System.Windows.Forms.DataVisualization.Charting.Chart chart1;
-        private System.Windows.Forms.ComboBox cmbSede;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.ComboBox cmbFalla;
-        private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Button btnFiltros;
         private InventarioActivosDataSet2 inventarioActivosDataSet2;
         private System.Windows.Forms.BindingSource marcasBindingSource;
@@ -369,5 +338,6 @@
         private System.Windows.Forms.DataVisualization.Charting.Chart chartMarcas;
         private System.Windows.Forms.ComboBox cmbGraficoMarcas;
         private System.Windows.Forms.DataVisualization.Charting.Chart chart2;
+        private System.Windows.Forms.ComboBox cmbSede;
     }
 }

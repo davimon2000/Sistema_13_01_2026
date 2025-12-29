@@ -125,17 +125,17 @@ namespace GestionInventario
         {
             List<string> condiciones = new List<string>();
 
-            if (cmbMarca.SelectedItem != null && cmbMarca.SelectedItem.ToString() != "TODOS")
-                condiciones.Add("Marca = @Marca");
+            //if (cmbMarca.SelectedItem != null && cmbMarca.SelectedItem.ToString() != "TODOS")
+            //    condiciones.Add("Marca = @Marca");
 
-            if (cmbEstado.SelectedItem != null && cmbEstado.SelectedItem.ToString() != "Todos")
-                condiciones.Add("EstadoDefinitivo = @Estado");
+            //if (cmbEstado.SelectedItem != null && cmbEstado.SelectedItem.ToString() != "Todos")
+            //    condiciones.Add("EstadoDefinitivo = @Estado");
 
-            if (cmbSede.SelectedItem != null && cmbSede.SelectedItem.ToString() != "Todos")
-                condiciones.Add("Sede = @Sede");
+            ////if (cmbSede.SelectedItem != null && cmbSede.SelectedItem.ToString() != "Todos")
+            //    condiciones.Add("Sede = @Sede");
 
-            if (cmbFalla.SelectedItem != null && cmbFalla.SelectedItem.ToString() != "Todos")
-                condiciones.Add("TipoFalla = @Falla");
+            ////if (cmbFalla.SelectedItem != null && cmbFalla.SelectedItem.ToString() != "Todos")
+            //    condiciones.Add("TipoFalla = @Falla");
 
             string where = condiciones.Count > 0 ? "WHERE " + string.Join(" AND ", condiciones) : "";
 
@@ -147,7 +147,7 @@ namespace GestionInventario
                 if (query.Contains("@Marca")) cmd.Parameters.AddWithValue("@Marca", cmbMarca.SelectedItem.ToString());               
                 if (query.Contains("@Estado")) cmd.Parameters.AddWithValue("@Estado", cmbEstado.SelectedItem.ToString());
                 if (query.Contains("@Sede")) cmd.Parameters.AddWithValue("@Sede", cmbSede.SelectedItem.ToString());
-                if (query.Contains("@Falla")) cmd.Parameters.AddWithValue("@Falla", cmbFalla.SelectedItem.ToString());
+                //if (query.Contains("@Falla")) cmd.Parameters.AddWithValue("@Falla", cmbFalla.SelectedItem.ToString());
 
                 using (SqlDataAdapter adapter = new SqlDataAdapter(cmd))
                 {
@@ -262,6 +262,11 @@ GROUP BY M.Marca";
                 chartMarcas.Visible = false;
                 
             }
+        }
+
+        private void dgvResultados_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
     }
 }

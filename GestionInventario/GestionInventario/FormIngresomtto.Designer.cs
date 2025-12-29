@@ -53,17 +53,17 @@ namespace GestionInventario
             // 
             this.lblMantenimiento.AutoSize = true;
             this.lblMantenimiento.Font = new System.Drawing.Font("Segoe UI Semibold", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblMantenimiento.Location = new System.Drawing.Point(156, 26);
+            this.lblMantenimiento.Location = new System.Drawing.Point(123, 27);
             this.lblMantenimiento.Name = "lblMantenimiento";
-            this.lblMantenimiento.Size = new System.Drawing.Size(171, 25);
+            this.lblMantenimiento.Size = new System.Drawing.Size(241, 25);
             this.lblMantenimiento.TabIndex = 4;
-            this.lblMantenimiento.Text = "MANTENIMIENTO";
+            this.lblMantenimiento.Text = "SALIDA MANTENIMIENTO";
             this.lblMantenimiento.Click += new System.EventHandler(this.lblMantenimiento_Click);
             // 
             // txtNumMtto
             // 
             this.txtNumMtto.Font = new System.Drawing.Font("Segoe UI", 12F);
-            this.txtNumMtto.Location = new System.Drawing.Point(197, 118);
+            this.txtNumMtto.Location = new System.Drawing.Point(191, 111);
             this.txtNumMtto.Name = "txtNumMtto";
             this.txtNumMtto.Size = new System.Drawing.Size(195, 29);
             this.txtNumMtto.TabIndex = 6;
@@ -72,7 +72,7 @@ namespace GestionInventario
             // 
             this.lblNumeroMtto.AutoSize = true;
             this.lblNumeroMtto.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblNumeroMtto.Location = new System.Drawing.Point(65, 121);
+            this.lblNumeroMtto.Location = new System.Drawing.Point(59, 114);
             this.lblNumeroMtto.Name = "lblNumeroMtto";
             this.lblNumeroMtto.Size = new System.Drawing.Size(74, 21);
             this.lblNumeroMtto.TabIndex = 5;
@@ -82,7 +82,7 @@ namespace GestionInventario
             // 
             this.dtpFechaMtto.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dtpFechaMtto.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtpFechaMtto.Location = new System.Drawing.Point(197, 161);
+            this.dtpFechaMtto.Location = new System.Drawing.Point(191, 154);
             this.dtpFechaMtto.Name = "dtpFechaMtto";
             this.dtpFechaMtto.Size = new System.Drawing.Size(195, 25);
             this.dtpFechaMtto.TabIndex = 16;
@@ -91,7 +91,7 @@ namespace GestionInventario
             // 
             this.lblFechaMtto.AutoSize = true;
             this.lblFechaMtto.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblFechaMtto.Location = new System.Drawing.Point(66, 161);
+            this.lblFechaMtto.Location = new System.Drawing.Point(60, 154);
             this.lblFechaMtto.Name = "lblFechaMtto";
             this.lblFechaMtto.Size = new System.Drawing.Size(56, 21);
             this.lblFechaMtto.TabIndex = 15;
@@ -101,7 +101,7 @@ namespace GestionInventario
             // 
             this.btnIngresoMtto.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
             this.btnIngresoMtto.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnIngresoMtto.Location = new System.Drawing.Point(197, 291);
+            this.btnIngresoMtto.Location = new System.Drawing.Point(191, 284);
             this.btnIngresoMtto.Name = "btnIngresoMtto";
             this.btnIngresoMtto.Size = new System.Drawing.Size(98, 32);
             this.btnIngresoMtto.TabIndex = 20;
@@ -113,7 +113,7 @@ namespace GestionInventario
             // 
             this.lblTipoFallaMtto.AutoSize = true;
             this.lblTipoFallaMtto.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTipoFallaMtto.Location = new System.Drawing.Point(66, 202);
+            this.lblTipoFallaMtto.Location = new System.Drawing.Point(60, 195);
             this.lblTipoFallaMtto.Name = "lblTipoFallaMtto";
             this.lblTipoFallaMtto.Size = new System.Drawing.Size(104, 21);
             this.lblTipoFallaMtto.TabIndex = 18;
@@ -132,7 +132,7 @@ namespace GestionInventario
             "Base",
             "Pitillo",
             "Tarjeta"});
-            this.cmbTipoFalla.Location = new System.Drawing.Point(197, 202);
+            this.cmbTipoFalla.Location = new System.Drawing.Point(191, 195);
             this.cmbTipoFalla.Name = "cmbTipoFalla";
             this.cmbTipoFalla.Size = new System.Drawing.Size(195, 25);
             this.cmbTipoFalla.TabIndex = 19;
@@ -142,7 +142,7 @@ namespace GestionInventario
             // 
             this.LabelConceptomtto.AutoSize = true;
             this.LabelConceptomtto.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LabelConceptomtto.Location = new System.Drawing.Point(66, 82);
+            this.LabelConceptomtto.Location = new System.Drawing.Point(59, 72);
             this.LabelConceptomtto.Name = "LabelConceptomtto";
             this.LabelConceptomtto.Size = new System.Drawing.Size(86, 21);
             this.LabelConceptomtto.TabIndex = 21;
@@ -153,9 +153,9 @@ namespace GestionInventario
             this.cmbConcepto.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmbConcepto.FormattingEnabled = true;
             this.cmbConcepto.Items.AddRange(new object[] {
-            "INGRESO",
-            "SALIDA"});
-            this.cmbConcepto.Location = new System.Drawing.Point(197, 78);
+            "SALIDA",
+            "INGRESO"});
+            this.cmbConcepto.Location = new System.Drawing.Point(191, 68);
             this.cmbConcepto.Name = "cmbConcepto";
             this.cmbConcepto.Size = new System.Drawing.Size(195, 25);
             this.cmbConcepto.TabIndex = 22;
@@ -165,7 +165,7 @@ namespace GestionInventario
             // 
             this.lblObservacion.AutoSize = true;
             this.lblObservacion.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblObservacion.Location = new System.Drawing.Point(64, 242);
+            this.lblObservacion.Location = new System.Drawing.Point(58, 235);
             this.lblObservacion.Name = "lblObservacion";
             this.lblObservacion.Size = new System.Drawing.Size(106, 21);
             this.lblObservacion.TabIndex = 25;
@@ -174,7 +174,7 @@ namespace GestionInventario
             // 
             // txtObservacion
             // 
-            this.txtObservacion.Location = new System.Drawing.Point(197, 245);
+            this.txtObservacion.Location = new System.Drawing.Point(191, 238);
             this.txtObservacion.Name = "txtObservacion";
             this.txtObservacion.Size = new System.Drawing.Size(195, 20);
             this.txtObservacion.TabIndex = 26;
@@ -183,7 +183,7 @@ namespace GestionInventario
             // 
             this.lblEstadoMtto.AutoSize = true;
             this.lblEstadoMtto.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblEstadoMtto.Location = new System.Drawing.Point(66, 202);
+            this.lblEstadoMtto.Location = new System.Drawing.Point(60, 195);
             this.lblEstadoMtto.Name = "lblEstadoMtto";
             this.lblEstadoMtto.Size = new System.Drawing.Size(63, 21);
             this.lblEstadoMtto.TabIndex = 27;
@@ -196,7 +196,7 @@ namespace GestionInventario
             this.cmbEstadoMtto.Items.AddRange(new object[] {
             "Disponible",
             "Baja"});
-            this.cmbEstadoMtto.Location = new System.Drawing.Point(197, 202);
+            this.cmbEstadoMtto.Location = new System.Drawing.Point(191, 195);
             this.cmbEstadoMtto.Name = "cmbEstadoMtto";
             this.cmbEstadoMtto.Size = new System.Drawing.Size(195, 25);
             this.cmbEstadoMtto.TabIndex = 28;
@@ -206,7 +206,7 @@ namespace GestionInventario
             // 
             this.btnSalidaMtto.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
             this.btnSalidaMtto.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSalidaMtto.Location = new System.Drawing.Point(197, 317);
+            this.btnSalidaMtto.Location = new System.Drawing.Point(191, 275);
             this.btnSalidaMtto.Name = "btnSalidaMtto";
             this.btnSalidaMtto.Size = new System.Drawing.Size(98, 32);
             this.btnSalidaMtto.TabIndex = 29;
@@ -216,7 +216,7 @@ namespace GestionInventario
             // 
             // txtObservacionSalida
             // 
-            this.txtObservacionSalida.Location = new System.Drawing.Point(197, 245);
+            this.txtObservacionSalida.Location = new System.Drawing.Point(191, 238);
             this.txtObservacionSalida.Name = "txtObservacionSalida";
             this.txtObservacionSalida.Size = new System.Drawing.Size(195, 20);
             this.txtObservacionSalida.TabIndex = 31;
@@ -226,7 +226,7 @@ namespace GestionInventario
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(459, 396);
+            this.ClientSize = new System.Drawing.Size(459, 374);
             this.Controls.Add(this.txtObservacionSalida);
             this.Controls.Add(this.btnSalidaMtto);
             this.Controls.Add(this.cmbEstadoMtto);

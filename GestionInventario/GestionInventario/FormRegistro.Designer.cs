@@ -64,6 +64,12 @@ namespace GestionInventario
             this.lblActivo = new System.Windows.Forms.Label();
             this.activosTableAdapter = new GestionInventario.ActivosDSTableAdapters.ActivosTableAdapter();
             this.marcasTableAdapter2 = new GestionInventario.MarcasDSTableAdapters.MarcasTableAdapter();
+            this.cmbTipoFalla = new System.Windows.Forms.ComboBox();
+            this.lblTipoFallaMtto = new System.Windows.Forms.Label();
+            this.txtObservacion = new System.Windows.Forms.TextBox();
+            this.lblObservacion = new System.Windows.Forms.Label();
+            this.cmbSedeReg = new System.Windows.Forms.ComboBox();
+            this.label2 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.marcasBindingSource2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.marcasDS)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.marcasBindingSource1)).BeginInit();
@@ -90,7 +96,7 @@ namespace GestionInventario
             // 
             this.lblRegistro.AutoSize = true;
             this.lblRegistro.Font = new System.Drawing.Font("Segoe UI Semibold", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblRegistro.Location = new System.Drawing.Point(193, 25);
+            this.lblRegistro.Location = new System.Drawing.Point(180, 25);
             this.lblRegistro.Name = "lblRegistro";
             this.lblRegistro.Size = new System.Drawing.Size(99, 25);
             this.lblRegistro.TabIndex = 3;
@@ -240,7 +246,7 @@ namespace GestionInventario
             // btnRegistrar
             // 
             this.btnRegistrar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
-            this.btnRegistrar.Location = new System.Drawing.Point(179, 427);
+            this.btnRegistrar.Location = new System.Drawing.Point(179, 439);
             this.btnRegistrar.Name = "btnRegistrar";
             this.btnRegistrar.Size = new System.Drawing.Size(114, 29);
             this.btnRegistrar.TabIndex = 15;
@@ -259,7 +265,7 @@ namespace GestionInventario
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(27, 374);
+            this.label1.Location = new System.Drawing.Point(27, 405);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(113, 21);
             this.label1.TabIndex = 16;
@@ -276,11 +282,12 @@ namespace GestionInventario
             "Disponible",
             "Con Falla",
             "Baja"});
-            this.cmbEstadoRegistro.Location = new System.Drawing.Point(177, 370);
+            this.cmbEstadoRegistro.Location = new System.Drawing.Point(177, 401);
             this.cmbEstadoRegistro.Name = "cmbEstadoRegistro";
             this.cmbEstadoRegistro.Size = new System.Drawing.Size(202, 25);
             this.cmbEstadoRegistro.TabIndex = 17;
             this.cmbEstadoRegistro.ValueMember = "Id";
+            this.cmbEstadoRegistro.SelectedIndexChanged += new System.EventHandler(this.cmbEstadoRegistro_SelectedIndexChanged);
             // 
             // pictureBox2
             // 
@@ -333,11 +340,91 @@ namespace GestionInventario
             // 
             this.marcasTableAdapter2.ClearBeforeFill = true;
             // 
+            // cmbTipoFalla
+            // 
+            this.cmbTipoFalla.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmbTipoFalla.FormattingEnabled = true;
+            this.cmbTipoFalla.Items.AddRange(new object[] {
+            "Cable",
+            "Microfono",
+            "Balaca",
+            "Boton",
+            "Base",
+            "Pitillo",
+            "Tarjeta"});
+            this.cmbTipoFalla.Location = new System.Drawing.Point(177, 444);
+            this.cmbTipoFalla.Name = "cmbTipoFalla";
+            this.cmbTipoFalla.Size = new System.Drawing.Size(204, 25);
+            this.cmbTipoFalla.TabIndex = 21;
+            this.cmbTipoFalla.Visible = false;
+            // 
+            // lblTipoFallaMtto
+            // 
+            this.lblTipoFallaMtto.AutoSize = true;
+            this.lblTipoFallaMtto.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTipoFallaMtto.Location = new System.Drawing.Point(27, 448);
+            this.lblTipoFallaMtto.Name = "lblTipoFallaMtto";
+            this.lblTipoFallaMtto.Size = new System.Drawing.Size(104, 21);
+            this.lblTipoFallaMtto.TabIndex = 22;
+            this.lblTipoFallaMtto.Text = "Tipo de falla:";
+            this.lblTipoFallaMtto.Visible = false;
+            // 
+            // txtObservacion
+            // 
+            this.txtObservacion.Location = new System.Drawing.Point(177, 486);
+            this.txtObservacion.Name = "txtObservacion";
+            this.txtObservacion.Size = new System.Drawing.Size(202, 29);
+            this.txtObservacion.TabIndex = 33;
+            this.txtObservacion.Visible = false;
+            // 
+            // lblObservacion
+            // 
+            this.lblObservacion.AutoSize = true;
+            this.lblObservacion.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblObservacion.Location = new System.Drawing.Point(27, 491);
+            this.lblObservacion.Name = "lblObservacion";
+            this.lblObservacion.Size = new System.Drawing.Size(147, 21);
+            this.lblObservacion.TabIndex = 32;
+            this.lblObservacion.Text = "Observación Mtto:";
+            this.lblObservacion.Visible = false;
+            // 
+            // cmbSedeReg
+            // 
+            this.cmbSedeReg.FormattingEnabled = true;
+            this.cmbSedeReg.Items.AddRange(new object[] {
+            "Campin",
+            "Dorado Plaza",
+            "Arboleda",
+            "Panamericana",
+            "Pereira"});
+            this.cmbSedeReg.Location = new System.Drawing.Point(177, 355);
+            this.cmbSedeReg.Name = "cmbSedeReg";
+            this.cmbSedeReg.Size = new System.Drawing.Size(202, 29);
+            this.cmbSedeReg.TabIndex = 35;
+            this.cmbSedeReg.SelectedIndexChanged += new System.EventHandler(this.cmbSedeAsig_SelectedIndexChanged);
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(32, 359);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(117, 21);
+            this.label2.TabIndex = 34;
+            this.label2.Text = "Sede Registro:";
+            this.label2.Click += new System.EventHandler(this.label2_Click);
+            // 
             // FormRegistro
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 21F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(485, 480);
+            this.ClientSize = new System.Drawing.Size(485, 566);
+            this.Controls.Add(this.cmbSedeReg);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.txtObservacion);
+            this.Controls.Add(this.lblObservacion);
+            this.Controls.Add(this.lblTipoFallaMtto);
+            this.Controls.Add(this.cmbTipoFalla);
             this.Controls.Add(this.pictureBox2);
             this.Controls.Add(this.cmbActivo);
             this.Controls.Add(this.lblActivo);
@@ -414,5 +501,11 @@ namespace GestionInventario
         private MarcasDS marcasDS;
         private BindingSource marcasBindingSource2;
         private MarcasDSTableAdapters.MarcasTableAdapter marcasTableAdapter2;
+        private ComboBox cmbTipoFalla;
+        private Label lblTipoFallaMtto;
+        private TextBox txtObservacion;
+        private Label lblObservacion;
+        private ComboBox cmbSedeReg;
+        private Label label2;
     }
 }

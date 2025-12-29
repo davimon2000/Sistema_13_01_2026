@@ -293,6 +293,14 @@ namespace GestionInventario {
             
             private global::System.Data.DataColumn columnCodInterno;
             
+            private global::System.Data.DataColumn columnId;
+            
+            private global::System.Data.DataColumn columnInventarioId;
+            
+            private global::System.Data.DataColumn columnTecnicoId;
+            
+            private global::System.Data.DataColumn columncheckMtto;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public MantenimientoDataTable() {
@@ -384,6 +392,38 @@ namespace GestionInventario {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn IdColumn {
+                get {
+                    return this.columnId;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn InventarioIdColumn {
+                get {
+                    return this.columnInventarioId;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn TecnicoIdColumn {
+                get {
+                    return this.columnTecnicoId;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn checkMttoColumn {
+                get {
+                    return this.columncheckMtto;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -419,7 +459,7 @@ namespace GestionInventario {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public MantenimientoRow AddMantenimientoRow(System.DateTime FechaIngresoMtto, string TipoFalla, string ObsIngreso, System.DateTime FechaSalidaMtto, string EstadoSalida, string ObsSalida, string CodInterno) {
+            public MantenimientoRow AddMantenimientoRow(System.DateTime FechaIngresoMtto, string TipoFalla, string ObsIngreso, System.DateTime FechaSalidaMtto, string EstadoSalida, string ObsSalida, string CodInterno, int InventarioId, int TecnicoId, bool checkMtto) {
                 MantenimientoRow rowMantenimientoRow = ((MantenimientoRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         FechaIngresoMtto,
@@ -428,10 +468,21 @@ namespace GestionInventario {
                         FechaSalidaMtto,
                         EstadoSalida,
                         ObsSalida,
-                        CodInterno};
+                        CodInterno,
+                        null,
+                        InventarioId,
+                        TecnicoId,
+                        checkMtto};
                 rowMantenimientoRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowMantenimientoRow);
                 return rowMantenimientoRow;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public MantenimientoRow FindById(int Id) {
+                return ((MantenimientoRow)(this.Rows.Find(new object[] {
+                            Id})));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -458,6 +509,10 @@ namespace GestionInventario {
                 this.columnEstadoSalida = base.Columns["EstadoSalida"];
                 this.columnObsSalida = base.Columns["ObsSalida"];
                 this.columnCodInterno = base.Columns["CodInterno"];
+                this.columnId = base.Columns["Id"];
+                this.columnInventarioId = base.Columns["InventarioId"];
+                this.columnTecnicoId = base.Columns["TecnicoId"];
+                this.columncheckMtto = base.Columns["checkMtto"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -477,12 +532,29 @@ namespace GestionInventario {
                 base.Columns.Add(this.columnObsSalida);
                 this.columnCodInterno = new global::System.Data.DataColumn("CodInterno", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnCodInterno);
+                this.columnId = new global::System.Data.DataColumn("Id", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnId);
+                this.columnInventarioId = new global::System.Data.DataColumn("InventarioId", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnInventarioId);
+                this.columnTecnicoId = new global::System.Data.DataColumn("TecnicoId", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnTecnicoId);
+                this.columncheckMtto = new global::System.Data.DataColumn("checkMtto", typeof(bool), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columncheckMtto);
+                this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
+                                this.columnId}, true));
                 this.columnTipoFalla.MaxLength = 50;
                 this.columnObsIngreso.MaxLength = 100;
                 this.columnEstadoSalida.MaxLength = 50;
                 this.columnObsSalida.MaxLength = 100;
                 this.columnCodInterno.AllowDBNull = false;
                 this.columnCodInterno.MaxLength = 20;
+                this.columnId.AutoIncrement = true;
+                this.columnId.AutoIncrementSeed = -1;
+                this.columnId.AutoIncrementStep = -1;
+                this.columnId.AllowDBNull = false;
+                this.columnId.ReadOnly = true;
+                this.columnId.Unique = true;
+                this.columnInventarioId.AllowDBNull = false;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -732,6 +804,60 @@ namespace GestionInventario {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public int Id {
+                get {
+                    return ((int)(this[this.tableMantenimiento.IdColumn]));
+                }
+                set {
+                    this[this.tableMantenimiento.IdColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public int InventarioId {
+                get {
+                    return ((int)(this[this.tableMantenimiento.InventarioIdColumn]));
+                }
+                set {
+                    this[this.tableMantenimiento.InventarioIdColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public int TecnicoId {
+                get {
+                    try {
+                        return ((int)(this[this.tableMantenimiento.TecnicoIdColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'TecnicoId\' de la tabla \'Mantenimiento\' es DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableMantenimiento.TecnicoIdColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool checkMtto {
+                get {
+                    try {
+                        return ((bool)(this[this.tableMantenimiento.checkMttoColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'checkMtto\' de la tabla \'Mantenimiento\' es DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableMantenimiento.checkMttoColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public bool IsFechaIngresoMttoNull() {
                 return this.IsNull(this.tableMantenimiento.FechaIngresoMttoColumn);
             }
@@ -800,6 +926,30 @@ namespace GestionInventario {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public void SetObsSalidaNull() {
                 this[this.tableMantenimiento.ObsSalidaColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IsTecnicoIdNull() {
+                return this.IsNull(this.tableMantenimiento.TecnicoIdColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SetTecnicoIdNull() {
+                this[this.tableMantenimiento.TecnicoIdColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IscheckMttoNull() {
+                return this.IsNull(this.tableMantenimiento.checkMttoColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SetcheckMttoNull() {
+                this[this.tableMantenimiento.checkMttoColumn] = global::System.Convert.DBNull;
             }
         }
         
@@ -969,10 +1119,14 @@ namespace GestionInventario.MantenimientoDSTableAdapters {
             tableMapping.ColumnMappings.Add("EstadoSalida", "EstadoSalida");
             tableMapping.ColumnMappings.Add("ObsSalida", "ObsSalida");
             tableMapping.ColumnMappings.Add("CodInterno", "CodInterno");
+            tableMapping.ColumnMappings.Add("Id", "Id");
+            tableMapping.ColumnMappings.Add("InventarioId", "InventarioId");
+            tableMapping.ColumnMappings.Add("TecnicoId", "TecnicoId");
+            tableMapping.ColumnMappings.Add("checkMtto", "checkMtto");
             this._adapter.TableMappings.Add(tableMapping);
             this._adapter.DeleteCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.DeleteCommand.Connection = this.Connection;
-            this._adapter.DeleteCommand.CommandText = @"DELETE FROM [dbo].[Mantenimiento] WHERE (([Id] = @Original_Id) AND ([InventarioId] = @Original_InventarioId) AND ((@IsNull_FechaIngresoMtto = 1 AND [FechaIngresoMtto] IS NULL) OR ([FechaIngresoMtto] = @Original_FechaIngresoMtto)) AND ((@IsNull_TipoFalla = 1 AND [TipoFalla] IS NULL) OR ([TipoFalla] = @Original_TipoFalla)) AND ((@IsNull_ObsIngreso = 1 AND [ObsIngreso] IS NULL) OR ([ObsIngreso] = @Original_ObsIngreso)) AND ((@IsNull_FechaSalidaMtto = 1 AND [FechaSalidaMtto] IS NULL) OR ([FechaSalidaMtto] = @Original_FechaSalidaMtto)) AND ((@IsNull_EstadoSalida = 1 AND [EstadoSalida] IS NULL) OR ([EstadoSalida] = @Original_EstadoSalida)) AND ((@IsNull_ObsSalida = 1 AND [ObsSalida] IS NULL) OR ([ObsSalida] = @Original_ObsSalida)) AND ((@IsNull_TecnicoId = 1 AND [TecnicoId] IS NULL) OR ([TecnicoId] = @Original_TecnicoId)) AND ((@IsNull_checkMtto = 1 AND [checkMtto] IS NULL) OR ([checkMtto] = @Original_checkMtto)))";
+            this._adapter.DeleteCommand.CommandText = @"DELETE FROM [Mantenimiento] WHERE (([Id] = @Original_Id) AND ([InventarioId] = @Original_InventarioId) AND ((@IsNull_FechaIngresoMtto = 1 AND [FechaIngresoMtto] IS NULL) OR ([FechaIngresoMtto] = @Original_FechaIngresoMtto)) AND ((@IsNull_TipoFalla = 1 AND [TipoFalla] IS NULL) OR ([TipoFalla] = @Original_TipoFalla)) AND ((@IsNull_ObsIngreso = 1 AND [ObsIngreso] IS NULL) OR ([ObsIngreso] = @Original_ObsIngreso)) AND ((@IsNull_FechaSalidaMtto = 1 AND [FechaSalidaMtto] IS NULL) OR ([FechaSalidaMtto] = @Original_FechaSalidaMtto)) AND ((@IsNull_EstadoSalida = 1 AND [EstadoSalida] IS NULL) OR ([EstadoSalida] = @Original_EstadoSalida)) AND ((@IsNull_ObsSalida = 1 AND [ObsSalida] IS NULL) OR ([ObsSalida] = @Original_ObsSalida)) AND ((@IsNull_TecnicoId = 1 AND [TecnicoId] IS NULL) OR ([TecnicoId] = @Original_TecnicoId)) AND ((@IsNull_checkMtto = 1 AND [checkMtto] IS NULL) OR ([checkMtto] = @Original_checkMtto)))";
             this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Id", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Id", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_InventarioId", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "InventarioId", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
@@ -994,7 +1148,7 @@ namespace GestionInventario.MantenimientoDSTableAdapters {
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_checkMtto", global::System.Data.SqlDbType.Bit, 0, global::System.Data.ParameterDirection.Input, 0, 0, "checkMtto", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = @"INSERT INTO [dbo].[Mantenimiento] ([InventarioId], [FechaIngresoMtto], [TipoFalla], [ObsIngreso], [FechaSalidaMtto], [EstadoSalida], [ObsSalida], [TecnicoId], [checkMtto]) VALUES (@InventarioId, @FechaIngresoMtto, @TipoFalla, @ObsIngreso, @FechaSalidaMtto, @EstadoSalida, @ObsSalida, @TecnicoId, @checkMtto);
+            this._adapter.InsertCommand.CommandText = @"INSERT INTO [Mantenimiento] ([InventarioId], [FechaIngresoMtto], [TipoFalla], [ObsIngreso], [FechaSalidaMtto], [EstadoSalida], [ObsSalida], [TecnicoId], [checkMtto]) VALUES (@InventarioId, @FechaIngresoMtto, @TipoFalla, @ObsIngreso, @FechaSalidaMtto, @EstadoSalida, @ObsSalida, @TecnicoId, @checkMtto);
 SELECT Id, InventarioId, FechaIngresoMtto, TipoFalla, ObsIngreso, FechaSalidaMtto, EstadoSalida, ObsSalida, TecnicoId, checkMtto FROM Mantenimiento WHERE (Id = SCOPE_IDENTITY())";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@InventarioId", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "InventarioId", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -1008,7 +1162,7 @@ SELECT Id, InventarioId, FechaIngresoMtto, TipoFalla, ObsIngreso, FechaSalidaMtt
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@checkMtto", global::System.Data.SqlDbType.Bit, 0, global::System.Data.ParameterDirection.Input, 0, 0, "checkMtto", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.UpdateCommand.Connection = this.Connection;
-            this._adapter.UpdateCommand.CommandText = @"UPDATE [dbo].[Mantenimiento] SET [InventarioId] = @InventarioId, [FechaIngresoMtto] = @FechaIngresoMtto, [TipoFalla] = @TipoFalla, [ObsIngreso] = @ObsIngreso, [FechaSalidaMtto] = @FechaSalidaMtto, [EstadoSalida] = @EstadoSalida, [ObsSalida] = @ObsSalida, [TecnicoId] = @TecnicoId, [checkMtto] = @checkMtto WHERE (([Id] = @Original_Id) AND ([InventarioId] = @Original_InventarioId) AND ((@IsNull_FechaIngresoMtto = 1 AND [FechaIngresoMtto] IS NULL) OR ([FechaIngresoMtto] = @Original_FechaIngresoMtto)) AND ((@IsNull_TipoFalla = 1 AND [TipoFalla] IS NULL) OR ([TipoFalla] = @Original_TipoFalla)) AND ((@IsNull_ObsIngreso = 1 AND [ObsIngreso] IS NULL) OR ([ObsIngreso] = @Original_ObsIngreso)) AND ((@IsNull_FechaSalidaMtto = 1 AND [FechaSalidaMtto] IS NULL) OR ([FechaSalidaMtto] = @Original_FechaSalidaMtto)) AND ((@IsNull_EstadoSalida = 1 AND [EstadoSalida] IS NULL) OR ([EstadoSalida] = @Original_EstadoSalida)) AND ((@IsNull_ObsSalida = 1 AND [ObsSalida] IS NULL) OR ([ObsSalida] = @Original_ObsSalida)) AND ((@IsNull_TecnicoId = 1 AND [TecnicoId] IS NULL) OR ([TecnicoId] = @Original_TecnicoId)) AND ((@IsNull_checkMtto = 1 AND [checkMtto] IS NULL) OR ([checkMtto] = @Original_checkMtto)));
+            this._adapter.UpdateCommand.CommandText = @"UPDATE [Mantenimiento] SET [InventarioId] = @InventarioId, [FechaIngresoMtto] = @FechaIngresoMtto, [TipoFalla] = @TipoFalla, [ObsIngreso] = @ObsIngreso, [FechaSalidaMtto] = @FechaSalidaMtto, [EstadoSalida] = @EstadoSalida, [ObsSalida] = @ObsSalida, [TecnicoId] = @TecnicoId, [checkMtto] = @checkMtto WHERE (([Id] = @Original_Id) AND ([InventarioId] = @Original_InventarioId) AND ((@IsNull_FechaIngresoMtto = 1 AND [FechaIngresoMtto] IS NULL) OR ([FechaIngresoMtto] = @Original_FechaIngresoMtto)) AND ((@IsNull_TipoFalla = 1 AND [TipoFalla] IS NULL) OR ([TipoFalla] = @Original_TipoFalla)) AND ((@IsNull_ObsIngreso = 1 AND [ObsIngreso] IS NULL) OR ([ObsIngreso] = @Original_ObsIngreso)) AND ((@IsNull_FechaSalidaMtto = 1 AND [FechaSalidaMtto] IS NULL) OR ([FechaSalidaMtto] = @Original_FechaSalidaMtto)) AND ((@IsNull_EstadoSalida = 1 AND [EstadoSalida] IS NULL) OR ([EstadoSalida] = @Original_EstadoSalida)) AND ((@IsNull_ObsSalida = 1 AND [ObsSalida] IS NULL) OR ([ObsSalida] = @Original_ObsSalida)) AND ((@IsNull_TecnicoId = 1 AND [TecnicoId] IS NULL) OR ([TecnicoId] = @Original_TecnicoId)) AND ((@IsNull_checkMtto = 1 AND [checkMtto] IS NULL) OR ([checkMtto] = @Original_checkMtto)));
 SELECT Id, InventarioId, FechaIngresoMtto, TipoFalla, ObsIngreso, FechaSalidaMtto, EstadoSalida, ObsSalida, TecnicoId, checkMtto FROM Mantenimiento WHERE (Id = @Id)";
             this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@InventarioId", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "InventarioId", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -1054,8 +1208,9 @@ SELECT Id, InventarioId, FechaIngresoMtto, TipoFalla, ObsIngreso, FechaSalidaMtt
             this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT Id, InventarioId, FechaIngresoMtto, TipoFalla, ObsIngreso, FechaSalidaMtto" +
-                ", EstadoSalida, ObsSalida, TecnicoId, checkMtto FROM dbo.Mantenimiento";
+            this._commandCollection[0].CommandText = "SELECT        Id, InventarioId, FechaIngresoMtto, TipoFalla, ObsIngreso, FechaSal" +
+                "idaMtto, EstadoSalida, ObsSalida, TecnicoId, checkMtto\r\nFROM            Mantenim" +
+                "iento";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }
         
@@ -1424,6 +1579,33 @@ SELECT Id, InventarioId, FechaIngresoMtto, TipoFalla, ObsIngreso, FechaSalidaMtt
                     this.Adapter.UpdateCommand.Connection.Close();
                 }
             }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
+        public virtual int Update(
+                    int InventarioId, 
+                    global::System.Nullable<global::System.DateTime> FechaIngresoMtto, 
+                    string TipoFalla, 
+                    string ObsIngreso, 
+                    global::System.Nullable<global::System.DateTime> FechaSalidaMtto, 
+                    string EstadoSalida, 
+                    string ObsSalida, 
+                    global::System.Nullable<int> TecnicoId, 
+                    global::System.Nullable<bool> checkMtto, 
+                    int Original_Id, 
+                    int Original_InventarioId, 
+                    global::System.Nullable<global::System.DateTime> Original_FechaIngresoMtto, 
+                    string Original_TipoFalla, 
+                    string Original_ObsIngreso, 
+                    global::System.Nullable<global::System.DateTime> Original_FechaSalidaMtto, 
+                    string Original_EstadoSalida, 
+                    string Original_ObsSalida, 
+                    global::System.Nullable<int> Original_TecnicoId, 
+                    global::System.Nullable<bool> Original_checkMtto) {
+            return this.Update(InventarioId, FechaIngresoMtto, TipoFalla, ObsIngreso, FechaSalidaMtto, EstadoSalida, ObsSalida, TecnicoId, checkMtto, Original_Id, Original_InventarioId, Original_FechaIngresoMtto, Original_TipoFalla, Original_ObsIngreso, Original_FechaSalidaMtto, Original_EstadoSalida, Original_ObsSalida, Original_TecnicoId, Original_checkMtto, Original_Id);
         }
     }
     
