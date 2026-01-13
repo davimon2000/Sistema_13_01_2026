@@ -28,14 +28,31 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.lblAsignacion = new System.Windows.Forms.Label();
             this.txtNumAsig = new System.Windows.Forms.TextBox();
             this.lblNumeroAsig = new System.Windows.Forms.Label();
             this.dtpFechaAsig = new System.Windows.Forms.DateTimePicker();
-            this.lblFechaMtto = new System.Windows.Forms.Label();
+            this.lblFechaAsig = new System.Windows.Forms.Label();
             this.cmbSedeAsig = new System.Windows.Forms.ComboBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.btnIngresoMtto = new System.Windows.Forms.Button();
+            this.lblSede = new System.Windows.Forms.Label();
+            this.btnAsign = new System.Windows.Forms.Button();
+            this.btnDevolver = new System.Windows.Forms.Button();
+            this.cmbConceptoAsig = new System.Windows.Forms.ComboBox();
+            this.lblConcepto = new System.Windows.Forms.Label();
+            this.dtpFechaDev = new System.Windows.Forms.DateTimePicker();
+            this.lblFechaDev = new System.Windows.Forms.Label();
+            this.sedesDS = new GestionInventario.SedesDS();
+            this.sedesDSBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.sedesBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.sedesTableAdapter = new GestionInventario.SedesDSTableAdapters.SedesTableAdapter();
+            this.txtObservacion = new System.Windows.Forms.TextBox();
+            this.lblObservacion = new System.Windows.Forms.Label();
+            this.txtUsuarioAsig = new System.Windows.Forms.TextBox();
+            this.lblusuarioAsig = new System.Windows.Forms.Label();
+            ((System.ComponentModel.ISupportInitialize)(this.sedesDS)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.sedesDSBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.sedesBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // lblAsignacion
@@ -47,11 +64,12 @@
             this.lblAsignacion.Size = new System.Drawing.Size(129, 25);
             this.lblAsignacion.TabIndex = 5;
             this.lblAsignacion.Text = "ASIGNACIÓN";
+            this.lblAsignacion.Click += new System.EventHandler(this.lblAsignacion_Click);
             // 
             // txtNumAsig
             // 
             this.txtNumAsig.Font = new System.Drawing.Font("Segoe UI", 12F);
-            this.txtNumAsig.Location = new System.Drawing.Point(198, 80);
+            this.txtNumAsig.Location = new System.Drawing.Point(198, 124);
             this.txtNumAsig.Name = "txtNumAsig";
             this.txtNumAsig.Size = new System.Drawing.Size(195, 29);
             this.txtNumAsig.TabIndex = 8;
@@ -60,7 +78,7 @@
             // 
             this.lblNumeroAsig.AutoSize = true;
             this.lblNumeroAsig.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblNumeroAsig.Location = new System.Drawing.Point(66, 83);
+            this.lblNumeroAsig.Location = new System.Drawing.Point(50, 132);
             this.lblNumeroAsig.Name = "lblNumeroAsig";
             this.lblNumeroAsig.Size = new System.Drawing.Size(74, 21);
             this.lblNumeroAsig.TabIndex = 7;
@@ -70,73 +88,187 @@
             // 
             this.dtpFechaAsig.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dtpFechaAsig.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtpFechaAsig.Location = new System.Drawing.Point(198, 129);
+            this.dtpFechaAsig.Location = new System.Drawing.Point(196, 175);
             this.dtpFechaAsig.Name = "dtpFechaAsig";
             this.dtpFechaAsig.Size = new System.Drawing.Size(195, 25);
             this.dtpFechaAsig.TabIndex = 18;
             // 
-            // lblFechaMtto
+            // lblFechaAsig
             // 
-            this.lblFechaMtto.AutoSize = true;
-            this.lblFechaMtto.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblFechaMtto.Location = new System.Drawing.Point(67, 129);
-            this.lblFechaMtto.Name = "lblFechaMtto";
-            this.lblFechaMtto.Size = new System.Drawing.Size(56, 21);
-            this.lblFechaMtto.TabIndex = 17;
-            this.lblFechaMtto.Text = "Fecha:";
+            this.lblFechaAsig.AutoSize = true;
+            this.lblFechaAsig.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblFechaAsig.Location = new System.Drawing.Point(50, 175);
+            this.lblFechaAsig.Name = "lblFechaAsig";
+            this.lblFechaAsig.Size = new System.Drawing.Size(140, 21);
+            this.lblFechaAsig.TabIndex = 17;
+            this.lblFechaAsig.Text = "Fecha Asignación:";
             // 
             // cmbSedeAsig
             // 
+            this.cmbSedeAsig.DataSource = this.sedesBindingSource;
+            this.cmbSedeAsig.DisplayMember = "NombreSede";
             this.cmbSedeAsig.FormattingEnabled = true;
-            this.cmbSedeAsig.Items.AddRange(new object[] {
-            "Campin",
-            "Dorado Plaza",
-            "Arboleda",
-            "Panamericana",
-            "Pereira"});
-            this.cmbSedeAsig.Location = new System.Drawing.Point(198, 170);
+            this.cmbSedeAsig.Location = new System.Drawing.Point(196, 220);
             this.cmbSedeAsig.Name = "cmbSedeAsig";
             this.cmbSedeAsig.Size = new System.Drawing.Size(195, 21);
             this.cmbSedeAsig.TabIndex = 20;
+            this.cmbSedeAsig.ValueMember = "Id";
             // 
-            // label1
+            // lblSede
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(68, 170);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(51, 21);
-            this.label1.TabIndex = 19;
-            this.label1.Text = "Sede:";
+            this.lblSede.AutoSize = true;
+            this.lblSede.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblSede.Location = new System.Drawing.Point(50, 217);
+            this.lblSede.Name = "lblSede";
+            this.lblSede.Size = new System.Drawing.Size(51, 21);
+            this.lblSede.TabIndex = 19;
+            this.lblSede.Text = "Sede:";
             // 
-            // btnIngresoMtto
+            // btnAsign
             // 
-            this.btnIngresoMtto.BackColor = System.Drawing.Color.PaleGoldenrod;
-            this.btnIngresoMtto.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnIngresoMtto.Location = new System.Drawing.Point(182, 220);
-            this.btnIngresoMtto.Name = "btnIngresoMtto";
-            this.btnIngresoMtto.Size = new System.Drawing.Size(98, 32);
-            this.btnIngresoMtto.TabIndex = 23;
-            this.btnIngresoMtto.Text = "ASIGNAR";
-            this.btnIngresoMtto.UseVisualStyleBackColor = false;
-            this.btnIngresoMtto.Click += new System.EventHandler(this.btnIngresoMtto_Click);
+            this.btnAsign.BackColor = System.Drawing.Color.PaleGoldenrod;
+            this.btnAsign.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAsign.Location = new System.Drawing.Point(199, 342);
+            this.btnAsign.Name = "btnAsign";
+            this.btnAsign.Size = new System.Drawing.Size(98, 32);
+            this.btnAsign.TabIndex = 23;
+            this.btnAsign.Text = "ASIGNAR";
+            this.btnAsign.UseVisualStyleBackColor = false;
+            this.btnAsign.Click += new System.EventHandler(this.btnIngresoMtto_Click);
+            // 
+            // btnDevolver
+            // 
+            this.btnDevolver.BackColor = System.Drawing.Color.Tan;
+            this.btnDevolver.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDevolver.Location = new System.Drawing.Point(214, 342);
+            this.btnDevolver.Name = "btnDevolver";
+            this.btnDevolver.Size = new System.Drawing.Size(98, 32);
+            this.btnDevolver.TabIndex = 24;
+            this.btnDevolver.Text = "DEVOLVER";
+            this.btnDevolver.UseVisualStyleBackColor = false;
+            // 
+            // cmbConceptoAsig
+            // 
+            this.cmbConceptoAsig.FormattingEnabled = true;
+            this.cmbConceptoAsig.Items.AddRange(new object[] {
+            "Asignacion",
+            "Devolucion"});
+            this.cmbConceptoAsig.Location = new System.Drawing.Point(199, 88);
+            this.cmbConceptoAsig.Name = "cmbConceptoAsig";
+            this.cmbConceptoAsig.Size = new System.Drawing.Size(195, 21);
+            this.cmbConceptoAsig.TabIndex = 26;
+            this.cmbConceptoAsig.SelectedIndexChanged += new System.EventHandler(this.cmbConceptoAsig_SelectedIndexChanged);
+            // 
+            // lblConcepto
+            // 
+            this.lblConcepto.AutoSize = true;
+            this.lblConcepto.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblConcepto.Location = new System.Drawing.Point(52, 88);
+            this.lblConcepto.Name = "lblConcepto";
+            this.lblConcepto.Size = new System.Drawing.Size(86, 21);
+            this.lblConcepto.TabIndex = 25;
+            this.lblConcepto.Text = "Concepto:";
+            // 
+            // dtpFechaDev
+            // 
+            this.dtpFechaDev.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dtpFechaDev.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtpFechaDev.Location = new System.Drawing.Point(196, 175);
+            this.dtpFechaDev.Name = "dtpFechaDev";
+            this.dtpFechaDev.Size = new System.Drawing.Size(195, 25);
+            this.dtpFechaDev.TabIndex = 28;
+            // 
+            // lblFechaDev
+            // 
+            this.lblFechaDev.AutoSize = true;
+            this.lblFechaDev.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblFechaDev.Location = new System.Drawing.Point(50, 175);
+            this.lblFechaDev.Name = "lblFechaDev";
+            this.lblFechaDev.Size = new System.Drawing.Size(142, 21);
+            this.lblFechaDev.TabIndex = 27;
+            this.lblFechaDev.Text = "Fecha Devolución:";
+            // 
+            // sedesDS
+            // 
+            this.sedesDS.DataSetName = "SedesDS";
+            this.sedesDS.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // sedesDSBindingSource
+            // 
+            this.sedesDSBindingSource.DataSource = this.sedesDS;
+            this.sedesDSBindingSource.Position = 0;
+            // 
+            // sedesBindingSource
+            // 
+            this.sedesBindingSource.DataMember = "Sedes";
+            this.sedesBindingSource.DataSource = this.sedesDSBindingSource;
+            // 
+            // sedesTableAdapter
+            // 
+            this.sedesTableAdapter.ClearBeforeFill = true;
+            // 
+            // txtObservacion
+            // 
+            this.txtObservacion.Location = new System.Drawing.Point(196, 260);
+            this.txtObservacion.Name = "txtObservacion";
+            this.txtObservacion.Size = new System.Drawing.Size(195, 20);
+            this.txtObservacion.TabIndex = 33;
+            // 
+            // lblObservacion
+            // 
+            this.lblObservacion.AutoSize = true;
+            this.lblObservacion.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblObservacion.Location = new System.Drawing.Point(50, 257);
+            this.lblObservacion.Name = "lblObservacion";
+            this.lblObservacion.Size = new System.Drawing.Size(106, 21);
+            this.lblObservacion.TabIndex = 32;
+            this.lblObservacion.Text = "Observación:";
+            // 
+            // txtUsuarioAsig
+            // 
+            this.txtUsuarioAsig.Location = new System.Drawing.Point(198, 303);
+            this.txtUsuarioAsig.Name = "txtUsuarioAsig";
+            this.txtUsuarioAsig.Size = new System.Drawing.Size(195, 20);
+            this.txtUsuarioAsig.TabIndex = 35;
+            // 
+            // lblusuarioAsig
+            // 
+            this.lblusuarioAsig.AutoSize = true;
+            this.lblusuarioAsig.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblusuarioAsig.Location = new System.Drawing.Point(52, 300);
+            this.lblusuarioAsig.Name = "lblusuarioAsig";
+            this.lblusuarioAsig.Size = new System.Drawing.Size(121, 21);
+            this.lblusuarioAsig.TabIndex = 34;
+            this.lblusuarioAsig.Text = "Usuario de red:";
             // 
             // FormSalida
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(443, 293);
-            this.Controls.Add(this.btnIngresoMtto);
+            this.ClientSize = new System.Drawing.Size(443, 397);
+            this.Controls.Add(this.txtUsuarioAsig);
+            this.Controls.Add(this.lblusuarioAsig);
+            this.Controls.Add(this.txtObservacion);
+            this.Controls.Add(this.lblObservacion);
+            this.Controls.Add(this.dtpFechaDev);
+            this.Controls.Add(this.lblFechaDev);
+            this.Controls.Add(this.cmbConceptoAsig);
+            this.Controls.Add(this.lblConcepto);
+            this.Controls.Add(this.btnDevolver);
+            this.Controls.Add(this.btnAsign);
             this.Controls.Add(this.cmbSedeAsig);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.lblSede);
             this.Controls.Add(this.dtpFechaAsig);
-            this.Controls.Add(this.lblFechaMtto);
+            this.Controls.Add(this.lblFechaAsig);
             this.Controls.Add(this.txtNumAsig);
             this.Controls.Add(this.lblNumeroAsig);
             this.Controls.Add(this.lblAsignacion);
             this.Name = "FormSalida";
             this.Text = "FormSalida";
             this.Load += new System.EventHandler(this.FormSalida_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.sedesDS)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.sedesDSBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.sedesBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -148,9 +280,22 @@
         private System.Windows.Forms.TextBox txtNumAsig;
         private System.Windows.Forms.Label lblNumeroAsig;
         private System.Windows.Forms.DateTimePicker dtpFechaAsig;
-        private System.Windows.Forms.Label lblFechaMtto;
+        private System.Windows.Forms.Label lblFechaAsig;
         private System.Windows.Forms.ComboBox cmbSedeAsig;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Button btnIngresoMtto;
+        private System.Windows.Forms.Label lblSede;
+        private System.Windows.Forms.Button btnAsign;
+        private System.Windows.Forms.Button btnDevolver;
+        private System.Windows.Forms.ComboBox cmbConceptoAsig;
+        private System.Windows.Forms.Label lblConcepto;
+        private System.Windows.Forms.DateTimePicker dtpFechaDev;
+        private System.Windows.Forms.Label lblFechaDev;
+        private System.Windows.Forms.BindingSource sedesDSBindingSource;
+        private SedesDS sedesDS;
+        private System.Windows.Forms.BindingSource sedesBindingSource;
+        private SedesDSTableAdapters.SedesTableAdapter sedesTableAdapter;
+        private System.Windows.Forms.TextBox txtObservacion;
+        private System.Windows.Forms.Label lblObservacion;
+        private System.Windows.Forms.TextBox txtUsuarioAsig;
+        private System.Windows.Forms.Label lblusuarioAsig;
     }
 }

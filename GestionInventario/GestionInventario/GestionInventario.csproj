@@ -267,6 +267,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>RegistroActivosDS.xsd</DependentUpon>
     </Compile>
+    <Compile Include="SedesDS.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SedesDS.xsd</DependentUpon>
+    </Compile>
     <Compile Include="TecnicosDS.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -486,6 +491,17 @@
     </None>
     <None Include="RegistroActivosDS.xss">
       <DependentUpon>RegistroActivosDS.xsd</DependentUpon>
+    </None>
+    <None Include="SedesDS.xsc">
+      <DependentUpon>SedesDS.xsd</DependentUpon>
+    </None>
+    <None Include="SedesDS.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>SedesDS.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="SedesDS.xss">
+      <DependentUpon>SedesDS.xsd</DependentUpon>
     </None>
     <None Include="TecnicosDS.xsc">
       <DependentUpon>TecnicosDS.xsd</DependentUpon>

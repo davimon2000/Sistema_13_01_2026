@@ -69,7 +69,10 @@ namespace GestionInventario
             this.txtObservacion = new System.Windows.Forms.TextBox();
             this.lblObservacion = new System.Windows.Forms.Label();
             this.cmbSedeReg = new System.Windows.Forms.ComboBox();
+            this.sedesBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.sedesDS = new GestionInventario.SedesDS();
             this.label2 = new System.Windows.Forms.Label();
+            this.sedesTableAdapter = new GestionInventario.SedesDSTableAdapters.SedesTableAdapter();
             ((System.ComponentModel.ISupportInitialize)(this.marcasBindingSource2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.marcasDS)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.marcasBindingSource1)).BeginInit();
@@ -81,6 +84,8 @@ namespace GestionInventario
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.activosBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.activosDS)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.sedesBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.sedesDS)).BeginInit();
             this.SuspendLayout();
             // 
             // lblNumeroRegistro
@@ -246,7 +251,7 @@ namespace GestionInventario
             // btnRegistrar
             // 
             this.btnRegistrar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
-            this.btnRegistrar.Location = new System.Drawing.Point(179, 439);
+            this.btnRegistrar.Location = new System.Drawing.Point(185, 447);
             this.btnRegistrar.Name = "btnRegistrar";
             this.btnRegistrar.Size = new System.Drawing.Size(114, 29);
             this.btnRegistrar.TabIndex = 15;
@@ -352,7 +357,7 @@ namespace GestionInventario
             "Base",
             "Pitillo",
             "Tarjeta"});
-            this.cmbTipoFalla.Location = new System.Drawing.Point(177, 444);
+            this.cmbTipoFalla.Location = new System.Drawing.Point(349, 339);
             this.cmbTipoFalla.Name = "cmbTipoFalla";
             this.cmbTipoFalla.Size = new System.Drawing.Size(204, 25);
             this.cmbTipoFalla.TabIndex = 21;
@@ -362,7 +367,7 @@ namespace GestionInventario
             // 
             this.lblTipoFallaMtto.AutoSize = true;
             this.lblTipoFallaMtto.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTipoFallaMtto.Location = new System.Drawing.Point(27, 448);
+            this.lblTipoFallaMtto.Location = new System.Drawing.Point(385, 377);
             this.lblTipoFallaMtto.Name = "lblTipoFallaMtto";
             this.lblTipoFallaMtto.Size = new System.Drawing.Size(104, 21);
             this.lblTipoFallaMtto.TabIndex = 22;
@@ -371,7 +376,7 @@ namespace GestionInventario
             // 
             // txtObservacion
             // 
-            this.txtObservacion.Location = new System.Drawing.Point(177, 486);
+            this.txtObservacion.Location = new System.Drawing.Point(351, 401);
             this.txtObservacion.Name = "txtObservacion";
             this.txtObservacion.Size = new System.Drawing.Size(202, 29);
             this.txtObservacion.TabIndex = 33;
@@ -381,7 +386,7 @@ namespace GestionInventario
             // 
             this.lblObservacion.AutoSize = true;
             this.lblObservacion.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblObservacion.Location = new System.Drawing.Point(27, 491);
+            this.lblObservacion.Location = new System.Drawing.Point(358, 447);
             this.lblObservacion.Name = "lblObservacion";
             this.lblObservacion.Size = new System.Drawing.Size(147, 21);
             this.lblObservacion.TabIndex = 32;
@@ -390,29 +395,40 @@ namespace GestionInventario
             // 
             // cmbSedeReg
             // 
+            this.cmbSedeReg.DataSource = this.sedesBindingSource;
+            this.cmbSedeReg.DisplayMember = "NombreSede";
             this.cmbSedeReg.FormattingEnabled = true;
-            this.cmbSedeReg.Items.AddRange(new object[] {
-            "Campin",
-            "Dorado Plaza",
-            "Arboleda",
-            "Panamericana",
-            "Pereira"});
             this.cmbSedeReg.Location = new System.Drawing.Point(177, 355);
             this.cmbSedeReg.Name = "cmbSedeReg";
             this.cmbSedeReg.Size = new System.Drawing.Size(202, 29);
             this.cmbSedeReg.TabIndex = 35;
+            this.cmbSedeReg.ValueMember = "Id";
             this.cmbSedeReg.SelectedIndexChanged += new System.EventHandler(this.cmbSedeAsig_SelectedIndexChanged);
+            // 
+            // sedesBindingSource
+            // 
+            this.sedesBindingSource.DataMember = "Sedes";
+            this.sedesBindingSource.DataSource = this.sedesDS;
+            // 
+            // sedesDS
+            // 
+            this.sedesDS.DataSetName = "SedesDS";
+            this.sedesDS.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(32, 359);
+            this.label2.Location = new System.Drawing.Point(26, 359);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(117, 21);
             this.label2.TabIndex = 34;
             this.label2.Text = "Sede Registro:";
             this.label2.Click += new System.EventHandler(this.label2_Click);
+            // 
+            // sedesTableAdapter
+            // 
+            this.sedesTableAdapter.ClearBeforeFill = true;
             // 
             // FormRegistro
             // 
@@ -461,6 +477,8 @@ namespace GestionInventario
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.activosBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.activosDS)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.sedesBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.sedesDS)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -507,5 +525,8 @@ namespace GestionInventario
         private Label lblObservacion;
         private ComboBox cmbSedeReg;
         private Label label2;
+        private SedesDS sedesDS;
+        private BindingSource sedesBindingSource;
+        private SedesDSTableAdapters.SedesTableAdapter sedesTableAdapter;
     }
 }

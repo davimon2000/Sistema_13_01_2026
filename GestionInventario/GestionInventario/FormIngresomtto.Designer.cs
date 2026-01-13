@@ -31,6 +31,7 @@ namespace GestionInventario
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.lblMantenimiento = new System.Windows.Forms.Label();
             this.txtNumMtto = new System.Windows.Forms.TextBox();
             this.lblNumeroMtto = new System.Windows.Forms.Label();
@@ -47,6 +48,15 @@ namespace GestionInventario
             this.cmbEstadoMtto = new System.Windows.Forms.ComboBox();
             this.btnSalidaMtto = new System.Windows.Forms.Button();
             this.txtObservacionSalida = new System.Windows.Forms.TextBox();
+            this.lblSedemtto = new System.Windows.Forms.Label();
+            this.cmbSedemtto = new System.Windows.Forms.ComboBox();
+            this.sedesDS = new GestionInventario.SedesDS();
+            this.sedesDSBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.sedesBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.sedesTableAdapter = new GestionInventario.SedesDSTableAdapters.SedesTableAdapter();
+            ((System.ComponentModel.ISupportInitialize)(this.sedesDS)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.sedesDSBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.sedesBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // lblMantenimiento
@@ -206,7 +216,7 @@ namespace GestionInventario
             // 
             this.btnSalidaMtto.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
             this.btnSalidaMtto.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSalidaMtto.Location = new System.Drawing.Point(191, 275);
+            this.btnSalidaMtto.Location = new System.Drawing.Point(191, 299);
             this.btnSalidaMtto.Name = "btnSalidaMtto";
             this.btnSalidaMtto.Size = new System.Drawing.Size(98, 32);
             this.btnSalidaMtto.TabIndex = 29;
@@ -222,11 +232,53 @@ namespace GestionInventario
             this.txtObservacionSalida.TabIndex = 31;
             this.txtObservacionSalida.TextChanged += new System.EventHandler(this.txtObservacionSalida_TextChanged);
             // 
+            // lblSedemtto
+            // 
+            this.lblSedemtto.AutoSize = true;
+            this.lblSedemtto.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblSedemtto.Location = new System.Drawing.Point(60, 270);
+            this.lblSedemtto.Name = "lblSedemtto";
+            this.lblSedemtto.Size = new System.Drawing.Size(116, 21);
+            this.lblSedemtto.TabIndex = 32;
+            this.lblSedemtto.Text = "Sede objetivo:";
+            // 
+            // cmbSedemtto
+            // 
+            this.cmbSedemtto.DataSource = this.sedesBindingSource;
+            this.cmbSedemtto.DisplayMember = "NombreSede";
+            this.cmbSedemtto.FormattingEnabled = true;
+            this.cmbSedemtto.Location = new System.Drawing.Point(191, 270);
+            this.cmbSedemtto.Name = "cmbSedemtto";
+            this.cmbSedemtto.Size = new System.Drawing.Size(195, 21);
+            this.cmbSedemtto.TabIndex = 33;
+            this.cmbSedemtto.ValueMember = "Id";
+            // 
+            // sedesDS
+            // 
+            this.sedesDS.DataSetName = "SedesDS";
+            this.sedesDS.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // sedesDSBindingSource
+            // 
+            this.sedesDSBindingSource.DataSource = this.sedesDS;
+            this.sedesDSBindingSource.Position = 0;
+            // 
+            // sedesBindingSource
+            // 
+            this.sedesBindingSource.DataMember = "Sedes";
+            this.sedesBindingSource.DataSource = this.sedesDSBindingSource;
+            // 
+            // sedesTableAdapter
+            // 
+            this.sedesTableAdapter.ClearBeforeFill = true;
+            // 
             // FormIngresomtto
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(459, 374);
+            this.Controls.Add(this.cmbSedemtto);
+            this.Controls.Add(this.lblSedemtto);
             this.Controls.Add(this.txtObservacionSalida);
             this.Controls.Add(this.btnSalidaMtto);
             this.Controls.Add(this.cmbEstadoMtto);
@@ -246,6 +298,9 @@ namespace GestionInventario
             this.Name = "FormIngresomtto";
             this.Text = "FormIngresomtto";
             this.Load += new System.EventHandler(this.FormIngresomtto_Load_1);
+            ((System.ComponentModel.ISupportInitialize)(this.sedesDS)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.sedesDSBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.sedesBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -269,5 +324,11 @@ namespace GestionInventario
         private ComboBox cmbEstadoMtto;
         private Button btnSalidaMtto;
         private TextBox txtObservacionSalida;
+        private Label lblSedemtto;
+        private ComboBox cmbSedemtto;
+        private BindingSource sedesDSBindingSource;
+        private SedesDS sedesDS;
+        private BindingSource sedesBindingSource;
+        private SedesDSTableAdapters.SedesTableAdapter sedesTableAdapter;
     }
 }

@@ -68,45 +68,193 @@ namespace GestionInventario
             this.activosViewTableAdapter.Fill(this.activosViewDS.ActivosView);
 
 
+            //String seleccion = cmbTabla.Text;
+            //String modo = cmbModo.Text;
+
+
+
+
+            //registroActivosDataGridView.Visible = true;
+            //mantenimientoDataGridView.Visible = false;
+            //asignacionDataGridView.Visible = false;
+
+            //if (modo == "Vista")
+            //{
+            //    if (seleccion == "Registro")
+            //    {
+            //        registroActivosDataGridView.Visible = true;
+            //        mantenimientoDataGridView.Visible = false;
+            //        asignacionDataGridView.Visible = false;
+
+            //    }
+            //    if (seleccion == "Mantenimiento")
+            //    {
+            //        registroActivosDataGridView.Visible = false;
+            //        mantenimientoDataGridView.Visible = true;
+            //        asignacionDataGridView.Visible = false;
+
+            //    }
+            //    if (seleccion == "Asignacion")
+            //    {
+            //        registroActivosDataGridView.Visible = false;
+            //        mantenimientoDataGridView.Visible = false;
+            //        asignacionDataGridView.Visible = true;
+
+            //    }
+            //}else if (modo == "Edicion")
+            //{
+            //    registroActivosDataGridView.Visible = false;
+            //    mantenimientoDataGridView.Visible = false;
+            //    asignacionDataGridView.Visible = false;
+            //}
+
+
+
             String seleccion = cmbTabla.Text;
             String modo = cmbModo.Text;
 
-            
+
 
 
             registroActivosDataGridView.Visible = true;
+            bindingNavigatorDeleteItemRegistro.Visible = false;
+            guardarToolStripButtonRegistro.Visible = false;
             mantenimientoDataGridView.Visible = false;
             asignacionDataGridView.Visible = false;
+            mantenimientoDataGridViewEdit.Visible = false;
+            asignacionDataGridViewEdit.Visible = false;
+            bindingNavigatorRegistro.Visible = true;
+            bindingNavigatorMtto.Visible = false;
+            bindingNavigatormttoedit.Visible = false;
+            bindingNavigatorAsignacion.Visible = false;
+            bindingNavigatorAsigEdit.Visible = false;
 
             if (modo == "Vista")
             {
                 if (seleccion == "Registro")
                 {
                     registroActivosDataGridView.Visible = true;
+                    bindingNavigatorDeleteItemRegistro.Visible = false;
+                    guardarToolStripButtonRegistro.Visible = false;
                     mantenimientoDataGridView.Visible = false;
                     asignacionDataGridView.Visible = false;
+                    mantenimientoDataGridViewEdit.Visible = false;
+                    asignacionDataGridViewEdit.Visible = false;
+                    bindingNavigatorRegistro.Visible = true;
+                    bindingNavigatorMtto.Visible = false;
+                    bindingNavigatormttoedit.Visible = false;
+                    bindingNavigatorAsignacion.Visible = false;
+                    bindingNavigatorAsigEdit.Visible = false;
 
                 }
                 if (seleccion == "Mantenimiento")
                 {
                     registroActivosDataGridView.Visible = false;
+                    bindingNavigatorDeleteItemRegistro.Visible = false;
+                    guardarToolStripButtonRegistro.Visible = false;
                     mantenimientoDataGridView.Visible = true;
                     asignacionDataGridView.Visible = false;
+                    mantenimientoDataGridViewEdit.Visible = false;
+                    asignacionDataGridViewEdit.Visible = false;
+                    bindingNavigatorRegistro.Visible = false;
+                    bindingNavigatorMtto.Visible = true;
+                    bindingNavigatormttoedit.Visible = false;
+                    bindingNavigatorAsignacion.Visible = false;
+                    bindingNavigatorAsigEdit.Visible = false;
 
                 }
                 if (seleccion == "Asignacion")
                 {
                     registroActivosDataGridView.Visible = false;
+                    bindingNavigatorDeleteItemRegistro.Visible = false;
+                    guardarToolStripButtonRegistro.Visible = false;
                     mantenimientoDataGridView.Visible = false;
                     asignacionDataGridView.Visible = true;
+                    mantenimientoDataGridViewEdit.Visible = false;
+                    asignacionDataGridViewEdit.Visible = false;
+                    bindingNavigatorRegistro.Visible = false;
+                    bindingNavigatorMtto.Visible = false;
+                    bindingNavigatormttoedit.Visible = false;
+                    bindingNavigatorAsignacion.Visible = true;
+                    bindingNavigatorAsigEdit.Visible = false;
 
                 }
-            }else if (modo == "Edicion")
-            {
-                registroActivosDataGridView.Visible = false;
-                mantenimientoDataGridView.Visible = false;
-                asignacionDataGridView.Visible = false;
             }
+            else if (modo == "Edicion")
+            {
+                string usuarioConsulta = Form3Login.UsuarioActual;
+                string rolActual = this.ObtenerRolUsuario(usuarioConsulta);
+
+                if (rolActual == "Administrador")
+                {
+
+                    if (seleccion == "Registro")
+                    {
+                        registroActivosDataGridView.Visible = true;
+                        bindingNavigatorDeleteItemRegistro.Visible = true;
+                        guardarToolStripButtonRegistro.Visible = true;
+                        mantenimientoDataGridView.Visible = false;
+                        asignacionDataGridView.Visible = false;
+                        mantenimientoDataGridViewEdit.Visible = false;
+                        asignacionDataGridViewEdit.Visible = false;
+                        bindingNavigatorRegistro.Visible = true;
+                        bindingNavigatorMtto.Visible = false;
+                        bindingNavigatormttoedit.Visible = false;
+                        bindingNavigatorAsignacion.Visible = false;
+                        bindingNavigatorAsigEdit.Visible = false;
+
+                    }
+                    if (seleccion == "Mantenimiento")
+                    {
+                        registroActivosDataGridView.Visible = false;
+                        bindingNavigatorDeleteItemRegistro.Visible = false;
+                        guardarToolStripButtonRegistro.Visible = false;
+                        mantenimientoDataGridView.Visible = false;
+                        asignacionDataGridView.Visible = false;
+                        mantenimientoDataGridViewEdit.Visible = true;
+                        asignacionDataGridViewEdit.Visible = false;
+                        bindingNavigatorRegistro.Visible = false;
+                        bindingNavigatorMtto.Visible = false;
+                        bindingNavigatormttoedit.Visible = true;
+                        bindingNavigatorAsignacion.Visible = false;
+                        bindingNavigatorAsigEdit.Visible = false;
+
+                    }
+                    if (seleccion == "Asignacion")
+                    {
+                        registroActivosDataGridView.Visible = false;
+                        bindingNavigatorDeleteItemRegistro.Visible = false;
+                        guardarToolStripButtonRegistro.Visible = false;
+                        mantenimientoDataGridView.Visible = false;
+                        asignacionDataGridView.Visible = false;
+                        mantenimientoDataGridViewEdit.Visible = false;
+                        asignacionDataGridViewEdit.Visible = true;
+                        bindingNavigatorRegistro.Visible = false;
+                        bindingNavigatorMtto.Visible = false;
+                        bindingNavigatormttoedit.Visible = false;
+                        bindingNavigatorAsignacion.Visible = false;
+                        bindingNavigatorAsigEdit.Visible = true;
+
+                    }
+
+
+                }
+                else
+                {
+                    MessageBox.Show("Es necesario ingresar como Administrador", "Informacion", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    return;
+                }
+
+
+            }
+
+
+
+
+
+
+
+
 
 
 

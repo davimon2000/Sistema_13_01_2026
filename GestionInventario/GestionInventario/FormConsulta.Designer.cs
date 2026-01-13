@@ -275,7 +275,7 @@ namespace GestionInventario
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(31, 403);
+            this.button1.Location = new System.Drawing.Point(31, 438);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(145, 33);
             this.button1.TabIndex = 31;
@@ -510,7 +510,7 @@ namespace GestionInventario
             this.mantenimientoDataGridView.DataSource = this.mantenimientoBindingSource2;
             this.mantenimientoDataGridView.Location = new System.Drawing.Point(31, 180);
             this.mantenimientoDataGridView.Name = "mantenimientoDataGridView";
-            this.mantenimientoDataGridView.Size = new System.Drawing.Size(674, 217);
+            this.mantenimientoDataGridView.Size = new System.Drawing.Size(781, 217);
             this.mantenimientoDataGridView.TabIndex = 34;
             // 
             // CodInterno
@@ -619,7 +619,7 @@ namespace GestionInventario
             this.asignacionDataGridView.DataSource = this.asignacionBindingSource;
             this.asignacionDataGridView.Location = new System.Drawing.Point(31, 180);
             this.asignacionDataGridView.Name = "asignacionDataGridView";
-            this.asignacionDataGridView.Size = new System.Drawing.Size(578, 217);
+            this.asignacionDataGridView.Size = new System.Drawing.Size(781, 217);
             this.asignacionDataGridView.TabIndex = 34;
             // 
             // dataGridViewTextBoxColumn17
@@ -1106,7 +1106,7 @@ namespace GestionInventario
             this.mantenimientoDataGridViewEdit.DataSource = this.mantenimientoBindingSource3;
             this.mantenimientoDataGridViewEdit.Location = new System.Drawing.Point(31, 180);
             this.mantenimientoDataGridViewEdit.Name = "mantenimientoDataGridViewEdit";
-            this.mantenimientoDataGridViewEdit.Size = new System.Drawing.Size(526, 220);
+            this.mantenimientoDataGridViewEdit.Size = new System.Drawing.Size(781, 220);
             this.mantenimientoDataGridViewEdit.TabIndex = 41;
             // 
             // dataGridViewTextBoxColumn25
@@ -1188,7 +1188,6 @@ namespace GestionInventario
             this.bindingNavigatormttoedit.BindingSource = this.mantenimientoBindingSource3;
             this.bindingNavigatormttoedit.CountItem = this.bindingNavigatorCountItem3;
             this.bindingNavigatormttoedit.DeleteItem = this.bindingNavigatorDeleteItem3;
-            this.bindingNavigatormttoedit.Dock = System.Windows.Forms.DockStyle.None;
             this.bindingNavigatormttoedit.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.bindingNavigatorMoveFirstItem3,
             this.bindingNavigatorMovePreviousItem3,
@@ -1203,14 +1202,14 @@ namespace GestionInventario
             this.guardarToolStripButton3,
             this.toolStripSeparator6,
             this.copiarToolStripButton3});
-            this.bindingNavigatormttoedit.Location = new System.Drawing.Point(31, 458);
+            this.bindingNavigatormttoedit.Location = new System.Drawing.Point(0, 75);
             this.bindingNavigatormttoedit.MoveFirstItem = this.bindingNavigatorMoveFirstItem3;
             this.bindingNavigatormttoedit.MoveLastItem = this.bindingNavigatorMoveLastItem3;
             this.bindingNavigatormttoedit.MoveNextItem = this.bindingNavigatorMoveNextItem3;
             this.bindingNavigatormttoedit.MovePreviousItem = this.bindingNavigatorMovePreviousItem3;
             this.bindingNavigatormttoedit.Name = "bindingNavigatormttoedit";
             this.bindingNavigatormttoedit.PositionItem = this.bindingNavigatorPositionItem3;
-            this.bindingNavigatormttoedit.Size = new System.Drawing.Size(286, 25);
+            this.bindingNavigatormttoedit.Size = new System.Drawing.Size(951, 25);
             this.bindingNavigatormttoedit.TabIndex = 42;
             this.bindingNavigatormttoedit.Text = "bindingNavigator1";
             this.bindingNavigatormttoedit.RefreshItems += new System.EventHandler(this.bindingNavigator1_RefreshItems_1);
@@ -1348,7 +1347,7 @@ namespace GestionInventario
             this.asignacionDataGridViewEdit.DataSource = this.asignacionBindingSource1;
             this.asignacionDataGridViewEdit.Location = new System.Drawing.Point(31, 180);
             this.asignacionDataGridViewEdit.Name = "asignacionDataGridViewEdit";
-            this.asignacionDataGridViewEdit.Size = new System.Drawing.Size(300, 220);
+            this.asignacionDataGridViewEdit.Size = new System.Drawing.Size(781, 220);
             this.asignacionDataGridViewEdit.TabIndex = 42;
             // 
             // dataGridViewTextBoxColumn36
@@ -1382,7 +1381,6 @@ namespace GestionInventario
             this.bindingNavigatorAsigEdit.BindingSource = this.asignacionBindingSource1;
             this.bindingNavigatorAsigEdit.CountItem = this.bindingNavigatorCountItem4;
             this.bindingNavigatorAsigEdit.DeleteItem = this.bindingNavigatorDeleteItem1;
-            this.bindingNavigatorAsigEdit.Dock = System.Windows.Forms.DockStyle.None;
             this.bindingNavigatorAsigEdit.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.bindingNavigatorMoveFirstItem4,
             this.bindingNavigatorMovePreviousItem4,
@@ -1397,14 +1395,14 @@ namespace GestionInventario
             this.guardarToolStripButton1,
             this.toolStripSeparator2,
             this.copiarToolStripButton4});
-            this.bindingNavigatorAsigEdit.Location = new System.Drawing.Point(31, 498);
+            this.bindingNavigatorAsigEdit.Location = new System.Drawing.Point(0, 100);
             this.bindingNavigatorAsigEdit.MoveFirstItem = this.bindingNavigatorMoveFirstItem4;
             this.bindingNavigatorAsigEdit.MoveLastItem = this.bindingNavigatorMoveLastItem4;
             this.bindingNavigatorAsigEdit.MoveNextItem = this.bindingNavigatorMoveNextItem4;
             this.bindingNavigatorAsigEdit.MovePreviousItem = this.bindingNavigatorMovePreviousItem4;
             this.bindingNavigatorAsigEdit.Name = "bindingNavigatorAsigEdit";
             this.bindingNavigatorAsigEdit.PositionItem = this.bindingNavigatorPositionItem4;
-            this.bindingNavigatorAsigEdit.Size = new System.Drawing.Size(286, 25);
+            this.bindingNavigatorAsigEdit.Size = new System.Drawing.Size(951, 25);
             this.bindingNavigatorAsigEdit.TabIndex = 43;
             this.bindingNavigatorAsigEdit.Text = "bindingNavigator1";
             // 
