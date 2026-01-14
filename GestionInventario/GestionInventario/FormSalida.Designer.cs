@@ -35,6 +35,9 @@
             this.dtpFechaAsig = new System.Windows.Forms.DateTimePicker();
             this.lblFechaAsig = new System.Windows.Forms.Label();
             this.cmbSedeAsig = new System.Windows.Forms.ComboBox();
+            this.sedesBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.sedesDSBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.sedesDS = new GestionInventario.SedesDS();
             this.lblSede = new System.Windows.Forms.Label();
             this.btnAsign = new System.Windows.Forms.Button();
             this.btnDevolver = new System.Windows.Forms.Button();
@@ -42,17 +45,14 @@
             this.lblConcepto = new System.Windows.Forms.Label();
             this.dtpFechaDev = new System.Windows.Forms.DateTimePicker();
             this.lblFechaDev = new System.Windows.Forms.Label();
-            this.sedesDS = new GestionInventario.SedesDS();
-            this.sedesDSBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.sedesBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.sedesTableAdapter = new GestionInventario.SedesDSTableAdapters.SedesTableAdapter();
             this.txtObservacion = new System.Windows.Forms.TextBox();
             this.lblObservacion = new System.Windows.Forms.Label();
             this.txtUsuarioAsig = new System.Windows.Forms.TextBox();
             this.lblusuarioAsig = new System.Windows.Forms.Label();
-            ((System.ComponentModel.ISupportInitialize)(this.sedesDS)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.sedesDSBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.sedesBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.sedesDSBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.sedesDS)).BeginInit();
             this.SuspendLayout();
             // 
             // lblAsignacion
@@ -114,6 +114,21 @@
             this.cmbSedeAsig.TabIndex = 20;
             this.cmbSedeAsig.ValueMember = "Id";
             // 
+            // sedesBindingSource
+            // 
+            this.sedesBindingSource.DataMember = "Sedes";
+            this.sedesBindingSource.DataSource = this.sedesDSBindingSource;
+            // 
+            // sedesDSBindingSource
+            // 
+            this.sedesDSBindingSource.DataSource = this.sedesDS;
+            this.sedesDSBindingSource.Position = 0;
+            // 
+            // sedesDS
+            // 
+            this.sedesDS.DataSetName = "SedesDS";
+            this.sedesDS.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
             // lblSede
             // 
             this.lblSede.AutoSize = true;
@@ -146,6 +161,7 @@
             this.btnDevolver.TabIndex = 24;
             this.btnDevolver.Text = "DEVOLVER";
             this.btnDevolver.UseVisualStyleBackColor = false;
+            this.btnDevolver.Click += new System.EventHandler(this.btnDevolver_Click);
             // 
             // cmbConceptoAsig
             // 
@@ -187,21 +203,6 @@
             this.lblFechaDev.Size = new System.Drawing.Size(142, 21);
             this.lblFechaDev.TabIndex = 27;
             this.lblFechaDev.Text = "Fecha Devolución:";
-            // 
-            // sedesDS
-            // 
-            this.sedesDS.DataSetName = "SedesDS";
-            this.sedesDS.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // sedesDSBindingSource
-            // 
-            this.sedesDSBindingSource.DataSource = this.sedesDS;
-            this.sedesDSBindingSource.Position = 0;
-            // 
-            // sedesBindingSource
-            // 
-            this.sedesBindingSource.DataMember = "Sedes";
-            this.sedesBindingSource.DataSource = this.sedesDSBindingSource;
             // 
             // sedesTableAdapter
             // 
@@ -266,9 +267,9 @@
             this.Name = "FormSalida";
             this.Text = "FormSalida";
             this.Load += new System.EventHandler(this.FormSalida_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.sedesDS)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.sedesDSBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.sedesBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.sedesDSBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.sedesDS)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

@@ -46,7 +46,52 @@ namespace GestionInventario
                     UsuarioActual = usuario; 
                     this.Hide(); // Cierra el login
                     FormMDI frm = new FormMDI();
+
+
+                    int sedeId;
+
+                    //using (SqlConnection conn = new SqlConnection(connectionString))
+                    //{
+                    //conn.Open();
+
+
+                    if (usuario != "Administrador")
+                    {
+                        try
+                        {
+                            string querySede = @"
+        SELECT SedeId
+        FROM Usuarios
+        WHERE Usuario = @Usuario";
+
+                            using (SqlCommand cmdSede = new SqlCommand(querySede, cn))
+                            {
+                                cmdSede.Parameters.AddWithValue("@Usuario", usuario);
+
+                                object result = cmdSede.ExecuteScalar();
+
+                                if (result == null)
+                                {
+                                    MessageBox.Show("No se encontró la sede del usuario.");
+                                    return;
+                                }
+
+                                sedeId = Convert.ToInt32(result);
+                            }
+
+                            MessageBox.Show("El Id de sede es: " + sedeId);
+                        }
+                        catch(Exception ex)
+                         {
+                            MessageBox.Show("No fue posible validar sede de usuario");
+                        }
+
+                    }
+
+
                     frm.Show();
+
+
                 }
                 else
                 {
@@ -57,5 +102,9 @@ namespace GestionInventario
 
         }
 
+        private void Form3Login_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

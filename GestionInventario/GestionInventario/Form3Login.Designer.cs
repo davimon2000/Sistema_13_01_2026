@@ -105,6 +105,7 @@
             this.Controls.Add(this.lblMantenimiento);
             this.Name = "Form3Login";
             this.Text = "Form3Login";
+            this.Load += new System.EventHandler(this.Form3Login_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

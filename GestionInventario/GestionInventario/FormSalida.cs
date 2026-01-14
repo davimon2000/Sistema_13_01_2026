@@ -63,11 +63,18 @@ namespace GestionInventario
                     {
                         cmd.Parameters.AddWithValue("@Numero", numeroActivo);
                         object result = cmd.ExecuteScalar();
+                        //InventarioId = Convert.ToInt32(result);
+
+                        if (result == null)
+                        {
+                            MessageBox.Show("El activo no se encuentra registrado.");
+                            return;
+                        }
+                        //else
+                        //{//ABRE ABC
+
                         InventarioId = Convert.ToInt32(result);
-
-                        if (result != null)
-                        {//ABRE ABC
-
+                    }
 
 
                             string queryExistenciaMtto = @"
@@ -82,7 +89,7 @@ namespace GestionInventario
                                 cmdExistMtto.Parameters.AddWithValue("@InventarioId", InventarioId);
                                 object resultEstado = cmdExistMtto.ExecuteScalar();
                                 string estadoMtto = resultEstado?.ToString();
-                                //conn.Close();
+                            //conn.Close();
 
 
                             //    string queryEstadoRegistro = @"
@@ -115,7 +122,7 @@ namespace GestionInventario
                             //            Disponible = false;
                             //        }
 
-                                    
+
 
 
                             //        if (Disponible == true)
@@ -183,15 +190,147 @@ namespace GestionInventario
 
 
                             //    }
+
+                            if (resultEstado != null && estadoMtto == "EnMtto")
+                            {
+                                MessageBox.Show("El activo se encuentra actualmente en mantenimiento.");
+                                return;
                             }
 
 
-                        } //CIERRE ABC
-                        else
+                        //}
+
+
+                        //} //CIERRE ABC
+                        //else
+                        //{
+                        //    MessageBox.Show("El activo no se encuentra registrado.");
+                        //}
+                    }
+
+
+
+                    int usuarioId;
+
+                    
+
+
+
+
+
+
+                    bool estaAsignado = false;
+
+                    // Consulta último estado de asignación
+                    string queryAsignacion = @"
+                    SELECT TOP 1 UsuarioId, FechaDevolucion
+                    FROM Asignacion
+                    WHERE IdActivo = @InventarioId
+                    ORDER BY Id DESC";
+
+                    using (SqlCommand cmdAsign = new SqlCommand(queryAsignacion, conn))
+                    {
+                        cmdAsign.Parameters.AddWithValue("@InventarioId", InventarioId);
+
+                        using (SqlDataReader dr = cmdAsign.ExecuteReader())
                         {
-                            MessageBox.Show("El activo no se encuentra registrado.");
+                            if (dr.Read())
+                            {
+                                if (dr["FechaDevolucion"] == DBNull.Value &&
+                                    dr["UsuarioId"] != DBNull.Value)
+                                {
+                                    estaAsignado = true;
+                                }
+                            }
                         }
                     }
+                    
+                    // 👉 DECISIÓN SEGÚN MOVIMIENTO
+                    if (cmbConceptoAsig.SelectedItem.ToString() == "Asignacion")
+                    {
+                        if (estaAsignado)
+                        {
+                            MessageBox.Show("El activo ya se encuentra asignado.");
+                            return;
+                        }
+
+
+                        string queryUsuario = @"
+                    SELECT Id
+                    FROM UsuariosAD
+                    WHERE UsuarioRed = @UsuarioRed
+                      AND Estado = 1";
+
+                        using (SqlCommand cmdUser = new SqlCommand(queryUsuario, conn))
+                        {
+                            cmdUser.Parameters.AddWithValue("@UsuarioRed", txtUsuarioAsig.Text.Trim());
+                            object resultUser = cmdUser.ExecuteScalar();
+
+                            if (resultUser == null)
+                            {
+                                MessageBox.Show("El usuario no existe o está inactivo.");
+                                return;
+                            }
+
+                            usuarioId = Convert.ToInt32(resultUser);
+                        }
+
+
+
+
+
+                        // INSERT ASIGNACIÓN
+                        string insertAsignar = @"
+                        INSERT INTO Asignacion
+                        (IdActivo, UsuarioId, SedeId, FechaAsignacion, Observacion, UsuarioSistema)
+                        VALUES
+                        (@InventarioId, @UsuarioId, @SedeId, GETDATE(), @Obs, @UsuarioSistema)";
+
+                        using (SqlCommand cmdInsert = new SqlCommand(insertAsignar, conn))
+                        {
+                            cmdInsert.Parameters.AddWithValue("@InventarioId", InventarioId);
+                            cmdInsert.Parameters.AddWithValue("@UsuarioId", usuarioId);
+                            cmdInsert.Parameters.AddWithValue("@SedeId", Sede);
+                            cmdInsert.Parameters.AddWithValue("@Obs", txtObservacion.Text);
+                            cmdInsert.Parameters.AddWithValue("@UsuarioSistema", Form3Login.UsuarioActual);
+
+                            cmdInsert.ExecuteNonQuery();
+                        }
+
+
+
+                    }
+                    else // DEVOLVER
+                    {
+                        if (!estaAsignado)
+                        {
+                            MessageBox.Show("El activo no se encuentra asignado.");
+                            return;
+                        }
+
+                        // INSERT DEVOLUCIÓN
+                        string insertDevolver = @"
+                        INSERT INTO Asignacion
+                        (IdActivo, UsuarioId, SedeId, FechaDevolucion, Observacion, UsuarioSistema)
+                        VALUES
+                        (@InventarioId, NULL, @SedeId, GETDATE(), @Obs, @UsuarioSistema)";
+
+                        using (SqlCommand cmdInsert = new SqlCommand(insertDevolver, conn))
+                        {
+                            cmdInsert.Parameters.AddWithValue("@InventarioId", InventarioId);
+                            cmdInsert.Parameters.AddWithValue("@SedeId", Sede);
+                            cmdInsert.Parameters.AddWithValue("@Obs", txtObservacion.Text);
+                            cmdInsert.Parameters.AddWithValue("@UsuarioSistema", Form3Login.UsuarioActual);
+
+                            cmdInsert.ExecuteNonQuery();
+                        }
+
+
+
+                    }
+
+
+
                 }
             }
             catch (Exception ex)
@@ -266,6 +405,121 @@ namespace GestionInventario
         private void lblAsignacion_Click(object sender, EventArgs e)
         {
 
+        }
+
+
+        private int ObtenerInventarioId(SqlConnection conn, string codInterno)
+        {
+            string query = "SELECT Id FROM RegistroActivos WHERE CodInterno = @Cod";
+
+            using (SqlCommand cmd = new SqlCommand(query, conn))
+            {
+                cmd.Parameters.AddWithValue("@Cod", codInterno);
+                object result = cmd.ExecuteScalar();
+
+                if (result == null)
+                    throw new Exception("El activo no existe.");
+
+                return Convert.ToInt32(result);
+            }
+        }
+
+        private void ValidarNoEnMtto(SqlConnection conn, int inventarioId)
+        {
+            string query = @"
+        SELECT TOP 1 EstadoSalida
+        FROM Mantenimiento
+        WHERE InventarioId = @Id
+        ORDER BY Id DESC";
+
+            using (SqlCommand cmd = new SqlCommand(query, conn))
+            {
+                cmd.Parameters.AddWithValue("@Id", inventarioId);
+                object estado = cmd.ExecuteScalar();
+
+                if (estado != null && estado.ToString() == "EnMtto")
+                    throw new Exception("El activo está en mantenimiento.");
+            }
+        }
+
+        private bool EstaAsignado(SqlConnection conn, int inventarioId)
+        {
+            string query = @"
+        SELECT TOP 1 UsuarioId, FechaDevolucion
+        FROM Asignacion
+        WHERE IdActivo = @Id
+        ORDER BY Id DESC";
+
+            using (SqlCommand cmd = new SqlCommand(query, conn))
+            {
+                cmd.Parameters.AddWithValue("@Id", inventarioId);
+
+                using (SqlDataReader dr = cmd.ExecuteReader())
+                {
+                    if (dr.Read())
+                    {
+                        return dr["UsuarioId"] != DBNull.Value &&
+                               dr["FechaDevolucion"] == DBNull.Value;
+                    }
+                }
+            }
+
+            return false;
+        }
+
+        private void btnDevolver_Click(object sender, EventArgs e)
+        {
+
+
+            string numeroActivo = txtNumAsig.Text;
+            DateTime fechaAsign = dtpFechaAsig.Value;
+            //String Sede = cmbSedeAsig.SelectedItem.ToString();
+            int Sede = Convert.ToInt32(cmbSedeAsig.SelectedValue);
+            //String Area = cmbAreaAsig.SelectedItem.ToString();
+            int InventarioId = 0;
+            bool Disponible = true;
+            string observacion = txtObservacion.Text;
+            string usuarioAsig = txtUsuarioAsig.Text;
+
+
+            try
+            {
+                using (SqlConnection conn = new SqlConnection(connectionString))
+                {
+                    conn.Open();
+
+                    int inventarioId = ObtenerInventarioId(conn, txtNumAsig.Text.Trim());
+                    ValidarNoEnMtto(conn, inventarioId);
+
+                    if (!EstaAsignado(conn, inventarioId))
+                    {
+                        MessageBox.Show("El activo no está asignado.");
+                        return;
+                    }
+
+                    string insert = @"
+                INSERT INTO Asignacion
+                (IdActivo, UsuarioId, SedeId, FechaDevolucion, Observacion, UsuarioSistema)
+                VALUES
+                (@Inv, NULL, @Sede, GETDATE(), @Obs, @UsuarioSistema)";
+
+                    using (SqlCommand cmd = new SqlCommand(insert, conn))
+                    {
+                        cmd.Parameters.AddWithValue("@Inv", inventarioId);
+                        cmd.Parameters.AddWithValue("@Sede", Sede);
+                        cmd.Parameters.AddWithValue("@Obs", txtObservacion.Text);
+                        cmd.Parameters.AddWithValue("@UsuarioSistema", Form3Login.UsuarioActual);
+
+                        cmd.ExecuteNonQuery();
+                    }
+
+                    MessageBox.Show("Activo devuelto correctamente.");
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
     }
 }
