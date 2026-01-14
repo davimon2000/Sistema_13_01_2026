@@ -301,6 +301,9 @@ namespace GestionInventario
             //if (seleccionEstado != "Con Falla")
             //{
 
+            if (sedeId == Form3Login.SedeIdUsuarioSistema)
+            {
+
                 using (SqlConnection conn = new SqlConnection(connectionString))
                 {
                     //conn.Open();
@@ -315,74 +318,74 @@ namespace GestionInventario
                         {
                             MessageBox.Show("Ya existe un activo registrado con ese número");
 
-                        //    // Paso 2: Preguntar si desea actualizar
-                        //    DialogResult resultado = MessageBox.Show(
-                        //        "Ya existe un activo con ese número. ¿Desea actualizar los datos?",
-                        //        "Confirmar actualización",
-                        //        MessageBoxButtons.YesNo,
-                        //        MessageBoxIcon.Question
-                        //    );
+                            //    // Paso 2: Preguntar si desea actualizar
+                            //    DialogResult resultado = MessageBox.Show(
+                            //        "Ya existe un activo con ese número. ¿Desea actualizar los datos?",
+                            //        "Confirmar actualización",
+                            //        MessageBoxButtons.YesNo,
+                            //        MessageBoxIcon.Question
+                            //    );
 
-                        //    if (resultado == DialogResult.Yes)
-                        //    {
-                        //        // Paso 3: Actualizar
+                            //    if (resultado == DialogResult.Yes)
+                            //    {
+                            //        // Paso 3: Actualizar
 
-                        //        string queryValidar = "SELECT COUNT(*) FROM RegistroActivos WHERE Serial = @Serial";
+                            //        string queryValidar = "SELECT COUNT(*) FROM RegistroActivos WHERE Serial = @Serial";
 
-                        //        using (SqlCommand cmdValidar = new SqlCommand(queryValidar, conn))
-                        //        {
-                        //            cmdValidar.Parameters.AddWithValue("@Serial", serial);
+                            //        using (SqlCommand cmdValidar = new SqlCommand(queryValidar, conn))
+                            //        {
+                            //            cmdValidar.Parameters.AddWithValue("@Serial", serial);
 
-                        //            conn.Open();
-                        //            int existe = (int)cmdValidar.ExecuteScalar();
-                        //            conn.Close();
+                            //            conn.Open();
+                            //            int existe = (int)cmdValidar.ExecuteScalar();
+                            //            conn.Close();
 
-                        //            if (existe > 0)
-                        //            {
+                            //            if (existe > 0)
+                            //            {
 
-                        //                MessageBox.Show("Ya existe un activo registrado con ese serial.", "Duplicado", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                        //                return; //Detiene la ejecución para que no inserte el registro
-                        //            }
-                        //        }
+                            //                MessageBox.Show("Ya existe un activo registrado con ese serial.", "Duplicado", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                            //                return; //Detiene la ejecución para que no inserte el registro
+                            //            }
+                            //        }
 
 
-                        //        string updateQuery = @"
-                        //UPDATE RegistroActivos
-                        //SET Serial = @serial,
-                        //    Marca = @marca,
-                        //    FechaCompra = @fechaCompra,
-                        //    FechaRegistro = @fechaRegistro,
-                        //    EstadoRegistro = @estadoActual,
-                        //    Usuario = @usuario
-                            
-                        //WHERE CodInterno = @codInterno";
+                            //        string updateQuery = @"
+                            //UPDATE RegistroActivos
+                            //SET Serial = @serial,
+                            //    Marca = @marca,
+                            //    FechaCompra = @fechaCompra,
+                            //    FechaRegistro = @fechaRegistro,
+                            //    EstadoRegistro = @estadoActual,
+                            //    Usuario = @usuario
 
-                        //        using (SqlCommand cmdUpdate = new SqlCommand(updateQuery, conn))
-                        //        {
-                        //            cmdUpdate.Parameters.AddWithValue("@codInterno", codInterno);
-                        //            cmdUpdate.Parameters.AddWithValue("@serial", serial);
-                        //            cmdUpdate.Parameters.AddWithValue("@marca", idMarca);
-                        //            cmdUpdate.Parameters.AddWithValue("@fechaRegistro", fechaReg);
-                        //            cmdUpdate.Parameters.AddWithValue("@estadoActual", EstadoActual);
-                        //            cmdUpdate.Parameters.AddWithValue("@usuario", Form3Login.UsuarioActual);
-                        //            // Manejo de parámetro nulo
-                        //            if (fechaCompra.HasValue)
-                        //                cmdUpdate.Parameters.AddWithValue("@fechaCompra", fechaCompra.Value);
-                        //            else
-                        //                cmdUpdate.Parameters.AddWithValue("@fechaCompra", DBNull.Value);
-                        //            conn.Open();
-                        //            cmdUpdate.ExecuteNonQuery();
-                        //            conn.Close();
-                        //            MessageBox.Show("Registro actualizado correctamente.");
-                        //            txtNumReg.Text = "";
-                        //            txtSerialRegistro.Text = "";
-                        //            checkBoxFechaCompra.Checked = false;
-                        //        }
-                        //    }
-                        //    else
-                        //    {
-                        //        MessageBox.Show("Operación cancelada.");
-                        //    }
+                            //WHERE CodInterno = @codInterno";
+
+                            //        using (SqlCommand cmdUpdate = new SqlCommand(updateQuery, conn))
+                            //        {
+                            //            cmdUpdate.Parameters.AddWithValue("@codInterno", codInterno);
+                            //            cmdUpdate.Parameters.AddWithValue("@serial", serial);
+                            //            cmdUpdate.Parameters.AddWithValue("@marca", idMarca);
+                            //            cmdUpdate.Parameters.AddWithValue("@fechaRegistro", fechaReg);
+                            //            cmdUpdate.Parameters.AddWithValue("@estadoActual", EstadoActual);
+                            //            cmdUpdate.Parameters.AddWithValue("@usuario", Form3Login.UsuarioActual);
+                            //            // Manejo de parámetro nulo
+                            //            if (fechaCompra.HasValue)
+                            //                cmdUpdate.Parameters.AddWithValue("@fechaCompra", fechaCompra.Value);
+                            //            else
+                            //                cmdUpdate.Parameters.AddWithValue("@fechaCompra", DBNull.Value);
+                            //            conn.Open();
+                            //            cmdUpdate.ExecuteNonQuery();
+                            //            conn.Close();
+                            //            MessageBox.Show("Registro actualizado correctamente.");
+                            //            txtNumReg.Text = "";
+                            //            txtSerialRegistro.Text = "";
+                            //            checkBoxFechaCompra.Checked = false;
+                            //        }
+                            //    }
+                            //    else
+                            //    {
+                            //        MessageBox.Show("Operación cancelada.");
+                            //    }
                         }
                         else
                         {
@@ -409,87 +412,88 @@ namespace GestionInventario
                                         }
 
                                         //%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-                                    else
-                                    {
-                                        string query = @"INSERT INTO RegistroActivos (IdActivo, CodInterno, Serial, Marca, FechaCompra, FechaRegistro, SedeRegistroId, EstadoRegistro, UsuarioSistema)
+                                        else
+                                        {
+                                            string query = @"INSERT INTO RegistroActivos (IdActivo, CodInterno, Serial, Marca, FechaCompra, FechaRegistro, SedeRegistroId, EstadoRegistro, UsuarioSistema)
                          VALUES (@IdActivo, @CodInterno, @Serial, @IdMarca, @FechaCompra, @FechaRegistro, @SedeRegistroId, @EstadoActual, @usuariosistema)";
 
-                                        using (SqlCommand cmd = new SqlCommand(query, conexion))
-                                        {
-                                            cmd.Parameters.AddWithValue("@IdActivo", idActivo);
-                                            cmd.Parameters.AddWithValue("@CodInterno", codInterno);
-                                            cmd.Parameters.AddWithValue("@Serial", serial);
-                                            cmd.Parameters.AddWithValue("@IdMarca", idMarca);
-                                            cmd.Parameters.AddWithValue("@FechaRegistro", fechaReg);
-                                            cmd.Parameters.AddWithValue("@SedeRegistroId", sedeId);
-                                            cmd.Parameters.AddWithValue("@EstadoActual", EstadoActual);
-                                            cmd.Parameters.AddWithValue("@usuariosistema", Form3Login.UsuarioActual);
-                                            // Manejo de parámetro nulo
-                                            if (fechaCompra.HasValue)
-                                                cmd.Parameters.AddWithValue("@FechaCompra", fechaCompra.Value);
-                                            else
-                                                cmd.Parameters.AddWithValue("@FechaCompra", DBNull.Value);
+                                            using (SqlCommand cmd = new SqlCommand(query, conexion))
+                                            {
+                                                cmd.Parameters.AddWithValue("@IdActivo", idActivo);
+                                                cmd.Parameters.AddWithValue("@CodInterno", codInterno);
+                                                cmd.Parameters.AddWithValue("@Serial", serial);
+                                                cmd.Parameters.AddWithValue("@IdMarca", idMarca);
+                                                cmd.Parameters.AddWithValue("@FechaRegistro", fechaReg);
+                                                cmd.Parameters.AddWithValue("@SedeRegistroId", sedeId);
+                                                cmd.Parameters.AddWithValue("@EstadoActual", EstadoActual);
+                                                cmd.Parameters.AddWithValue("@usuariosistema", Form3Login.UsuarioActual);
+                                                // Manejo de parámetro nulo
+                                                if (fechaCompra.HasValue)
+                                                    cmd.Parameters.AddWithValue("@FechaCompra", fechaCompra.Value);
+                                                else
+                                                    cmd.Parameters.AddWithValue("@FechaCompra", DBNull.Value);
 
-                                            try
-                                            {
-                                                conexion.Open();
-                                                cmd.ExecuteNonQuery();
-                                                conexion.Close();
-                                                MessageBox.Show("Registro guardado con éxito.");
-                                                txtNumReg.Text = "";
-                                                txtSerialRegistro.Text = "";
-                                                checkBoxFechaCompra.Checked = false;
-                                            }
-                                            catch (Exception ex)
-                                            {
-                                                MessageBox.Show("Error al registrar: " + ex.Message);
+                                                try
+                                                {
+                                                    conexion.Open();
+                                                    cmd.ExecuteNonQuery();
+                                                    conexion.Close();
+                                                    MessageBox.Show("Registro guardado con éxito.");
+                                                    txtNumReg.Text = "";
+                                                    txtSerialRegistro.Text = "";
+                                                    checkBoxFechaCompra.Checked = false;
+                                                }
+                                                catch (Exception ex)
+                                                {
+                                                    MessageBox.Show("Error al registrar: " + ex.Message);
+                                                }
                                             }
                                         }
-                                    }
                                         //%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%55555
 
 
 
                                     }
                                 }// cierra serial null
-                                else { 
+                                else
+                                {
 
 
                                     string query = @"INSERT INTO RegistroActivos (IdActivo, CodInterno, Serial, Marca, FechaCompra, FechaRegistro, SedeRegistroId, EstadoRegistro, UsuarioSistema)
                          VALUES (@IdActivo, @CodInterno, @Serial, @IdMarca, @FechaCompra, @FechaRegistro, @SedeRegistroId, @EstadoActual, @usuariosistema)";
 
-                                using (SqlCommand cmd = new SqlCommand(query, conexion))
-                                {
-                                    cmd.Parameters.AddWithValue("@IdActivo", idActivo);
-                                    cmd.Parameters.AddWithValue("@CodInterno", codInterno);
-                                    cmd.Parameters.AddWithValue("@Serial", serial);
-                                    cmd.Parameters.AddWithValue("@IdMarca", idMarca);
-                                    cmd.Parameters.AddWithValue("@FechaRegistro", fechaReg);
-                                    cmd.Parameters.AddWithValue("@SedeRegistroId", sedeId);
-                                    cmd.Parameters.AddWithValue("@EstadoActual", EstadoActual);
-                                    cmd.Parameters.AddWithValue("@usuariosistema", Form3Login.UsuarioActual);
-                                    // Manejo de parámetro nulo
-                                    if (fechaCompra.HasValue)
-                                        cmd.Parameters.AddWithValue("@FechaCompra", fechaCompra.Value);
-                                    else
-                                        cmd.Parameters.AddWithValue("@FechaCompra", DBNull.Value);
+                                    using (SqlCommand cmd = new SqlCommand(query, conexion))
+                                    {
+                                        cmd.Parameters.AddWithValue("@IdActivo", idActivo);
+                                        cmd.Parameters.AddWithValue("@CodInterno", codInterno);
+                                        cmd.Parameters.AddWithValue("@Serial", serial);
+                                        cmd.Parameters.AddWithValue("@IdMarca", idMarca);
+                                        cmd.Parameters.AddWithValue("@FechaRegistro", fechaReg);
+                                        cmd.Parameters.AddWithValue("@SedeRegistroId", sedeId);
+                                        cmd.Parameters.AddWithValue("@EstadoActual", EstadoActual);
+                                        cmd.Parameters.AddWithValue("@usuariosistema", Form3Login.UsuarioActual);
+                                        // Manejo de parámetro nulo
+                                        if (fechaCompra.HasValue)
+                                            cmd.Parameters.AddWithValue("@FechaCompra", fechaCompra.Value);
+                                        else
+                                            cmd.Parameters.AddWithValue("@FechaCompra", DBNull.Value);
 
-                                    try
-                                    {
-                                        conexion.Open();
-                                        cmd.ExecuteNonQuery();
-                                        conexion.Close();
-                                        MessageBox.Show("Registro guardado con éxito.");
-                                        txtNumReg.Text = "";
-                                        txtSerialRegistro.Text = "";
-                                        checkBoxFechaCompra.Checked = false;
+                                        try
+                                        {
+                                            conexion.Open();
+                                            cmd.ExecuteNonQuery();
+                                            conexion.Close();
+                                            MessageBox.Show("Registro guardado con éxito.");
+                                            txtNumReg.Text = "";
+                                            txtSerialRegistro.Text = "";
+                                            checkBoxFechaCompra.Checked = false;
+                                        }
+                                        catch (Exception ex)
+                                        {
+                                            MessageBox.Show("Error al registrar: " + ex.Message);
+                                        }
                                     }
-                                    catch (Exception ex)
-                                    {
-                                        MessageBox.Show("Error al registrar: " + ex.Message);
-                                    }
-                                }
-                            } // else de serial null
+                                } // else de serial null
                             }
                         }
                     }
@@ -503,173 +507,177 @@ namespace GestionInventario
 
 
                 //********/////////////////SI ES CON FALLA QUE INGRESE A MTTO////////////*****************
-            //}else
-            //if (seleccionEstado == "Con Falla")
-            //{
+                //}else
+                //if (seleccionEstado == "Con Falla")
+                //{
 
-            //    /////////////////////////------------SI EL ESTADO ES CON FALLA--------------------------------///////////////
-            //    ///---------------------------------Significa que ingresa a mantenimiento
-
-
-            //    using (SqlConnection conn = new SqlConnection(connectionString))
-            //    {
-            //        //conn.Open();
-            //        string queryExistencia = "SELECT COUNT(*) FROM RegistroActivos WHERE codInterno = @codInterno";
-            //        using (SqlCommand cmdExist = new SqlCommand(queryExistencia, conn))
-            //        {
-            //            cmdExist.Parameters.AddWithValue("@codInterno", codInterno);
-            //            conn.Open();
-            //            int count = (int)cmdExist.ExecuteScalar();
-            //            conn.Close();
-            //            if (count > 0)
-            //            {
-            //                MessageBox.Show("Activo ya registrado. Para fallas use la ventana de Mantenimiento.", "", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            //                return; //Detiene la ejecución para que no inserte el registro
-            //            }
-            //            else
-            //            {
-
-            //                // 3. Insertar en la base de datos
-            //                using (SqlConnection conexion = new SqlConnection(connectionString))
-            //                {
-            //                    if (txtSerialRegistro.Text != "")
-            //                    {
-            //                        string queryValidar = "SELECT COUNT(*) FROM RegistroActivos WHERE Serial = @Serial";
-
-            //                        using (SqlCommand cmdValidar = new SqlCommand(queryValidar, conexion))
-            //                        {
-            //                            cmdValidar.Parameters.AddWithValue("@Serial", serial);
-
-            //                            conexion.Open();
-            //                            int existe = (int)cmdValidar.ExecuteScalar();
-            //                            conexion.Close();
-
-            //                            if (existe > 0)
-            //                            {
-            //                                MessageBox.Show("Ya existe un activo registrado con ese serial.", "Duplicado", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            //                                return; //Detiene la ejecución para que no inserte el registro
-            //                            }
-            //                        }
-
-            //                    }//cierre if serial null
-            //                    else { 
-
-            //                        string query = @"INSERT INTO RegistroActivos (IdActivo, CodInterno, Serial, Marca, FechaCompra, FechaRegistro, SedeRegistro, EstadoRegistro, Usuario)
-            //             VALUES (@IdActivo, @CodInterno, @Serial, @IdMarca, @FechaCompra, @FechaRegistro,@SedeRegistro, @EstadoActual, @usuario)";
-
-            //                    string querymtto = @"INSERT INTO Mantenimiento (InventarioId, FechaIngresoMtto, TipoFalla, ObsIngreso, NumIngreso, UsuarioIngreso, EstadoSalida)
-            //                 VALUES (@InventarioId, @FechaIngresoMtto, @TipoFalla, @ObsIngreso, @NumIngreso, @UsuarioIngres, @EstadoSalida)";
-
-            //                    using (SqlCommand cmd = new SqlCommand(query, conexion))
-            //                    {
-            //                        cmd.Parameters.AddWithValue("@IdActivo", idActivo);
-            //                        cmd.Parameters.AddWithValue("@CodInterno", codInterno);
-            //                        cmd.Parameters.AddWithValue("@Serial", serial);
-            //                        cmd.Parameters.AddWithValue("@IdMarca", idMarca);
-            //                        cmd.Parameters.AddWithValue("@FechaRegistro", fechaReg);
-            //                            cmd.Parameters.AddWithValue("@SedeRegistro", sederegistro);
-            //                        cmd.Parameters.AddWithValue("@EstadoActual", EstadoActual);
-            //                        cmd.Parameters.AddWithValue("@usuario", Form3Login.UsuarioActual);
-            //                        // Manejo de parámetro nulo
-            //                        if (fechaCompra.HasValue)
-            //                            cmd.Parameters.AddWithValue("@FechaCompra", fechaCompra.Value);
-            //                        else
-            //                            cmd.Parameters.AddWithValue("@FechaCompra", DBNull.Value);
+                //    /////////////////////////------------SI EL ESTADO ES CON FALLA--------------------------------///////////////
+                //    ///---------------------------------Significa que ingresa a mantenimiento
 
 
-            //                        try
-            //                        {
-            //                            conexion.Open();
-            //                            cmd.ExecuteNonQuery();
-            //                            conexion.Close();
-            //                            //MessageBox.Show("Registro guardado con éxito. Ingresado a mtto");
-            //                            txtNumReg.Text = "";
-            //                            txtSerialRegistro.Text = "";
-            //                            checkBoxFechaCompra.Checked = false;
-            //                        }
-            //                        catch (Exception ex)
-            //                        {
-            //                            MessageBox.Show("Error al registrar: " + ex.Message);
-            //                        }
-            //                    }
+                //    using (SqlConnection conn = new SqlConnection(connectionString))
+                //    {
+                //        //conn.Open();
+                //        string queryExistencia = "SELECT COUNT(*) FROM RegistroActivos WHERE codInterno = @codInterno";
+                //        using (SqlCommand cmdExist = new SqlCommand(queryExistencia, conn))
+                //        {
+                //            cmdExist.Parameters.AddWithValue("@codInterno", codInterno);
+                //            conn.Open();
+                //            int count = (int)cmdExist.ExecuteScalar();
+                //            conn.Close();
+                //            if (count > 0)
+                //            {
+                //                MessageBox.Show("Activo ya registrado. Para fallas use la ventana de Mantenimiento.", "", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                //                return; //Detiene la ejecución para que no inserte el registro
+                //            }
+                //            else
+                //            {
 
-            //                    //using (SqlConnection conexion = new SqlConnection(connectionString))
-            //                    //{
+                //                // 3. Insertar en la base de datos
+                //                using (SqlConnection conexion = new SqlConnection(connectionString))
+                //                {
+                //                    if (txtSerialRegistro.Text != "")
+                //                    {
+                //                        string queryValidar = "SELECT COUNT(*) FROM RegistroActivos WHERE Serial = @Serial";
 
-            //                    //MessageBox.Show("Es" + InventarioId);
-            //                    conn.Open();
+                //                        using (SqlCommand cmdValidar = new SqlCommand(queryValidar, conexion))
+                //                        {
+                //                            cmdValidar.Parameters.AddWithValue("@Serial", serial);
 
-            //                    string queryid = "SELECT Id FROM RegistroActivos WHERE CodInterno = @Numero";
-            //                    using (SqlCommand cmd = new SqlCommand(queryid, conn))
-            //                    {
-            //                        cmd.Parameters.AddWithValue("@Numero", codInterno);
-            //                        object result = cmd.ExecuteScalar();
-            //                        conn.Close();
+                //                            conexion.Open();
+                //                            int existe = (int)cmdValidar.ExecuteScalar();
+                //                            conexion.Close();
 
+                //                            if (existe > 0)
+                //                            {
+                //                                MessageBox.Show("Ya existe un activo registrado con ese serial.", "Duplicado", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                //                                return; //Detiene la ejecución para que no inserte el registro
+                //                            }
+                //                        }
 
-            //                        InventarioId = Convert.ToInt32(result);
-            //                       // MessageBox.Show("Es" + InventarioId);
-            //                        using (SqlCommand cmdIngreso = new SqlCommand(querymtto, conexion))
-            //                        {
-            //                            cmdIngreso.Parameters.AddWithValue("@InventarioId", InventarioId);
-            //                            cmdIngreso.Parameters.AddWithValue("@FechaIngresoMtto", fechaReg);
-            //                            cmdIngreso.Parameters.AddWithValue("@TipoFalla", TipoFalla);
-            //                            cmdIngreso.Parameters.AddWithValue("@ObsIngreso", obs);
-            //                            cmdIngreso.Parameters.AddWithValue("@NumIngreso", NumeroIngreso);
-            //                            cmdIngreso.Parameters.AddWithValue("@UsuarioIngres", Form3Login.UsuarioActual);
-            //                            cmdIngreso.Parameters.AddWithValue("@EstadoSalida", "EnMtto");
-            //                            try
-            //                            {
-            //                                conexion.Open();
-            //                                cmdIngreso.ExecuteNonQuery();
-            //                                MessageBox.Show($"Activo ingresado correctamente.\nNúmero de ingreso a mantenimiento: {NumeroIngreso}");
-            //                                //txtNumMtto.Text = "";
-            //                                txtObservacion.Text = "";
-            //                                conexion.Close();
-            //                                //using (SqlConnection connnn = new SqlConnection(connectionString))
-            //                                //{
-            //                                string query_Sede = "UPDATE Asignacion SET Sede = NULL WHERE IdActivo = @IdActivo";
+                //                    }//cierre if serial null
+                //                    else { 
 
-            //                                using (SqlCommand cmd_Sede = new SqlCommand(query_Sede, conn))
-            //                                {
-            //                                    cmd_Sede.Parameters.AddWithValue("@IdActivo", idActivo);
+                //                        string query = @"INSERT INTO RegistroActivos (IdActivo, CodInterno, Serial, Marca, FechaCompra, FechaRegistro, SedeRegistro, EstadoRegistro, Usuario)
+                //             VALUES (@IdActivo, @CodInterno, @Serial, @IdMarca, @FechaCompra, @FechaRegistro,@SedeRegistro, @EstadoActual, @usuario)";
 
-            //                                    conn.Open();
-            //                                    cmd_Sede.ExecuteNonQuery();
-            //                                    conn.Close();
-            //                                }
-            //                                //}
+                //                    string querymtto = @"INSERT INTO Mantenimiento (InventarioId, FechaIngresoMtto, TipoFalla, ObsIngreso, NumIngreso, UsuarioIngreso, EstadoSalida)
+                //                 VALUES (@InventarioId, @FechaIngresoMtto, @TipoFalla, @ObsIngreso, @NumIngreso, @UsuarioIngres, @EstadoSalida)";
 
-
-            //                            }
-            //                            catch (Exception ex)
-            //                            {
-            //                                MessageBox.Show("Error al registrar: " + ex.Message);
-            //                            }
-            //                        }
-            //                    }
-            //                }//cierre else de null serial
-            //                }
-            //            }
-            //        }
+                //                    using (SqlCommand cmd = new SqlCommand(query, conexion))
+                //                    {
+                //                        cmd.Parameters.AddWithValue("@IdActivo", idActivo);
+                //                        cmd.Parameters.AddWithValue("@CodInterno", codInterno);
+                //                        cmd.Parameters.AddWithValue("@Serial", serial);
+                //                        cmd.Parameters.AddWithValue("@IdMarca", idMarca);
+                //                        cmd.Parameters.AddWithValue("@FechaRegistro", fechaReg);
+                //                            cmd.Parameters.AddWithValue("@SedeRegistro", sederegistro);
+                //                        cmd.Parameters.AddWithValue("@EstadoActual", EstadoActual);
+                //                        cmd.Parameters.AddWithValue("@usuario", Form3Login.UsuarioActual);
+                //                        // Manejo de parámetro nulo
+                //                        if (fechaCompra.HasValue)
+                //                            cmd.Parameters.AddWithValue("@FechaCompra", fechaCompra.Value);
+                //                        else
+                //                            cmd.Parameters.AddWithValue("@FechaCompra", DBNull.Value);
 
 
+                //                        try
+                //                        {
+                //                            conexion.Open();
+                //                            cmd.ExecuteNonQuery();
+                //                            conexion.Close();
+                //                            //MessageBox.Show("Registro guardado con éxito. Ingresado a mtto");
+                //                            txtNumReg.Text = "";
+                //                            txtSerialRegistro.Text = "";
+                //                            checkBoxFechaCompra.Checked = false;
+                //                        }
+                //                        catch (Exception ex)
+                //                        {
+                //                            MessageBox.Show("Error al registrar: " + ex.Message);
+                //                        }
+                //                    }
+
+                //                    //using (SqlConnection conexion = new SqlConnection(connectionString))
+                //                    //{
+
+                //                    //MessageBox.Show("Es" + InventarioId);
+                //                    conn.Open();
+
+                //                    string queryid = "SELECT Id FROM RegistroActivos WHERE CodInterno = @Numero";
+                //                    using (SqlCommand cmd = new SqlCommand(queryid, conn))
+                //                    {
+                //                        cmd.Parameters.AddWithValue("@Numero", codInterno);
+                //                        object result = cmd.ExecuteScalar();
+                //                        conn.Close();
 
 
-            //    }
+                //                        InventarioId = Convert.ToInt32(result);
+                //                       // MessageBox.Show("Es" + InventarioId);
+                //                        using (SqlCommand cmdIngreso = new SqlCommand(querymtto, conexion))
+                //                        {
+                //                            cmdIngreso.Parameters.AddWithValue("@InventarioId", InventarioId);
+                //                            cmdIngreso.Parameters.AddWithValue("@FechaIngresoMtto", fechaReg);
+                //                            cmdIngreso.Parameters.AddWithValue("@TipoFalla", TipoFalla);
+                //                            cmdIngreso.Parameters.AddWithValue("@ObsIngreso", obs);
+                //                            cmdIngreso.Parameters.AddWithValue("@NumIngreso", NumeroIngreso);
+                //                            cmdIngreso.Parameters.AddWithValue("@UsuarioIngres", Form3Login.UsuarioActual);
+                //                            cmdIngreso.Parameters.AddWithValue("@EstadoSalida", "EnMtto");
+                //                            try
+                //                            {
+                //                                conexion.Open();
+                //                                cmdIngreso.ExecuteNonQuery();
+                //                                MessageBox.Show($"Activo ingresado correctamente.\nNúmero de ingreso a mantenimiento: {NumeroIngreso}");
+                //                                //txtNumMtto.Text = "";
+                //                                txtObservacion.Text = "";
+                //                                conexion.Close();
+                //                                //using (SqlConnection connnn = new SqlConnection(connectionString))
+                //                                //{
+                //                                string query_Sede = "UPDATE Asignacion SET Sede = NULL WHERE IdActivo = @IdActivo";
+
+                //                                using (SqlCommand cmd_Sede = new SqlCommand(query_Sede, conn))
+                //                                {
+                //                                    cmd_Sede.Parameters.AddWithValue("@IdActivo", idActivo);
+
+                //                                    conn.Open();
+                //                                    cmd_Sede.ExecuteNonQuery();
+                //                                    conn.Close();
+                //                                }
+                //                                //}
+
+
+                //                            }
+                //                            catch (Exception ex)
+                //                            {
+                //                                MessageBox.Show("Error al registrar: " + ex.Message);
+                //                            }
+                //                        }
+                //                    }
+                //                }//cierre else de null serial
+                //                }
+                //            }
+                //        }
 
 
 
 
-
-            //} // Cierre de ingreso a mantenimiento
+                //    }
 
 
 
 
 
+                //} // Cierre de ingreso a mantenimiento
 
 
+
+
+
+
+            }
+            else
+            {
+                MessageBox.Show("No puede registrar activos para otra sede diferente a la suya.", "Error de sede", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
 
             }
 

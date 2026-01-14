@@ -1,8 +1,9 @@
-﻿using System.Windows.Forms;
-using System;
-using MaterialSkin;
+﻿using MaterialSkin;
 using MaterialSkin.Controls;
+using System;
+using System.Data.SqlClient;
 using System.Runtime.InteropServices;
+using System.Windows.Forms;
 
 
 namespace GestionInventario
@@ -87,14 +88,59 @@ namespace GestionInventario
 
     }
 
-        
+        private bool UsuarioTienePermisoMtto(string usuario)
+        {
+            string connectionString = "Server=LPT140112\\SQLEXPRESS;Database=InventarioActivos;User Id=inventarioUser;Password=Inventario2025++;";
+            try
+            {
+                using (SqlConnection conn = new SqlConnection(connectionString))
+                {
+                    conn.Open();
+
+                    string query = @"
+                SELECT PermisosMtto
+                FROM Usuarios
+                WHERE Usuario = @Usuario";
+
+                    using (SqlCommand cmd = new SqlCommand(query, conn))
+                    {
+                        cmd.Parameters.AddWithValue("@Usuario", usuario);
+
+                        object result = cmd.ExecuteScalar();
+
+                        if (result == null)
+                            return false;
+
+                        return Convert.ToBoolean(result);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(
+                    "Error al validar permisos de mantenimiento:\n" + ex.Message,
+                    "Error",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Error
+                );
+                return false;
+            }
+        }
 
         private void btnIngresomtto_Click_1(object sender, EventArgs e)
         {
-            FormIngresomtto frm = FormIngresomtto.ventana_unica();
-            frm.MdiParent = this;
-            frm.Show();
-            frm.BringToFront();
+            if (!UsuarioTienePermisoMtto(Form3Login.UsuarioActual))
+            {
+                MessageBox.Show("No tienes permiso para acceder a Mantenimiento.", "Acceso Denegado", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+            else
+            {
+                FormIngresomtto frm = FormIngresomtto.ventana_unica();
+                frm.MdiParent = this;
+                frm.Show();
+                frm.BringToFront();
+            }
     }
 
         private void btnSalida_Click_1(object sender, EventArgs e)

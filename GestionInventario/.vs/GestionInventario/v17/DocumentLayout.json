@@ -3,15 +3,39 @@
   "WorkspaceRootPath": "C:\\Users\\BB12388\\Documents\\ProyectoSistemaGestion\\GestionInventario\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{5BCA767D-FF92-4140-A3B3-A45CB14F1992}|GestionInventario\\GestionInventario.csproj|C:\\Users\\BB12388\\Documents\\ProyectoSistemaGestion\\GestionInventario\\gestioninventario\\form3login.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{5BCA767D-FF92-4140-A3B3-A45CB14F1992}|GestionInventario\\GestionInventario.csproj|c:\\users\\bb12388\\documents\\proyectosistemagestion\\gestioninventario\\gestioninventario\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5BCA767D-FF92-4140-A3B3-A45CB14F1992}|GestionInventario\\GestionInventario.csproj|solutionrelative:gestioninventario\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5BCA767D-FF92-4140-A3B3-A45CB14F1992}|GestionInventario\\GestionInventario.csproj|C:\\Users\\BB12388\\Documents\\ProyectoSistemaGestion\\GestionInventario\\gestioninventario\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{5BCA767D-FF92-4140-A3B3-A45CB14F1992}|GestionInventario\\GestionInventario.csproj|solutionrelative:gestioninventario\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5BCA767D-FF92-4140-A3B3-A45CB14F1992}|GestionInventario\\GestionInventario.csproj|c:\\users\\bb12388\\documents\\proyectosistemagestion\\gestioninventario\\gestioninventario\\form2.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{5BCA767D-FF92-4140-A3B3-A45CB14F1992}|GestionInventario\\GestionInventario.csproj|solutionrelative:gestioninventario\\form2.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5BCA767D-FF92-4140-A3B3-A45CB14F1992}|GestionInventario\\GestionInventario.csproj|c:\\users\\bb12388\\documents\\proyectosistemagestion\\gestioninventario\\gestioninventario\\form3login.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{5BCA767D-FF92-4140-A3B3-A45CB14F1992}|GestionInventario\\GestionInventario.csproj|solutionrelative:gestioninventario\\form3login.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{5BCA767D-FF92-4140-A3B3-A45CB14F1992}|GestionInventario\\GestionInventario.csproj|C:\\Users\\BB12388\\Documents\\ProyectoSistemaGestion\\GestionInventario\\gestioninventario\\form3login.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{5BCA767D-FF92-4140-A3B3-A45CB14F1992}|GestionInventario\\GestionInventario.csproj|solutionrelative:gestioninventario\\form3login.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+      "AbsoluteMoniker": "D:0:0:{5BCA767D-FF92-4140-A3B3-A45CB14F1992}|GestionInventario\\GestionInventario.csproj|C:\\Users\\BB12388\\Documents\\ProyectoSistemaGestion\\GestionInventario\\gestioninventario\\formingresomtto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5BCA767D-FF92-4140-A3B3-A45CB14F1992}|GestionInventario\\GestionInventario.csproj|solutionrelative:gestioninventario\\formingresomtto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{5BCA767D-FF92-4140-A3B3-A45CB14F1992}|GestionInventario\\GestionInventario.csproj|c:\\users\\bb12388\\documents\\proyectosistemagestion\\gestioninventario\\gestioninventario\\formsalida.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{5BCA767D-FF92-4140-A3B3-A45CB14F1992}|GestionInventario\\GestionInventario.csproj|c:\\users\\bb12388\\documents\\proyectosistemagestion\\gestioninventario\\gestioninventario\\formingresomtto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{5BCA767D-FF92-4140-A3B3-A45CB14F1992}|GestionInventario\\GestionInventario.csproj|solutionrelative:gestioninventario\\formingresomtto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5BCA767D-FF92-4140-A3B3-A45CB14F1992}|GestionInventario\\GestionInventario.csproj|C:\\Users\\BB12388\\Documents\\ProyectoSistemaGestion\\GestionInventario\\gestioninventario\\formregistro.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5BCA767D-FF92-4140-A3B3-A45CB14F1992}|GestionInventario\\GestionInventario.csproj|solutionrelative:gestioninventario\\formregistro.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5BCA767D-FF92-4140-A3B3-A45CB14F1992}|GestionInventario\\GestionInventario.csproj|C:\\Users\\BB12388\\Documents\\ProyectoSistemaGestion\\GestionInventario\\gestioninventario\\formregistro.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{5BCA767D-FF92-4140-A3B3-A45CB14F1992}|GestionInventario\\GestionInventario.csproj|solutionrelative:gestioninventario\\formregistro.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5BCA767D-FF92-4140-A3B3-A45CB14F1992}|GestionInventario\\GestionInventario.csproj|C:\\Users\\BB12388\\Documents\\ProyectoSistemaGestion\\GestionInventario\\gestioninventario\\formsalida.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{5BCA767D-FF92-4140-A3B3-A45CB14F1992}|GestionInventario\\GestionInventario.csproj|solutionrelative:gestioninventario\\formsalida.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
@@ -19,20 +43,12 @@
       "RelativeMoniker": "D:0:0:{5BCA767D-FF92-4140-A3B3-A45CB14F1992}|GestionInventario\\GestionInventario.csproj|solutionrelative:gestioninventario\\formsalida.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
+      "AbsoluteMoniker": "D:0:0:{5BCA767D-FF92-4140-A3B3-A45CB14F1992}|GestionInventario\\GestionInventario.csproj|C:\\Users\\BB12388\\Documents\\ProyectoSistemaGestion\\GestionInventario\\gestioninventario\\form3login.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{5BCA767D-FF92-4140-A3B3-A45CB14F1992}|GestionInventario\\GestionInventario.csproj|solutionrelative:gestioninventario\\form3login.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{5BCA767D-FF92-4140-A3B3-A45CB14F1992}|GestionInventario\\GestionInventario.csproj|C:\\Users\\BB12388\\Documents\\ProyectoSistemaGestion\\GestionInventario\\gestioninventario\\formconsulta.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
       "RelativeMoniker": "D:0:0:{5BCA767D-FF92-4140-A3B3-A45CB14F1992}|GestionInventario\\GestionInventario.csproj|solutionrelative:gestioninventario\\formconsulta.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{5BCA767D-FF92-4140-A3B3-A45CB14F1992}|GestionInventario\\GestionInventario.csproj|C:\\Users\\BB12388\\Documents\\ProyectoSistemaGestion\\GestionInventario\\gestioninventario\\formregistro.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{5BCA767D-FF92-4140-A3B3-A45CB14F1992}|GestionInventario\\GestionInventario.csproj|solutionrelative:gestioninventario\\formregistro.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{5BCA767D-FF92-4140-A3B3-A45CB14F1992}|GestionInventario\\GestionInventario.csproj|C:\\Users\\BB12388\\Documents\\ProyectoSistemaGestion\\GestionInventario\\gestioninventario\\formingresomtto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{5BCA767D-FF92-4140-A3B3-A45CB14F1992}|GestionInventario\\GestionInventario.csproj|solutionrelative:gestioninventario\\formingresomtto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{5BCA767D-FF92-4140-A3B3-A45CB14F1992}|GestionInventario\\GestionInventario.csproj|C:\\Users\\BB12388\\Documents\\ProyectoSistemaGestion\\GestionInventario\\gestioninventario\\formregistro.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{5BCA767D-FF92-4140-A3B3-A45CB14F1992}|GestionInventario\\GestionInventario.csproj|solutionrelative:gestioninventario\\formregistro.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
       "AbsoluteMoniker": "D:0:0:{5BCA767D-FF92-4140-A3B3-A45CB14F1992}|GestionInventario\\GestionInventario.csproj|C:\\Users\\BB12388\\Documents\\ProyectoSistemaGestion\\GestionInventario\\gestioninventario\\formconsulta.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -79,24 +95,12 @@
       "RelativeMoniker": "D:0:0:{5BCA767D-FF92-4140-A3B3-A45CB14F1992}|GestionInventario\\GestionInventario.csproj|solutionrelative:gestioninventario\\formprueba2.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{5BCA767D-FF92-4140-A3B3-A45CB14F1992}|GestionInventario\\GestionInventario.csproj|C:\\Users\\BB12388\\Documents\\ProyectoSistemaGestion\\GestionInventario\\gestioninventario\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{5BCA767D-FF92-4140-A3B3-A45CB14F1992}|GestionInventario\\GestionInventario.csproj|solutionrelative:gestioninventario\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{5BCA767D-FF92-4140-A3B3-A45CB14F1992}|GestionInventario\\GestionInventario.csproj|C:\\Users\\BB12388\\Documents\\ProyectoSistemaGestion\\GestionInventario\\gestioninventario\\formactivos.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{5BCA767D-FF92-4140-A3B3-A45CB14F1992}|GestionInventario\\GestionInventario.csproj|solutionrelative:gestioninventario\\formactivos.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{5BCA767D-FF92-4140-A3B3-A45CB14F1992}|GestionInventario\\GestionInventario.csproj|C:\\Users\\BB12388\\Documents\\ProyectoSistemaGestion\\GestionInventario\\gestioninventario\\formactivos.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{5BCA767D-FF92-4140-A3B3-A45CB14F1992}|GestionInventario\\GestionInventario.csproj|solutionrelative:gestioninventario\\formactivos.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{5BCA767D-FF92-4140-A3B3-A45CB14F1992}|GestionInventario\\GestionInventario.csproj|C:\\Users\\BB12388\\Documents\\ProyectoSistemaGestion\\GestionInventario\\gestioninventario\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{5BCA767D-FF92-4140-A3B3-A45CB14F1992}|GestionInventario\\GestionInventario.csproj|solutionrelative:gestioninventario\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{5BCA767D-FF92-4140-A3B3-A45CB14F1992}|GestionInventario\\GestionInventario.csproj|C:\\Users\\BB12388\\Documents\\ProyectoSistemaGestion\\GestionInventario\\gestioninventario\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{5BCA767D-FF92-4140-A3B3-A45CB14F1992}|GestionInventario\\GestionInventario.csproj|solutionrelative:gestioninventario\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{5BCA767D-FF92-4140-A3B3-A45CB14F1992}|GestionInventario\\GestionInventario.csproj|C:\\Users\\BB12388\\Documents\\ProyectoSistemaGestion\\GestionInventario\\gestioninventario\\form2.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -122,17 +126,17 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 15,
+          "SelectedChildIndex": 2,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 6,
               "Title": "FormRegistro.cs",
               "DocumentMoniker": "C:\\Users\\BB12388\\Documents\\ProyectoSistemaGestion\\GestionInventario\\GestionInventario\\FormRegistro.cs",
               "RelativeDocumentMoniker": "GestionInventario\\FormRegistro.cs",
               "ToolTip": "C:\\Users\\BB12388\\Documents\\ProyectoSistemaGestion\\GestionInventario\\GestionInventario\\FormRegistro.cs",
               "RelativeToolTip": "GestionInventario\\FormRegistro.cs",
-              "ViewState": "AgIAAJkBAAAArDMzMzMIwKkBAABbAAAAAAAAAA==",
+              "ViewState": "AgIAAJ0CAAAAAAAAAAAowKECAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-10-06T20:44:17.829Z",
               "IsPinned": true,
@@ -141,6 +145,31 @@
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{cce594b6-0c39-4442-ba28-10c64ac7e89f}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Form1.cs",
+              "DocumentMoniker": "C:\\Users\\BB12388\\Documents\\ProyectoSistemaGestion\\GestionInventario\\GestionInventario\\Form1.cs",
+              "RelativeDocumentMoniker": "GestionInventario\\Form1.cs",
+              "ToolTip": "C:\\Users\\BB12388\\Documents\\ProyectoSistemaGestion\\GestionInventario\\GestionInventario\\Form1.cs",
+              "RelativeToolTip": "GestionInventario\\Form1.cs",
+              "ViewState": "AgIAAIAAAAAAAAAAAAAcwI4AAAANAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-14T09:57:04.134Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Form2.cs [Dise\u00F1o]",
+              "DocumentMoniker": "C:\\Users\\BB12388\\Documents\\ProyectoSistemaGestion\\GestionInventario\\GestionInventario\\Form2.cs",
+              "RelativeDocumentMoniker": "GestionInventario\\Form2.cs",
+              "ToolTip": "C:\\Users\\BB12388\\Documents\\ProyectoSistemaGestion\\GestionInventario\\GestionInventario\\Form2.cs [Dise\u00F1o]",
+              "RelativeToolTip": "GestionInventario\\Form2.cs [Dise\u00F1o]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-14T09:56:51.707Z",
+              "EditorCaption": " [Dise\u00F1o]"
             },
             {
               "$type": "Bookmark",
@@ -184,20 +213,70 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 3,
+              "Title": "Form3Login.cs",
+              "DocumentMoniker": "C:\\Users\\BB12388\\Documents\\ProyectoSistemaGestion\\GestionInventario\\GestionInventario\\Form3Login.cs",
+              "RelativeDocumentMoniker": "GestionInventario\\Form3Login.cs",
+              "ToolTip": "C:\\Users\\BB12388\\Documents\\ProyectoSistemaGestion\\GestionInventario\\GestionInventario\\Form3Login.cs",
+              "RelativeToolTip": "GestionInventario\\Form3Login.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAGsAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-06T20:06:10.121Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Form1.cs [Dise\u00F1o]",
+              "DocumentMoniker": "C:\\Users\\BB12388\\Documents\\ProyectoSistemaGestion\\GestionInventario\\GestionInventario\\Form1.cs",
+              "RelativeDocumentMoniker": "GestionInventario\\Form1.cs",
+              "ToolTip": "C:\\Users\\BB12388\\Documents\\ProyectoSistemaGestion\\GestionInventario\\GestionInventario\\Form1.cs [Dise\u00F1o]",
+              "RelativeToolTip": "GestionInventario\\Form1.cs [Dise\u00F1o]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-06T20:14:49.87Z",
+              "EditorCaption": " [Dise\u00F1o]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "FormIngresomtto.cs",
+              "DocumentMoniker": "C:\\Users\\BB12388\\Documents\\ProyectoSistemaGestion\\GestionInventario\\GestionInventario\\FormIngresomtto.cs",
+              "RelativeDocumentMoniker": "GestionInventario\\FormIngresomtto.cs",
+              "ToolTip": "C:\\Users\\BB12388\\Documents\\ProyectoSistemaGestion\\GestionInventario\\GestionInventario\\FormIngresomtto.cs",
+              "RelativeToolTip": "GestionInventario\\FormIngresomtto.cs",
+              "ViewState": "AgIAAI8AAAAAAAAAAAAIwJIAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-05T17:14:16.721Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "FormIngresomtto.cs [Dise\u00F1o]",
+              "DocumentMoniker": "C:\\Users\\BB12388\\Documents\\ProyectoSistemaGestion\\GestionInventario\\GestionInventario\\FormIngresomtto.cs",
+              "RelativeDocumentMoniker": "GestionInventario\\FormIngresomtto.cs",
+              "ToolTip": "C:\\Users\\BB12388\\Documents\\ProyectoSistemaGestion\\GestionInventario\\GestionInventario\\FormIngresomtto.cs [Dise\u00F1o]",
+              "RelativeToolTip": "GestionInventario\\FormIngresomtto.cs [Dise\u00F1o]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-14T09:52:29.383Z",
+              "EditorCaption": " [Dise\u00F1o]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
               "Title": "FormSalida.cs",
               "DocumentMoniker": "C:\\Users\\BB12388\\Documents\\ProyectoSistemaGestion\\GestionInventario\\GestionInventario\\FormSalida.cs",
               "RelativeDocumentMoniker": "GestionInventario\\FormSalida.cs",
               "ToolTip": "C:\\Users\\BB12388\\Documents\\ProyectoSistemaGestion\\GestionInventario\\GestionInventario\\FormSalida.cs",
               "RelativeToolTip": "GestionInventario\\FormSalida.cs",
-              "ViewState": "AgIAAP0AAAAAAAAAAAAAABcBAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAA0CAAAAAAAAAAAswBECAABEAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-01-13T21:34:40.922Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 9,
               "Title": "FormSalida.cs [Dise\u00F1o]",
               "DocumentMoniker": "C:\\Users\\BB12388\\Documents\\ProyectoSistemaGestion\\GestionInventario\\GestionInventario\\FormSalida.cs",
               "RelativeDocumentMoniker": "GestionInventario\\FormSalida.cs",
@@ -206,55 +285,6 @@
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-10-15T07:37:33.929Z",
               "EditorCaption": " [Dise\u00F1o]"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "Form3Login.cs [Dise\u00F1o]",
-              "DocumentMoniker": "C:\\Users\\BB12388\\Documents\\ProyectoSistemaGestion\\GestionInventario\\GestionInventario\\Form3Login.cs",
-              "RelativeDocumentMoniker": "GestionInventario\\Form3Login.cs",
-              "ToolTip": "C:\\Users\\BB12388\\Documents\\ProyectoSistemaGestion\\GestionInventario\\GestionInventario\\Form3Login.cs [Dise\u00F1o]",
-              "RelativeToolTip": "GestionInventario\\Form3Login.cs [Dise\u00F1o]",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-06T19:59:31.742Z",
-              "EditorCaption": " [Dise\u00F1o]"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "Form3Login.cs",
-              "DocumentMoniker": "C:\\Users\\BB12388\\Documents\\ProyectoSistemaGestion\\GestionInventario\\GestionInventario\\Form3Login.cs",
-              "RelativeDocumentMoniker": "GestionInventario\\Form3Login.cs",
-              "ToolTip": "C:\\Users\\BB12388\\Documents\\ProyectoSistemaGestion\\GestionInventario\\GestionInventario\\Form3Login.cs",
-              "RelativeToolTip": "GestionInventario\\Form3Login.cs",
-              "ViewState": "AgIAAFEAAAAAAAAAAADwv1UAAABWAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-06T20:06:10.121Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "FormConsulta.cs [Dise\u00F1o]",
-              "DocumentMoniker": "C:\\Users\\BB12388\\Documents\\ProyectoSistemaGestion\\GestionInventario\\GestionInventario\\FormConsulta.cs",
-              "RelativeDocumentMoniker": "GestionInventario\\FormConsulta.cs",
-              "ToolTip": "C:\\Users\\BB12388\\Documents\\ProyectoSistemaGestion\\GestionInventario\\GestionInventario\\FormConsulta.cs [Dise\u00F1o]",
-              "RelativeToolTip": "GestionInventario\\FormConsulta.cs [Dise\u00F1o]",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-12-23T03:56:07.018Z",
-              "EditorCaption": " [Dise\u00F1o]"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "FormIngresomtto.cs",
-              "DocumentMoniker": "C:\\Users\\BB12388\\Documents\\ProyectoSistemaGestion\\GestionInventario\\GestionInventario\\FormIngresomtto.cs",
-              "RelativeDocumentMoniker": "GestionInventario\\FormIngresomtto.cs",
-              "ToolTip": "C:\\Users\\BB12388\\Documents\\ProyectoSistemaGestion\\GestionInventario\\GestionInventario\\FormIngresomtto.cs",
-              "RelativeToolTip": "GestionInventario\\FormIngresomtto.cs",
-              "ViewState": "AgIAAGIBAAAAAAAAAAAwwF8BAABJAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-12-05T17:14:16.721Z"
             },
             {
               "$type": "Document",
@@ -270,7 +300,30 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 10,
+              "Title": "Form3Login.cs [Dise\u00F1o]",
+              "DocumentMoniker": "C:\\Users\\BB12388\\Documents\\ProyectoSistemaGestion\\GestionInventario\\GestionInventario\\Form3Login.cs",
+              "RelativeDocumentMoniker": "GestionInventario\\Form3Login.cs",
+              "ToolTip": "C:\\Users\\BB12388\\Documents\\ProyectoSistemaGestion\\GestionInventario\\GestionInventario\\Form3Login.cs [Dise\u00F1o]",
+              "RelativeToolTip": "GestionInventario\\Form3Login.cs [Dise\u00F1o]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-06T19:59:31.742Z",
+              "EditorCaption": " [Dise\u00F1o]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "FormConsulta.cs [Dise\u00F1o]",
+              "DocumentMoniker": "C:\\Users\\BB12388\\Documents\\ProyectoSistemaGestion\\GestionInventario\\GestionInventario\\FormConsulta.cs",
+              "RelativeDocumentMoniker": "GestionInventario\\FormConsulta.cs",
+              "ToolTip": "C:\\Users\\BB12388\\Documents\\ProyectoSistemaGestion\\GestionInventario\\GestionInventario\\FormConsulta.cs [Dise\u00F1o]",
+              "RelativeToolTip": "GestionInventario\\FormConsulta.cs [Dise\u00F1o]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-23T03:56:07.018Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
               "Title": "FormConsulta.Designer.cs",
               "DocumentMoniker": "C:\\Users\\BB12388\\Documents\\ProyectoSistemaGestion\\GestionInventario\\GestionInventario\\FormConsulta.Designer.cs",
               "RelativeDocumentMoniker": "GestionInventario\\FormConsulta.Designer.cs",
@@ -278,24 +331,22 @@
               "RelativeToolTip": "GestionInventario\\FormConsulta.Designer.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABgAAAAIAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-12-23T04:51:13.126Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-12-23T04:51:13.126Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
+              "DocumentIndex": 14,
               "Title": "mttoeditDS.xsd",
               "DocumentMoniker": "C:\\Users\\BB12388\\Documents\\ProyectoSistemaGestion\\GestionInventario\\GestionInventario\\mttoeditDS.xsd",
               "RelativeDocumentMoniker": "GestionInventario\\mttoeditDS.xsd",
               "ToolTip": "C:\\Users\\BB12388\\Documents\\ProyectoSistemaGestion\\GestionInventario\\GestionInventario\\mttoeditDS.xsd",
               "RelativeToolTip": "GestionInventario\\mttoeditDS.xsd",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003579|",
-              "WhenOpened": "2025-12-29T05:09:37.314Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-12-29T05:09:37.314Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 13,
               "Title": "FormConsulta.cs",
               "DocumentMoniker": "C:\\Users\\BB12388\\Documents\\ProyectoSistemaGestion\\GestionInventario\\GestionInventario\\FormConsulta.cs",
               "RelativeDocumentMoniker": "GestionInventario\\FormConsulta.cs",
@@ -303,24 +354,22 @@
               "RelativeToolTip": "GestionInventario\\FormConsulta.cs",
               "ViewState": "AgIAAK4AAAAAAAAAAAAUwMAAAABDAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-12-29T02:32:29.241Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-12-29T02:32:29.241Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 11,
+              "DocumentIndex": 15,
               "Title": "AsigEditDS.xsd",
               "DocumentMoniker": "C:\\Users\\BB12388\\Documents\\ProyectoSistemaGestion\\GestionInventario\\GestionInventario\\AsigEditDS.xsd",
               "RelativeDocumentMoniker": "GestionInventario\\AsigEditDS.xsd",
               "ToolTip": "C:\\Users\\BB12388\\Documents\\ProyectoSistemaGestion\\GestionInventario\\GestionInventario\\AsigEditDS.xsd",
               "RelativeToolTip": "GestionInventario\\AsigEditDS.xsd",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003579|",
-              "WhenOpened": "2025-12-29T06:15:38.446Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-12-29T06:15:38.446Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 12,
+              "DocumentIndex": 16,
               "Title": "FormEstado.cs",
               "DocumentMoniker": "C:\\Users\\BB12388\\Documents\\ProyectoSistemaGestion\\GestionInventario\\GestionInventario\\FormEstado.cs",
               "RelativeDocumentMoniker": "GestionInventario\\FormEstado.cs",
@@ -332,7 +381,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 13,
+              "DocumentIndex": 17,
               "Title": "FormEstado.cs [Dise\u00F1o]",
               "DocumentMoniker": "C:\\Users\\BB12388\\Documents\\ProyectoSistemaGestion\\GestionInventario\\GestionInventario\\FormEstado.cs",
               "RelativeDocumentMoniker": "GestionInventario\\FormEstado.cs",
@@ -343,19 +392,18 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 14,
+              "DocumentIndex": 18,
               "Title": "AsignacionDS.xsd",
               "DocumentMoniker": "C:\\Users\\BB12388\\Documents\\ProyectoSistemaGestion\\GestionInventario\\GestionInventario\\AsignacionDS.xsd",
               "RelativeDocumentMoniker": "GestionInventario\\AsignacionDS.xsd",
               "ToolTip": "C:\\Users\\BB12388\\Documents\\ProyectoSistemaGestion\\GestionInventario\\GestionInventario\\AsignacionDS.xsd",
               "RelativeToolTip": "GestionInventario\\AsignacionDS.xsd",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003579|",
-              "WhenOpened": "2025-12-23T10:22:53.404Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-12-23T10:22:53.404Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 15,
+              "DocumentIndex": 19,
               "Title": "MantenimientoDS.xsd",
               "DocumentMoniker": "C:\\Users\\BB12388\\Documents\\ProyectoSistemaGestion\\GestionInventario\\GestionInventario\\MantenimientoDS.xsd",
               "RelativeDocumentMoniker": "GestionInventario\\MantenimientoDS.xsd",
@@ -366,7 +414,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 16,
+              "DocumentIndex": 20,
               "Title": "RegistroActivosDS.Designer.cs",
               "DocumentMoniker": "C:\\Users\\BB12388\\Documents\\ProyectoSistemaGestion\\GestionInventario\\GestionInventario\\RegistroActivosDS.Designer.cs",
               "RelativeDocumentMoniker": "GestionInventario\\RegistroActivosDS.Designer.cs",
@@ -374,12 +422,11 @@
               "RelativeToolTip": "GestionInventario\\RegistroActivosDS.Designer.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-12-23T04:57:03.118Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-12-23T04:57:03.118Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 17,
+              "DocumentIndex": 21,
               "Title": "ActivosViewDS.xsd",
               "DocumentMoniker": "C:\\Users\\BB12388\\Documents\\ProyectoSistemaGestion\\GestionInventario\\GestionInventario\\ActivosViewDS.xsd",
               "RelativeDocumentMoniker": "GestionInventario\\ActivosViewDS.xsd",
@@ -390,7 +437,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 18,
+              "DocumentIndex": 22,
               "Title": "FormPrueba2.Designer.cs",
               "DocumentMoniker": "C:\\Users\\BB12388\\Documents\\ProyectoSistemaGestion\\GestionInventario\\GestionInventario\\FormPrueba2.Designer.cs",
               "RelativeDocumentMoniker": "GestionInventario\\FormPrueba2.Designer.cs",
@@ -402,18 +449,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 19,
-              "Title": "Form1.cs [Dise\u00F1o]",
-              "DocumentMoniker": "C:\\Users\\BB12388\\Documents\\ProyectoSistemaGestion\\GestionInventario\\GestionInventario\\Form1.cs",
-              "RelativeDocumentMoniker": "GestionInventario\\Form1.cs",
-              "ToolTip": "C:\\Users\\BB12388\\Documents\\ProyectoSistemaGestion\\GestionInventario\\GestionInventario\\Form1.cs [Dise\u00F1o]",
-              "RelativeToolTip": "GestionInventario\\Form1.cs [Dise\u00F1o]",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-06T20:14:49.87Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 21,
+              "DocumentIndex": 23,
               "Title": "FormActivos.cs",
               "DocumentMoniker": "C:\\Users\\BB12388\\Documents\\ProyectoSistemaGestion\\GestionInventario\\GestionInventario\\FormActivos.cs",
               "RelativeDocumentMoniker": "GestionInventario\\FormActivos.cs",
@@ -421,22 +457,12 @@
               "RelativeToolTip": "GestionInventario\\FormActivos.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-06T20:15:00.541Z"
+              "WhenOpened": "2025-10-06T20:15:00.541Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 20,
-              "Title": "FormActivos.cs [Dise\u00F1o]",
-              "DocumentMoniker": "C:\\Users\\BB12388\\Documents\\ProyectoSistemaGestion\\GestionInventario\\GestionInventario\\FormActivos.cs",
-              "RelativeDocumentMoniker": "GestionInventario\\FormActivos.cs",
-              "ToolTip": "C:\\Users\\BB12388\\Documents\\ProyectoSistemaGestion\\GestionInventario\\GestionInventario\\FormActivos.cs [Dise\u00F1o]",
-              "RelativeToolTip": "GestionInventario\\FormActivos.cs [Dise\u00F1o]",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-06T20:15:04.676Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 22,
+              "DocumentIndex": 24,
               "Title": "Program.cs",
               "DocumentMoniker": "C:\\Users\\BB12388\\Documents\\ProyectoSistemaGestion\\GestionInventario\\GestionInventario\\Program.cs",
               "RelativeDocumentMoniker": "GestionInventario\\Program.cs",
@@ -448,19 +474,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 23,
-              "Title": "Form1.cs",
-              "DocumentMoniker": "C:\\Users\\BB12388\\Documents\\ProyectoSistemaGestion\\GestionInventario\\GestionInventario\\Form1.cs",
-              "RelativeDocumentMoniker": "GestionInventario\\Form1.cs",
-              "ToolTip": "C:\\Users\\BB12388\\Documents\\ProyectoSistemaGestion\\GestionInventario\\GestionInventario\\Form1.cs",
-              "RelativeToolTip": "GestionInventario\\Form1.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAEAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-06T20:20:08.43Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 24,
+              "DocumentIndex": 25,
               "Title": "Form2.Designer.cs",
               "DocumentMoniker": "C:\\Users\\BB12388\\Documents\\ProyectoSistemaGestion\\GestionInventario\\GestionInventario\\Form2.Designer.cs",
               "RelativeDocumentMoniker": "GestionInventario\\Form2.Designer.cs",
@@ -468,22 +482,24 @@
               "RelativeToolTip": "GestionInventario\\Form2.Designer.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-05T21:56:22.785Z"
+              "WhenOpened": "2025-10-05T21:56:22.785Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 25,
+              "DocumentIndex": 26,
               "Title": "Form2.resx",
               "DocumentMoniker": "C:\\Users\\BB12388\\Documents\\ProyectoSistemaGestion\\GestionInventario\\GestionInventario\\Form2.resx",
               "RelativeDocumentMoniker": "GestionInventario\\Form2.resx",
               "ToolTip": "C:\\Users\\BB12388\\Documents\\ProyectoSistemaGestion\\GestionInventario\\GestionInventario\\Form2.resx",
               "RelativeToolTip": "GestionInventario\\Form2.resx",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001005|",
-              "WhenOpened": "2025-10-05T21:56:18.477Z"
+              "WhenOpened": "2025-10-05T21:56:18.477Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 26,
+              "DocumentIndex": 27,
               "Title": "Form2.cs",
               "DocumentMoniker": "C:\\Users\\BB12388\\Documents\\ProyectoSistemaGestion\\GestionInventario\\GestionInventario\\Form2.cs",
               "RelativeDocumentMoniker": "GestionInventario\\Form2.cs",
@@ -491,11 +507,12 @@
               "RelativeToolTip": "GestionInventario\\Form2.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-05T21:56:27.495Z"
+              "WhenOpened": "2025-10-05T21:56:27.495Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 27,
+              "DocumentIndex": 28,
               "Title": "App.config",
               "DocumentMoniker": "C:\\Users\\BB12388\\Documents\\ProyectoSistemaGestion\\GestionInventario\\GestionInventario\\App.config",
               "RelativeDocumentMoniker": "GestionInventario\\App.config",

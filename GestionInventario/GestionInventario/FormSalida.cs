@@ -9,6 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
+
 namespace GestionInventario
 {
     public partial class FormSalida : Form
@@ -51,44 +52,45 @@ namespace GestionInventario
 
 
 
-
-
-
-                using (SqlConnection conn = new SqlConnection(connectionString))
+                if (Sede == Form3Login.SedeIdUsuarioSistema)
                 {
-                    conn.Open();
 
-                    string queryId = "SELECT Id FROM RegistroActivos WHERE CodInterno = @Numero";
-                    using (SqlCommand cmd = new SqlCommand(queryId, conn))
+
+                    using (SqlConnection conn = new SqlConnection(connectionString))
                     {
-                        cmd.Parameters.AddWithValue("@Numero", numeroActivo);
-                        object result = cmd.ExecuteScalar();
-                        //InventarioId = Convert.ToInt32(result);
+                        conn.Open();
 
-                        if (result == null)
+                        string queryId = "SELECT Id FROM RegistroActivos WHERE CodInterno = @Numero";
+                        using (SqlCommand cmd = new SqlCommand(queryId, conn))
                         {
-                            MessageBox.Show("El activo no se encuentra registrado.");
-                            return;
+                            cmd.Parameters.AddWithValue("@Numero", numeroActivo);
+                            object result = cmd.ExecuteScalar();
+                            //InventarioId = Convert.ToInt32(result);
+
+                            if (result == null)
+                            {
+                                MessageBox.Show("El activo no se encuentra registrado.");
+                                return;
+                            }
+                            //else
+                            //{//ABRE ABC
+
+                            InventarioId = Convert.ToInt32(result);
                         }
-                        //else
-                        //{//ABRE ABC
-
-                        InventarioId = Convert.ToInt32(result);
-                    }
 
 
-                            string queryExistenciaMtto = @"
+                        string queryExistenciaMtto = @"
                             SELECT TOP 1 EstadoSalida
                             FROM Mantenimiento
                             WHERE InventarioId = @InventarioId
                             ORDER BY Id DESC"; // o por FechaIngresoMtto DESC
 
-                            using (SqlCommand cmdExistMtto = new SqlCommand(queryExistenciaMtto, conn))
-                            {
-                                //conn.Open();
-                                cmdExistMtto.Parameters.AddWithValue("@InventarioId", InventarioId);
-                                object resultEstado = cmdExistMtto.ExecuteScalar();
-                                string estadoMtto = resultEstado?.ToString();
+                        using (SqlCommand cmdExistMtto = new SqlCommand(queryExistenciaMtto, conn))
+                        {
+                            //conn.Open();
+                            cmdExistMtto.Parameters.AddWithValue("@InventarioId", InventarioId);
+                            object resultEstado = cmdExistMtto.ExecuteScalar();
+                            string estadoMtto = resultEstado?.ToString();
                             //conn.Close();
 
 
@@ -198,139 +200,144 @@ namespace GestionInventario
                             }
 
 
-                        //}
+                            //}
 
 
-                        //} //CIERRE ABC
-                        //else
-                        //{
-                        //    MessageBox.Show("El activo no se encuentra registrado.");
-                        //}
-                    }
+                            //} //CIERRE ABC
+                            //else
+                            //{
+                            //    MessageBox.Show("El activo no se encuentra registrado.");
+                            //}
+                        }
 
 
 
-                    int usuarioId;
-
-                    
-
+                        int usuarioId;
 
 
 
 
 
-                    bool estaAsignado = false;
 
-                    // Consulta último estado de asignación
-                    string queryAsignacion = @"
+
+
+                        bool estaAsignado = false;
+
+                        // Consulta último estado de asignación
+                        string queryAsignacion = @"
                     SELECT TOP 1 UsuarioId, FechaDevolucion
                     FROM Asignacion
                     WHERE IdActivo = @InventarioId
                     ORDER BY Id DESC";
 
-                    using (SqlCommand cmdAsign = new SqlCommand(queryAsignacion, conn))
-                    {
-                        cmdAsign.Parameters.AddWithValue("@InventarioId", InventarioId);
-
-                        using (SqlDataReader dr = cmdAsign.ExecuteReader())
+                        using (SqlCommand cmdAsign = new SqlCommand(queryAsignacion, conn))
                         {
-                            if (dr.Read())
+                            cmdAsign.Parameters.AddWithValue("@InventarioId", InventarioId);
+
+                            using (SqlDataReader dr = cmdAsign.ExecuteReader())
                             {
-                                if (dr["FechaDevolucion"] == DBNull.Value &&
-                                    dr["UsuarioId"] != DBNull.Value)
+                                if (dr.Read())
                                 {
-                                    estaAsignado = true;
+                                    if (dr["FechaDevolucion"] == DBNull.Value &&
+                                        dr["UsuarioId"] != DBNull.Value)
+                                    {
+                                        estaAsignado = true;
+                                    }
                                 }
                             }
                         }
-                    }
-                    
-                    // 👉 DECISIÓN SEGÚN MOVIMIENTO
-                    if (cmbConceptoAsig.SelectedItem.ToString() == "Asignacion")
-                    {
-                        if (estaAsignado)
+
+                        // 👉 DECISIÓN SEGÚN MOVIMIENTO
+                        if (cmbConceptoAsig.SelectedItem.ToString() == "Asignacion")
                         {
-                            MessageBox.Show("El activo ya se encuentra asignado.");
-                            return;
-                        }
+                            if (estaAsignado)
+                            {
+                                MessageBox.Show("El activo ya se encuentra asignado.");
+                                return;
+                            }
 
 
-                        string queryUsuario = @"
+                            string queryUsuario = @"
                     SELECT Id
                     FROM UsuariosAD
                     WHERE UsuarioRed = @UsuarioRed
                       AND Estado = 1";
 
-                        using (SqlCommand cmdUser = new SqlCommand(queryUsuario, conn))
-                        {
-                            cmdUser.Parameters.AddWithValue("@UsuarioRed", txtUsuarioAsig.Text.Trim());
-                            object resultUser = cmdUser.ExecuteScalar();
-
-                            if (resultUser == null)
+                            using (SqlCommand cmdUser = new SqlCommand(queryUsuario, conn))
                             {
-                                MessageBox.Show("El usuario no existe o está inactivo.");
-                                return;
+                                cmdUser.Parameters.AddWithValue("@UsuarioRed", txtUsuarioAsig.Text.Trim());
+                                object resultUser = cmdUser.ExecuteScalar();
+
+                                if (resultUser == null)
+                                {
+                                    MessageBox.Show("El usuario no existe o está inactivo.");
+                                    return;
+                                }
+
+                                usuarioId = Convert.ToInt32(resultUser);
                             }
 
-                            usuarioId = Convert.ToInt32(resultUser);
-                        }
 
 
 
 
-
-                        // INSERT ASIGNACIÓN
-                        string insertAsignar = @"
+                            // INSERT ASIGNACIÓN
+                            string insertAsignar = @"
                         INSERT INTO Asignacion
                         (IdActivo, UsuarioId, SedeId, FechaAsignacion, Observacion, UsuarioSistema)
                         VALUES
                         (@InventarioId, @UsuarioId, @SedeId, GETDATE(), @Obs, @UsuarioSistema)";
 
-                        using (SqlCommand cmdInsert = new SqlCommand(insertAsignar, conn))
-                        {
-                            cmdInsert.Parameters.AddWithValue("@InventarioId", InventarioId);
-                            cmdInsert.Parameters.AddWithValue("@UsuarioId", usuarioId);
-                            cmdInsert.Parameters.AddWithValue("@SedeId", Sede);
-                            cmdInsert.Parameters.AddWithValue("@Obs", txtObservacion.Text);
-                            cmdInsert.Parameters.AddWithValue("@UsuarioSistema", Form3Login.UsuarioActual);
+                            using (SqlCommand cmdInsert = new SqlCommand(insertAsignar, conn))
+                            {
+                                cmdInsert.Parameters.AddWithValue("@InventarioId", InventarioId);
+                                cmdInsert.Parameters.AddWithValue("@UsuarioId", usuarioId);
+                                cmdInsert.Parameters.AddWithValue("@SedeId", Sede);
+                                cmdInsert.Parameters.AddWithValue("@Obs", txtObservacion.Text);
+                                cmdInsert.Parameters.AddWithValue("@UsuarioSistema", Form3Login.UsuarioActual);
 
-                            cmdInsert.ExecuteNonQuery();
+                                cmdInsert.ExecuteNonQuery();
+                            }
+
+
+
                         }
-
-
-
-                    }
-                    else // DEVOLVER
-                    {
-                        if (!estaAsignado)
+                        else // DEVOLVER
                         {
-                            MessageBox.Show("El activo no se encuentra asignado.");
-                            return;
-                        }
+                            if (!estaAsignado)
+                            {
+                                MessageBox.Show("El activo no se encuentra asignado.");
+                                return;
+                            }
 
-                        // INSERT DEVOLUCIÓN
-                        string insertDevolver = @"
+                            // INSERT DEVOLUCIÓN
+                            string insertDevolver = @"
                         INSERT INTO Asignacion
                         (IdActivo, UsuarioId, SedeId, FechaDevolucion, Observacion, UsuarioSistema)
                         VALUES
                         (@InventarioId, NULL, @SedeId, GETDATE(), @Obs, @UsuarioSistema)";
 
-                        using (SqlCommand cmdInsert = new SqlCommand(insertDevolver, conn))
-                        {
-                            cmdInsert.Parameters.AddWithValue("@InventarioId", InventarioId);
-                            cmdInsert.Parameters.AddWithValue("@SedeId", Sede);
-                            cmdInsert.Parameters.AddWithValue("@Obs", txtObservacion.Text);
-                            cmdInsert.Parameters.AddWithValue("@UsuarioSistema", Form3Login.UsuarioActual);
+                            using (SqlCommand cmdInsert = new SqlCommand(insertDevolver, conn))
+                            {
+                                cmdInsert.Parameters.AddWithValue("@InventarioId", InventarioId);
+                                cmdInsert.Parameters.AddWithValue("@SedeId", Sede);
+                                cmdInsert.Parameters.AddWithValue("@Obs", txtObservacion.Text);
+                                cmdInsert.Parameters.AddWithValue("@UsuarioSistema", Form3Login.UsuarioActual);
 
-                            cmdInsert.ExecuteNonQuery();
+                                cmdInsert.ExecuteNonQuery();
+                            }
+
+
+
                         }
 
 
 
                     }
-
-
-
+                }
+                else
+                {
+                    MessageBox.Show("No tiene permiso para asignar activos en esta sede.");
                 }
             }
             catch (Exception ex)
@@ -484,36 +491,43 @@ namespace GestionInventario
 
             try
             {
-                using (SqlConnection conn = new SqlConnection(connectionString))
+                if (Sede == Form3Login.SedeIdUsuarioSistema)
                 {
-                    conn.Open();
-
-                    int inventarioId = ObtenerInventarioId(conn, txtNumAsig.Text.Trim());
-                    ValidarNoEnMtto(conn, inventarioId);
-
-                    if (!EstaAsignado(conn, inventarioId))
+                    using (SqlConnection conn = new SqlConnection(connectionString))
                     {
-                        MessageBox.Show("El activo no está asignado.");
-                        return;
-                    }
+                        conn.Open();
 
-                    string insert = @"
+                        int inventarioId = ObtenerInventarioId(conn, txtNumAsig.Text.Trim());
+                        ValidarNoEnMtto(conn, inventarioId);
+
+                        if (!EstaAsignado(conn, inventarioId))
+                        {
+                            MessageBox.Show("El activo no está asignado.");
+                            return;
+                        }
+
+                        string insert = @"
                 INSERT INTO Asignacion
                 (IdActivo, UsuarioId, SedeId, FechaDevolucion, Observacion, UsuarioSistema)
                 VALUES
                 (@Inv, NULL, @Sede, GETDATE(), @Obs, @UsuarioSistema)";
 
-                    using (SqlCommand cmd = new SqlCommand(insert, conn))
-                    {
-                        cmd.Parameters.AddWithValue("@Inv", inventarioId);
-                        cmd.Parameters.AddWithValue("@Sede", Sede);
-                        cmd.Parameters.AddWithValue("@Obs", txtObservacion.Text);
-                        cmd.Parameters.AddWithValue("@UsuarioSistema", Form3Login.UsuarioActual);
+                        using (SqlCommand cmd = new SqlCommand(insert, conn))
+                        {
+                            cmd.Parameters.AddWithValue("@Inv", inventarioId);
+                            cmd.Parameters.AddWithValue("@Sede", Sede);
+                            cmd.Parameters.AddWithValue("@Obs", txtObservacion.Text);
+                            cmd.Parameters.AddWithValue("@UsuarioSistema", Form3Login.UsuarioActual);
 
-                        cmd.ExecuteNonQuery();
+                            cmd.ExecuteNonQuery();
+                        }
+
+                        MessageBox.Show("Activo devuelto correctamente.");
                     }
-
-                    MessageBox.Show("Activo devuelto correctamente.");
+                }
+                else
+                {
+                    MessageBox.Show("No tiene permiso para modificar activos en esta sede.");
                 }
             }
             catch (Exception ex)

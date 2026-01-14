@@ -16,6 +16,7 @@ namespace GestionInventario
     public partial class Form3Login : Form
     {
         public static string UsuarioActual = "";
+        public static int SedeIdUsuarioSistema = 0;
         public Form3Login()
         {
             InitializeComponent();
@@ -25,6 +26,7 @@ namespace GestionInventario
         {
             string usuario = txtUsuario.Text.Trim();
             string contrasena = txtContrasena.Text.Trim();
+            int sedeId = 0;
 
             if (usuario == "" || contrasena == "")
             {
@@ -48,7 +50,7 @@ namespace GestionInventario
                     FormMDI frm = new FormMDI();
 
 
-                    int sedeId;
+                    //int sedeId;
 
                     //using (SqlConnection conn = new SqlConnection(connectionString))
                     //{
@@ -77,9 +79,10 @@ namespace GestionInventario
                                 }
 
                                 sedeId = Convert.ToInt32(result);
+                                SedeIdUsuarioSistema = sedeId;
                             }
 
-                            MessageBox.Show("El Id de sede es: " + sedeId);
+                            //MessageBox.Show("El Id de sede es: " + sedeId);
                         }
                         catch(Exception ex)
                          {
@@ -101,6 +104,8 @@ namespace GestionInventario
 
 
         }
+
+
 
         private void Form3Login_Load(object sender, EventArgs e)
         {
